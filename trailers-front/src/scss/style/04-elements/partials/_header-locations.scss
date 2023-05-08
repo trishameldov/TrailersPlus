@@ -1,0 +1,94 @@
+/* ------------------------------------------- */
+/*                  HEADER  LOCATION           */
+/* ------------------------------------------- */
+
+.tp-locations {
+    color: $color-main;
+    font-family: $f-roboto;
+    font-style: normal;
+    max-height: 350px;
+    overflow: hidden;
+    overflow-y: auto;
+    –webkit-overflow-scrolling: touch;
+
+    @include scrollBar(var(--ca-black), var(--ca-pomegranate));
+    
+    &__head {
+        padding: 10px 20px;
+        position: relative;
+        font-weight: 400;
+        cursor: pointer;
+        transition: color 250ms ease-in;
+        
+        &:hover {
+            @include mobile-menu-min {
+                color: $color-alter;
+            }
+        }
+
+        &:before {
+            content: "";
+            @include ionIcons;
+            font-style: normal;
+            font-size: 18px;
+            color: inherit;
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+        }
+
+        &.is-active {
+            &:before {
+                content: '';
+            }
+        }
+    }
+
+    &__item {
+        border-bottom: 1px solid var(--c-white-grey);
+        transition: background-color 250ms ease-in;
+
+        &.open {
+            background-color: var(--c-white-grey);
+        }
+    }
+
+    &__body {
+        display: none;
+    }
+
+    &__cities {
+        margin-bottom: 10px;
+
+        li {
+            padding: 4px 0 4px 30px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 400;
+            transition: color 200ms ease-in, background-color 200ms ease-in;
+            display: flex;
+
+            .fa {
+                margin: 3px 8px 0 0;
+                font-size: 15px;
+                bottom: 0;
+            }
+
+            &:hover {
+                background-color: rgba(var(--ca-pomegranate),.55);
+                color: var(--c-white);
+            }
+        }
+
+        .active {
+            background-color: var(--c-pomegranate);
+            color: var(--c-white);
+            pointer-events: none;
+
+            &:hover {
+                background-color: var(--c-pomegranate);
+            }
+        }
+    }
+}

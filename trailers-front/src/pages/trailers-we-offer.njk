@@ -1,0 +1,118 @@
+{% extends "layout.tmpl.njk" %}
+
+{% block content %}
+
+    <!-- Banner start -->
+    {% set data = {
+        image: 'trailers-we-offer/banner-bg',
+        title: 'Trailers We Offer',
+        logoName: 'trailers-we-offer/logo-min'
+    }
+    %}
+    <section class="tp-section--default tp-banner tp-banner--bot tp-banner--600 tp-banner--overl-2 tp-banner--logo-large bg-img">
+        {% include "../templates/partials/blocks/banner-bot.njk" %}
+    </section>
+    <!-- Banner end -->
+
+    <!-- Trailers Info start -->
+    {% set data = [
+        { imagePath: 'trailers-we-offer/trailers/1', title: 'Enclosed Cargo Trailers', text: 'Protect and secure your cargo with one of our premier enclosed cargo trailers, ranging from a 4x6 for quick transportation to a 8.5x24 to haul your vehicle. Built with both work and play in mind, our range of cargo trailers will take you from the jobsite during the week to the trailhead on the weekend.',  button1: '<i class="fa fa-search"></i> View Inventory', button2: 'More Information' },
+        { imagePath: 'trailers-we-offer/trailers/2', title: 'Utility Trailers', text: 'Our partnership with Carry-On trailers offers you unmatched versatility when choosing a utility trailer. From our 4x5 model built for smaller items and moving to our 7x16 designed for UTVs and landscaping crews, we offer a wide range of utility trailers at every store, helping you can find the perfect fit for your needs.',  button1: '<i class="fa fa-search"></i> View Inventory', button2: 'More Information' },
+        { imagePath: 'trailers-we-offer/trailers/3', title: 'Dump Trailers', text: 'Safely haul your equipment, cargo or debris with one of our Carry-On or Interstate dump trailers. Sized from 5’ to 7’ wide, our range of dump trailers are available in bumper pull or gooseneck styles, making them perfect for both the homeowner and small landscaping crew to large construction sites and roofing jobs.',  button1: '<i class="fa fa-search"></i> View Inventory', button2: 'More Information' },
+        { imagePath: 'trailers-we-offer/trailers/4', title: 'Equipment Trailers', text: 'For your larger hauling needs, we at TrailersPlus offer a wide range of equipment trailers, including car haulers, deckover gooseneck trailers, tilt trailers, and more. Our partnership with Carry-On trailers offers you unmatched versatility when choosing an equipment trailer. From transporting cars and UTVs to hauling round bale hay and pallets, we have an equipment trailer in stock that will get your job done.',  button1: '<i class="fa fa-search"></i> View Inventory', button2: 'More Information' },
+        { imagePath: 'trailers-we-offer/trailers/5', title: 'Car Haulers', text: 'For your vehicle transportation needs, at TrailersPlus we offer a wide range of car hauler trailers, both in open and enclosed configurations. Our partnership with Carry-On trailers offers you a versatile solution when choosing an open car hauler or Patriot enclosed car hauler. Our Interstate car haulers come in four models - Victory, LoadRunner, Pro Series, and SuperCoach – ranging from no-frills workhorses to get your job done all the way to top-of-the-line rigs to bring vehicles to and from the track or car show.',  button1: '<i class="fa fa-search"></i> View Inventory', button2: 'More Information' },
+        { imagePath: 'trailers-we-offer/trailers/6', title: 'Allsport & Snowsport Trailers', text: 'Protect and secure your cargo with one of our premium enclosed Allsport and Snowsport cargo trailers. Built specifically with play in mind, our Allsport and Snowsport trailers are designed to take your ATVs, UTVs, and snowmobiles to the trailhead for a weekend of riding. With sport-specific features and meticulous design details down to the last square inch, these two trailers don’t disappoint.',  button1: '<i class="fa fa-search"></i> View Inventory', button2: 'More Information' },
+        { imagePath: 'trailers-we-offer/trailers/7', title: 'Gooseneck Trailers', text: 'As the most robust trailers we offer, our gooseneck trailers are built for the pro. With 8’ wide deckover equipment trailers and 7’ wide dump trailers, we have you covered for all your heavy-hauling needs to and from the jobsite.',  button1: '<i class="fa fa-search"></i> View Inventory', button2: 'More Information' },
+        { imagePath: 'trailers-we-offer/trailers/8', title: 'Custom Trailers', text: 'TrailersPlus can build you the trailer you want! We specialize in customizing high quality Interstate trailers for every need. We’ve built thousands of custom trailers for concession, construction, recreation, and many other purposes. No matter the trailer type, size or need, TrailersPlus can build it better than anyone else! And don’t forget, our work is backed up by our 100% <b>CUSTOMER SATISFACTION GUARANTEE.</b>',  button1: 'More Information' }
+    ] %}
+    <section class="padding-50b padding-md-85b tp-offer-trailers">
+        <div class="container c-blue-dark">
+            <h2 class="h4 c-main w-full t-center margin-10b">Here at TrailersPlus, we offer over 100 trailers at each of our 68 locations.</h2>
+            <h2 class="h2 c-main w-full t-center margin-0t margin-md-70b margin-0b">Learn more about each type of trailer we offer:</h2>
+
+            {% for item in data %}
+                <div class="tp-offer-trailers__row">
+                    <div class="tp-offer-trailers__col">
+                        <div class="tp-offer-trailers__img-place">
+                            <div class="tp-offer-trailers__img-wrapper bg-img">
+                                <picture>
+                                    <source data-srcset="./img/webp/{{ item.imagePath }}.webp" type="image/webp" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                                    <source data-srcset="./img/{{ item.imagePath }}.png" type="image/png" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                                    <img data-src="./img/{{ item.imagePath }}.png" alt="alt" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                                </picture>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tp-offer-trailers__col">
+                        <div class="tp-offer-trailers__description">
+                            <h3 class="h3 margin-10b">{{ item.title }}</h3>
+                            <p class="margin-0b margin-0t">{{ item.text | safe }}</p>
+                            <div class="tp-offer-trailers__btn-wrapper margin-35t margin-md-45t">
+                                {% if (item.button1) %}
+                                    <a href="#" class="tp-btn tp-btn--red tp-offer-trailers__btn">{{ item.button1 | safe }}</a>
+                                {% endif %}
+
+                                {% if (item.button2) %}
+                                    <a href="#" class="tp-btn tp-btn--grey tp-offer-trailers__btn">{{ item.button2 | safe }}</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+    </section>
+    <!-- Trailers Info end -->
+
+    <!-- Learn More start -->
+    <section class="bg-white-grey tp-we-offer padding-45t padding-md-80t padding-0b padding-md-85b">
+        <div class="container">
+            <h2 class="h2 w-full t-center margin-00b margin-md-70b">Learn more about services we offer:</h2>
+
+            <div class="tp-we-offer__wrapper">
+                <a href="#" class="tp-we-offer__item">
+                    <div class="tp-we-offer__item-wrapper">
+                        <img src="./img/trailers-we-offer/icons/icon-1.svg" alt="alt" class="svg">
+                        <h3 class="h4 c-main tp-we-offer__item-title">Warranty</h3>
+                    </div>
+                </a>
+
+                <a href="#" class="tp-we-offer__item">
+                    <div class="tp-we-offer__item-wrapper">
+                        <img src="./img/trailers-we-offer/icons/icon-2.svg" alt="alt" class="svg">
+                        <h3 class="h4 c-main tp-we-offer__item-title">Fleet Trailer Sales</h3>
+                    </div>
+                </a>
+
+                <a href="#" class="tp-we-offer__item">
+                    <div class="tp-we-offer__item-wrapper">
+                        <img src="./img/trailers-we-offer/icons/icon-3.svg" alt="alt" class="svg">
+                        <h3 class="h4 c-main tp-we-offer__item-title">Financing</h3>
+                    </div>
+                </a>
+
+                <a href="#" class="tp-we-offer__item">
+                    <div class="tp-we-offer__item-wrapper">
+                        <img src="./img/trailers-we-offer/icons/icon-4.svg" alt="alt" class="svg">
+                        <h3 class="h4 c-main tp-we-offer__item-title">Trailer Knowledge Blog</h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- Learn More end -->
+
+    <!-- Join community start -->
+    <section class="tp-section tp-section--sm bg-img">
+        {% include "../templates/partials/blocks/join-community.njk" %}
+    </section>
+    <!-- Join community end -->
+
+    <!-- Partners start -->
+    <section class="tp-partners">
+        {% include "../templates/partials/blocks/partners.njk" %}
+    </section>
+    <!-- Partners end -->
+
+{% endblock %}

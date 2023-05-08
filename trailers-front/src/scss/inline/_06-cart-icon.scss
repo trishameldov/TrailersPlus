@@ -1,0 +1,17 @@
+.tp-cart__icon {
+  position: relative;
+  display: block;
+  padding: 11px 20px;
+  color: var(--c-white);
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 21;
+
+  @include extra-large-size-max {
+    font-size: 16px;
+  }
+
+  &:hover {
+    color: $color-alter;
+  }
+}

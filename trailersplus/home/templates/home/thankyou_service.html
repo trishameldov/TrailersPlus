@@ -1,0 +1,163 @@
+{% extends "base.html" %}
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load product_tags checkout_tags%}
+
+{% block content %}
+
+<div class="appointment-thankyyou">
+    <section class="tp-section bg-grey">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <div class="tp-confirm__message">
+                        <div class="tp-succes-icon margin-10t">
+                            <div class="fa fa-check"></div>
+                        </div>
+                        {% if language == 'en' %}
+                            <h1 class="h1 tp-confirm__title">Appointment Scheduled</h1>    
+                        {% elif language == 'es' %}
+                            <h1 class="h1 tp-confirm__title">Cita Programada</h1>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-grey pb-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-6 px-lg-5 px-sm-0">
+                    <div class="tp-box-shadow bg-white">
+                        <h3 class="c-main">
+                            {% if language == 'en' %}
+                                Appointment Details
+                            {% elif language == 'es' %}
+                                Detalles de la cita
+                            {% endif %}
+                            
+                        </h3>
+                        <ul class="list-unstyled fz16 lh26 c-blue-dark">
+                            <li class="media">
+                                <img src="/web-pictures/icons/icon-apt-name.png" alt="Icon name" class="mr-3">
+                                <div class="media-body">
+                                    <b>
+                                        {% if language == 'en' %} Name: 
+                                        {% elif language == 'es' %} Nombre:
+                                        {% endif %}
+                                    </b> {{name}}
+                                </div>
+                            </li>
+                            <li class="media my-4">
+                                <img src="/web-pictures/icons/icon-apt-email.png" alt="Icon email" class="mr-3">
+                                <div class="media-body">
+                                    <b>
+                                        {% if language == 'en' %} Email: 
+                                        {% elif language == 'es' %} Correo: 
+                                        {% endif %}
+                                    </b> {{email}}
+                                </div>
+                            </li>
+                            <li class="media my-4">
+                                <img src="/web-pictures/icons/icon-apt-phone.png" alt="Icon phone" class="mr-3">
+                                <div class="media-body">
+                                    <b>
+                                        {% if language == 'en' %} Phone: 
+                                        {% elif language == 'es' %} Teléfono: 
+                                        {% endif %}
+                                    </b> {{phone}}
+                                </div>
+                            </li>
+                            <li class="media my-4">
+                                <img src="/web-pictures/icons/icon-apt-date.png" alt="Icon date" class="mr-3">
+                                <div class="media-body">
+                                    <b>
+                                        {% if language == 'en' %} Date & Time:
+                                        {% elif language == 'es' %} Fecha y hora:
+                                        {% endif %}
+                                        </b> {{appointmen_date}}
+                                </div>
+                            </li>
+                            <li class="media">
+                                <img src="/web-pictures/icons/icon-apt-date.png" alt="Icon date" class="mr-3">
+                                <div class="media-body">
+                                    <b>
+                                        {% if language == 'en' %} Location:
+                                        {% elif language == 'es' %} Ubicación:
+                                        {% endif %}
+                                    </b>
+                                    <span> <div>
+                                        <p class="text-danger mb-0 fz15"><b>{{store_name}}</b></p>
+                                        <p class="fz15 lh26 c-blue-dark m-0">{{store_address}}</p>
+                                        <p class="fz15 lh26 c-blue-dark m-0">{{store_location}}</p>
+                                    </div></span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <div class="col-sm-1"></div>
+                <div class="col-sm-12 col-md-5 bg-white px-0 mt-5 mt-sm-0">
+                    <div class="tp-checkout__product-img bg-img h-100 w-100">
+                        <picture>
+                            <img src="/media/images/trailers-demo-thankyou.width-570.jpg" alt="Thank you support image">
+                        </picture>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container mt-5 px-4">
+            <div class="h3 c-main">
+                {% if language == 'en' %}
+                    Installs - Service - Repairs
+                {% elif language == 'es' %}
+                    Instalación - Servicio - Reparación
+                {% endif %}
+                
+            </div>
+            <div class="margin-10t c-blue-dark fz15 lh26">
+                <p>
+                    {% if language == 'en' %}
+                        TrailersPlus has full service and repair centers at every store nationwide. We can help you maintain or repair your Interstate 
+                        or Carry-On trailer. Our trailer technicians are factory-trained and certified. And all work is backed up by our 100% customer 
+                        satisfaction guarantee!
+                    {% elif language == 'es' %}
+                        TrailersPlus posee centros de servicio y reparación en cada tienda nivel nacional. Podemos ayudarle a mantener, reparar 
+                        y personalizar su remolque sin importar la marca, tipo o tamaño. Nuestros técnicos de remolques son entrenados en la fábrica 
+                        y nuestro trabajo está respaldado por una garantía de 100% satisfacción al cliente. ¿Qué está esperando? ¡Llame a TrailersPlus hoy!
+                    {% endif %}
+                </p>
+                <ul class="tp-check-list tp-check-list--small tp-check-list--blue-txt">
+                    <li>
+                        {% if language == 'en' %}
+                            We can help you maintain or repair your Interstate or Carry-On trailer.
+                        {% elif language == 'es' %}
+                            Podemos ayudarte con el mantenimiento y reparación de tu trailer
+                        {% endif %}
+                    </li>
+                    <li>
+                        {% if language == 'en' %}
+                            Our trailer technicians are factory-trained and certified.
+                        {% elif language == 'es' %}
+                            Nuestros técnicos están entrenados y certificados
+                        {% endif %}
+                    </li>
+                    <li>
+                        {% if language == 'en' %}
+                            And all work is backed up by our 100% customer satisfaction guarantee!
+                        {% elif language == 'es' %}
+                            Y todo trabajo está respaldado por nuestra garantía de satisfacción del 100%
+                        {% endif %}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+{% endblock content %}

@@ -1,0 +1,48 @@
+<div class="container p-relative z-index">
+   <div class="row">
+        <div class="col-xl-6">
+             <div class="tp-s-filter tp-s-filter--category tp-skew tp-skew--blue-l tp-skew--border tp-skew--shadow">
+                <form action="#" class="tp-s-filter__form">
+                    <div class="tp-s-filter__options">
+                        <div class="tp-s-filter__item tp-s-filter__item--type">
+                            <span class="tp-s-filter__item-label t-uppercase h4">Category</span>
+                            <select name="trailer-type" id="js-trailers-type-category">
+                                <option value="http://google.com">Cerrado Porta Vehiculos (2)</option>
+                                <option value="http://google.com">Cerrado Porta Vehiculos (2)</option>
+                                <option value="http://google.com">Cerrado Porta Vehiculos (2)</option>
+                                <option value="http://google.com" selected>8' Cerrado Porta Vehiculos (2)</option>
+                                <option value="http://google.com">9' Cerrado Porta Vehiculos (2)</option>
+                                <option value="http://google.com">10' Cargo (1)</option>
+                                <option value="http://google.com">11' Cargo (1)</option>
+                            </select>
+                        </div>
+                        <div class="tp-s-filter__item tp-s-filter__item--store">
+                            <span class="tp-s-filter__item-label t-uppercase h4">Sort by</span>
+                            <select name="trailer-type" id="js-sorting">
+                                <option value="price-to-high">Price: Low to High</option>
+                                <option value="price-to-low">Price: High to Low</option>
+                                <option value="size-to-large">Size: Small to Large</option>
+                                <option value="size-to-small">Size: Large to Small</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+   </div>
+
+    <!-- Product Recently start -->
+    <div class="padding-45t padding-md-60t js-category-items-wrapper">
+        <div class="row justify-content-lg-center justify-content-xl-start">
+            {% for item in products %}
+                {% set priceNumber = item.priceNumber %}
+                {% set length = item.length %}
+
+                <div class="col-md-6 col-lg-4 col-xl-3 margin-30b margin-md-60b">
+                    {% include "../elements/product.njk" %}
+                </div>
+            {% endfor %}  
+        </div>
+    </div>
+    <!-- Product Recently end -->
+</div>

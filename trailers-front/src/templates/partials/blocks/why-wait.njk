@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-md-7 col-sm-12">
+            <div class="tp-why-wait__desc">
+                <h3 class="h3">{{ data.title | safe }}</h3>
+                <p>{{ data.text | safe }}</p>
+                <h3 class="h3 c-main">{{ data.tel | safe }}</h3>
+            </div>
+        </div> 
+        <div class="col-lg-4 col-md-5 col-sm-12">
+            <a href="#" class="tp-why-wait__inspection">
+                <span>
+                    <picture>
+                        <source data-srcset="./img/webp/community/list-icon-min.webp" type="image/webp" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                        <source data-srcset="./img/community/list-icon-min.png" type="image/jpeg" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                        <img data-src="./img/community/list-icon-min.png" alt="list-icon" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                    </picture>
+                </span>
+ 
+                <h4 class="h4 c-main">{{ data.inspection.title | safe }}</h4>
+                <p>{{ data.inspection.text | safe }}</p>
+            </a>
+        </div>
+    </div>
+</div>
+
+<picture>
+    <source data-srcset="./img/webp/community/professionals-bg-min.webp" type="image/webp" media="(min-width: 451px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="> 
+    <source data-srcset="./img/webp/community/professionals-bg-mob-min.webp" type="image/webp" media="(max-width: 450px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="> 
+    <source data-srcset="./img/community/professionals-bg-min.jpg" type="image/jpeg" media="(min-width: 451px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="> 
+    <source data-srcset="./img/community/professionals-bg-mob-min.jpg" type="image/jpeg" media="(max-width: 450px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="> 
+    <img data-src="./img/community/professionals-bg-min.jpg" alt="Why Wait" class="lazyload margin-30t" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+</picture>

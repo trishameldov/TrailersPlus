@@ -1,0 +1,54 @@
+.language_logo {
+  width: 20px;
+  height: 20px;
+}
+
+.tp-lang {
+    height: 100%;
+
+    &__head {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        padding-left: 17px;
+        padding-right: 34px;
+        color: var(--c-white);
+        font-weight: 500;
+        text-transform: uppercase;
+
+        @media(max-width: 370px) {
+            padding-left: 10px;
+        }
+
+        img {
+            margin-right: 7px;
+
+            @include small-size-max {
+                width: 20px;
+                height: 20px;
+            }
+        }
+    }
+
+    &__link {
+        @include flex-center-vert;
+        color: var(--c-grey);
+        font-size: 14px;
+        font-style: normal;
+
+        img {
+            width: 20px;
+            height: 20px;
+            min-width: 20px;
+            margin-right: 7px;
+        }
+    }
+
+    .tp-skew {
+
+        &:before {
+            left: -0.5px;
+            height: calc(100% + 0.5px);
+        }
+    }
+}

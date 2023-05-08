@@ -1,0 +1,32 @@
+.tp-succes-icon {
+    display: inline-block;
+    width: 75px;
+    height: 75px;
+    background-color: var(--c-emerald);
+    position: relative;
+    border-radius: 100%;
+    z-index: 1;
+    
+    .fa {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 40px;
+        color: var(--c-white);
+    }
+
+    &:before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 95px;
+        height: 95px;
+        display: block;
+        background-color: var(--c-emerald);
+        opacity: 0.1;
+        border-radius: 100%;
+    }
+}

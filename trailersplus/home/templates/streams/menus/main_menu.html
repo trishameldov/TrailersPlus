@@ -1,0 +1,66 @@
+{% load wagtailcore_tags wagtailimages_tags common_tags %}
+{% load i18n %}
+{% load cache %}
+{% get_current_language as LANGUAGE_CODE %}
+{% cache 86400 cache_menu LANGUAGE_CODE %}
+<nav class="tp-nav tp-nav--main js-main-nav">
+    <ul class="tp-nav__list">
+        {% for o in self.menus %}
+        <li>
+            <a href="{{ o.menu_page.url }}">{{ o.menu_title }}</a>
+            {% if o.menu_items|length %}
+            <span class="tp-nav__toggle js-submenu-toggle"></span>
+            <div class="js-submenu">
+                <ul>
+                    {% for ii in o.menu_items %}
+                    <li {% if ii.special_class %}class="special"{% endif %}>
+                        {% if ii.link_url is not None %}
+                        <a href="{{ ii.link_url }}">
+                            <picture class="image_main_menu">
+                                {% image ii.image width-400 format-webp as image_webp %}
+                                <source class="image_main_menu" data-srcset="{{ image_webp.url }}" type="image/webp" media="(min-width:1080px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                                {% image ii.image width-200 format-webp as image_webp %}
+                                <source class="image_main_menu" data-srcset="{{ image_webp.url }}" type="image/webp" media="(min-width:760px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                                {% image ii.image width-300 format-webp as image_webp %}
+                                <img class="image_main_menu lazyload" data-src="{{ image_webp.url }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="alt">
+                            </picture>
+                            <span>{{ ii.title }}</span>
+                        </a>
+                        {% elif ii.link_page is not None %}
+                        <a href="{{ ii.link_page.url }}">
+                            <picture class="image_main_menu">
+                                {% image ii.image width-400 format-webp as image_webp %}
+                                <source class="image_main_menu" data-srcset="{{ image_webp.url }}" type="image/webp" media="(min-width:1080px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                                {% image ii.image width-200 format-webp as image_webp %}
+                                <source class="image_main_menu" data-srcset="{{ image_webp.url }}" type="image/webp" media="(min-width:760px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                                {% image ii.image width-300 format-webp as image_webp %}
+                                <img class="image_main_menu lazyload" data-src="{{ image_webp.url }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="alt">
+                            </picture>
+                            <span>{{ ii.title }}</span>
+                        </a>
+                        {% else %}
+                        <a href="#">
+                            <picture class="image_main_menu">
+                                {% image ii.image width-400 format-webp as image_webp %}
+                                <source class="image_main_menu" data-srcset="{{ image_webp.url }}" type="image/webp" media="(min-width:1080px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                                {% image ii.image width-200 format-webp as image_webp %}
+                                <source class="image_main_menu" data-srcset="{{ image_webp.url }}" type="image/webp" media="(min-width:760px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                                {% image ii.image width-300 format-webp as image_webp %}
+                                <img class="image_main_menu lazyload" data-src="{{ image_webp.url }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="alt">
+                            </picture>
+                            <span>{{ ii.title }}</span>
+                        </a>
+                        {% endif %}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+
+        <div class="tp-nav__close-bot js-nav-close">{{ self.close_menu_button_text }}</div>
+
+</nav>
+{% endcache %}

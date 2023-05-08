@@ -1,0 +1,55 @@
+.tp-prod-fltr-list {
+  margin-left: 10px;
+
+  &--mob {
+    @include medium-size-min {
+      display: block !important;
+    }
+
+    @include small-size-max {
+      display: none;
+      padding-bottom: 20px;
+    }
+  }
+
+  &--normal {
+    margin-left: 0;
+  }
+
+  &__item {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    font-size: 14px;
+    color: var(--c-grey);
+    padding: 4px 0;
+    flex-grow: 1;
+
+    &:hover {
+      > a {
+        color: var(--c-blue-main);
+      }
+    }
+
+    > a {
+      display: inline-block;
+      color: var(--c-grey);
+    }
+
+    span {
+      margin-left: 5px;
+    }
+  }
+
+  label + span {
+    margin-left: 30px;
+  }
+}
+
+.select2-result-selectable {
+  cursor: pointer;
+  color: #000000;
+  font-weight: bold;
+  margin-left: -11px;
+  padding-left: 0;
+}

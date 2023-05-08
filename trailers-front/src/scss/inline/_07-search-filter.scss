@@ -1,0 +1,214 @@
+.tp-home-filters {
+    background-color: rgba(17, 57, 108, 1); 
+    padding: 10rem; 
+    padding-bottom: 6rem;
+
+    &__sales {
+        padding-top: 3rem; 
+    }
+}
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 576px) {
+    .tp-home-filters {
+        padding: 0; 
+        padding-bottom: 0;
+    }
+}
+
+.tp-s-filter {
+    $b: &;
+
+    position: absolute;
+    width: calc(100% - 30px);
+    left: 15px;
+    bottom: -25px;
+    padding: 2px;
+    z-index: 1;
+
+    @include mobile-menu-max {
+        position: relative;
+        left: 0;
+        bottom: auto;
+        width: 100%;
+        max-width: 540px;
+        margin: 0 auto;
+    }
+
+    &:before {
+        
+        @include mobile-menu-max {
+            display: none;
+        }
+    }
+    .select2-selection__rendered {
+        line-height: 1.1 !important;
+        white-space: pre-wrap !important;
+        padding-right: 35px !important;
+    }
+
+    &__form {
+        display: flex;
+
+        @include mobile-menu-max {
+            flex-wrap: wrap;
+        }
+    }
+
+    &__options {
+        padding: 15px 5px 20px 30px;
+        flex-grow: 1;
+        display: flex;
+
+        @include medium-size-max {
+            padding-left: 15px;
+            padding-right: 0;
+        }
+
+        @include mobile-menu-max {
+            padding: 0;
+            flex-wrap: wrap;
+        }
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        flex-basis: 50%;
+        width: 50%;
+        max-width: 50%;
+
+        @include mobile-menu-max {
+            flex-basis: 100%;
+            width: 100%;
+            max-width: 100%;
+        }
+        
+        &:first-of-type {
+            
+            @include mobile-menu-max {
+                margin-bottom: 15px;
+            }
+        }
+
+        &--type {
+
+            .select2-container--default .select2-selection--single .select2-selection__rendered {
+    
+                &:before {
+                    content: '';
+                    width: 20px;
+                    height: 18px;
+                    background-image: url(/static/img/icons/trailer-icon.svg);
+                    background-size: 20px 20px;
+                }
+            }
+        }
+
+        &--store {
+
+            .select2-container--default .select2-selection--single .select2-selection__rendered {
+
+                &:before {
+                    content: '\f041';
+                    font-size: 22px;
+                    display: inline-block;
+                    
+                    @include fontAwesome;
+                }
+            }
+        }
+
+        &--map {
+            .select2-container--default .select2-selection--single {
+                background-color: transparent;
+                border: none;
+                position: relative;
+                height: $select-height;
+        
+                &:before {
+                    @include skew(var(--c-blue-main));
+                    opacity: 0.1;
+                }
+            }
+        }
+    }
+
+    &__item-label.h4 {
+        color: var(--c-white);
+        padding-left: 25px;
+        margin-bottom: 5px;
+    }
+
+    &__submit {
+        font-size: 24px;
+        white-space: nowrap;
+        margin-right: -0.5px;
+        padding-left: 40px;
+        padding-right: 40px;
+
+        @media (min-width: 1025px){
+            padding-top: 45px;
+        }
+
+        @include mobile-menu-max {
+            width: 100%;
+            margin-top: 40px;
+            padding-top: 23px;
+            padding-bottom: 23px;
+            font-size: 20px;
+        }
+
+        &:before {
+
+            @include mobile-menu-max {
+                border: 2px solid var(--c-white);
+                box-shadow: 4px 4px 0 var(--c-white);
+            }
+        }
+    }
+
+    .select2 {
+        width: calc(100% - 30px) !important;
+
+        @include mobile-menu-max {
+            width: 100%!important;
+        }
+    }
+
+    .select2-container--default .select2-selection--single {
+        background-color: transparent;
+        border: none;
+        position: relative;
+        height: $select-height;
+
+        &:before {
+            @include skew(var(--c-white));
+            opacity: 0.1;
+        }
+    }
+
+    .select2-container--default .select2-selection--single .select2-selection__rendered {
+        position: relative;
+        color: var(--c-white);
+        padding-left: 55px;
+        font-size: 15px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+
+
+        &:before {
+            position: absolute;
+            left: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+}
+
+.tp-s-filter__options select {
+  height: 52px;
+  width: 100%;
+}

@@ -1,0 +1,15 @@
+@import 'global/mixins';
+@import 'global/variables';
+@import 'global/mixins-media';
+@import 'global/settings';
+
+@import "vendor/bootstrap";
+
+@import "vendor/font-awesome/scss/_font-awesome";
+@import "vendor/ion-icons/_ionicons";
+
+@import "vendor/jsCalendar/jsCalendar.scss";
+@import "vendor/swiper/swiper.min.css";
+@import "vendor/select2/select2.min.css";
+@import "vendor/magnific-popup/magnific-popup.css";
+@import "vendor/tempus_dominus/tempus-dominus.min.css";

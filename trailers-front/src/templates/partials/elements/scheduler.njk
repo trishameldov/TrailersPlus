@@ -1,0 +1,88 @@
+<script src="./js/libs/jsCalendar.min.js"></script>
+
+<div class="tp-scheduler tp-scheduler--loading js-tp-scheduler">
+    <div class="tp-scheduler__scheduler">
+
+        <div class="margin-20b">
+            <p>Please select a date and time for your trailer appointment</p>
+        </div>
+
+        <div class="p-relative">
+            <div class="tp-scheduler__calendar" id="js-scheduler-calendar">
+                <span></span>
+            </div>
+
+            <div class="tp-scheduler__links-wrapper margin-20b margin-md-30b">
+                <a href="#" class="tp-scheduler__datepicker-link js-open-calendar">View Calendar</a>
+
+                <div class="tp-scheduler__location-wrapper">
+                    <p>Choose Your Store: </p>
+
+                    <div class="tp-dropdown">
+                        <a href="javascript:void(0)" class="tp-scheduler__location-link js-sheduler-location-link">Lavonia, GA</a>
+
+                        <div class="tp-scheduler__location-dropdown tp-dropdown__list tp-dropdown__list--smaller">
+                            {% include "../elements/scheduler-locations.njk" %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tp-scheduler__wrapper">
+                <div class="tp-scheduler__loader">
+                    <div>
+                        <span></span>
+                        <small>Loading available dates</small>
+                    </div>
+                </div>
+
+                <div class="tp-scheduler__date-slider">
+                    <div class="date-slider">
+                        <div class="date-slider__arrow date-slider__arrow--left js-backward-date"></div>
+                        <div class="date-slider__wrapper js-dates-container"></div>
+                        <div class="date-slider__arrow date-slider__arrow--right js-forward-date"></div>
+                    </div>
+                </div>
+
+                <div class="tp-scheduler__time-slots">
+                    <div class="time-slots js-time-slots"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="tp-scheduler__form">
+        <div class="margin-20b margin-md-25b">
+            <p>Please fill out your information.</p>
+        </div>
+
+        <a href="#" class="tp-scheduler__form-link js-back-to-slots"><i class="fa fa-arrow-left"></i> <i>Back to date & time selection</i></a>
+
+        <form action="#" class="tp-form margin-30t" id="schedule-cf">
+            <div class="tp-form-control">
+                <input type="text" name="first_name" minlength="3" placeholder="First Name*" required="required">
+            </div>
+            <div class="tp-form-control">
+                <input type="text" name="last_name" minlength="3" placeholder="Last Name*" required="required">
+            </div>
+            <div class="tp-form-control">
+                <input type="tel" name="phone" placeholder="Phone Number*" required="required">
+            </div>
+            <div class="tp-form-control">
+                <input type="email" name="email" pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$" placeholder="Email Address*" required="required">
+            </div>
+
+            <input type="hidden" name="location" id="js-sheduler-location">
+            <input type="hidden" name="time-slot" id="js-sheduler-time-slot">
+            <input type="hidden" name="trailer" value="4RADG1628LN111914"/>
+
+            <div class="margin-30t">
+                <button type="submit" class="tp-btn tp-btn--red tp-btn--full">
+                    <span>Schedule an Appointment</span>
+                    <div class="tp-btn__loader"></div>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+/* ------------------------------------------- */
+/*               TEXT GENERAL               */
+/* ------------------------------------------- */
+
+.tp-text-banner {
+    font-size: 18px;
+    color: rgba(var(--ca-white), 0.9);
+    line-height: 28px;
+
+    p {
+        font-size: inherit;
+        color: inherit;
+        line-height: inherit;    
+
+        b {
+            font-weight: 700;
+            color: var(--c-white);
+        }
+    }
+}

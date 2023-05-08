@@ -1,0 +1,80 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load static product_tags common_tags cache %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+{% cache 86400 trailers_for_sale_search LANGUAGE_CODE requets.location.id %}
+<div class="tp-home-filters tp-home-filters__sales">
+    <section class="tp-section tp-section--filter tp-section--mobile" style="border-color: rgba(17, 57, 108, 1);">
+        <div class="container">
+            <h1 class="h2 c-white d-none d-sm-block mb-5" style="font-weight: 500;font-family: 'Oswald'; font-size: 50px; line-height: 60px; width: 80%;margin:auto; text-align: center;">
+                {{ self.title | locations_count:location_count | safe }}
+            </h1>
+            <div class="h3 c-white d-block d-sm-none">
+                {{ self.search_title }}
+            </div>
+        </div>
+        <div class="container p-relative">
+            <p class="c-white margin-0t d-none d-sm-block text-center py-4" style="width: 100%;margin:auto;">{{ self.textarea | safe }}</p>
+            <div class="tp-s-filter tp-s-filter--sales tp-skew tp-skew--blue-l tp-skew--border tp-skew--shadow" >
+                <form class="tp-s-filter__form" action="submit">
+                    <div class="tp-s-filter__options">
+                        <div class="tp-s-filter__item tp-s-filter__item--type">
+                            <span class="tp-s-filter__item-label t-uppercase h4 d-none d-sm-block">
+                                {{ self.trailer_type_text }}
+                            </span>
+                            <select name="trailer-type" id="js-for-sale-type" class="select2-hidden-accessible" data-select2-id="trailers_type" tabindex="-1" aria-hidden="true">
+                                <option value="all">{{ "All Types"|translate }}</option>
+                                {% for category in categories %}
+                                    <option value="{{ category.slug }}">{% if locale == 'es' %}{{ category.name_es }}{% else %}{{ category.name_en }}{% endif %}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="tp-s-filter__item tp-s-filter__item--store">
+                            <span class="tp-s-filter__item-label t-uppercase h4 d-none d-sm-block">
+                                {{ self.select_store_text }}
+                            </span>
+                            {% for search in search_bars %}
+                                <span class="tp-s-filter__item-label t-uppercase h4">{{ self.select_store_text }}</span>
+                            {% endfor %}
+    {% endcache trailers_for_sale_search %}
+                            <select name="trailer-store" id="js-for-sale-city">
+                                <optgroup label="My Store">
+                                    <option value="{{ request.location.city }}" data-url="{{ request.scheme }}://{{ request.site_name }}/{{ location.slug }}/inventory/">{{ request.location.city_name }}, {{ request.location.state }}</option>
+                                </optgroup>
+    {% cache 86400 trailers_for_sale_search_1 LANGUAGE_CODE %}
+                                {% for state, stores in locations %}
+                                    <optgroup label="{{ state }}">
+                                        {% for store in stores %}
+                                            <option value="{{ store.city }}" data-url="{{ request.scheme }}://{{ request.site_name }}/{{ store.slug }}/inventory/">{{ store.city_name }}, {{ store.state }}</option>
+                                        {% endfor %}
+                                    </optgroup>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <a id="btn-search" class="tp-btn tp-btn--red tp-btn--smooth tp-s-filter__submit" href="#" onclick="getURL()">{{ self.search_button_text }}</a>
+                </form>
+    {% endcache trailers_for_sale_search_1 %}
+            </div>
+        </div>
+    </section>
+</div>
+
+
+<script>
+    function getURL(){
+        var urlInventory = document.querySelector("#js-for-sale-city");
+        var category = document.getElementById("js-for-sale-type").value;
+        var url_attribute = urlInventory.options[urlInventory.selectedIndex].dataset.url;
+
+        if (category != "all"){
+            var url = url_attribute + category + "/";
+        }
+        else{
+            var url = url_attribute;
+        }      
+        location.href = url;  
+        return false;
+    }
+</script>

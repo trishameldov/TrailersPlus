@@ -1,0 +1,136 @@
+{% extends "layout.tmpl.njk" %}
+
+{% block content %}
+
+	<!-- Banner start -->
+    {% set data = {
+        image: 'safety-inspection/banner-bg',
+        title: 'Certified Trailer Inspection',
+        subtitleBottom: '<strong><b>FREE</b> at 12 and 24 months with purchase of any trailer from TrailersPlus</strong>'
+    }
+    %}
+    <section class="tp-section--default tp-banner tp-banner--bot tp-banner--600 tp-banner--overl-2 bg-img">
+        {% include "../templates/partials/blocks/banner-bot.njk" %}
+    </section>
+    <!-- Banner end -->
+
+    <!-- Text section start -->
+    <section class="tp-section tp-section--default">
+        <div class="container c-blue-dark">
+            <p>Is your trailer safe and road ready? Are you confident it can handle thousands of miles and rough roads? Trailers that break down on the road can cause expensive repairs and huge headaches! This can be avoided!</p>
+            <p>Which is why we developed our Certified Trailer Inspection. This is where we meticulously check every part of your trailer to ensure it's safe and road ready. Our employees are factory trained and certified, so relax, we'll let you know if it's safe for the road. Listed below is what we inspect.</p>
+        </div>
+    </section>
+    <!-- Text section end -->
+
+    <!-- When Can You Get start -->
+    <section class="tp-section tp-section--default tp-safety-list bg-img">
+        <picture>
+            <source data-srcset="./img/webp/safety-inspection/when-banner-bg-min.webp" type="image/webp" media="(min-width: 451px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="> 
+            <source data-srcset="./img/webp/safety-inspection/when-banner-bg-mob-min.webp" type="image/webp" media="(max-width: 450px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="> 
+            <source data-srcset="./img/safety-inspection/when-banner-bg-min.jpg" type="image/jpeg" media="(min-width: 451px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="> 
+            <source data-srcset="./img/safety-inspection/when-banner-bg-mob-min.jpg" type="image/jpeg" media="(max-width: 450px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="> 
+            <img data-src="./img/safety-inspection/when-banner-bg-min.jpg" alt="When can you get a Certified Trailer Inspection?" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+        </picture>
+
+        <div class="container">
+            <h2 class="h3 c-white margin-50b">When can you get a Certified Trailer Inspection?</h2>
+
+            <div class="tp-safety-list__wrapper">
+                {% set data = [
+                    { icon: 'safety-inspection/icon-1', title: "New Trailer Purchases from TrailersPlus", text: "Which is why we developed our Certified Trailer Inspection. This is where we meticulously check every part of your trailer to ensure it's safe and road ready. Our employees are factory trained and certified, so relax, we'll let you know if it's safe for the road. Listed below is what we inspect." },
+                    { icon: 'safety-inspection/icon-2', title: "Used Trailers", text: "If you are set on purchasing a used trailer and find one that you like, we encourage you and the seller to come visit us for a free 40-Point Certified Trailer Inspection. As the industry leader, we want everyone to have a safe and enjoyable towing experience." },
+                    { icon: 'safety-inspection/icon-3', title: "Your Current Trailer", text: "If you are not in the market for a trailer but would like an inspection, please call us at <a href='tel:8778507857'>877-850-7857</a> to find a location near you and to schedule a Certified Trailer Inspection." }
+                ] %}
+
+                {% for item in data %}
+                <div class="tp-safety-list__item">
+                    <span>
+                        <picture>
+                            <source data-srcset="./img/webp/{{ item.icon }}-min.webp" type="image/webp"  srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                            <source data-srcset="./img/{{ item.icon }}-min.png" type="image/jpeg" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                            <img data-src="./img/{{ item.icon }}-min.png" alt="{{ item.title }}" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                        </picture>
+                    </span>
+                    <div class="tp-safety-list__description">
+                        <h3 class="h4 c-white">{{ item.title }}</h3>
+                        <p class="c-white">{{ item.text | safe }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- When Can You Get end -->
+
+    <!-- Scheduling an Appointment start -->
+    {% set list = [
+        { title: 'Axles', items: ['Check axle mounting bracket welds to mainframe', 'Inspect suspension (signs of excess wear, elongation of bolt holes, and loosening of fasteners)'] },
+        { title: 'Brakes', items: ['Test breakaway switch for proper function', 'Check brake wires for bare spots, fray, etc.'] },
+        { title: 'Wheel Bearings', items: ['Check grease in hubs', 'Check for excessive wheel end play', 'Check wheel rotation for restrictions, noise, or bumpiness'] },
+        { title: 'Wheels and Tires', items: ['Check for proper torque on wheel nuts', 'Inspect wheels for cracks, dents, or distortion', 'Inspect tires for abnormal wear and overall condition', 'Check for proper tire pressure'] },
+        { title: 'Wiring', items: ['Check turn signals, clearance lights, and brake lights', 'Check auxiliary dome lights, loading lights, and switches', 'Inspect trailer plug and harness for loose or damaged wires'] },
+        { title: 'Doors and Vents', items: ['Lubricate and/or grease hinges', 'Check door seals for tears and cracking', 'Check all doors and vents function properly', 'Check door hardware is secure and functions properly (door catches, latches, handles, etc.)'] },
+        { title: 'Coupler', items: ['Inspect welds', 'Grease ball pocket Lubricate pivot points'] },
+        { title: 'Safety Chains', items: ['Inspect welds to trailer tongue', 'Check for damaged chains and hook/clevis functions properly'] },
+        { title: 'Jacks', items: ['Check tongue jack functions properly', 'Lubricate screw stem on top wind jack', 'Check stabilizer jacks function properly'] },
+        { title: 'Welds and Metal Fatigue', items: ['Inspect accessible welds on walls and roof', 'Inspect welds on integrated A-frame Inspect welds on chassis'] },
+        { title: 'Exterior', items: ['Check roof sealant and trim', 'Check all silicone for proper application', 'Check for missing and/or stripped out screws', 'Touch up exposed steel parts (small scratches & rock chips)' ] },
+        { title: 'Interior', items: ['Check all factory installed accessories are securely fastened', 'Check for missing screws and ensure properly installed', 'Check trailer for any leaks or potential leaks', 'Inspect all tie downs are securely fastened', 'Check silicone for proper application', 'Check trim for proper installation', 'Check for proper tire pressure', 'Check for proper torque on wheel nuts', ' Inspect wheels for cracks, dents, or distortion Inspect tires for abnormal wear and overall condition'] }
+    ] %}
+    <section class="c-blue-dark padding-sm-0b padding-md-35b padding-45t padding-md-75t">
+        <div class="container">
+
+            <div class="row margin-50b">
+                <div class="col-12 col-lg-10 offset-lg-1">
+                    <h2 class="h4">Scheduling an Appointment</h2>
+                    <p>Call <a href="tel:8778507857">877-850-7857</a> or visit your nearest TrailersPlus location to schedule an appointment. Please allow 3 business days for our service team to perform a complete 40-Point CTI of your trailer. Once your trailer has been dropped off, we will call you when the inspection is complete and the trailer is ready for pick-up.</p>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-12 col-lg-10 offset-lg-1">
+                    <div class="row">
+                        {% for item in list %}
+                        <div class="col-md-6 margin-50b">
+                            <h3 class="h4">{{ item.title }}</h3>
+                            <ul class="tp-check-list">
+                                {% for text in item.items %}
+                                <li>{{ text }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- Scheduling an Appointment end -->
+
+    <!-- Call Today start -->
+    {% set data = {
+        title: 'TrailersPlus Gives You the Best in Value, Service & Selection.',
+        subtitle: 'Call today <a class="fw700 c-white c-h-blue-main" href="tel:8064101578">806-410-1578</a>',
+        list: ['100+ Trailers In-Stock at Every TrailersPlus Store', 'Nation Wide Warranties on Every Trailer We Carry', '2 Free Inspections on Every Trailer Purchase ($198 value)', 'Best-Selling Interstate Trailers are Only Available at TrailersPlus']
+    } %}
+    <section class="bg-pomegranate c-white tp-cut-red">
+        {% include "../templates/partials/blocks/cut-red.njk" %}
+    </section>
+    <!-- Call Today end -->
+	
+    <!-- Join community start -->
+    <section class="tp-section tp-section--sm bg-img">
+        {% include "../templates/partials/blocks/join-community.njk" %}
+    </section>
+	<!-- Join community end -->
+
+    <!-- Partners start -->
+    <section class="tp-partners">
+        {% include "../templates/partials/blocks/partners.njk" %}
+    </section>
+	<!-- Partners end -->
+    
+{% endblock %}

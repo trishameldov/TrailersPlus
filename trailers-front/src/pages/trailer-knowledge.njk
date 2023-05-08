@@ -1,0 +1,93 @@
+{% extends "layout.tmpl.njk" %}
+
+{% block content %}
+    {% set posts = [
+        { imagePath: 'trailer-knowledge/img-1-min', month: 'SEP', day: '24', title: "E-Z Lube versus Buddy Bearings: What's the Difference?", text: 'Are you buying a trailer but do not know which type of axle to choose? Trailers either have torsion or spring axles. If you are not sure what the difference is, please read further to understand the features and benefits of both.' },
+        { imagePath: 'trailer-knowledge/img-2-min', month: 'AUG', day: '28', title: 'Torsion versus Spring Axles', text: 'Are you buying a trailer but do not know which type of axle to choose? Trailers either have torsion or spring axles. If you are not sure what the difference is, please read further to understand the features and benefits of both.' },
+        { imagePath: 'trailer-knowledge/img-3-min', month: 'APR', day: '05', title: 'Radial versus Bias Ply Trailer Tires', text: 'There are two types of tires that a trailer could have: radial and bias ply. Which do you have on your trailer? Do you know the difference? Read below to learn more about radial and bias ply trailer tires, situations that each tire type is best for, and general trailer tire infor' },
+        { imagePath: 'trailer-knowledge/img-4-min', month: 'FEB', day: '22', title: 'How to Change a Trailer Tire', text: 'Having a flat tire is never a fun experience. Especially when towing a trailer, a flat tire can pose a dangerous situation if not handled correctly. Follow these steps if you have or suspect a flat tire on your trailer while driving.' },
+        { imagePath: 'trailer-knowledge/img-5-min', month: 'JAN', day: '31', title: "E-Z Lube versus Buddy Bearings: What's the Difference?", text: 'What is the difference between E-Z Lube and Buddy Bearings?' }
+    ] %}
+    <section class="tp-section">
+        <div class="container">
+            <h1 class="h1 c-main">TrailersPlus Blog</h1>
+            <div class="tp-divider margin-50b"></div>
+
+            <div class="row">
+                <!-- Content start -->
+                <div class="col-12 col-xl-8">
+                    <div id="posts-container" data-max-pages="4" data-current-page="2">
+                        {% for post in posts %}
+                            <!-- Post start -->
+                            <div class="tp-post">
+                                <div class="p-relative">
+                                    <a href="#" class="tp-post__img-wrapper bg-img">
+                                        <picture>
+                                            <source data-srcset="./img/webp/{{ post.imagePath }}.webp" type="image/webp" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                                            <source data-srcset="./img/{{ post.imagePath }}.jpg" type="image/jpeg" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                                            <img data-src="./img/{{ post.imagePath }}.jpg" alt="{{ post.title }}" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                                        </picture>
+                                    </a>
+
+                                    <div class="tp-post__date">{{ post.month }}
+                                        <span>{{ post.day }}</span></div>
+                                </div>
+
+                                <div class="tp-post__content-wrapper">
+                                    <h4 class="h4 c-main">
+                                        <a href="#">{{ post.title }}</a>
+                                    </h4>
+                                    <p>{{ post.text }}</p>
+                                    <a href="#" class="tp-post__link">Read More</a>
+                                </div>
+                            </div>
+                            <!-- Post end -->
+                        {% endfor %}
+                    </div>
+
+                    <!-- Load More Button -->
+                    <div class="t-center margin-30t margin-md-70t">
+                        <a href="#" class="tp-btn tp-btn--grey" id="load-more-posts">Load More</a>
+                    </div>
+                </div>
+                <!-- Content end -->
+
+                <!-- Sidebar start -->
+                <div class="col-12 col-xl-4">
+                    {% set data = {
+                        imagePath: 'trailer-knowledge/side-banner-bg-min',
+                        title: 'TRAILER SEARCH',
+                        subtitle: "THE NATION'S LARGEST",
+                        buttonText: '<i class="fa fa-search"></i> View Our Inventory'
+                    } %}
+                    <div class="tp-sidebar-banner__wrapper tp-sidebar-banner__wrapper--right margin-50t margin-xl-0t">
+                        <div class="tp-sidebar-banner bg-img">
+                            <picture>
+                                <source data-srcset="./img/webp/{{ data.imagePath }}.webp" type="image/webp" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                                <source data-srcset="./img/{{ data.imagePath }}.jpg" type="image/jpeg" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                                <img data-src="./img/{{ data.imagePath }}.jpg" alt="{{ data.title }}" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                            </picture>
+                            <div class="tp-sidebar-banner__subtitle">{{ data.subtitle }}</div>
+                            <div class="tp-sidebar-banner__title">{{ data.title }}</div>
+                            <a href="#" class="tp-btn tp-btn--red tp-btn--shadow tp-btn--full margin-70t">{{ data.buttonText | safe }}</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Sidebar end -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Join community start -->
+    <section class="tp-section tp-section--sm bg-img">
+        {% include "../templates/partials/blocks/join-community.njk" %}
+    </section>
+    <!-- Join community end -->
+
+    <!-- Partners start -->
+    <section class="tp-partners">
+        {% include "../templates/partials/blocks/partners.njk" %}
+    </section>
+    <!-- Partners end -->
+
+{% endblock %}

@@ -1,0 +1,325 @@
+{% extends "layout.tmpl.njk" %}
+
+{% block content %}
+
+    <!-- Banner start -->
+    {% set data = {
+        image: 'banner-slider/home-slide-4',
+        title: 'TrailersPlus Store',
+        align: "left",
+        text: 'TrailersPlus store offers the widest selection of cargo,<br> utility, equipment, and dump trailers in the market.<br> We have over 100 trailers in inventory!'
+        }
+    %}
+
+    {% set reviews = [
+        {
+            title: "Well what can I say service was great…",
+            rating: 1,
+            time: "49 minutes ago",
+            text: "Well what can I say service was great like to haggle a little bit with him that was fun I had a very professional…",
+            author: "Henry West"
+        }, {
+            title: "This is by far the best place to…",
+            rating: 2,
+            time: "50 minutes ago",
+            text: "Well what can I say service was great like to haggle a little bit with him that was fun I had a very professional…",
+            author: "Henry West"
+        }, {
+            title: "Well what can I say service was great…",
+            rating: 3,
+            time: "51 minutes ago",
+            text: "Well what can I say service was great like to haggle a little bit with him that was fun I had a very professional…",
+            author: "Henry West"
+        }, {
+            title: "This is by far the best place to…",
+            rating: 4,
+            time: "52 minutes ago",
+            text: "Well what can I say service was great like to haggle a little bit with him that was fun I had a very professional…",
+            author: "Henry West"
+        }, {
+            title: "This is by far the best place to…",
+            rating: 5,
+            time: "53 minutes ago",
+            text: "Well what can I say service was great like to haggle a little bit with him that was fun I had a very professional…",
+            author: "Henry West"
+        }, {
+            title: "Well what can I say service was great…",
+            rating: 3,
+            time: "54 minutes ago",
+            text: "Well what can I say service was great like to haggle a little bit with him that was fun I had a very professional…",
+            author: "Henry West"
+        }
+    ]
+ %}
+
+    {% set products = [
+        {
+            title: "5 X 8 Enclosed Cargo",
+            label: true,
+            labelText: "<b>8</b> in Stock",
+            price: '$2223.00'
+        }, {
+            title: "6 X 10 Enclosed Cargo",
+            label: true,
+            labelText: "<b>9</b> in Stock",
+            price: '$7999.00'
+        }, {
+            title: "7 X 16 Victory Tandem",
+            label: true,
+            labelText: "<b>2</b> in Stock",
+            price: '$7999.00'
+        }, {
+            title: "7 X 16 Victory Tandem",
+            label: true,
+            labelText: "<b>1</b> in Stock",
+            price: '$7999.00'
+        }, {
+            title: "7 X 16 Victory Tandem",
+            label: true,
+            labelText: "<b>34</b> in Stock",
+            price: '$7999.00'
+        }, {
+            title: "7 X 16 Tandem Axle",
+            label: true,
+            labelText: "<b>4</b> in Stock",
+            price: '$7999.00'
+        }
+    ]
+ %}
+    {% set productLabelType = "number" %}
+    {% set productPriceType = "low" %}
+
+    {% set oneStop = [
+        {icon: "icon-1", title: 'The Largest Trailer Selection', text: "TrailersPlus has the largest inventory around, we carry at least 100 trailers at every dealership and stock complete lines of enclosed cargo trailers, utility trailers, dump trailers, equipment trailers, car trailers and more. You'll always find the biggest selection and best prices at TrailersPlus!"},
+        {icon: "icon-2", title: 'Nation Wide Warranty Follows You', text: "Our best in class warranties are second to none. Every trailer we carry comes with one. Have a problem with your trailer while you're on the road? Our dedicated warranty department can help you with any problem you may have regarding your trailer."},
+        {icon: "icon-3", title: 'Fast and Friendly Customer Service', text: "TrailersPlus is known for providing incredible customer service. All TrailersPlus team members are professionally trained to help you with what you need. We want to make buying a new trailer fun, fast and easy! Come visit and we'll show you what we mean."},
+        {icon: "icon-4", title: 'Certified Service & Repair Experts', text: "TrailersPlus stores all have trailer service and repair departments. With factory trained and certified trailer experts, you can rest easy, your trailer repair is in good hands. And all our repair work is backed by an in house 30 day warranty for your complete satisfaction."},
+        {icon: "icon-5", title: 'Trailer Parts and Accessories', text: "TrailersPlus stores offer a huge selection of hard to find parts and accessories. Whether it's ladder racks, trailer tires, e-track or additional tie-down points inside the trailer, our factory trained parts and service team can personalize your new or existing trailer to match your needs."},
+        {icon: "icon-6", title: 'Financing is Available ', text: "With no money down financing available and interest rates are as low as 5.99%, now is a great time to finance your new trailer. With numerous options, now's your chance to qualify for trailer financing. All rates are on approved credit and are subject to change."}]
+     %}
+
+    <section class="padding-50b padding-md-75t padding-md-80b tp-banner tp-banner--bot tp-banner--with-message tp-banner--600 tp-banner--overl-5 bg-img">
+        {% set withWarningMessage = true %}
+        {% include "../templates/partials/blocks/banner-bot.njk" %}
+    </section>
+    <!-- Banner end -->
+
+    <!-- Direction start -->
+    <section class="bg-grey">
+        <div class="container p-relative padding-50t padding-50b padding-md-85t padding-md-85b">
+            <div class="tp-location__buttons">
+                <a href="#" class="tp-btn tp-btn--md tp-btn--red tp-btn--view">
+                    <span>View Inventory</span>
+                </a>
+                <a href="#direction-popup" class="tp-btn tp-btn--md tp-btn--red tp-btn--direction js-popup">
+                    <span>Get Directions</span>
+                </a>
+            </div>
+            <div class="row margin-md-25t">
+                <div class="col-lg-7">
+                    <div class="tp-location__info">
+                        <div class="tp-location__info-col">
+                            <h2 class="tp-location__name">
+                                <img src="./img/logo-img50.svg" alt="Store Name">
+                                Amarillo, TX
+                            </h2>
+                            <address class="tp-location__address">
+                                3406 Hatwai Road<br>
+                                Lewiston, ID 83501<br>
+                                p:
+                                <a href="tel:+12084752867">208-475-2867</a>
+                            </address>
+                        </div>
+
+                        <div class="tp-location__info-col">
+                            <div class="tp-location__schedule margin-md-5t">
+                                <h3 class="h4">Store Hours</h3>
+                                <!-- TODO "CLOSED" must be uppercase -->
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>Mon:</td>
+                                            <td>CLOSED</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Tue-Sat:</td>
+                                            <td>9:30am - 12:00pm &<br>
+                                                1:00pm - 5:30pm</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sun:</td>
+                                            <td>CLOSED</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <p class="margin-20t">
+                                    <a href="#appointment-only" class="js-popup">Learn Why We Are Appointment Only</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="tp-location__map">
+                        <div class="tp-map js-simple-map" data-lat="46.4331626" data-lng="-116.9808372" data-zoom="15" data-fullscreen_control="true" data-scrollwheel="true" data-marker="./img/logo-img50.svg"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Direction end -->
+
+    <!-- Our customers said start -->
+    <section class="tp-section--default margin-lg-35t margin-xl-65t">
+        {% include "../templates/partials/blocks/customers-said.njk" %}
+    </section>
+    <!-- Our customers said end -->
+
+    <!-- Producs start -->
+    <section class="padding-45t padding-20b padding-md-80t padding-lg-75t padding-md-55b bg-grey">
+        <div class="container">
+            <h2 class="h2 t-center margin-25b margin-md-60b">Search 105 Trailers for Sale in Amarillo, TX</h2>
+            <div class="row justify-content-lg-center justify-content-xl-start">
+                {% for item in products %}
+                    <div class="col-md-6 col-lg-5 col-xl-3 margin-30b ">
+                        {% set productType = "shadow"%}
+                        {% include "../templates/partials/elements/product.njk" %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- Producs end -->
+
+    <!-- Text info start -->
+    <section class="tp-section">
+        <div class="container tp-text">
+            <h2>Looking for trailers for sale near Amarillo, Texas?</h2>
+            <p>TrailersPlus stores offer the widest selection of cargo, utility, equipment, and dump trailers in the industry. Our Amarillo TrailersPlus is located off old Route 66 in the Texas panhandle where farmland meets the desert. Situated just outside of Palo Duro Canyon State Park, the surrounding area is perfect for both work and play!</p>
+            <p>Every TrailersPlus store has over 100 trailers in inventory. Our store in Amarillo is no different! We have a wide selection of trailers ranging from 7’ wide utility trailers for landscapers and UTV riders to flatbed deckover trailers for hauling hay, plus much more. Every TrailersPlus location has a selection of Utility, Cargo, Dump, Equipment, Tilt, Car, and ATV/UTV/Snowsport trailers.</p>
+            <p>At TrailersPlus, we care about servicing your trailer - wherever your job takes you. That’s why we offer a nationwide warranty, covered at any of our locations. TrailersPlus in Amarillo is our 62nd store in our growing network of over 65 stores and has some of the best parts and service associates on staff. From regular maintenance such as wheel bearing jobs to installing e-track and tie downs for all your cargo management needs, we have all your parts and service requirements covered.</p>
+            <p>Stop by today to pick up the perfect trailer for you. We offer equipment trailers for hauling your agriculture equipment. Our enclosed cargo trailers will make your workweek a breeze for general construction. Pair your landscaping business with a utility trailer to conveniently transport your mower, trimmers, and other equipment. At TrailersPlus, we have a trailer on our lot that will suit your needs!</p>
+            <p>Call
+                <a href="tel:+18778507587">(877) 850-7587</a>
+                now to speak with us about trailers, parts, or service today!</p>
+            <h3>How to get to TrailersPlus Amarillo, Texas</h3>
+            <p>We are located just a few miles north of Interstate 40.</p>
+            <h4>From the west at intersection of Interstate 27 and Interstate 40</h4>
+            <p>Drive east on Interstate 40 for 3.5 miles and take Exit 73. At the first intersection turn left onto S Eastern St and continue for 2.1 miles until you reach E Amarillo Blvd (Route 66). Turn left onto E Amarillo Blvd and drive for ¼ mile. TrailersPlus will be on the right-hand side of the road.</p>
+            <h4>From the east at intersection of Interstate 40 and Highway 287</h4>
+            <p>Drive west on Interstate 40 and take Exit 75. At the first intersection turn right onto S Lakeside Dr (Hwy 335) and continue north for 4 miles until you reach E Amarillo Blvd (Route 66). Turn left on E Amarillo Blvd and drive for 2.5 miles. TrailersPlus will be on the right-hand side of the road.</p>
+        </div>
+    </section>
+    <!-- Text info end -->
+
+    <!-- Call Today start -->
+    {% set data = {
+        title: 'TrailersPlus Gives You the Best in Value, Service & Selection.',
+        subtitle: 'Call today <a class="fw700 c-white" href="tel:+18064101578">806-410-1578</a>',
+        style: "red-white",
+        list: ['100+ Trailers In-Stock at Every TrailersPlus Store', 'Nation Wide Warranties on Every Trailer We Carry', '2 Free Inspections on Every Trailer Purchase ($198 value)', 'Best-Selling Interstate Trailers are Only Available at TrailersPlus']
+    } %}
+    <section class="tp-cut-red c-white p-relative">
+        <div class="bg-sect bg-img">
+            <picture>
+                <source data-srcset="./img/webp/join-bg-min.webp" type="image/webp" media="(min-width: 451px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                <source data-srcset="./img/webp/join-bg-mob-min.webp" type="image/webp" media="(max-width: 450px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                <source data-srcset="./img/join-bg-min.jpg" type="image/jpeg" media="(min-width: 451px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                <source data-srcset="./img/join-bg-mob-min.jpg" type="image/jpeg" media="(max-width: 450px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                <img data-src="./img/join-bg-min.jpg" alt="alt" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+            </picture>
+        </div>
+        {% include "../templates/partials/blocks/cut-red.njk" %}
+    </section>
+    <!-- Call Today end -->
+
+    <!-- Customer Reviews start -->
+    {% set reviews = [
+        {
+            title: "Customer Reviews",
+            text: "The guys are very knowledgeable about their inventory and easy to deal with. I would recommend them to anyone who is in the market for a trailer.",
+            author: "Floyd Drake"
+        }, {
+            title: "Customer Reviews",
+            text: "The guys are very knowledgeable about their inventory and easy to deal with. I would recommend them to anyone who is in the market for a trailer.",
+            author: "Floyd Drake"
+        }, {
+            title: "Customer Reviews",
+            text: "The guys are very knowledgeable about their inventory and easy to deal with. I would recommend them to anyone who is in the market for a trailer.",
+            author: "Floyd Drake"
+        }, {
+            title: "Customer Reviews",
+            text: "The guys are very knowledgeable about their inventory and easy to deal with. I would recommend them to anyone who is in the market for a trailer.",
+            author: "Floyd Drake"
+        }, {
+            title: "Customer Reviews",
+            text: "The guys are very knowledgeable about their inventory and easy to deal with. I would recommend them to anyone who is in the market for a trailer.",
+            author: "Floyd Drake"
+        }, {
+            title: "Customer Reviews",
+            text: "The guys are very knowledgeable about their inventory and easy to deal with. I would recommend them to anyone who is in the market for a trailer.",
+            author: "Floyd Drake"
+        }
+    ]
+ %}
+    <section class="tp-section--default bg-grey">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7">
+                    {% include "../templates/partials/blocks/customer-review.njk" %}
+                </div>
+                <div class="col-lg-4 offset-lg-1 d-flex align-items-center margin-25t margin-md-60t margin-lg-0t">
+                    <div>
+                        <h3 class="h3 margin-15b margin-md-20b">About</h3>
+                        <p class="p-md">
+                            At TrailersPlus, you'll find huge inventories of high quality trailers at factory direct prices! Making us the largest independent trailer dealership in the USA. TrailersPlus is owned and operated by Interstate, which has been manufacturing enclosed cargo trailers for 20 years and has more than 300,000 satisfied customers. TrailersPlus is your ultimate one-stop destination for trailer sales, parts and repairs.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Customer Reviews end -->
+
+    <!-- One-Stop start -->
+    <section class="padding-45t padding-20b padding-md-75t padding-md-15b">
+        <div class="container">
+            <h2 class="h2 t-center margin-30b margin-md-70b">Your One-Stop Trailer Shop</h2>
+            <div class="row">
+                {% for item in oneStop %}
+                    <div class="col-md-6 margin-25b margin-md-65b">
+                        <div class="tp-store-serv">
+                            <div class="tp-store-serv__title">
+                                <img data-src="./img/icons/my-store/{{ item.icon }}.png" alt="alt" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                                <h3 class="h4 margin-0t">{{ item.title }}</h3>
+                            </div>
+                            <p class="p-md">{{ item.text }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- One-Stop end -->
+
+    <!-- Join community start -->
+    <section class="tp-section tp-section--sm bg-img">
+        {% include "../templates/partials/blocks/join-community.njk" %}
+    </section>
+    <!-- Join community end -->
+
+    <!-- Partners start -->
+    <section class="tp-partners">
+        {% include "../templates/partials/blocks/partners.njk" %}
+    </section>
+    <!-- Partners end -->
+
+    <!-- Get Direction Popup start -->
+    {% include "../templates/partials/popups/get-direction.njk" %}
+    <!-- Get Direction Popup end -->
+
+    <!-- Appointment Popup start -->
+    {% include "../templates/partials/popups/appointment.njk" %}
+    <!-- Appointment Popup end -->
+
+{% endblock %}

@@ -1,0 +1,621 @@
+{% load wagtailcore_tags wagtailimages_tags wagtailuserbar %}
+{% load static product_tags %}
+<!-- Schedule Popup start -->
+<div id="schedule" class="white-popup mfp-hide tp-popup tp-popup--schedule">
+    <div class="tp-popup__body">
+        <div>
+            <div class="h3 c-main">{{ self.form_title }}</div>
+            
+            <div class="datepicker-wrapper">
+                <!-- DATE PICKER -->
+                <div id="date-wrapper">
+                    <p class="fz15 c-blue-dark">{{ self.datepicker_description }}</p>
+
+                    <p class="text-danger"><b>
+                        {{ store.store_name }}, {{ store.state }}
+                    </b></p>
+                    <div class='log-event' id='inlinePicker'></div>
+                </div>
+
+                <!-- HOURS SLOT -->
+                <div id="hours-slot" class="mt-5">
+                    <div class="row g-0 bg-grey-light py-4 px-1" id="hour-block">
+                    </div>
+                    <div class="row bg-grey-light py-1 px-auto justify-content-center" id="hour-message"></div>
+                </div>
+
+                <div id="hour-spacer" styles="height:300px;">&nbsp;</div>
+
+            </div>
+
+
+
+            <!-- APPOINTMENT FORM -->
+            <!-- FORM -->
+            <div id="appointmen-form-wrapper" class="display:block;">
+                
+                <a href="" onclick="backToDate()" class="tp-link tp-link--back">{{ self.back_to_calendar }}</a>
+                <p class="text-danger mb-0 fz15"><b>{{ store.store_name }}, {{ store.state }}</b></p>
+                <p class="fz15 lh26 c-blue-dark m-0"> {{ store.store_address }} <br>{{ store.store_city }}, {{ store.state }} {{ store.store_zip }}</p>
+
+                <p class="fz15 lh26 c-blue-dark">
+                    <b>{{ self.confirm_text }}</b><br>
+                    <span id="appointment_date_p"></span>
+                </p>
+                <p class="fz15 lh26 c-blue-dark">{{ self.form_description | safe }}</p>
+                <form class="tp-form" id="schedule-form">
+                    {% csrf_token %}
+                    <input id="appointment_id" name="appointment_id" type="hidden" value="">
+                    <input id="appointment_date_input" name="appointment_date_input" type="hidden" value="">
+                    <input id="trailer_vin" name="trailer_vin" type="hidden" value="{{ product.common.vin }}">
+                    <div class="tp-form-control">
+                        <input type="text" name="first_name" id="first_name" minlength="3" placeholder="{{ self.placeholder_first_name }}" required="required">
+                    </div>
+                    <div class="tp-form-control">
+                        <input type="text" name="last_name" id="last_name" minlength="3" placeholder="{{ self.placeholder_last_name }}" required="required">
+                    </div>
+                    <div class="tp-form-control">
+                        <input type="tel" name="phone" id="phone" placeholder="{{ self.placeholder_phone }}" required="required">
+                    </div>
+                    <div class="tp-form-control">
+                        <input type="email" name="email" id="email" pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$" placeholder="{{ self.placeholder_email }}" required="required">
+                    </div>
+                    <div class="tp-form-control">
+                        <input type="text" name="zipcode" id="zipcode" placeholder="{{ self.placeholder_zip }}" minlength="5" required="required">
+                    </div>
+                    <div class="tp-form-control">
+                        <input type="checkbox" name="accept" class="js-accept" id="schedule-accept" required="required">
+                        <label for="schedule-accept" class="fz15 c-blue-dark">{{ self.policy_accept | safe }}
+                        </label>
+                    </div>
+                    <div class="tp-form-msg t-center">
+                        <div class="tp-form-msg__text tp-form-msg__text--success margin-30t"></div>
+                        <div class="tp-form-msg__text tp-form-msg__text--error margin-30t"></div>
+                    </div>
+                    <input type="hidden" name="trailer" value="{{ product.common.vin }}" />
+                    <div class="margin-30t margin-md-50t my-xs-5">
+                        <button type="submit" class="tp-btn tp-btn--red tp-btn--full" id="schedule-submit">
+                            <span>{{ self.button_text }}</span>
+                            <div class="tp-btn__loader"></div>
+                        </button>
+                    </div>
+                </form>
+
+                <div id="form-spacer" styles="height:300px;">&nbsp;</div>
+            </div>
+
+            <!-- APPOINTMENT CONFIRM -->
+            <div id="action-required" class="fz15 d-none">
+                <div class="h3 c-main">{{ self.action_title }}</div>
+                <p>
+                    {{ self.action_text_date_1 }} <br>
+                    <b>
+                        {{ store.store_name }}, {{ store.state }} <br>
+                        <!-- for <span id="last-appointment-1">July 14th, 2022 @ 3:00pm</span> -->
+                        <span id="last-appointment-1">{{ self.action_text_date_2 }} </span>
+                    </b>
+                </p>
+                <p>{{ self.action_text_instructions_1 }} <br> <b>{{ store.store_name }}, {{ store.state }} {{ self.action_text_date_2 }} <span id="new-appointment-1"></span>?</b></p>
+                <p>{{ self.action_text_instructions_2 }}</p>
+
+                <div class="row">
+                    <div class="col-12 col-sm-6">
+                        <div class="tp-box-shadow text-center">
+                            <button id="newAppointmentBtn" class="tp-btn tp-btn--red tp-btn--xs" onclick="newAppointment()">{{ self.action_button_new }}</button>
+                            <p>
+                                <b>{{ self.action_for }} {{ store.store_name }}, {{ store.state }} <br>
+                                <span id="new-appointment-2"> {{ self.action_on }} </span></b>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <div class="tp-box-shadow text-center">
+                            <button id="keepAppointmentBtn" class="tp-btn tp-btn--red-border tp-btn--xs" onclick="keepAppointment()">{{ self.action_button_keep }}</button>
+                            <p>
+                                <b>{{ self.action_for }} {{ store.store_name }}, {{ store.state }} <br>
+                                <span id="last-appointment-2">{{ self.action_on }} </span></b>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <div class="text-sucess margin-30t d-none" id="newSuccessBlock"></div>
+                        <div class="text-error margin-30t d-none" id="newErrorBlock"></div>
+                    </div>
+                </div>
+                
+            </div>
+
+        </div>
+    </div>
+    <div class="tp-popup__banner-wrapper">
+        <div class="tp-popup__banner bg-img">
+            <picture>
+                <!--<source data-srcset="./img/webp/product-single/img-banner.webp" type="image/webp" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                <source data-srcset="./img/product-single/img-banner.jpg" type="image/jpeg" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">-->
+                {% if product.common.pictures %}
+                    {% with product.common.pictures|first as picture %}
+                    <img data-src="{{ image_path.original }}/{{ picture.file }}" alt="alt" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                    {% endwith %}
+                {% else %}
+                    <img data-src="{{ image_path.original }}/comingsoon.jpg" alt="alt" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                {% endif %}
+            </picture>
+            <div class="tp-popup__banner-info">
+                <div class="h4 c-white" id="trailer_title">{{ product.trans.short_description|extend_title:product.common.vin }}</div>
+                <span class="h5 d-block margin-15t c-white">
+                    <strong>VIN</strong>{{ product.common.vin }}</span>
+            </div>
+        </div>
+        <div class="tp-popup__banner-additional">
+            <div class="h3 c-main">{{ self.appointment_right_title }}</div>
+            <div class="margin-10t c-blue-dark fz15 lh26">
+                <p>{{ self.appointment_right_description | safe }}</p>
+                <ul class="tp-check-list tp-check-list--small tp-check-list--blue-txt">
+                    {% for item in self.appointment_right_list %}
+                    <li>
+                        {{ item.list_item | safe }}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Schedule Popup end -->
+
+<script>
+
+    // Initial hours
+    window.onload = (event) => {
+        console.log('page is fully loaded');
+        const today = new tempusDominus.DateTime();
+        today.setHours(0, 0, 0, 0);
+        const endDate = new tempusDominus.DateTime();
+        endDate.setDate(today.getDate() + 7);
+        endDate.setHours(23,59,59,999);
+        // Initialize datepicker and set values
+        const inlinePicker = new tempusDominus.TempusDominus(document.getElementById('inlinePicker'), {
+            debug: true,
+            useCurrent: true,
+            display: {
+                inline: true,
+                components: {
+                    calendar: true,
+                    clock: false,
+                },
+            },
+            localization: {
+                locale: '{{language}}',
+                dayViewHeaderFormat: { month: 'long', year: 'numeric' },
+            },
+            restrictions: {
+                minDate:today,
+                maxDate:endDate,
+            },
+            keepInvalid: true,
+        });
+
+        //Arrow right
+        var iconR = document.querySelector("#inlinePicker .next").children[0];
+        iconR.classList.remove('fa-solid');
+        iconR.classList.remove('fa-chevron-right');
+        iconR.classList.add('fa');
+        iconR.classList.add('fa-arrow-right');
+        iconR.style.fontStyle="italic";
+
+        // Arrow left
+        var iconL = document.querySelector("#inlinePicker .previous").children[0];
+        iconL.classList.remove('fa-solid');
+        iconL.classList.remove('fa-chevron-left');
+        iconL.classList.add('fa');
+        iconL.classList.add('fa-arrow-left');
+        iconL.style.fontStyle="italic";
+
+        let days_text = document.getElementsByClassName("dow");
+        for (let i = 0; i < days_text.length; i++) {
+            days_text[i].style.fontSize = "small";
+        }
+    };
+    // Onload end
+        
+
+    // Initial variables
+    var appointmentDate = new Date();
+    
+    var lastAppointmentId;
+    var lastAppointmentDate;
+    var lastAppointmentTrailerVin;
+    var actionRequired = document.getElementById('action-required');
+
+    firstDate = new Date();
+    var firstYear = firstDate.getFullYear();
+    var firstMonth = firstDate.getMonth()+1;
+    var firstDay = firstDate.getDate();
+    //console.log(year+"-"+month+"-"+day);
+    var hours = fetch(`/api/appointment/{{store.store_id}}/${firstYear}-${firstMonth}-${firstDay}`).then( function (response){
+        response.json().then(function (data) {
+            console.log(data);
+            createButtons(data);
+        });
+    });
+    // Show hours slot
+    document.getElementById('hours-slot').style.display = "block";
+
+
+
+    
+
+    // Listen to datepicker 
+    document.getElementById('inlinePicker').addEventListener('change.td', (e) => {
+        //console.log(JSON.stringify(e.detail, null, 2));
+        // console.log(e.detail.date);
+        // Set appointment to selected date
+        appointmentDate = new Date(e.detail.date);
+        var year = appointmentDate.getFullYear();
+        var month = appointmentDate.getMonth()+1;
+        var day = appointmentDate.getDate();
+        //console.log(year+"-"+month+"-"+day);
+        var hours = fetch(`/api/appointment/{{store.store_id}}/${year}-${month}-${day}`).then( function (response){
+            response.json().then(function (data) {
+                createButtons(data);
+            });
+        });
+        // Show hours slot
+        document.getElementById('hours-slot').style.display = "block";
+        // Scroll to hour slot
+        document.querySelector('#hour-spacer').scrollIntoView({
+            behavior: 'smooth'
+        });
+        var leftBtn = document.querySelector("#inlinePicker .previous");
+        leftBtn.classList.remove('disabled');
+    });
+
+
+    // On hour button clicked
+    function hourClick(appointmentId, appointmentStart) {
+        event.preventDefault();
+        console.log(appointmentStart);
+        // Create new date from start date selected by user
+        var milliseconds = appointmentStart * 1000;
+        var newAppointmentDate = new Date(milliseconds);
+        // // Set appointment date to user selected hours
+        appointmentDate.setHours(newAppointmentDate.getUTCHours(), newAppointmentDate.getUTCMinutes(), 0)
+        
+        var now = new Date();
+        if(now.getTime() > appointmentDate.getTime()){
+            $('#hour-message').append('<div class="col-8"><span class="mt-2 text-danger">You cannot reserve a date in the past.</span></div></div>');
+        } else {
+            // hide calendar and display appointment form and 
+            document.getElementById('date-wrapper').style.display = "none";
+            document.getElementById('hours-slot').style.display = "none";
+            document.getElementById('appointmen-form-wrapper').style.display = "block";
+            // Set appointment input for form and html dom for user
+            document.getElementById('appointment_id').value = appointmentId;
+            document.getElementById('appointment_date_input').value = appointmentDate;
+            document.getElementById('appointment_date_p').textContent = appointmentDate.toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric", hour: "2-digit", minute: "2-digit"});
+            // Scroll to bottom of form
+            document.querySelector('#form-spacer').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+    }
+
+    function createButtons(data){
+        var dat = data.sort((a,b) => a.start - b.start);
+        var block_hour = document.getElementById('hour-block');
+        var child = block_hour.lastElementChild;
+        while (child) {
+            block_hour.removeChild(child);
+            child = block_hour.lastElementChild;
+        }
+        if (dat){
+            for (var dat_slot in dat){
+                var hour = dat[dat_slot]['display_string'].split('-');
+                $('#hour-block').append(`<div class="col-4 text-center my-2"><a href="#" onclick="hourClick(${dat[dat_slot]['appointment_id']}, ${dat[dat_slot]['start']})" class="time-box-a"><div class="time-box py-2"><span class="">${hour[0]}</span></div></a></div>`);
+            }
+        }
+        if(dat.length==0){
+            let div = document.createElement('div');
+            div.textContent = "No Appointment Available";
+            block_hour.appendChild(div);
+        }
+    }
+
+
+
+
+    // FormatDate
+    const formatDate = (date) => {
+        date.toLocaleString('en-US', { hour: 'numeric', hour12: true })
+        let month = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+        let monthName = month[date.getMonth()];
+        let day = date.getDate();
+        let getNth = function(d) {
+            if (d > 3 && d < 21) return 'th';
+            switch (d % 10) {
+                case 1:  return "st";
+                case 2:  return "nd";
+                case 3:  return "rd";
+                default: return "th";
+            }
+        }
+        let nth = getNth(day);
+        let year = date.getFullYear();
+        let hours = date.getHours();
+        let ampm = hours >= 12 ? 'pm' : 'am';
+        let hours12 = ((hours + 11) % 12 + 1);
+        let minutes = String(date.getMinutes()).padStart(2, "0");
+
+        let formatDate = monthName + ' ' + day + nth + ', ' + year + ' @ ' + hours12 + ':' + minutes + ampm ;
+        return formatDate;
+    }
+
+    // FORM SUBMIT
+    const form = document.getElementById('schedule-form');
+    var submitBtn = form.querySelector('[type=submit]')
+    var successBlock = form.querySelector('.tp-form-msg__text--success');
+    var errorBlock = form.querySelector('.tp-form-msg__text--error');
+
+    form.addEventListener('submit', submitForm);
+
+    async function submitForm(event) {
+        event.preventDefault()
+        console.log('click');
+        submitBtn.disabled = true
+        submitBtn.classList.add('tp-btn--loading')
+
+        var dataform = {
+            "appointment_id": document.getElementById("appointment_id").value,
+            "trailer_vin": document.getElementById("trailer_vin").value,
+            "customer": {
+                "first_name": document.getElementById("first_name").value,
+                "last_name": document.getElementById("last_name").value,
+                "phone": document.getElementById("phone").value,
+                "email": document.getElementById("email").value,
+                "zipcode": document.getElementById("zipcode").value,
+            },
+            "store": {
+                "city": "{{store.store_city}}",
+                "state": "{{store.state}}"
+            }
+        }
+        console.log(dataform);
+        const response = await fetch('/api/appointment/set/', {
+            method: 'POST',
+            body: JSON.stringify(dataform),
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+        }) 
+
+        if(response.ok) {
+            response.json().then(function (data){
+                console.log('-----Response data----')
+                console.log(data);
+                if (!data['error']){
+                    console.log(typeof data['last_appointment']);
+                    // If an appointment exists
+                    if(typeof data['last_appointment'] != "undefined"){
+                        document.getElementById('appointmen-form-wrapper').style.display = "none";
+                        actionRequired.classList.remove("d-none");
+                        actionRequired.style.display = 'block';
+                        lastAppointmentDate = new Date(data['last_appointment']['start'] * 1000);
+                        lastAppointmentDate.setHours(lastAppointmentDate.getUTCHours(), lastAppointmentDate.getUTCMinutes(), 0)
+                        $('#last-appointment-1').after(formatDate(lastAppointmentDate));
+                        $('#last-appointment-2').after(formatDate(lastAppointmentDate));
+                        $('#new-appointment-1').after(formatDate(appointmentDate));
+                        $('#new-appointment-2').after(formatDate(appointmentDate));
+                        lastAppointmentId = data['last_appointment']['appointment_id'];
+                        lastAppointmentTrailerVin = data['last_appointment']['VIN'];
+                    } 
+                    // If appointment does not exists
+                    else { 
+                        // set params for thank you page
+                        params = {
+                            name: dataform.customer.first_name + ' ' + dataform.customer.last_name,
+                            email: dataform.customer.email,
+                            phone: dataform.customer.phone,
+                            trailer_vin: dataform.trailer_vin,
+                            trailer_title: document.getElementById('trailer_title').innerText,
+                            date: formatDate(appointmentDate),
+                            csrfmiddlewaretoken:'{{ csrf_token }}'
+                        }
+                        // clean data
+                        const tel = form.querySelector('[type=tel]')
+                        if(tel) {
+                            tel.classList.remove('valid')
+                        }
+                        successBlock.classList.remove("d-none");
+                        successBlock.style.display = 'block';
+                        successBlock.append('{{self.action_success}}');
+                        form.reset();
+                        // Send to thank you page with params
+                        toAppointment(params)
+                    }
+                }
+                else{
+                    errorBlock.classList.remove("d-none");
+                    errorBlock.style.display = 'block';
+                    errorBlock.append(data['message']);
+                }
+            });
+        }
+        else if(response.status == 500){
+            errorBlock.classList.remove("d-none");
+            errorBlock.style.display = 'block';
+            errorBlock.append(response.message);
+        }else{
+            errorBlock.classList.remove("d-none");
+            errorBlock.style.display = 'block'
+            let html = ''
+
+            const responseData = response.json()
+
+            Object.keys(responseData).forEach(key => {
+                const fieldName = form.querySelector(`[name=${key}]`).getAttribute('placeholder')
+
+                if(fieldName) {
+                    html += `${fieldName.replace('*', '')}: ${responseData[key]}<br />`
+                }
+            })
+
+            errorBlock.innerHTML = html
+        }
+    
+        submitBtn.disabled = false
+        submitBtn.classList.remove('tp-btn--loading')
+    }
+    
+
+
+    async function newAppointment(){
+        var newAppointmentBtn = document.getElementById('newAppointmentBtn');
+        var newSuccessBlock = document.getElementById('newSuccessBlock');
+        var newErrorBlock = document.getElementById('newErrorBlock');
+
+        newAppointmentBtn.disabled = true
+        newAppointmentBtn.classList.add('tp-btn--loading')
+
+        var dataform = {
+            "last_appointment_id": lastAppointmentId,
+            "appointment_id": document.getElementById("appointment_id").value,
+            "trailer_vin": document.getElementById("trailer_vin").value,
+            "customer": {
+                "first_name": document.getElementById("first_name").value,
+                "last_name": document.getElementById("last_name").value,
+                "phone": document.getElementById("phone").value,
+                "email": document.getElementById("email").value,
+                "zipcode": document.getElementById("zipcode").value,
+            },
+            "store": {
+                "city": "{{store.store_city}}",
+                "state": "{{store.state}}"
+            }
+        }
+
+        var response = await fetch('/api/new-appointment/set/', {
+            method: 'POST',
+            body: JSON.stringify(dataform),
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+        })
+
+        if(response.ok) {
+            response.json().then(function (data){
+                if (!data['error']){
+                    console.log(typeof data['last_appointment']);
+                    // set params for thank you page
+                    params = {
+                        name: dataform.customer.first_name + ' ' + dataform.customer.last_name,
+                        email: dataform.customer.email,
+                        phone: dataform.customer.phone,
+                        trailer_vin: dataform.trailer_vin,
+                        trailer_title: document.getElementById('trailer_title').innerText,
+                        date: formatDate(appointmentDate),
+                        csrfmiddlewaretoken:'{{ csrf_token }}'
+                    }
+                    const tel = form.querySelector('[type=tel]')
+                    if(tel) {
+                        tel.classList.remove('valid')
+                    }
+                    form.reset();
+                    newSuccessBlock.classList.remove("d-none");
+                    newSuccessBlock.style.display = 'block';
+                    newSuccessBlock.append('{{self.action_success}}');
+                    console.log(params)
+                    toAppointment(params)
+                }
+                else{
+                    newErrorBlock.classList.remove("d-none");
+                    newErrorBlock.style.display = 'block';
+                    newErrorBlock.append(data['message']);
+                }
+            });
+        } else {
+            newErrorBlock.classList.remove("d-none");
+            newErrorBlock.style.display = 'block';
+            newErrorBlock.append('Unable to set new appointment');
+        }
+    }
+
+        
+
+
+        
+    
+    
+
+    // Back to date 
+    function backToDate(){
+        event.preventDefault();
+        document.getElementById('date-wrapper').style.display = "block";
+        document.getElementById('hours-slot').style.display = "block";
+        document.getElementById('appointmen-form-wrapper').style.display = "none";
+    }
+
+    // Create form to sent information to thank you page
+    function toAppointment(params) {
+        path = '/thankyou/'
+        method = 'post';
+
+        // console.log(params);
+        var form = document.createElement('form');
+        form.setAttribute('method', method);
+        form.setAttribute('action', path);
+
+        for (var key in params) {
+            if (params.hasOwnProperty(key)) {
+                var hiddenField = document.createElement('input');
+                hiddenField.setAttribute('type', 'hidden');
+                hiddenField.setAttribute('name', key);
+                hiddenField.setAttribute('value', params[key]);
+
+                form.appendChild(hiddenField);
+            }
+        }
+
+        document.body.appendChild(form);
+        form.submit();
+    }
+
+    function keepAppointment(){
+        newSuccessBlock.classList.remove("d-none");
+        newSuccessBlock.style.display = 'block';
+        newSuccessBlock.append('{{self.action_success}}');
+        // Set data to thankyou page
+        var dataform = {
+            "appointment_id": lastAppointmentId,
+            "trailer_vin": lastAppointmentTrailerVin,
+            "customer": {
+                "first_name": document.getElementById("first_name").value,
+                "last_name": document.getElementById("last_name").value,
+                "phone": document.getElementById("phone").value,
+                "email": document.getElementById("email").value,
+                "zipcode": document.getElementById("zipcode").value,
+            },
+            "store": {
+                "city": "{{store.store_city}}",
+                "state": "{{store.state}}"
+            }
+        }
+        params = {
+            name: dataform.customer.first_name + ' ' + dataform.customer.last_name,
+            email: dataform.customer.email,
+            phone: dataform.customer.phone,
+            trailer_vin: lastAppointmentTrailerVin,
+            trailer_title: document.getElementById('trailer_title').innerText,
+            date: formatDate(lastAppointmentDate),
+            csrfmiddlewaretoken:'{{ csrf_token }}'
+        }
+        console.log(params);
+        toAppointment(params)
+    }
+
+
+
+    
+</script>

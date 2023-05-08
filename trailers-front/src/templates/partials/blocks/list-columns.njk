@@ -1,0 +1,21 @@
+{% for list in lists %}
+    <div class="col-md-6 col-xl-3 margin-30b margin-md-70b">
+        <div class="opacity-05">
+            <div class="tp-check-list-logo margin-20b margin-md-30b">
+                <picture>
+                    <source data-srcset="./img/webp/{{list.logo}}.webp" type="image/webp" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                    <source data-srcset="./img/{{list.logo}}.png" type="image/jpeg" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                    <img data-src="./img/{{list.logo}}.png" alt="Factory Direct" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                </picture>
+            </div>
+            {% if list.title %}
+                <p class="h4 c-main margin-md-30b">{{ list.title }}</p>
+            {% endif %}
+            <ul class="tp-check-list tp-check-list--small">
+                {% for item in list.data %}
+                    <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endfor %}

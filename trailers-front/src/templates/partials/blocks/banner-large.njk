@@ -1,0 +1,31 @@
+<picture>
+    <source data-srcset="./img/webp/{{ data.imagePath }}-min.webp" type="image/webp" media="(min-width: 451px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="> 
+    <source data-srcset="./img/webp/{{ data.imagePath }}-mob-min.webp" type="image/webp" media="(max-width: 450px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="> 
+    <source data-srcset="./img/{{ data.imagePath }}-min.jpg" type="image/jpeg" media="(min-width: 451px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="> 
+    <source data-srcset="./img/{{ data.imagePath }}-mob-min.jpg" type="image/jpeg" media="(max-width: 450px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="> 
+    <img data-src="./img/{{ data.imagePath }}-min.jpg" alt="alt" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+</picture>
+
+<div class="d-flex justify-content-center margin-30b tp-banner-large__label">
+    <picture>
+        <source data-srcset="./img/webp/repair-and-service/label-min.webp" type="image/webp" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="> 
+        <source data-srcset="./img/repair-and-service/label-min.png" type="image/png" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="> 
+        <img data-src="./img/repair-and-service/label-min.png" alt="alt" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+    </picture>
+</div>
+
+<div class="container t-center c-white">
+    <h1 class="h1 c-white margin-5b">{{ data.title }}</h1>
+    <small class="h4 c-white">{{ data.subtitle }}</small>
+    <div class="margin-30t">
+        <p>{{ data.text }}</p>
+    </div>
+</div>
+
+<div class="tp-banner-large__scroll-img js-to-next">
+    <picture>
+        <source data-srcset="./img/webp/repair-and-service/mouse-min.webp" type="image/webp" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="> 
+        <source data-srcset="./img/repair-and-service/mouse-min.png" type="image/png" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="> 
+        <img data-src="./img/repair-and-service/mouse-min.png" alt="alt" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+    </picture>
+</div>

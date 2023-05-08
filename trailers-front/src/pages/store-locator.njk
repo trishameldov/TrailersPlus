@@ -1,0 +1,92 @@
+{% extends "layout.tmpl.njk" %}
+
+{% block content %}
+
+    {% set locations = [
+            {title: "Alabama"},
+            {title: "Arizona"},
+            {title: "Arkansas"},
+            {title: "California"},
+            {title: "Colorado"},
+            {title: "Georgia"},
+            {title: "Idaho"},
+            {title: "Indiana"},
+            {title: "Iowa"},
+            {title: "Kansas"},
+            {title: "Kentucky"},
+            {title: "Louisiana"},
+            {title: "Minnesota", active: "true"},
+            {title: "Missouri"},
+            {title: "Montana"},
+            {title: "Nebraska"},
+            {title: "Nevada"},
+            {title: "New Mexico"},
+            {title: "North Carolina"},
+            {title: "Ohio"},
+            {title: "Oklahoma"},
+            {title: "Oregon"},
+            {title: "Tennessee"},
+            {title: "Texas"},
+            {title: "Utah"},
+            {title: "Virginia"},
+            {title: "Washington"},
+            {title: "West Virginia"}] 
+    %}
+
+    <section class="tp-section">
+        <div class="container t-center">
+            <p class="h3 c-main">68 Stores and Growing Strong</p>
+            <h1 class="h1 c-main">We Are The Largest Factory Owned Trailer Dealership in America!</h1>
+        </div>
+
+        <div class="tp-locator margin-30t margin-md-70t">
+            <div class="tp-locator__box">
+                <div class="tp-locator__map">
+                    <div class="tp-map js-main-map" 
+                        data-lat="46.4331626" data-lng="-116.9808372" data-zoom="15" data-fullscreen_control="true"
+                        data-scrollwheel="true" data-marker="./img/logo-img50.svg">
+                    </div>
+                </div>
+                <div class="tp-locator__locations">
+                    <div class="h3 c-main">Find Stores In:</div>
+                    <div class="tp-locator__current">
+                        <i class="fa fa-map-marker"></i>
+                        <span class="tp-locator__current-title">My Store:</span>
+                        <span class="tp-locator__current-name">West Memphis, AR</span>
+
+                    </div>
+                    <ul class="tp-locator__list js-map-categories">
+                        {% for item in locations %}
+                            <li class="js-marker-toggle {% if(item.active === "true") %} active {% endif %}" data-category="{{item.title}}">{{item.title}}</li>
+                        {% endfor %}
+                    </ul>
+
+                    <div class="tp-s-filter__item tp-s-filter__item--map">
+                        <select name="store-locations" id="store-locations" class="js-locations-select">
+                            {% for item in locations %}
+                                <option value="{{item.title}}">{{item.title}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container margin-20t margin-md-40t">
+                <div class="tp-locator__stores js-locator-stores"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join community start -->
+    <section class="tp-section tp-section--sm bg-img">
+        {% include "../templates/partials/blocks/join-community.njk" %}
+    </section>
+	<!-- Join community end -->
+
+    <!-- Partners start -->
+    <section class="tp-partners">
+        {% include "../templates/partials/blocks/partners.njk" %}
+    </section>
+	<!-- Partners end -->
+
+{% endblock %}

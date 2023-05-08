@@ -1,0 +1,91 @@
+<picture>
+    <source data-srcset="./img/webp/{{ data.image }}-min.webp" type="image/webp" media="(min-width: 451px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+    <source data-srcset="./img/webp/{{ data.image }}-mob-min.webp" type="image/webp" media="(max-width: 450px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+    <source data-srcset="./img/{{ data.image }}-min.jpg" type="image/jpeg" media="(min-width: 451px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+    <source data-srcset="./img/{{ data.image }}-mob-min.jpg" type="image/jpeg" media="(max-width: 450px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+    <img data-src="./img/{{ data.image }}-min.jpg" alt="alt" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+</picture>
+
+{% if (data.dataVieo) %}
+    <a href="https://www.youtube.com/watch?v=cuHMj1p43JY" class="tp-banner__play tp-btn tp-btn--play d-tabl-none js-popup" data-type="iframe" aria-label="Open video"></a>
+{% endif %}
+
+{% if (data.alignNotMobile) %}
+    {% set pos = "t-center-mobile" %}
+{% else %}
+
+    {% if (data.align) %}
+        {% set pos = "t-" + data.align %}
+    {% else %}
+        {% set pos = "t-center" %}
+    {% endif %}
+
+{% endif %}
+
+{% if(withWarningMessage) %}
+<!-- Warning Message BEGIN -->
+<div class="margin-40b margin-md-20b">
+    <div class="tp-warning-message container">
+        <div class="tp-warning-message__wrapper">
+            <p>NOTICE: Due to COVID-19, you need to make an appointment before visiting our store. We are taking measures to limit the amount of customers on our lot at a given time. Thank you for your understanding.</p>
+        </div>
+    </div>
+</div>
+<!-- Warning Message END -->
+{% endif %}
+
+<div class="container c-white {{pos}}">
+
+    {% if (data.subtitle) %}
+        <div class="h3 c-white">{{ data.subtitle }}</div>
+    {% endif %}
+
+    {% if (data.dataVieo) %}
+        <a href="https://www.youtube.com/watch?v=cuHMj1p43JY" class="tp-banner__play tp-btn tp-btn--play d-desk-none js-popup" data-type="iframe" aria-label="Open video"></a>
+    {% endif %}
+
+    {% if (data.title) %}
+        <h1 class="h1 c-white margin-10t margin-0b br-lg {% if data.options.titleLeft %} t-left {% endif %}">{{ data.title | safe }}</h1>
+    {% endif %}
+
+    {% if (data.titleBlog) %}
+        <h1 class="h2 c-white">{{ data.titleBlog }}</h1>
+    {% endif %}
+
+    {% if (data.text) %}
+        <p class="c-white margin-20t br-sm">{{ data.text | safe }}</p>
+    {% endif %}
+
+    {% if (data.subtitleBottom) %}
+        <h2 class="h3 c-white margin-20t">{{ data.subtitleBottom | safe }}</h2>
+    {% endif %}
+
+    {% if (data.list) %}
+        <div class="margin-25t">
+            <ul class="tp-check-list tp-check-list--space-20 tp-check-list--white-txt">
+                {% for li in data.list %}
+                    <li>
+                        <strong>{{ li.text }}</strong>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+
+    {% if (pagination) %}
+        <div class="margin-5t">
+            {% include "../elements/pagination.njk" %}
+        </div>
+    {% endif %}
+
+</div>
+
+{% if (data.logoName) %}
+    <div class="tp-banner__logo">
+        <picture>
+            <source data-srcset="./img/webp/{{ data.logoName }}.webp" type="image/webp" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+            <source data-srcset="./img/{{ data.logoName }}.png" type="image/png" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+            <img data-src="./img/{{ data.logoName }}.png" alt="alt" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+        </picture>
+    </div>
+{% endif %}

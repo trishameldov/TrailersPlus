@@ -1,0 +1,70 @@
+/* ------------------------------------------- */
+/*              	VARIABLES      		       */
+/* ------------------------------------------- */
+
+// FONTS
+$f-roboto: 'Roboto Slab', serif;
+$f-oswald: 'Oswald', sans-serif;
+
+$bg-gray: var(--c-solitude);
+
+$container-max-widths: (
+	sm: 540px,
+	md: 720px,
+	lg: 960px,
+	xl: 1200px
+);
+
+// MOBILE MENU BREAKPOINTS
+$bp-mob-menu: 1025px;
+
+// Z-INDEX
+$z-index-header: 900;
+
+
+//
+//	BOOTSTRAP
+//
+
+// GRID
+$enable-grid-classes: true !default;
+
+// Grid breakpoints
+$grid-breakpoints: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$grid-breakpoints: map-merge(
+	(
+		xs: 0,
+		sm: 576px,
+		md: 768px,
+		lg: 992px,
+		xl: 1200px,
+		xxl: 1600px,
+	),
+	$grid-breakpoints
+);
+
+@include _assert-ascending($grid-breakpoints, '$grid-breakpoints');
+@include _assert-starts-at-zero($grid-breakpoints);
+
+// Grid containers
+$container-max-widths: () !default;
+$container-max-widths: map-merge(
+	(
+		sm: 540px,
+		md: 720px,
+		lg: 960px,
+		xl: 1140px,
+	),
+	$container-max-widths
+);
+
+@include _assert-ascending($container-max-widths, '$container-max-widths');
+
+// Grid columns
+$grid-columns: 12 !default;
+$grid-gutter-width: 30px !default;
+
+
+// Gradients
+$grad-1: linear-gradient(to top, rgba(20, 33, 51, 0.6) 0%, rgba(20, 33, 51, 0) 100%);

@@ -1,0 +1,98 @@
+{% extends "layout.tmpl.njk" %}
+
+{% block content %}
+
+   <!-- Banner start -->
+    {% set data = {
+        image: 'banner-financing/financ-baner',
+        subtitle: 'See the Interstate Cargo Trailer Difference',
+        title: 'The Toughest Cargo Trailers On The Planet.',
+        dataVieo: 'https://www.youtube.com/watch?v=cuHMj1p43JY',
+        logoName: 'logo-quality'
+    }
+    %}
+    
+    <section class="tp-section--default tp-banner tp-banner--bot tp-banner--logo tp-banner--overl-2 bg-img">
+        {% include "../templates/partials/blocks/banner-bot.njk" %}
+    </section>
+    <!-- Banner end -->
+
+     <!-- Inner navigation start -->
+    <section class="bg-grey padding-45t padding-md-65t">
+        {% set navItems = [
+            {title: "BUILT LIKE A TANK", link: '#bl-1'},
+            {title: "ROAD HUGGING AXLES & TIRES", link: '#bl-2'},
+            {title: "HIDDEN STRENGTH", link: '#bl-3'},
+            {title: "OUR TRAILERS DON'T LEAK. PERIOD.", link: '#bl-4'},
+            {title: "COMMERCIAL STRENGTH REAR DOORS & RAMPS", link: '#bl-5'},
+            {title: "SEALED FLOORING SYSTEM", link: '#bl-6'}]
+        %}
+        {% include "../templates/partials/blocks/inner-nav.njk" %}
+    </section>
+	<!-- Inner navigation end -->
+
+    <!-- Services start -->
+    <section class="padding-50t padding-md-85t padding-md-15b padding-lg-35b">
+        {% set services = [
+            {title: "Built Like a Tank", subtitle: '"Heavy Duty" comes standard', img: 'interst/serv/1-min', icon: 'serv-icon-1', text: "Our exclusive DuraFrame™ design means your Interstate cargo trailer is built to last. Interstate uses only the highest gauge American steel, and we don't take short cuts when it comes to construction. The tongue frame passes through the chassis and is welded to the main rails for superior strength."},
+            {title: "Road Hugging Axles & Tires", subtitle: 'Ready for whatever road your take', img: 'interst/serv/2-min', icon: 'serv-icon-2', text: "Interstate trailers are built with American-Made Dexter Axles, the quality leader in the Industry for over 50 years. Our trailers are constructed with either heavy duty leaf spring axles or rubber-dampened torsion axles that provide independent wheel suspension and superior handling."},
+            {title: "Hidden Strength", subtitle: 'Structurally fortified in all the right places', img: 'interst/serv/3-min', icon: 'serv-icon-3', text: "From our sturdy steel-framed door openings to the strength-reinforcing gussets on our corner posts. Our Ibeams are made from the same steel American sky-scrapers are built with, making Interstate's frame strength unmatched. All exclusive components of our DuraFrame™ trailer design system."},
+            {title: "Our Trailers Don’t Leak. Period.", subtitle: 'Our no-leak warranty gives you peace of mind', img: 'interst/serv/4-min', icon: 'serv-icon-4', text: "We utilize a one-piece aluminum roof with Quadra-Sealed™ four-layer roof seams that keep moisture out, ensuring that your cargo stays dry. With an internal roof liner that prevents roof vibration and wear, as well as formed steel internal frames and welded ridge reinforcements, the roofs on Interstate trailers are as strong as the rest of the trailer."},
+            {title: "Commercial Strength Doors & Ramps", subtitle: 'Doors and ramps that can handle heavy use every day', img: 'interst/serv/5-min', icon: 'serv-icon-5', text: "Interstate's doors and ramps feature heavy duty welded hinges. Most manufacturers use lower-grade bolts and straps that bend and sag over time. Interstate's steel door frame can't be bent. And with ramps rated from 2,500 to 4,000 pounds that are fortified with steel gussets and three-piece welded hinges, Interstate trailers can handle the heaviest cargo."},
+            {title: "Sealed Flooring System", subtitle: 'Designed with real road hazards in mind', img: 'interst/serv/6-min', icon: 'serv-icon-6', text: 'The steel chassis are protected by automotive-grade paint, and all-weather protective undercoating comes standard on all Interstate models. With 3/4" thick exterior grade plywood from northwest grown Douglas Fir, our floors are solid and the seams are completely sealed to keep moisture out.'}]
+        %}
+        {% include "../templates/partials/blocks/services.njk" %}
+    </section>
+    <!-- Services end -->
+
+    <!-- Why buy start -->
+    <section class="tp-section bg-img">
+        <picture>
+            <source data-srcset="./img/webp/benefits/benefits-bg-min.webp" type="image/webp" media="(min-width: 451px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="> 
+            <source data-srcset="./img/webp/benefits/benefits-bg-mob-min.webp" type="image/webp" media="(max-width: 450px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="> 
+            <source data-srcset="./img/benefits/benefits-bg-min.jpg" type="image/jpeg" media="(min-width: 451px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="> 
+            <source data-srcset="./img/benefits/benefits-bg-mob-min.jpg" type="image/jpeg" media="(max-width: 450px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="> 
+            <img data-src="./img/benefits/benefits-bg-min.jpg" alt="Why Buy Interstate" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+        </picture>
+            
+        <div class="container">
+            <h2 class="h2 c-white t-center margin-10b margin-md-20b">
+                Why Buy Interstate
+            </h2>
+
+            {% set videos = [
+                {title: 'Interstate Cargo Trailers vs. the competition', image: 'video-1-min', video: 'https://www.youtube.com/watch?v=cuHMj1p43JY'},
+                {title: 'Tornado proof trailers? Find out now', image: 'video-2-min', video: 'https://www.youtube.com/watch?v=DNOv_EtxmQ8'}]
+            %}
+            {% include "../templates/partials/blocks/videos.njk" %}
+        </div>
+    </section>
+    <!-- Why buy end -->
+
+    <!-- Blockquotes start -->
+    <section class="padding-50t padding-20b padding-md-85t padding-md-55b bg-grey">
+        <div class="container">
+           {% include "../templates/partials/blocks/blockquotes.njk" %}
+        </div>
+    </section>   
+    <!-- Blockquotes end -->
+
+    <!-- CTa start -->
+    <section class="tp-section bg-alter">
+        {% include "../templates/partials/blocks/red-cta.njk" %}
+    </section>
+    <!-- CTa end -->
+
+    <!-- Join community start -->
+    <section class="tp-section tp-section--sm bg-img">
+        {% include "../templates/partials/blocks/join-community.njk" %}
+    </section>
+	<!-- Join community end -->
+
+    <!-- Partners start -->
+    <section class="tp-partners">
+        {% include "../templates/partials/blocks/partners.njk" %}
+    </section>
+	<!-- Partners end -->
+
+{% endblock %}

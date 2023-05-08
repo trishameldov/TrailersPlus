@@ -1,0 +1,85 @@
+{% load wagtailuserbar menus_tags %}
+{% load static%}
+<!DOCTYPE html>
+<html lang="{{language}}">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}
+{% if custom_title|default:False %}
+{{ custom_title }}
+{% elif self.seo_title|default:False %}
+{{ self.seo_title }}
+{% else %}
+{{ self.title }}
+{% endif %}
+{% endblock %}
+{% block title_suffix %}
+{% with self.get_site.site_name|default:False as site_name %}
+{% if site_name %}- {{ site_name }}{% endif %}
+{% endwith %}
+{% endblock %}</title>
+
+  {# preconnect / dns-prefetch #}
+  {# inline scripts #}
+  <script>
+    function OptanonWrapper() { }
+    favlocation = {
+      location_id: "{% if store is not None %}{{ store.store_id }}{% else %}{{ request.location.id }}{% endif %}",
+      language: "{{ language }}",
+      podium_id: "{{ podium_id }}",
+      podium_number: "{{ podium_number }}",
+    }
+  </script>
+
+  {# stylesheets #}
+  {% if is_home %}{% else %}{% endif %}
+  <link rel="stylesheet" href="{% static 'css/vendor.min.css' %}{{version_number}}">
+  <link rel="stylesheet" href="{% static 'css/style.min.css' %}{{version_number}}">
+
+  {# inline styles #}
+  <style>@font-face{font-family:Oswald;src:url({% static '/fonts/oswald/Oswald-RegularItalic.woff2' %}) format("woff2");font-weight:400;font-style:normal;font-display:swap}@font-face{font-family:Oswald;src:url({% static '/fonts/oswald/Oswald-MediumItalic.woff2' %}) format("woff2");font-weight:500;font-style:normal;font-display:swap}@font-face{font-family:Oswald;src:url({% static '/fonts/oswald/Oswald-BoldItalic.woff2' %}) format("woff2");font-weight:600;font-style:normal;font-display:swap}@font-face{font-family:'Roboto Slab';src:url({% static '/fonts/roboto/RobotoSlab-Regular.woff2' %}) format("woff2");font-weight:400;font-style:normal;font-display:swap}</style>
+  <style>{% include 'includes/inline_css.html' %}</style>
+  {% block style %}{% endblock style %}
+
+  {# preload/prefetch/prerender #}
+  <link rel="preload" href="{% static 'fonts/oswald/Oswald-MediumItalic.woff2' %}" as="font" type="font/woff2" crossorigin> 
+  <link rel="preload" href="{% static 'fonts/oswald/Oswald-BoldItalic.woff2' %}" as="font" type="font/woff2" crossorigin>
+
+  {# everything else #}
+  {{ settings.site_settings.AdditionalHtml.head_code|safe }}
+
+  {% if request.canonical_url %}<link rel="canonical" href="{{ request.canonical_url }}">{% endif %}
+  <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+  <meta name="description" content="{% if meta_description %}{{ meta_description }}{% elif self.search_description %}{{ self.search_description }}{% endif %}">
+
+  {% block custom_font_style %}{% endblock custom_font_style %}
+</head>
+
+<body class="{% block body_class %}{% endblock %}">
+  {{ settings.site_settings.AdditionalHtml.body_code|safe }}
+  <div class="main-wrapp">
+    {% include 'includes/header.html' %}
+    {% wagtailuserbar %}
+
+    {% block content %}{% endblock %}
+
+    {% include 'includes/footer.html' %}
+  </div>
+
+  {# Global javascript #}
+  <script async src="{% static 'js/vendor/lazysizes.min.js' %}"></script>
+  <script defer src="{% static 'js/vendor/jquery-3.6.3.min.js' %}"></script>
+  <script defer src="{% static 'js/vendor/jquery-ui.min.js' %}"></script>
+  <script defer src="{% static 'js/libs.min.js' %}"></script>
+  {% block jslibs %}{% endblock %}
+
+  <script defer crossorigin="anonymous" src="{% static 'js/script.js' %}{{version_number}}"></script>
+  <script defer src="{% static 'js/marketing/spm.v1.min.js' %}"></script>
+  {% if is_home %}{% else %}
+  <script defer src="{% static 'js/product-page.js' %}{{version_number}}"></script>
+  {% endif %}
+
+  {% block script %}{% endblock %}
+</body>
+</html>

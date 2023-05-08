@@ -1,0 +1,21 @@
+{% set partners = [
+    { title: "alt-text", src: "logo1.jpg", srcMob: "logo1.jpg", name: "logo1", nameMob: "logo1" }, 
+    { title: "alt-text", src: "logo2.png", srcMob: "logo2.png", name: "logo2", nameMob: "logo2" },
+    { title: "alt-text", src: "logo3.jpg", srcMob: "logo3-mob.jpg", name: "logo3", nameMob: "logo3-mob" }, 
+    { title: "alt-text", src: "logo4.jpg", srcMob: "logo4.jpg", name: "logo4", nameMob: "logo4" }, 
+    { title: "alt-text", src: "logo5.jpg", srcMob: "logo5.jpg", name: "logo5", nameMob: "logo5" }, 
+    { title: "alt-text", src: "logo6.jpg", srcMob: "logo6.jpg", name: "logo6", nameMob: "logo6" }]
+%}
+<div class="container">
+    <div class="row">
+        {% for item in partners %}
+            <div class="tp-partners__item col-6 col-sm-4 col-md-4 col-lg-2 justify-content-center d-flex align-items-center">
+                <picture>
+                    <source data-srcset="./img/webp/partners/{{ item.name }}.webp" type="image/webp" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                    <source data-srcset="./img/partners/{{ item.src }}" type="image/jpeg" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                    <img data-src="./img/partners/{{ item.src }}" alt="{{ item.title }}" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                </picture>
+            </div>
+        {% endfor %}
+    </div>
+</div>

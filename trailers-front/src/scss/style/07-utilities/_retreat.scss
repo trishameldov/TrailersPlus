@@ -1,0 +1,133 @@
+/* ------------------------------------------- */
+/* PADDINGS AND MARGINS */
+/* ------------------------------------------- */
+.no-padd {
+	padding-right: 0;
+	padding-left: 0;
+}
+
+/* GENERAL RETREAT CLASS */
+$step: 5;
+$count: 18;
+
+/* EXTRA SMALL DEVICES */
+@for $i from 0 through $count {
+	.margin-#{$step*$i}t {
+		margin-top: 0px + $step * $i;
+	}
+}
+@for $i from 0 through $count {
+	.margin-#{$step*$i}b {
+		margin-bottom: 0px + $step * $i;
+	}
+}
+@for $i from 0 through $count {
+	.padding-#{$step*$i}t {
+		padding-top: 0px + $step * $i;
+	}
+}
+@for $i from 0 through $count {
+	.padding-#{$step*$i}b {
+		padding-bottom: 0px + $step * $i;
+	}
+}
+
+.padding-30l {
+	padding-left: 30px;
+}
+
+/* SMALL DEVICES */
+@include small-size-min {
+	@for $i from 0 through $count {
+		.margin-sm-#{$step*$i}t {
+			margin-top: 0px + $step * $i;
+		}
+	}
+	@for $i from 0 through $count {
+		.margin-sm-#{$step*$i}b {
+			margin-bottom: 0px + $step * $i;
+		}
+	}
+	@for $i from 0 through $count {
+		.padding-sm-#{$step*$i}t {
+			padding-top: 0px + $step * $i;
+		}
+	}
+	@for $i from 0 through $count {
+		.padding-sm-#{$step*$i}b {
+			padding-bottom: 0px + $step * $i;
+		}
+	}
+}
+
+/* MEDIUM DEVICES */
+@include medium-size-min {
+	@for $i from 0 through $count {
+		.margin-md-#{$step*$i}t {
+			margin-top: 0px + $step * $i;
+		}
+	}
+	@for $i from 0 through $count {
+		.margin-md-#{$step*$i}b {
+			margin-bottom: 0px + $step * $i;
+		}
+	}
+	@for $i from 0 through $count {
+		.padding-md-#{$step*$i}t {
+			padding-top: 0px + $step * $i;
+		}
+	}
+	@for $i from 0 through $count {
+		.padding-md-#{$step*$i}b {
+			padding-bottom: 0px + $step * $i;
+		}
+	}
+}
+
+/* LARGE DEVICES */
+@include large-size-min {
+	@for $i from 0 through $count {
+		.margin-lg-#{$step*$i}t {
+			margin-top: 0px + $step * $i;
+		}
+	}
+	@for $i from 0 through $count {
+		.margin-lg-#{$step*$i}b {
+			margin-bottom: 0px + $step * $i;
+		}
+	}
+	@for $i from 0 through $count {
+		.padding-lg-#{$step*$i}t {
+			padding-top: 0px + $step * $i;
+		}
+	}
+	@for $i from 0 through $count {
+		.padding-lg-#{$step*$i}b {
+			padding-bottom: 0px + $step * $i;
+		}
+	}
+}
+
+/* EXTRA LARGE DEVICES */
+@include extra-large-size-min {
+	@for $i from 0 through $count {
+		.margin-xl-#{$step*$i}t {
+			margin-top: 0px + $step * $i;
+		}
+	}
+	@for $i from 0 through $count {
+		.margin-xl-#{$step*$i}b {
+			margin-bottom: 0px + $step * $i;
+		}
+	}
+	@for $i from 0 through $count {
+		.padding-xl-#{$step*$i}t {
+			padding-top: 0px + $step * $i;
+		}
+	}
+	@for $i from 0 through $count {
+		.padding-xl-#{$step*$i}b {
+			padding-bottom: 0px + $step * $i;
+		}
+	}
+}

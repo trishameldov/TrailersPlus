@@ -1,0 +1,59 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load static %}
+
+<div class="tp-section" style="padding: 0;">
+    <div class="container">
+        <div class="row check-list">
+            <div class="col-12 col-xl-8">
+                <article>
+                    <h1 class="check-list__banner_title">{{ self.banner_title }}</h1>
+                    {% for check in self.check_list %}
+                        <div class="row banner_title__row">
+                            <div class="check-list__border col-2 col-sm-2 col-xl-2">
+                                <div class="check-list__checkmark">L</div>
+                            </div>  
+                            <div class="check-list__border__text col-10 col-sm-10 col-xl-10">
+                                {{ check.richtext | safe }}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </article>
+            </div>
+            <div class="col-xl-1"></div>
+            <div class="col-xl-3">
+                <div class="check-list tp-warranty__manuals">
+                    {% for manual in self.manuals %}
+                    <h3>{{ manual.title }}</h3>
+                    <div class="tp-warranty__manual-list">
+                        {% for item in manual.items %}
+                        <div class="tp-warranty__manual-item">
+                            {% if item.image %}
+                                <picture>
+                                    {% image item.image width-95 format-webp as image_webp %}
+                                    <source data-srcset="{{ image_webp.url }}" type="image/webp" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                                    {% image item.image width-95 format-webp as image_webp %}
+                                    <source data-srcset="{{ image_webp.url }}" type="image/webp" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                                    {% image item.image width-95 format-webp as img %}
+                                    <img data-src="{{ img.url }}" alt="logo" class="lazyload tp-warranty__manual-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                                </picture>
+                            {% endif %}
+                            <div class="tp-warranty__manual-wrapper">
+                                <a href="{{ item.button_link }}" class="tp-warranty__manual-link">{{ item.text }}</a>
+                            </div>
+                        </div>
+                        <div class="row"><a href="{{ item.button_link }}" class="tp-btn tp-btn--red tp-warranty__manual-btn">{{ item.button_text | safe }}</a></div>
+                        {% endfor %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    rows = document.getElementsByClassName('check-list__border');
+    for(idx=0; idx < rows.length; idx++){
+        rows[0].children[0].style.bottom = (rows[0].clientHeight * (rows[0].clientHeight > 100 ? 0.05 : 0.01)).toString() + 'px'
+    }
+</script>

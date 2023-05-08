@@ -1,0 +1,17 @@
+.tp-fleet-section{
+    .select2-container--default .valid{
+        border-color: var(--c-emerald) !important;
+        background-color: var(--c-white) !important;
+        background-position: right calc(2em) center!important;
+        @include check_icon;
+    }
+}
+
+.tp-custom-section{
+    .select2-container--default .valid{
+        border-color: var(--c-emerald) !important;
+        background-color: var(--c-white) !important;
+        background-position: right calc(2rem) center!important;
+        @include check_icon;
+    }
+}

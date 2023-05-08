@@ -1,0 +1,64 @@
+{% extends "layout.tmpl.njk" %}
+
+{% block content %}
+
+    <!-- Banner start -->
+    {% set data = {
+        image: 'for-sale/sale-banner',
+        title: 'The best price & selection of trailers<br> in Warrenton, VA , <b>GUARANTEED!</b>',
+        align: "left",
+        list: [
+            {text: 'Nationwide Warranties on Every Trailer We Carry'},
+            {text: '2 Free Inspections on Every Trailer Purchase ($198 value)'},
+            {text: 'Certified Trailer Repair Professionals'}]
+    }%}
+
+    {% set products = [
+        { title: "5 X 8 Enclosed Cargo", label: true, labelText: "SOLD", price: 'SOLD' , length: '2', priceNumber: '5000'}, 
+        { title: "6 X 10 Enclosed Cargo", label: false, price: '$6000' , length: '10', priceNumber: '6000'}, 
+        { title: "7 X 16 Victory Tandem", label: false, price: '$4500' , length: '12', priceNumber: '4500'}, 
+        { title: "7 X 16 Victory Tandem", label: false, price: '$1200' , length: '3', priceNumber: '1200'}, 
+        { title: "7 X 16 Victory Tandem", label: false, price: '$4000' , length: '4', priceNumber: '4000'}, 
+        { title: "7 X 16 Tandem Axle", label: false, price: '$4500', length: '10', priceNumber: '4500'}
+    ]
+    %}
+
+    {% set productPriceType = "sale" %}
+    
+    <section class="padding-40b padding-md-75t padding-md-80b tp-banner tp-banner--bot tp-banner--600 tp-banner--overl-4 bg-img">
+        {% include "../templates/partials/blocks/banner-bot.njk" %}
+    </section>
+    <!-- Banner end -->
+
+    <!-- Category filter start -->
+    <div class="padding-40t padding-20b padding-md-75t padding-md-25b bg-grey">
+        {% include "../templates/partials/blocks/category-filter.njk" %}
+    </div>
+    <!-- Category filter end -->
+
+    <section class="padding-45t padding-45b padding-md-80t padding-md-80b">
+        <div class="container">
+            <h2 class="h3 c-main">Enclosed Cargo Trailers for Sale from TrailersPlus</h2>
+            <ul class="tp-check-list tp-check-list--dark-txt">
+                <li>With factory direct prices on enclosed trailers, utility trailers, dump trailers, equipment trailers and car trailers, TrailersPlus can get you the trailer you want at a price you can afford!</li>
+                <li>TrailersPlus Warrenton, VA is part of the largest factory owned trailer dealership in America with stores and growing strong!</li>
+                <li>TrailersPlus Warrenton, VA has over 100 trailers in stock now, and all our stores combined have more than trailers nationwide!</li>
+                <li>Why waste your valuable time trying to fix up an old, broken down and unsafe trailer? Spend your time working or playing with a trailer built to last from TrailersPlus Warrenton, VA!</li>
+                <li>TrailersPlus is the exclusive, factory direct dealer of legendary Interstate Cargo Trailers. Interstate Trailers are proudly American made and are known for superior durability and dependability.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Join community start -->
+    <section class="tp-section tp-section--sm bg-img">
+        {% include "../templates/partials/blocks/join-community.njk" %}
+    </section>
+	<!-- Join community end -->
+
+    <!-- Partners start -->
+    <section class="tp-partners">
+        {% include "../templates/partials/blocks/partners.njk" %}
+    </section>
+	<!-- Partners end -->
+
+{% endblock %}

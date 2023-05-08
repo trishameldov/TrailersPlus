@@ -1,0 +1,59 @@
+/* ------------------------------------------- */
+/*                  BLOCKQUOTE                 */
+/* ------------------------------------------- */
+
+.tp-quote {
+
+    &__text {
+        position: relative;
+        background-color: var(--c-white);
+        padding: 30px;
+        color: var(--c-blue-dark);
+        font-size: 15px;
+        line-height: 26px;
+        box-shadow: 5px 5px 0 rgba(var(--ca-black), 0.05);
+
+        @include small-size-max {
+            padding: 20px;
+        }
+
+        &:before,
+        &:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            display: block;
+            width: 25px;
+            height: 25px;
+            border: 12.5px solid var(--c-white);
+            border-bottom-color: transparent;
+            border-right-color: transparent;
+            transform: translateY(100%);
+        }
+
+        &:before {
+            z-index: 1;
+        }
+
+        &:after {
+            content: '';
+            bottom: -5px;
+            left: 5px;
+            border-color: rgba(var(--ca-black), 0.05);
+            border-bottom-color: transparent;
+            border-right-color: transparent;
+            transform: translateY(100%);
+        }
+    }
+
+    &__author {
+        display: block;
+        margin-top: 38px;
+        font-size: 24px;
+        color: $color-main;
+        font-weight: 500;
+        line-height: 32px;
+        font-family: $f-oswald;
+    }
+}

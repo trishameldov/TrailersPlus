@@ -1,0 +1,9 @@
+@import 'global/mixins';
+@import 'global/variables';
+@import 'global/mixins-media';
+@import 'global/settings';
+
+@import 'vendor/bootstrap/variables';
+@import 'vendor/bootstrap/mixins/grid';
+
+@import 'style/main';

@@ -1,0 +1,59 @@
+/* ------------------------------------------- */
+/*                 PAGINATION                  */
+/* ------------------------------------------- */
+
+.tp-pagination {
+    
+    ul {
+        display: flex;
+        align-items: center;
+
+        li {
+            font-size: 16px;
+            font-weight: 500;
+            font-family: $f-oswald;
+            color: var(--c-blue-dark);
+            line-height: 1;
+
+            a {
+                color: #000;
+                font-weight: 400;
+                color: $color-main;
+                position: relative;
+                margin-right: 25px;
+                line-height: inherit;
+
+                &:hover,
+                &:focus {
+                    color: $color-alter;
+                }
+
+                &:after {
+                    @include vertical-separator(auto, -12.5px, var(--c-blue-main), 0.25);
+                    transform: skewX(-18deg);
+                    width: 2px;
+                    height: 15px;
+                    top: calc(50% - 7.5px);
+                }
+            }
+        }
+    }
+
+    &--white {
+        ul {
+
+            li {
+                color: var(--c-white);
+                line-height: initial;
+
+                a {
+                    color: inherit;
+
+                    &:after {
+                        background-color: var(--c-white);
+                    }
+                }
+            }
+        }
+    }
+}

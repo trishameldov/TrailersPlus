@@ -1,0 +1,46 @@
+/* ------------------------------------------- */
+/*                    PRICE                    */
+/* ------------------------------------------- */
+
+.tp-price {
+    font-size: 24px;
+    line-height: 26px;
+    color: $color-alter;
+    font-family: $f-oswald;
+    display: flex;
+    align-items: center;
+    $b: &;
+
+    span {
+        font-weight: 500;
+        font-size: 33px;
+        margin-left: 10px;
+
+        @include small-size-max {
+            font-size: 24px;
+            margin-left: 5px;
+        }
+    }
+
+    &--old {
+        color: var(--c-grey);
+        font-size: 16px;
+        text-transform: uppercase;
+        text-decoration: line-through;
+
+        &#{$b}--sm {
+            font-size: 14px;
+        }
+    }
+
+    &--sm {
+        font-size: 16px;
+
+        span {
+            margin-left: 5px;
+            font-size: 20px;
+            position: relative;
+            top: -2px;
+        }
+    }
+}

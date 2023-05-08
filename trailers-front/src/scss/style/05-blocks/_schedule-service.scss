@@ -1,0 +1,119 @@
+/* ------------------------------------------- */
+/*       SCHEDULE SERVICE                      */
+/* ------------------------------------------- */
+.tp-popup--service .tp-popup__body {
+    width: 100%;
+}
+.tp-popup--service .tp-popup__banner-wrapper {
+    min-width: 530px;
+    background-color: #f1f3f7;
+}
+.tp-popup--service .zip_input{
+    width: 345px;
+}
+.tp-popup--service .store-select-box{
+    border: 2.5px solid #66686b;
+    box-shadow: 0px 4px 4px 0px #00000040;
+    height: 103px;
+    width: 315px;
+    border-radius: 4px;
+    padding: 0.5rem;
+    margin: 1rem;
+}
+.tp-popup--service .store-select-box:focus-visible{
+    border: 2.5px solid #264D80;
+}
+.tp-popup--service .store-select-box:target{
+    border: 2.5px solid #264D80;
+}
+.tp-popup--service .store-select-box p span{
+    float: right;
+}
+.tp-popup--service .select2 .selection .select2-selection{
+    width: 441px;
+}
+.zip-wrapper input{
+    width: 345px;
+    position: relative;
+}
+
+.zip-wrapper .zip-icon{
+    position: relative;
+    z-index: 1;
+    left: -30px;
+    top:1px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    b {
+        border-color: var(--c-black) transparent transparent transparent;
+
+        @media(max-width: 991px){
+            left: 95%;
+        }
+    }
+}
+
+#chooseStore .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b {
+    border-color: var(--c-black) transparent transparent transparent;
+    @media(max-width: 991px){
+        left: 95%;
+    }
+}
+
+
+@media(max-width: 1088px){
+    .select2-container{
+        width: 100%!important;
+    }
+    .tp-popup--service .select2 .selection .select2-selection{
+        width: 100%;
+    }
+}
+@media(max-width: 1040px){
+    .service-title{
+        font-size: 32px!important;
+    }
+    .tp-popup__body{
+        padding: 0 35px;
+    }
+}
+@media(max-width: 1012px){
+    .zip-wrapper .zip-icon {
+        position: relative;
+        z-index: 1;
+        left: -30px;
+        top: 18px;
+        float: right;
+    }
+}
+@media(max-width: 1007px){
+    .zip-wrapper .zip-icon {
+        top: -38px;
+    }
+}
+@media(max-width: 991px){
+    .tp-popup--service .select2 .selection .select2-selection{
+        width: 100%!important;
+    }
+    .tp-popup--service .tp-form-control span{
+        width: 100%!important;
+    }
+    .zip-wrapper input {
+        width: 100%!important;
+        position: relative;
+    }
+    .tp-popup__banner-additional{
+        width: 100vw;
+    }
+}
+@media(max-width: 477px){
+    .tp-popup--service .store-select-box{
+        width: 100%;
+        height: auto;
+    }
+    .tp-popup--service .store-select-box p span {
+        margin-top: 1rem;
+    }
+}
+

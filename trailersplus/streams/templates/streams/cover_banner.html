@@ -1,0 +1,27 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load i18n %}
+{% load static cache %}
+{% get_current_language as LANGUAGE_CODE %}
+
+{% cache 604800 cover_banner LANGUAGE_CODE self.title %}
+<section class="tp-section tp-banner tp-banner--bot tp-banner--cover tp-banner--overl-{{ self.overlay }} bg-img">
+    <picture>
+        {% image self.background_image width-1920 format-webp as image_webp %}
+        <source data-srcset="{{ image_webp.url }}" type="image/webp" media="(min-width: 451px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+        {% image self.background_image_mobile width-450 format-webp as image_webp %}
+        <source data-srcset="{{ image_webp.url }}" type="image/webp" media="(max-width: 450px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+        {% image self.background_image width-1920 format-webp as image_webp %}
+        <source data-srcset="{{ image_webp.url }}" type="image/webp" media="(min-width: 451px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+        {% image self.background_image_mobile width-450 format-webp as image_webp %}
+        <source data-srcset="{{ image_webp.url }}" type="image/webp" media="(max-width: 450px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+        {% image self.background_image width-1920 format-webp as image_webp %}
+        <img data-src="{{ image_webp.url }}" alt="{{ image_webp.alt }}" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+    </picture>
+    <div class="container c-white t-center">
+        <h1 class="h1 c-white margin-10t margin-0b br-lg {% if self.float_left %}t-left{% endif %}" {% if self.blue_text %}style="color:#264D80"{% endif %}>{{ self.title }}</h1>
+        {% if self.textarea %}
+        <p class="c-white margin-20t br-sm">{{ self.textarea | safe }}</p>
+        {% endif %}
+    </div>
+</section>
+{% endcache %}

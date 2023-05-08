@@ -1,0 +1,28 @@
+.tp-location-name {
+    display: flex;
+    align-items: center;
+
+    .fa {
+        color: var(--c-primary);
+        color: var(--c-pomegranate);
+        font-size: 20px;
+        margin-right: 10px;
+    }
+
+    &__title,
+    &__name {
+        font-size: 20px;
+        font-family: $f-oswald;
+        color: var(--c-blue-dark);
+    }
+
+    &__title {
+        font-weight: 500;
+        color: var(--c-pomegranate);
+        margin-right: 10px;
+    }
+
+    &__name {
+        font-weight: 400;
+    }
+}

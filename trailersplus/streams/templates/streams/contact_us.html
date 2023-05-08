@@ -1,0 +1,103 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load static i18n cache %}
+{% get_current_language as LANGUAGE_CODE %}
+
+{% cache 604800 contact_us_part_1 LANGUAGE_CODE %}
+<section class="tp-section tp-contact-us">
+    <div class="container">
+        <h1 class="h2 c-main">{{ self.title }}</h1>
+        <p>{{ self.sub_title | safe }}</p>
+        <div class="d-flex contact-block-spacing mt-5">
+            <div class="tp-box-shadow-round bg-white text-center d-flex contact-block mx-2">
+                <a href="#" onclick="clickPodium()">
+                    <!-- <i class="fa fa-comment-lines c-pomegranate"></i> -->
+                    <img src="/web-pictures/icons/icon-contact-chat.png" alt="">
+                    <p class="m-0 px-3 contact-text ff-oswald w-100">{{ self.chat_us_text }}</p>
+                </a>
+            </div>
+{% endcache contact_us_part_1 %}
+{% cache 604800 contact_us_text_us LANGUAGE_CODE podium_number %}
+            <div class="tp-box-shadow-round bg-white text-center d-flex contact-block mx-2">
+                <a id="podium-txt" href="sms:+1{{ podium_number }}">
+                    <i class="fa fa-commenting c-pomegranate"></i>
+                    <p class="m-0 contact-text ff-oswald w-100 phones"><span>{{ self.text_us_text }} </span><br>{{ podium_number }}</p>
+                </a>
+            </div>
+            <div class="tp-box-shadow-round bg-white text-center d-flex contact-block mx-2">
+                <a href="tel:+1{{ request.location.phone }}">
+                    <i class="fa fa-phone c-pomegranate"></i>
+                    <p class="m-0 contact-text ff-oswald w-100 phones"><span>{{ self.call_us_text }}</span><br> <text class="phone-nos m-0 contact-text ff-oswald">{{ request.location.phone }}</text></p>
+                </a>
+            </div>
+{% endcache contact_us_text_us %}
+{% cache 604800 contact_us_part_2 LANGUAGE_CODE %}
+            <div class="tp-box-shadow-round bg-white text-center d-flex contact-block mx-2">
+                <a href="/trailer-dealerships/">
+                    <i class="fa fa-map-marker c-pomegranate"></i>
+                    <p class="m-0 contact-text ff-oswald w-100">{{ self.find_location_text }}</p>
+                </a>
+            </div>
+        </div>
+        <div class="tp-divider margin-50t margin-50b"></div>
+        <div class="row">
+            <div class="col-sm-12 col-md-6">
+                {% for cl in self.column_left %}
+                <h2 class="h3 c-main">{{ cl.title }}</h2>
+                <address class="margin-30b">
+                    <b>{{ cl.sub_title | safe }}</b>
+                    <span>{{ cl.textarea | safe }}</span>
+                </address>
+                <div class="tp-contact-us__socials">
+                    {% for ii in cl.social_links %}
+                    <div class="tp-contact-us__social-wrapper">
+                        <a href="{{ ii.link }}" target="_blank"><span class="tp-contact-us__social-icon tp-contact-us__{{ ii.icon_class }}"><i class="{{ ii.icon }}"></i></span></a>
+                        <a href="{{ ii.link }}" target="_blank">{{ ii.title }}</a>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endfor %}
+            </div>
+            <div class="col-sm-12 col-md-6">
+                {% for cr in self.column_right %}
+                    <h2 class="h3 c-main">{{ cr.title }}</h2>
+                    {% for o in cr.rows %}
+                        <div class="row">
+                            {% for ii in o.text_block %}
+                            <div class="col-12 col-sm-6 col-md-6 {% if forloop.counter != 4 %}margin-30b{% endif %}">
+                                <address>
+                                    <b>{{ ii.title }}</b>
+                                    <span>{{ ii.textarea | safe }}</span>
+                                </address>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endcache contact_us_part_2 %}
+
+<script>
+    function clickPodium() {
+        let iframe = document.querySelector("#podium-bubble");
+        if (iframe) {
+            iframe = document.querySelector("#podium-bubble").contentWindow;
+            let button = iframe.document.querySelector("#podium-website-widget-button");
+            button.click();
+        }
+    }
+
+    function formatPodiumNo() {
+        let anchor = document.getElementById("podium-txt");
+        if (anchor) {
+            let number = anchor.href.replace("sms:+1", "");
+            let formatted_no = number.replace(/[()]/g, "").replace(/[\s]/g, "-");
+            let sms = `sms:+1${formatted_no}`;
+            anchor.href = sms;
+        }
+    }
+
+    window.addEventListener("load", formatPodiumNo);
+</script>

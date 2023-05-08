@@ -1,0 +1,29 @@
+<div class="tp-ba-slider js-ba-slider">
+    <div class="tp-ba-slider__wrapper js-wrapper">
+        <div class="tp-ba-slider__before js-before">
+            <!-- after img here -->
+            <picture>
+                <source data-srcset="./img/webp/{{ after }}.webp" type="image/webp" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="> 
+                <source data-srcset="./img/{{ after }}.jpg" type="image/jpeg" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="> 
+                <img data-src="./img/{{ after }}.jpg" alt="logo" class="lazyload content-image" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" draggable="false">
+            </picture>
+        </div>
+        <div class="tp-ba-slider__after js-after">
+            <!-- before img here -->
+            <picture>
+                <source data-srcset="./img/webp/{{ before }}.webp" type="image/webp" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="> 
+                <source data-srcset="./img/{{ before }}.jpg" type="image/jpeg" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="> 
+                <img data-src="./img/{{ before }}.jpg" alt="logo" class="lazyload content-image" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" draggable="false">
+            </picture>
+        </div>
+        <div class="tp-ba-slider__scroller js-scroller">
+            <div class="tp-ba-slider__scroller-text tp-ba-slider__scroller-text--before">Before</div>
+            <div class="scroller__thumb">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="tp-ba-slider__scroller-text tp-ba-slider__scroller-text--after">After</div>
+        </div>
+    </div>
+</div>

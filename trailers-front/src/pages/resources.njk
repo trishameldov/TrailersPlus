@@ -1,0 +1,70 @@
+{% extends "layout.tmpl.njk" %}
+
+{% block content %}
+    <!-- Resources start -->
+    {% set data = [
+        {
+            imagePath: 'resources/book-1-min',
+            title: "Manual del propietario de remolque cerrado de Interstate",
+            text: 'Proporcionado con cada remolque cerrado interestatal comprado.'
+        }, {
+            imagePath: 'resources/book-2-min',
+            title: "Manual completo del propietario de remolque cerrado de Interstate",
+            text: 'Incluye diagramas de escritura, mantenimiento, listas de verificación, pautas de distribución de carga y más para remolques de carga cerrados de Interstate.'
+        }, {
+            imagePath: 'resources/book-3-min',
+            title: "Interstate Gooseneck Dump Trailer Owner's Manual",
+            text: 'Provided with every Interstate Gooseneck Dump Trailer purchased'
+        }
+    ] %}
+    <section class="padding-45t padding-20b padding-md-50t padding-md-55b tp-resources">
+        <div class="container">
+            <h1 class="h2 c-main margin-25b margin-md-60b tp-ls-small">Owner's Manuals</h1>
+
+            <div class="row">
+                {% for item in data %}
+                    {% if (loop.last) %}
+                        {% set class = '' %}
+                    {% else %}
+                        {% set class = 'margin-50b margin-md-70b' %}
+                    {% endif %}
+
+                    <div class="col-12 col-lg-6 {{ class }}">
+                        <div class="tp-resources__item">
+                            <div class="tp-resources__img">
+                                <picture>
+                                    <source data-srcset="./img/webp/{{ item.imagePath }}.webp" type="image/webp" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                                    <source data-srcset="./img/{{ item.imagePath }}.png" type="image/png" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                                    <img data-src="./img/{{ item.imagePath }}.png" alt="alt" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                                </picture>
+                            </div>
+
+                            <div class="tp-resources__desc">
+                                <div class="tp-resources__desc-wrap">
+                                    <h2 class="h4 c-main margin-15b">{{ item.title | safe }}</h2>
+                                    <p>{{ item.text }}</p>
+                                </div>
+
+                                <a href="#" class="tp-btn tp-btn--red tp-btn--small margin-30t">Download Manual</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- Resources end -->
+
+    <!-- Join community start -->
+    <section class="tp-section tp-section--sm bg-img">
+        {% include "../templates/partials/blocks/join-community.njk" %}
+    </section>
+    <!-- Join community end -->
+
+    <!-- Partners start -->
+    <section class="tp-partners">
+        {% include "../templates/partials/blocks/partners.njk" %}
+    </section>
+    <!-- Partners end -->
+
+{% endblock %}

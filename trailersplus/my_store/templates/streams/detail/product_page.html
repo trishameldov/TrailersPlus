@@ -1,0 +1,546 @@
+{% load wagtailcore_tags wagtailimages_tags wagtailuserbar %}
+{% load static %}
+{% load product_tags review_tags%}
+{% load humanize %}
+{% load i18n cache %}
+{% get_current_language as LANGUAGE_CODE %}
+
+<section class="padding-30t padding-20b padding-md-50t padding-md-60b">
+
+    <iframe class="d-none" name="print_frame" width="0" height="0" src="about:blank"></iframe>
+    <div class="container">
+        <div class="tp-product-head">
+            <div class="tp-product-head__back">
+                <a href="{{ request.scheme }}://{{ request.site_name }}/{{ store_slug }}/inventory/" class="tp-link tp-link--back">{{ self.back_to_inventory_text | safe }}</a>
+            </div>
+            <div class="tp-product-head__pagin">
+                <div class="tp-pagination">
+                    <ul>
+                        <li>
+                            <a href="{{ request.scheme }}://{{ request.site_name }}/{{ store_slug }}/">
+                                {{ store.store_name }}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ request.scheme }}://{{ request.site_name }}/{{ store_slug }}/inventory/{{ category }}/{{ product.common.category.web_category }}">
+                                {{ product.common.category.description }}
+                            </a>
+                        </li>
+                        <li id="vin" class="js-print">
+                            {{ product.common.vin }}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="tp-product-head__btns">
+                <!-- TODO mail link -->
+                <a href="mailto:?subject={{ store.store_name }} - {{ product.trans.short_description|extend_title:product.common.vin }}&body=https://{{ request.site_name }}{{ request.get_full_path }}" class="tp-btn tp-btn--xs tp-btn--text-sm tp-btn--grey">
+                    <i class="fa fa-envelope-o"></i>
+                    <span>{{ self.mail_text }}</span>
+                </a>
+            </div>
+        </div>
+        <h1 class="h3 margin-25b margin-md-30t margin-md-30b js-print tp-product-title">{{ product.trans.short_description|extend_title:product.common.vin }}</h1>
+        <div class="row">
+            <div class="col-lg-7 col-xl-8">
+
+                    {% if extimage360 %}
+                        <div class="tp-product-gallery" id="container-360">
+                            <div class="wrapper-360">
+                                {% for image in images360 %}
+                                    <div class="image_360 {{ image.get_image_type_display }}" id="{{ image.get_image_type_display }}-view">
+                                        <iframe src="{{ image.url }}" uuid="{{ image.uuid }}" type="{{ image.image_type }}" alt="This is an iframe for a 360 view of this trailer. Trailer type: {{ category }}. VIN: {{ image.vin_id }}. If you have questions, please contact us." frameborder="0" width="770px"></iframe>
+                                    </div>
+                                    {% comment %}<div class="image_360 {{ image.get_image_type_display }}" id="ext360-view">
+                                        <iframe src="http://staging.trailersplus.com/360-frame/" uuid="{{ image.uuid }}" type="{{ image.image_type }}" alt="This is an iframe for a 360 view of this trailer. Trailer type: {{ category }}. VIN: {{ image.vin_id }}. If you have questions, please contact us." frameborder="0" width="770px"></iframe>
+                                    </div> {% endcomment %}
+                                {% endfor %}
+                            </div>
+                            {% if product.common.status == 120 %}
+                                <span class="tp-product-gallery__status">{{ self.trailers_reserved }}</span>
+                            {% endif %}
+                            {% if product.common.status == 150 %}
+                                <span class="tp-product-gallery__status">{{ self.trailers_sold }}</span>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                    <div class="tp-product-gallery d-{% if extimage360 %}none{% else %}flex{% endif %}" id="photos-view">
+                        <div class="tp-product-gallery__left d-none d-xl-block">
+                            <div class="tp-swiper tp-swiper--prod-vertical js-swiper">
+                                <div class="swiper-container tp-swiper__container" data-slides="5" data-slides_lg="4" data-speed="500" data-direction="vertical" data-simulate_touch="1" data-mousewheel="1" data-spaces="10">
+                                    <div class="swiper-wrapper tp-swiper__wrapper">
+                                        {% comment %} {% if images360.exists %}
+                                        <div class="swiper-slide tp-swiper__slide">
+                                            <div class="bg-img">
+                                                <iframe src="{{ images360.url }}" uuid="{{ images360.uuid }}" type="{{ images360.image_type }}" alt="This is an iframe for a 360 view of this trailer. Trailer type: {{ category }}. VIN: {{ images360.vin_id }}. If you have questions, please contact us." frameborder="0"></iframe>
+                                            </div>
+                                        </div>
+                                        {% endif %} {% endcomment %}
+                                        {% for image in product.common.pictures %}
+                                            <div class="swiper-slide tp-swiper__slide">
+                                                <div class="bg-img">
+                                                    <picture>
+                                                        <!--<source data-srcset="./img/webp/product-single/small/img-1.webp" type="image/webp" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">-->
+                                                        <!--<source data-srcset="./img/product-single/small/img-1.jpg" type="image/jpeg" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">-->
+                                                        <img src="{{ image_path.original }}/{{ image.file }}" alt="alt" class=" js-print-img">
+                                                    </picture>
+                                                </div>
+                                            </div>
+                                        {% empty %}
+                                        <div class="swiper-slide tp-swiper__slide">
+                                            <div class="bg-img">
+                                                <picture>
+                                                    <img src="{{ image_path.original }}/comingsoon.jpg" alt="alt">
+                                                </picture>
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tp-product-gallery__right">
+                            {% if product.common.status == 120 %}
+                                <span class="tp-product-gallery__status">{{ self.trailers_reserved }}</span>
+                            {% endif %}
+                            {% if product.common.status == 150 %}
+                                <span class="tp-product-gallery__status">{{ self.trailers_sold }}</span>
+                            {% endif %}
+
+                            
+                            <div class="tp-swiper tp-swiper--product tp-swiper--prod-horizontal js-swiper">
+                                <div class="swiper-container tp-swiper__container" data-slides="1" data-thumbs="1" data-speed="400" data-autoheight="true" data-autoplay="4000">
+                                    <div class="swiper-wrapper tp-swiper__wrapper">
+                                        {% for image in product.common.pictures %}
+                                        <div class="swiper-slide tp-swiper__slide bg-img">
+                                            <picture>
+                                                <source media="(min-width:1080px)" type="image/webp" srcset="{{ image_path.original }}/{{ image.file }}">
+                                                <source media="(min-width:760px)" type="image/jpeg" srcset="{{ image_path.ds800 }}/{{ image.file }}">
+                                                <img alt="alt" class="js-print-img" src="{{ image_path.ds400 }}/{{ image.file }}" {% if forloop.first%} {% endif %}>
+                                            </picture>
+                                        </div>
+                                        {% empty %}
+                                        <div class="swiper-slide tp-swiper__slide bg-img">
+                                            <picture>
+                                                <img src="{{ image_path.original }}/comingsoon.jpg" alt="alt" class="js-print-img">
+                                            </picture>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="swiper-button-prev tp-swiper__prev"></div>
+                                <div class="swiper-button-next tp-swiper__next"></div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    {% if extimage360 %}
+                        <div class="row">
+                            <div class="col-12 text-center mt-3">
+                                <div class="btn-group buttons" role="group" aria-label="360 change view buttons">
+                                    <button type="button" class="btn btn-secondary active" id="ext360-btn" onclick="changeView('ext360')">{{self.exterior_btn}}</button>
+                                    {% if intimage360 %}
+                                        <button type="button" class="btn btn-secondary" id="int360-btn" onclick="changeView('int360')">{{self.interior_btn}}</button>
+                                    {% endif %}
+                                </div>
+                                <div>
+                                    {% if product.common.pictures %}
+                                        <button type="button" class="btn btn-secondary mt-2" onclick="changeView('photos')" id="photos-view-btn">{{self.photos_btn}}</button>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                
+            </div>
+            <div class="col-lg-5 col-xl-4 margin-20t margin-lg-0t">
+                <div class="tp-product-info">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-12">
+                            <div class="price_msrp">
+                                <div class="d-flex align-items-center justify-content-center justify-content-md-start">
+                                    <div class="js-print">
+
+
+                                        <div class="tp-price">{{ self.sale_price_text }}
+                                            <span>{{ product.common.sale_price|str_price }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="js-print">
+                                    <div class="d-flex align-items-center mt-1 justify-content-center justify-content-md-start">
+                                        <div class="tp-price tp-price--old">MSRP: {{ product.common.msrp|str_price }}</div>
+                                    </div>
+                                </div> 
+                            </div>                           
+                            <div class="js-print">
+                                <div class="tp-product-info__getoff margin-20t">
+                                    {% if store.state != 'OR' %}
+                                    {% with product.common.sale_price|off_formula:product.common.calculated_cash_price as off_price %}
+                                        {% if off_price > 0 %}
+                                            <strong>{{ self.get_off_sale_text|off_text_template:off_price }}</strong>
+                                        {% endif %}
+                                    {% endwith %}
+                                    {% endif %}
+                                </div>
+                                <div class="tp-product-info__text margin-10t">
+                                    <p>
+                                        {{ self.financing_available_text | safe }}
+                                        <b>${{ product.common.calculated_cash_price|formula|stringformat:".2f" }}/mo.</b>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-12">
+                            <!-- APOINTMENT -->
+                            <div class="tp-double-btn margin-20t">
+                                <a href="#schedule" class="tp-btn tp-btn--red js-popup-schedule">
+                                    {{ self.schedule_an_appointment_button_text }}
+                                </a>
+                                <a href="#reviews-popup" class="tp-btn tp-btn--red js-popup question-icon">
+                                    <i class="fa fa-question-circle"></i>
+                                </a>
+                            </div>
+
+                            {% if product.common.status == 100 %}
+                            <div class="tp-double-btn margin-20t">
+                                <a href="/checkout" class="tp-btn js-reserv-btn tp-btn--grey">
+                                    {{ self.reserve_trailer_button_text }}
+                                </a>
+                                <a href="#reserve-trailer" class="tp-btn tp-btn--grey js-popup">
+                                    <i class="fa fa-question-circle"></i>
+                                </a>
+                            </div>
+                            <a href="#" id="js-to-cart-btn" class="tp-btn js-to-cart-btn margin-20t d-block">{{ self.add_to_cart_button_text }}</a>
+                            {% endif %}
+                        </div>
+                        
+
+{% cache 604800 cache_product_detail_part3 product.common.vin LANGUAGE_CODE %}
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="tp-tabs js-tabs mt-5">
+            <div class="tp-tabs__head">
+                <ul class="tp-tabs__list">
+                    <li class="tp-tabs__list-item active">
+                        <p class="tp-tabs__list-link js-tab-link">{{self.description_tab}}</p>
+                    </li>
+                    <li class="tp-tabs__list-item">
+                        <p class="tp-tabs__list-link js-tab-link">{{ self.specifications_text }}</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="tp-tabs__content">
+                <!-- first item must to have "active class" -->
+                <div class="tp-tabs__box js-tab-box active">
+                    <div class="margin-10t margin-10b">
+                        <p>{{ product.trans.long_description|safe }}</p>
+
+                        <div class="tp-product-info__location margin-25t margin-md20t">
+                            <i class="fa fa-map-marker"></i>
+                            {{ self.trailer_located_at_text }}
+                            <div class="tp-located-at">
+                                <span class="tp-located-at__toggle js-located-at">{{ store.store_name }}</span>
+                                <div class="tp-located-at__box">
+                                    <div class="tp-located-at__map">
+                                        <div class="tp-map">
+                                            <div class="tp-map-img" style="background-image: url('/web-pictures/store_maps/{{store.store_id}}.png'); background-position: center; background-repeat: no-repeat;">
+                                            </div>
+                                            <div class="map-caption">{{self.map_image_caption}}</div>
+                                        </div>
+                                        <a href="https://www.google.com/maps/place/{{ store.store_lat }}+{{ store.store_long }}/@{{ store.store_lat }},{{ store.store_long }},15z" target="_blank" class="tp-btn tp-btn--text-sm tp-btn--red tp-btn--direction">
+                                            <span>{{ self.get_direction_text }}</span>
+                                        </a>
+                                    </div>
+                                    <div class="tp-located-at__info">
+                                        <div class="tp-loc-info-item">
+                                            <i class="fa fa-map-marker"></i>
+                                            <div>
+                                                {{ store.store_name }} <br> {{ store.store_address }}
+                                                {{ store.get_state_display }} {{ store.store_zip }}
+                                            </div>
+                                        </div>
+                                        <div class="tp-loc-info-item">
+                                            <i class="fa fa-phone"></i>
+                                            <div>
+                                                <a href="tel:+1{{ store.store_phone }}" class="phone-nos">{{ store.store_phone }}</a>
+                                            </div>
+                                        </div>
+                                        <div class="tp-loc-info-item">
+                                            <i class="fa fa-clock-o"></i>
+                                            <div>
+                                                <table>
+                                                    <tbody>
+                                                        {{ store.work_hours|group_work_hours }}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p>
+                            {{ self.free_delivery_text | safe }}
+                            <a href="tel:+1{{ store.store_phone }}" class="phone-nos">{{ store.store_phone }}</a>
+                        </p>
+
+                    </div>
+                </div>
+                <div class="tp-tabs__box js-tab-box">
+                    <div class="row margin-md-10b">
+                        <div class="col-lg-6">
+                            <div class="margin-30b js-print">
+                                <h4 class="h5 h5--18-sm c-main">{{ self.trailer_details_text }}</h4>
+                                <ul class="tp-details">
+                                    <li>
+                                        <span class="tp-details__l">{{ self.color_text|title }}:</span>
+                                        <span class="tp-details__r">{{ product.trans.color }}</span>
+                                    </li>
+                                    <li>
+                                        <span class="tp-details__l">{{ self.size_text|title }}:</span>
+                                        <span class="tp-details__r">{{ product.trans.short_description }}</span>
+                                    </li>
+                                    <li>
+                                        <span class="tp-details__l">{{ self.tires_text|title }}:</span>
+                                        <span class="tp-details__r">{{ product.trans.tires }}</span>
+                                    </li>
+                                    <li>
+                                        <span class="tp-details__l">{{ self.coupler_text|title }}:</span>
+                                        <span class="tp-details__r">{{ product.common.coupler_size }}</span>
+                                    </li>
+                                    <li>
+                                        <span class="tp-details__l">Vin#:</span>
+                                        <span class="tp-details__r">{{ product.common.vin }}</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="margin-30b js-print">
+                                <h4 class="h5 h5--18-sm c-main">{{ self.features_text }}</h4>
+                                <ul class="tp-details">
+                                    <li>
+                                        <span class="tp-details__l">{{ self.clearance_lights_text|title }}:</span>
+                                        <span class="tp-details__r">{{ product.trans.clearance_lights }}</span>
+                                    </li>
+                                    <li>
+                                        <span class="tp-details__l">{{ self.tail_lights_text|title }}:</span>
+                                        <span class="tp-details__r">{{ product.trans.tail_lights }}</span>
+                                    </li>
+                                    <li>
+                                        <span class="tp-details__l">{{ self.undercoating_text|title }}:</span>
+                                        <span class="tp-details__r">{{ product.trans.protected_undercarriage }}</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="margin-30b js-print">
+                                <h4 class="h5 h5--18-sm c-main">{{ self.dimensions_text }}</h4>
+                                <ul class="tp-details">
+                                    <li>
+                                        <span class="tp-details__l">{{ self.overall_length_text|title }}:</span>
+                                        <span class="tp-details__r">{{ product.common.overall_length|calculate_dimensions }}</span>
+                                    </li>
+                                    <li>
+                                        <span class="tp-details__l">{{ self.overall_width_text|title }}:</span>
+                                        <span class="tp-details__r">{{ product.common.overall_width|calculate_dimensions }}</span>
+                                    </li>
+                                    <li>
+                                        <span class="tp-details__l">{{ self.overall_height_text|title }}:</span>
+                                        <span class="tp-details__r">{{ product.common.overall_height|calculate_dimensions }}</span>
+                                    </li>
+                                    <li>
+                                        <span class="tp-details__l">{{ self.interior_length_text|title }}:</span>
+                                        <span class="tp-details__r">{{ product.common.interior_length|calculate_dimensions }}</span>
+                                    </li>
+                                    <li>
+                                        <span class="tp-details__l">{{ self.interior_width_text|title }}:</span>
+                                        <span class="tp-details__r">{{ product.common.interior_width|calculate_dimensions }}</span>
+                                    </li>
+                                    <li>
+                                        <span class="tp-details__l">{{ self.interior_height_text|title }}:</span>
+                                        <span class="tp-details__r">{{ product.common.interior_height|calculate_dimensions }}</span>
+                                    </li>
+                                    <li>
+                                        <span class="tp-details__l">{{ self.rear_door_height_text|title }}:</span>
+                                        <span class="tp-details__r">{{ product.common.rear_door_height|calculate_dimensions }}</span>
+                                    </li>
+                                    <li>
+                                        <span class="tp-details__l">{{ self.rear_door_width_text|title }}:</span>
+                                        <span class="tp-details__r">{{ product.common.rear_door_width|calculate_dimensions }}</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="margin-30b js-print">
+                                <h4 class="h5 h5--18-sm c-main">{{ self.axles_and_brakes_text }}</h4>
+                                <ul class="tp-details">
+                                    <li>
+                                        <span class="tp-details__l">GVWR:</span>
+                                        <span class="tp-details__r">{{ product.common.gvwr|title |title}} lbs.</span>
+                                    </li>
+                                    <li>
+                                        <span class="tp-details__l">{{ self.empty_weight_text|title }}:</span>
+                                        <span class="tp-details__r">{{ product.common.empty_weight }} lbs.</span>
+                                    </li>
+                                    <li>
+                                        <span class="tp-details__l">{{ self.suspensions_text|title }}:</span>
+                                        <span class="tp-details__r">{{ product.trans.suspension }}</span>
+                                    </li>
+                                    <li>
+                                        <span class="tp-details__l">{{ self.brakes_text|title }}:</span>
+                                        <span class="tp-details__r">{{ product.trans.brakes }}</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="margin-30b js-print">
+                                <h4 class="h5 h5--18-sm c-main">{{ self.construction_text }}</h4>
+                                <ul class="tp-details">
+                                    <li>
+                                        <span class="tp-details__l">{{ self.frame_text|title }}:</span>
+                                        <span class="tp-details__r">{{ product.trans.frame }}</span>
+                                    </li>
+                                    <li>
+                                        <span class="tp-details__l">{{ self.frame_centers_text|title }}:</span>
+                                        <span class="tp-details__r">{{ product.common.frame_centers }}"</span>
+                                    </li>
+                                    <li>
+                                        <span class="tp-details__l">{{ self.wall_centers_text|title }}:</span>
+                                        <span class="tp-details__r">{{ product.common.wall_centers }}"</span>
+                                    </li>
+                                    <li>
+                                        <span class="tp-details__l">{{ self.flooring_text|title }}:</span>
+                                        <span class="tp-details__r">{{ product.trans.floor}}</span>
+                                    </li>
+                                    <li>
+                                        <span class="tp-details__l">{{ self.walls_text|title }}:</span>
+                                        <span class="tp-details__r">{{ product.trans.side_walls}}</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="margin-30b js-print">
+                                <h4 class="h5 h5--18-sm c-main">{{ self.nationwide_warranty_text }}</h4>
+                                <ul class="tp-details">
+                                    <li>
+                                        <span class="tp-details__l">{{ self.overall_text|title }}:</span>
+                                        <span class="tp-details__r">{{ product.trans.warranty }}</span>
+                                    </li>
+                                    <li>
+                                        <span class="tp-details__l">{{ self.roof_text|title }}:</span>
+                                        <span class="tp-details__r">{{ product.trans.roof_warranty }}</span>
+                                    </li>
+                                    <li>
+                                        <span class="tp-details__l">{{ self.axles_text|title }}:</span>
+                                        <span class="tp-details__r">{{ product.trans.axle_warranty }}</span>
+                                    </li>
+                                    <li>
+                                        <span class="tp-details__l">{{ self.tires_warranty_text|title }}:</span>
+                                        {% if not "carry-on" in custom_title|lower %}
+                                            {% if not "karavan" in custom_title|lower %}
+                                                {% if not '4YMB' in product.common.vin %}
+                                                    <span class="tp-details__r"  id="tires-url">{{ self.tires_url_text|safe }}</span>
+                                                {% endif %}
+                                            {% endif %}
+                                        {% endif %}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endcache cache_product_detail_part3 %}
+</section>
+
+
+{% block script %}
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxO2Bw0GxAbVKZrd5yYiKwS2iFVSHDkO8"></script>
+    <script>
+        
+        var container_360 = document.getElementById('container-360');
+        var exterior_view = document.getElementById('ext360-view');
+        var interior_view = document.getElementById('int360-view');
+        var exterior_btn = document.getElementById('ext360-btn');
+        var interior_btn = document.getElementById('int360-btn');
+        var photos_view = document.getElementById('photos-view');
+        var photos_view_btn = document.getElementById('photos-view-btn');
+        if(exterior_view){
+            if(interior_view){
+                interior_view.style.display = 'none';
+            }
+            console.log('existing ext');
+            if(document.getElementById("photos-view")){
+                console.log('existing pics');
+                photos_view.style.display = 'none';
+                photos_view.style.setProperty('display', 'none', 'important');
+            }
+        }
+        
+        
+
+        function changeView(view){
+            console.log('click');
+            console.log(view);
+            switch(view) {
+                case "ext360":
+                    exterior_btn.classList.add('active');
+                    if(interior_view){
+                        interior_btn.classList.remove('active');
+                        interior_view.style.display = 'none';
+                    }
+                    photos_view_btn.classList.remove('active');
+                    container_360.style.display = 'block';
+                    exterior_view.style.display = 'block';
+                    if (photos_view){
+                        photos_view.style.setProperty('display', 'none', 'important');
+                    }
+                    break;
+                case "int360":
+                    exterior_btn.classList.remove('active');
+                    interior_btn.classList.add('active');
+                    photos_view_btn.classList.remove('active');
+                    container_360.style.display = 'block';
+                    exterior_view.style.display = 'none';
+                    if(interior_view){
+                        interior_view.style.display = 'block';
+                    }
+                    if (photos_view){
+                        photos_view.style.setProperty('display', 'none', 'important');
+                    }
+                    break;
+                case "photos":
+                    exterior_btn.classList.remove('active');
+                    if(interior_view){
+                        interior_btn.classList.remove('active');
+                        interior_view.style.display = 'none';
+                    }
+                    photos_view_btn.classList.add('active');
+                    container_360.style.display = 'none';
+                    exterior_view.style.display = 'none';
+                    photos_view.style.display = 'block';
+                    photos_view.classList.remove('d-none');
+                    photos_view.classList.add('d-flex');
+                    break;
+            }
+
+        }
+
+    </script>
+{% endblock script %}

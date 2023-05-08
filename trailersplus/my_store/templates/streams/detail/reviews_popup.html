@@ -1,0 +1,76 @@
+{% load wagtailcore_tags wagtailimages_tags wagtailuserbar %}
+{% load static product_tags %}
+<!-- Reviews Popup start -->
+<div id="reviews-popup" class="white-popup mfp-hide tp-popup tp-popup--reviews">
+    <div class="tp-popup__body p-0">
+        <div class="px-5">
+            <div class="t-center">
+                <div class="h3 c-main">{{ self.title }}</div>
+                <div class="h4 margin-10t">{{ self.sub_title }}</div>
+            </div>
+            <div class="fz14 margin-30t">
+                <p>
+                    {{ self.text }}
+                </p>
+            </div>
+            <div class="t-center mb-5">
+                <a href="#schedule" class="tp-btn tp-btn--red js-reserv-btn-2 tp-btn--arrow margin-30t js-popup-schedule">
+                    <span>{{ self.schedule_button }}
+                    <div class="tp-btn__loader"></div>
+                </a>
+            </div>
+        </div>
+
+        <div class="reviews-wrapper py-5">
+            <div class="row justify-content-center">
+                <div class="col-12 col-sm-8">
+                    <div class="t-center mb-5 mx-4 mx-sm-0">
+                        <div class="h4 margin-10t c-main">{{ self.reviews_title }}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="px-3">
+                <div class="row justify-content-center">
+                    {% for review in self.items %}
+                        <div class="col-12 col-sm-4 mb-4">
+                            <div class="tp-box-shadow-round bg-white">
+                                <div class="t-center">
+                                    <h4 class="tp-review__title h4">
+                                        {{ review.name }}
+                                    </h4>
+                                    <div class="customer-reviews margin-10b">
+                                        {% for n in 5|times %}
+                                            {% if forloop.counter <= review.stars_number %}
+                                                <span class="fa fa-star checked"></span>
+                                            {% else %}
+                                                <span class="fa fa-star"></span>
+                                            {% endif %}
+                                            
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <p class="tp-review__text margin-5b margin-md-30b">
+                                    {{ review.text }}
+                                </p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+</div>
+<!-- Reserve Popup end -->
+
+<style>
+    .customer-reviews .fa {
+        color: var(--c-grey-light);
+    }
+
+    .customer-reviews .checked {
+        color: var(--c-supernova);
+    }
+</style>
+

@@ -1,0 +1,208 @@
+{% extends "layout.tmpl.njk" %}
+
+{% block content %}
+
+    {% set data = {
+        image: 'banner-financing/financ-baner',
+        title: 'Enclosed Cargo Trailers',
+        align: "left"
+    }
+    %}
+
+    {% set pagination = [
+        {
+            title: "Home"
+        }, {
+            title: "Enclosed Cargo Trailers",
+            last: true
+        }
+    ]
+ %}
+
+    {% set paginationStyle = "white"
+ %}
+
+    {% set buttons = [
+        {
+            link: "#cargo-1",
+            title: "4’ & 5’ Wide Cargo Trailers"
+        }, {
+            link: "#cargo-2",
+            title: "6’ Wide Cargo Trailers"
+        }, {
+            link: "#cargo-3",
+            title: "7’ Wide Cargo Trailers"
+        }, {
+            link: "#cargo-4",
+            title: "8.5’ Wide Cargo Trailers"
+        }, {
+            link: "#cargo-5",
+            title: "8.5' Wide Car Haulers and Allsport Trailers"
+        }, {
+            link: "#cargo-6",
+            title: "Custom Trailers"
+        }
+    ]
+ %}
+
+    {% 
+        set lists = [
+            {logo: "enclosed-cargo/logos/patriot-min", data: [
+                'Trailer-rated tires',
+                'Built to TrailersPlus specifications',
+                'Bolted aluminum door hinges',
+                '.024” aluminum siding',
+                'White or gray wheels (depending on trailer color)',
+                'LED lights',
+                'Available in most popular trailer sizes',
+                '1-year material and workmanship warranty']
+            },
+            {logo: "enclosed-cargo/logos/victory-min", data: [
+                'Radial tires',
+                'Welded steel door hinges',
+                '1 piece, no seam roof design',
+                '.024” aluminum siding for white or .030” aluminum siding for color',
+                'Spare tire mount',
+                'Gusseted construction for strength and flexibility',
+                'Dexter axles',
+                'LED lights',
+                'Available in most popular trailer sizes',
+                '1-year roof warranty',
+                '1-year bumper-to-bumper warranty']
+            },
+            {logo: "enclosed-cargo/logos/loadrunner-min", title: 'Includes features from Victory model plus:', data: [
+                'Tie downs - floor and wall',            
+                '.030” aluminum siding',            
+                'Aero flow vents',            
+                'Stabilizer jack',            
+                'Heavy duty roof design',            
+                '6” extra height',            
+                'Diamond plate fenders',            
+                'Door catch and handles',            
+                'EZ flex suspension on 102” wides',            
+                'Optional upgrades: RV door, 6” extra height, 4” drop axle',            
+                '5-year roof warranty',            
+                '2-year bumper-to-bumper warranty']
+            },
+            {logo: "enclosed-cargo/logos/proseries-min", title: 'Includes features from LoadRunner model plus:', data: [
+                'Dexter torsion axles',                   
+                'RV door',                   
+                'Heavy duty tie downs',                   
+                'Loading lights: 1 on side, 2 on rear',                   
+                'Chrome rims',                   
+                'Exterior diamond plate rock guard trim',                   
+                'Taller diamond plate stone guard',                   
+                'Lifetime roof warranty',                   
+                '3-year bumper-to-bumper warranty']
+            }]
+    %}
+
+    {% 
+        set about = [
+            {image: "enclosed-cargo/features/1", title: "DuraFrame™ Design", text: 'Our exclusive DuraFrame™ design means your Interstate cargo trailer is built to last. Interstate uses only the highest gauge American steel, and we don’t take shortcuts when it comes to construction. The tongue frame passes through the chassis and is welded to the main rails for superior strength.'},
+            {image: "enclosed-cargo/features/2", title: "Dexter Axles", text: 'Interstate trailers are built with American-Made Dexter Axles, the quality leader in the Industry for over 50 years. Our trailers are constructed with either heavy duty leaf spring axles or rubber-dampened torsion axles that provide independent wheel suspension and superior handling.'},
+            {image: "enclosed-cargo/features/3", title: "I-Beams", text: 'From our sturdy steel-framed door openings to the strength-reinforcing gussets on our corner posts, our I-beams are made from the same steel American skyscrapers are built with. Structurally fortified in all the right places, Interstate’s frame strength is unmatched.'},
+            {image: "enclosed-cargo/features/4", title: "One-Piece Aluminum Roof", text: 'We utilize a one-piece aluminum roof with Quadra-Sealed™ four-layer roof seams that keep moisture out, ensuring that your cargo stays dry. With an internal roof liner that prevents roof vibration and wear, as well as formed steel internal frames and welded ridge reinforcements, the roof of an Interstate trailer is as strong as the rest of the trailer.'},
+            {image: "enclosed-cargo/features/5", title: "Commercial Strength Floor and Walls", text: 'Interstate’s doors and ramps feature heavy duty welded hinges. Most manufacturers use lower-grade bolts and straps that bend and sag over time. Interstate’s steel door frame can’t be bent. And with ramps rated from 2,500 to 4,000 pounds that are fortified with steel gussets and three-piece welded hinges, Interstate trailers can handle the heaviest cargo.'},
+            {image: "enclosed-cargo/features/6", title: "Sealed Flooring System", text: 'The steel chassis are protected by automotive-grade paint, and all-weather protective undercoating comes standard on all Interstate models. With ¾” thick exterior grade plywood from northwest grown Douglas Fir, our floors are solid, and the seams are completely sealed to keep moisture out.'},
+            {image: "enclosed-cargo/features/7", title: "Diamond Plate Stone Guard", text: "The Interstate brand delivers quality and durability. That’s why we install diamond plate stone guards on all our Interstate cargo trailers, preventing rock chips and ensuring your trailer stays in showroom condition for the years to come. On top of that, diamond plate stone guards increase your trailer's curb appeal."},
+            {image: "enclosed-cargo/features/8", title: "Hat-bow Stud Design", text: 'We utilize a hat-bow vertical stud design to give your trailer increased strength and the best resistance to flexion. As opposed to a tube beam design, a hat-bow stud design provides a larger contact surface area. More surface area contact gives you a sturdier trailer leading to a longer life and safer driving.'},
+            {image: "enclosed-cargo/features/9", title: "Gussets", text: "Interstate’s added gussets mean your cargo trailer is built to last. These reinforcements add exponential strength to your trailer, resisting flexion and providing a more durable design. We don’t take shortcuts when it comes to construction."},
+            {image: "enclosed-cargo/features/10", title: "Radial Tires", text: 'All Interstate trailers come equipped with radial tires. They provide a longer life and increased fuel mileage when compared to bias ply tires. Not only that, but radial tires are much less prone to blowouts. In line with Interstate’s legendary durability, we want our trailers to get you to and from the job with zero hassle and are willing to go the extra mile.'},
+            {image: "enclosed-cargo/features/11", title: '⅜” Plywood Interior Walls', text: 'Every Interstate cargo trailer has ⅜” plywood interior walls to give years of reliable use. Connected to our hat-bow studs and ¾” plywood floor, this is a recipe for a strong and sturdy unit. Install e-track, tie downs, or build shelving. These heavy-duty walls will handle it with ease.'},
+            {image: "enclosed-cargo/features/12", title: "Concealed Wiring", text: 'Not only do we provide quality and durability, but we give our trailers curb appeal, too! Why have a perfectly constructed trailer with exposed wiring? We conceal all our trailer’s wiring to make our trailers seamless from the outside in.'},
+            {image: "enclosed-cargo/features/13", title: "Spare Tire Mount", text: 'Don’t be caught on the side of the road without a spare tire! We provide a spare tire mount on the right side of the rear door that is easily accessible in any road emergency. We install our spare tire mounts off the floor to keep it from detracting from your precious cargo space.'},
+            {image: "enclosed-cargo/features/14", title: "Warranty", text: 'ALL Interstate cargo trailers come with a roof and bumper-to-bumper warranty. Our Pro Series trailers have a lifetime roof warranty and a 3-year bumper-to-bumper warranty. We aim to ensure everyone driving an Interstate has a great driving experience. Check the product page for the specific warranty on the trailer you’re looking at.'}]
+    %}
+
+    {% set aboutTitleTag = "h4"
+ %}
+
+    {% 
+        set sizes = [
+            {id: "cargo-1", image: "enclosed-cargo/sizes/size-1", title: "4’ & 5’ Wide Enclosed Cargo Trailers", text1: "<p>Our 4’ and 5’ wide enclosed cargo trailers are designed for short-term storage and for hauling small equipment. Often used for luggage transport and store advertisements, these trailers are perfect for quick and easy transportation.</p>", text2: "<p>Tandem Axle: 8.5x16 to 8.5x35</p>"},
+            {id: "cargo-2", image: "enclosed-cargo/sizes/size-2", title: "6’ Wide Enclosed Cargo Trailers", text1: "<p>Our 6’ wide enclosed cargo trailers are great for construction, storage, or hauling your toys. Suited to be pulled with SUVs, light trucks and larger vehicles, these trailers offer a versatile solution for both work and play.</p>", text2: "<p>Single Axle: 6x10, 6x12, and 6x14</p><p>Tandem Axle: 6x12</p>"},
+            {id: "cargo-3", image: "enclosed-cargo/sizes/size-3", title: "7’ Wide Enclosed Cargo Trailers", text1: "<p>Our 7’ Wide Enclosed Cargo TrailersOur 7’ wide enclosed cargo trailers are designed for those who want additional height and payload capacity over 6’ wide cargo trailers. These tandem axle trailers are perfect for work and play, capable of hauling enough equipment for a crew of workers during the week and larger ATVs on the weekend.</p>", text2: "<p>Tandem Axle: 7x12, 7x14, 7x16</p>"},
+            {id: "cargo-4", image: "enclosed-cargo/sizes/size-4", title: "8.5’ Wide Enclosed Cargo Trailers", text1: "<p>Optioned with double doors or a rear ramp, our 8.5’ wide enclosed cargo trailers are built with the construction worker in mind. Upgraded to 5,200lb axles, these cargo trailers are designed for hauling heavy loads. Many customers build these trailers out with storage and shelving specific to their industry. Whether you are a carpenter, landscaper, roofer, or framer, these heavy-duty trailers offer a blank slate for you to build the trailer to suit your job.</p>", text2: "<p>Tandem Axle: 8.5x16, 8.5x18</p>"},
+            {id: "cargo-5", image: "enclosed-cargo/sizes/size-5", title: "8.5’ Wide Car Haulers, Allsport and Snowsport Trailers", text1: "<p>As our largest enclosed cargo trailers on the lot, these are built with continuous 8” I-beams to support the heaviest of loads. Aside from our deckover snowsport edition, these cargo trailers have a no-show beaver tail design in the rear for ease of loading and additional door clearance. Our 8.5x20 and 8.5x24 cargo trailers can be set up for snowsports, UTVs and ATVs (Allsport), as a car hauler, or as a standard cargo trailer. Some of our customers also use these for moving and camping with the installation of an A/C unit. These trailers include many features and options for ultimate customization.</p>", text2: "<p>Tandem Axle: 8.5x16 to 8.5x35</p>"},
+            {id: "cargo-6", image: "enclosed-cargo/sizes/size-6", title: "Custom Trailers", text1: "<p>Do you have a specific design in mind? Partner with one of our custom trailer experts to build your perfect trailer from the frame up. Food vendors, weekend campers, and on-the-job classroom trainers alike have worked with us to create the exact trailer to fit their needs.</p>", btn: "number"}]
+    %}
+
+    <section class="tp-section--default tp-banner tp-banner--bot tp-banner--logo tp-banner--overl-2 bg-img">
+        {% include "../templates/partials/blocks/banner-bot.njk" %}
+    </section>
+    <!-- Banner end -->
+
+    <!-- Why buy start -->
+    <section class="padding-50t padding-20b padding-md-85t padding-md-55b bg-img">
+        <picture>
+            <source data-srcset="./img/webp/benefits/benefits-bg-min.webp" type="image/webp" media="(min-width: 451px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+            <source data-srcset="./img/webp/benefits/benefits-bg-mob-min.webp" type="image/webp" media="(max-width: 450px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+            <source data-srcset="./img/benefits/benefits-bg-min.jpg" type="image/jpeg" media="(min-width: 451px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+            <source data-srcset="./img/benefits/benefits-bg-mob-min.jpg" type="image/jpeg" media="(max-width: 450px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+            <img data-src="./img/benefits/benefits-bg-min.jpg" alt="Why Buy Interstate" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+        </picture>
+
+        {% include "../templates/partials/blocks/buttons-columns.njk" %}
+
+    </section>
+    <!-- Why buy end -->
+
+    <!-- Models we offer start -->
+    <section class="padding-45t padding-5b padding-md-75t padding-15b bg-img">
+        <div class="container">
+            <h2 class="h2 t-center margin-30b margin-md-60b">Models We Offer</h2>
+            <div class="row">
+                {% include "../templates/partials/blocks/list-columns.njk" %}
+            </div>
+        </div>
+    </section>
+    <!-- Models we offer end -->
+
+    <!-- Features start -->
+    <section class="padding-45t padding-md-75t padding-md-10b bg-grey">
+        <div class="container">
+            <h2 class="h2 t-center margin-40b margin-md-60b br-sm">Features of Interstate Victory, LoadRunner,<br>
+                and Pro Series Trailers</h2>
+            {% include "../templates/partials/blocks/about-columns.njk" %}
+        </div>
+    </section>
+    <!-- Features End -->
+
+    <!-- Trailers Sizes start -->
+    <section class="tp-section tp-section--sizes bg-blue-l">
+        <div class="container">
+            <h2 class="h2 c-white t-center">Trailer Sizes</h2>
+            {% include "../templates/partials/blocks/sizes.njk" %}
+        </div>
+    </section>
+    <!-- Trailers Sizes end -->
+
+    <!-- Why Wait start -->
+    {% set data = {
+        title: "For over <b>20 years,</b> TrailersPlus has been dedicated to providing premier trailers, parts and service nationwide.",
+        text: "For over 20 years, TrailersPlus has been dedicated to providing premier trailers, parts and service nationwide. We have over 65 locations across the country, offering the largest selection and 100 trailers at every store. We focus on delivering the highest quality trailers and the best customer service in the industry.",
+        tel: 'Why Wait? Call Now! <a href="tel:8778507587">877-850-7587</a>',
+        inspection: {
+            title: 'FREE INSPECTION',
+            text: 'On top of that, we offer a <u>free annual 40-point inspection</u> on your trailer for the life of its use. Nobody else does that.'
+        }
+    } %}
+    <section class="tp-why-wait padding-50t padding-md-85t padding-0b">
+        {% include "../templates/partials/blocks/why-wait.njk" %}
+    </section>
+    <!-- Why Wait end -->
+
+    <!-- Join community start -->
+    <section class="tp-section tp-section--sm bg-img">
+        {% include "../templates/partials/blocks/join-community.njk" %}
+    </section>
+    <!-- Join community end -->
+
+    <!-- Partners start -->
+    <section class="tp-partners">
+        {% include "../templates/partials/blocks/partners.njk" %}
+    </section>
+    <!-- Partners end -->
+
+{% endblock %}

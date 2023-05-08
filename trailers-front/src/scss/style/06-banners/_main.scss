@@ -1,0 +1,298 @@
+/* ------------------------------------------- */
+/*               BANNERS GENERAL               */
+/* ------------------------------------------- */
+
+.tp-banner {
+    $b: &;
+
+    position: relative;
+    height: calc(100vh - 106px);
+    max-height: 800px;
+    min-height: 262px;
+
+    @include large-size-max {
+        height: calc(100vh - 123px);
+    }
+
+    @media (max-width: 1024px) and (min-height: 800px) {
+        max-height: 520px;
+    }
+    
+    @include medium-size-max {
+        height: auto;
+    }
+
+    @include small-size-max {
+        min-height: 300px;
+        max-height: 100%;
+        height: auto;
+        padding-top: 85px;
+    }
+
+    &:after {
+        position: absolute;
+        display: block;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        opacity: 0.7;
+        z-index: -1;
+    }
+
+    &__play {
+        position: absolute;
+        z-index: 2;
+        left: 50%;
+        bottom: 50%;
+        transform: translateX(-50%);
+
+        @mixin playBtn() {
+            position: relative;
+            bottom: auto;
+            margin-bottom: 30px;
+            left: auto;
+            transform: translateX(0);
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        @media(max-height: 800px) and (max-width: 1440px) {
+            @include playBtn();
+            margin-bottom: 80px;
+        }
+
+        @include large-size-max {
+            @include playBtn();
+        }
+
+        @include mobile-menu-max {
+            margin-bottom: 0;
+        }
+    }
+
+    &__logo {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%,  50%);
+        z-index: 2;
+    }
+
+    &--600 {
+        height: auto;
+        min-height: 600px;
+        max-height: 100%;
+
+        @media (max-width: 1024px) and (min-height: 800px) {
+            min-height: 520px;
+        }
+        
+        @include medium-size-max {
+            height: 100%;
+            min-height: auto;
+            max-height: 100%;
+        }
+    }
+
+    &--cover {
+        height: auto;
+        min-height: 262px;
+        max-height: 100%;
+        
+        @include medium-size-max {
+            height: 100%;
+            min-height: auto;
+            max-height: 100%;
+        }
+    }
+
+    &--logo-large {
+        #{$b}__logo {
+            bottom: -25px;
+
+            @include small-size-max {
+                bottom: -5px;
+                max-width: 90px;
+            }
+        }
+    }
+
+    &--overl-1 {
+        &:after {
+            content: "";
+            background-image: linear-gradient(to top, var(--c-blue-dark) 0%, rgba(var(--ca-blue-dark), 0) 50%);
+            
+            @include mobile-menu-max {
+                background-image: linear-gradient(to top, var(--c-blue-dark) 0%, rgba(var(--ca-blue-dark), 0) 100%);
+            }
+        }
+    }
+
+    &--overl-2 {
+        &:after {
+            content: "";
+            background-image: linear-gradient(to top, var(--c-blue-dark) 0%, rgba(var(--ca-blue-dark), 0.4) 100%);
+
+            @include medium-size-max {
+                background-image: linear-gradient(to top, var(--c-blue-dark) 0%, rgba(var(--ca-blue-dark), 0.6) 100%);
+            }
+        }
+    }
+
+    &--overl-3 {
+        &:after {
+            content: "";
+            background-image: linear-gradient(to top, var(--c-blue-dark) 0%, rgba(var(--ca-blue-dark), 0.3) 100%);
+        }
+    }
+
+    &--overl-4 {
+        &:after {
+            content: "";
+            background-image: linear-gradient(to top, var(--c-blue-dark) 0%, rgba(var(--ca-blue-dark), 0.3) 100%);
+            opacity: 1;
+        }
+    }
+    
+    &--overl-5 {
+        &:after {
+            content: "";
+            background-image: linear-gradient(to top, var(--c-blue-dark) 0%, rgba(var(--ca-blue-dark), 0.0) 100%);
+            opacity: 1;
+        }
+    }
+
+    &--sm {
+        width: 100%;
+        max-width: 770px;
+        margin: 0 auto;
+        height: auto;
+    }
+
+    &--logo {
+        min-height: calc(100vh - 140px);
+        height: auto;
+
+        @include large-size-max {
+            min-height: 520px;
+        }
+
+        @include mobile-menu-max {
+            min-height: auto;
+        }
+    }
+
+    &--bot {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        overflow: initial;
+
+        &#{$b}--with-message {
+            padding-top: 20px;
+            justify-content: space-between;
+
+            @include medium-size-max {
+                padding-top: 0;
+            }
+        }
+
+        .t-left {
+
+            p {
+                margin-left: 0;
+            }
+        }
+    
+        p {
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 970px;
+        }
+    
+        &__text-wrapper {
+            width: 100%;
+        }
+
+        > div {
+            z-index: 1;
+        }
+    }
+
+    &--width-1100 {
+        #{$b}__wrapper {
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    &__buttons-wrapper {
+        display: flex;
+        justify-content: center;
+        margin-top: -30px;
+        margin-bottom: -30px;
+
+        @include medium-size-max {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        a {
+            margin-right: 30px;
+            width: 420px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &:last-child {
+                margin-right: 0;
+                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            }
+
+            @include medium-size-max {
+                margin-right: 0;
+                margin-bottom: 30px;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+
+            @include extra-small-size-max {
+                width: 360px;
+            }
+
+            @media screen and (max-width: 450px) {
+                width: 300px;
+            }
+
+            span {
+                @media screen and (max-width: 450px) {
+                    text-align: left;
+                    line-height: 25px;
+                    margin-left: 20px;
+                }   
+            }
+
+            picture > img {
+                min-width: 22px;
+                margin-right: 10px;
+                margin-top: -1px;
+            }
+        }
+    }
+
+    &--cat {
+
+        .tp-check-list {
+
+            @include small-size-max {
+                display: none;
+            }
+        }
+    }
+}

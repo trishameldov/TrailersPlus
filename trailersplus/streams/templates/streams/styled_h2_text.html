@@ -1,0 +1,21 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load static %}
+<section class="tp-section">
+    <div class="container">
+        <div class="c-blue-dark">
+        <h2 class="w-full t-center c-main margin-50b">{{ self.title }}</h2>
+        <p>{{ self.body | safe }}</p>
+        </div>
+        {% for opt in self.financing_options %}
+            <div class="c-blue-dark margin-30b margin-50t">
+                <h2 class="h3 c-main margin-20b">{{ opt.subtitle }}</h2>
+                <div class="tp-richtext">
+                    {{ opt.option_text | safe }}
+                <div>
+            </div>
+        {% endfor %}
+            
+
+
+    </div>
+</section>

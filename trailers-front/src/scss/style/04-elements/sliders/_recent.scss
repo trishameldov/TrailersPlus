@@ -1,0 +1,205 @@
+/* ------------------------------------------- */
+/*              RECENT WORK SLIDER             */
+/* ------------------------------------------- */
+
+.tp-swiper {
+	$b: &;
+
+	&--recent {
+
+        #{$b} {
+
+            &__image {
+                height: 330px;     
+                transition: box-shadow 300ms ease-in;
+
+                @include extra-large-size-max {
+                    height: 240px;
+                }
+
+                @include medium-size-max {
+                    height: 200px;
+                }
+
+                @include extra-small-size-max {
+                    height: 110px;
+                }
+            }
+
+            &__slide {
+                transform: scale(0.8);
+                transition: transform 300ms ease-in, opacity 300ms ease-in;
+                height: auto;
+            }
+
+            &__container {
+                padding-bottom: 140px;
+                padding-top: 50px;
+
+                @include medium-size-max {
+                    padding-bottom: 125px;
+                }
+
+                @include small-size-max {
+                    padding-bottom: 85px;
+                }
+
+                @include extra-small-size-max {
+                    padding-bottom: 75px;
+                }
+            }
+
+            &__pagination {
+                bottom: -5px;
+            }
+
+            &__link {
+                margin-top: 20px;
+                transition: 250ms ease;
+
+
+                @include small-size-max {
+                    font-size: 20px;
+                    line-height: 30px;
+                    margin-top: 10px;
+                }
+
+                @media (max-width: 370px) {
+                    font-size: 16px;
+                    line-height: 1.5;
+                }
+
+                &:after {
+                    font-size: 22px;
+                    position: relative;
+                    top: -4px;
+                    color: $color-alter;
+
+                    @include medium-size-max {
+                        position: static;
+                    }
+
+                    @include small-size-max {
+                        font-size: 16px;
+                    }    
+                }
+
+                &:hover {
+                    color: $color-alter;
+                }
+            }
+
+            &__prev,
+			&__next {
+				margin-top: 0;
+				top: calc(50% - 75px);
+                transform: translateY(-50%);
+                
+                @include extra-large-size-max {
+                    top: calc(50% - 95px);
+                }
+
+				&:before {
+					opacity: 0.8;
+					background-color: var(--c-white);
+				}
+
+				&:after {
+					color: var(--c-blue-dark);
+				}
+				
+				&:hover {
+					
+					&:before {
+						opacity: 1;
+					}
+					&:after {
+						color: $color-alter;
+					}
+				}
+            }
+            
+            &__next {
+				right: 55px;
+				
+				@include extra-large-size-max {
+					right: 30px;
+				}
+			}
+
+			&__prev {
+				left: 55px;
+
+				@include extra-large-size-max {
+					left: 30px;
+				}
+			}
+        }
+
+        .swiper-slide-active {
+            transform: scale(1.25);
+
+            #{$b} {
+
+                &__link {
+                    color: $color-alter;
+                }
+
+                &__image {
+                    box-shadow: 10px 10px 0 rgba(var(--ca-blue-grey), 0.15);   
+                    
+                    @include small-size-max {
+                        box-shadow: 5px 5px 0 rgba(var(--ca-blue-grey), 0.15);   
+                    }
+                }
+            }
+        }
+
+        .swiper-slide-next,
+        .swiper-slide-prev {
+            opacity: 0.65;
+            
+            #{$b} {
+
+                &__link {
+
+                    @include small-size-max {
+                        opacity: 0;
+                        pointer-events: none;
+                    }
+                }
+            }
+        }
+
+        .swiper-slide-prev {
+            transform: scale(0.95) translateX(-100px);
+
+            @include large-size-max {
+                transform: scale(0.95) translateX(-70px);
+            }
+           
+            @include medium-size-max {
+                transform: scale(0.95) translateX(-100px);
+            }
+
+            @include extra-small-size-max {
+                transform: scale(0.95) translateX(-60px);
+            }
+        }
+        .swiper-slide-next {
+            transform: scale(0.95) translateX(100px);
+
+            @include large-size-max {
+                transform: scale(0.95) translateX(70px);
+            }
+            
+            @include medium-size-max {
+                transform: scale(0.95) translateX(100px);
+            }
+
+            @include extra-small-size-max {
+                transform: scale(0.95) translateX(60px);
+            }
+        }
+    }
+}

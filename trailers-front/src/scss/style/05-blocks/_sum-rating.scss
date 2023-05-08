@@ -1,0 +1,142 @@
+.tp-sum-rating {
+    &__wrapper {
+        max-width: 690px;
+        z-index: 1;
+    }
+
+    &__wrapper2 {
+        z-index: 1;
+        display: flex;
+        justify-content: space-around;
+
+        @include large-size-max {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        > div:nth-child(2) {
+            max-width: 570px;
+
+            @include large-size-max {
+                margin-top: 40px;
+            }
+
+            @include medium-size-max {
+                margin-top: 20px;
+            }
+        }
+    }
+
+    .h2 {
+        b {
+            padding-right: 6px;
+        }
+    }
+}
+
+.tp-large-rating {
+    position: relative;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    height: 74px;
+    width: fit-content;
+    z-index: 1;
+
+    @media screen and (max-width: 450px) {
+        height: 60px;
+    }
+
+    &:before {
+        @include skew();
+        background-color: rgba(var(--ca-blue-main), 0.1);
+    }
+
+    &__count {
+        position: relative;
+        height: 74px;
+        color: var(--c-white);
+        font-family: $f-oswald;
+        font-size: 40px;
+        font-weight: 500;
+        line-height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 18px;
+        z-index: 1;
+
+        @media screen and (max-width: 450px) {
+            height: 60px;
+            padding: 0 12px 0 12px;
+            font-size: 34px;
+        }
+    
+        &:before {
+            @include skew();
+            background-color: var(--c-pomegranate);
+
+            @media screen and (max-width: 450px)  {
+                margin-left: 0px;
+            }
+        }
+    }
+
+    &__stars-wrapper {
+        width: 100%;
+        padding: 0 25px;
+        display: flex;
+        height: 74px;
+
+        @media screen and (max-width: 450px) {
+            height: 60px;
+        }
+    }
+
+    &__stars {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        i {
+            color: rgba(var(--ca-white), 0.8);
+            font-size: 41px;
+            margin: 0 4px;
+
+            @media screen and (max-width: 450px) {
+                font-size: 26px;
+            }
+        }
+
+        &--fill {
+            z-index: 2;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+
+            i {
+                color: var(--c-pomegranate);
+            }
+        }
+    }
+
+    &__star {
+        position: relative;
+
+        .fill {
+            z-index: 2;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            bottom: 0;
+            overflow: hidden;
+
+            i {
+                color: var(--c-pomegranate);
+            }
+        }
+    }
+}

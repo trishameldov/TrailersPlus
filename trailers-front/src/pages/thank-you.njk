@@ -1,0 +1,35 @@
+{% extends "layout.tmpl.njk" %}
+
+{% block content %}
+
+    <section class="tp-thank-you bg-img">
+        <picture>
+            <source data-srcset="./img/webp/404/bg-min.webp" type="image/webp" media="(min-width: 451px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+            <source data-srcset="./img/webp/404/bg-mob-min.webp" type="image/webp" media="(max-width: 450px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+            <source data-srcset="./img/404/bg-min.jpg" type="image/jpeg" media="(min-width: 451px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+            <source data-srcset="./img/404/bg-mob-min.jpg" type="image/jpeg" media="(max-width: 450px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+            <img data-src="./img/404/bg-min.jpg" alt="alt" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+        </picture>
+
+        <div class="container t-center">
+            <h1 class="c-white">A representative from TrailersPlus will call you shortly to schedule your appointment.</h1>
+
+            <a href="#" class="tp-btn tp-btn--red margin-30t">
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                Continue Shopping</a>
+        </div>
+    </section>
+
+    <!-- Join community start -->
+    <section class="tp-section tp-section--sm bg-img">
+        {% include "../templates/partials/blocks/join-community.njk" %}
+    </section>
+    <!-- Join community end -->
+
+    <!-- Partners start -->
+    <section class="tp-partners">
+        {% include "../templates/partials/blocks/partners.njk" %}
+    </section>
+    <!-- Partners end -->
+
+{% endblock %}

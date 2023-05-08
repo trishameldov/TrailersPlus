@@ -1,0 +1,20 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load static i18n cache %}
+{% get_current_language as LANGUAGE_CODE %}
+
+{% cache 604800 call_now LANGUAGE_CODE self.text %}
+<section class="tp-section tp-section--default bg-blue-l">
+    <div class="container t-center">
+        <h3 class="h3 c-white">
+            {{ self.text }} <br>
+            {{ self.sub_text }}
+        </h3>
+        <br>
+        {% if self.button_text %}
+            <a href="#schedule-service" class="tp-btn tp-btn--red tp-btn--shadow js-popup-service">
+                <span>{{self.button_text}}</span>
+            </a>
+        {% endif %}
+    </div>
+</section>
+{% endcache %}

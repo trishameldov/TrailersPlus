@@ -1,0 +1,132 @@
+{% extends "layout.tmpl.njk" %}
+
+{% block content %}
+
+    <!-- Banner start -->
+    {% set data = {
+        image: 'careers/banner-bg',
+        title: 'More than 350,000 Satisfied Customers',
+        text: 'From contractors, landscapers, motorcyclists, and campers to ATV enthusiasts or something else, we have thousands of satisfied customers who wanted to share their TrailersPlus experience!'
+    }
+    %}
+    <section class="tp-section--default tp-banner tp-banner--bot tp-banner--600 tp-banner--overl-2 bg-img">
+        {% include "../templates/partials/blocks/banner-bot.njk" %}
+    </section>
+    <!-- Banner end -->
+
+    <!-- Slider start -->
+    {% set reviews = [
+        {
+            title: "Well what can I say service was great…",
+            rating: 5,
+            time: "49 minutes ago",
+            text: "Well what can I say service was great like to haggle a little bit with him that was fun I had a very professional…",
+            author: "Henry West"
+        }, {
+            title: "This is by far the best place to…",
+            rating: 5,
+            time: "50 minutes ago",
+            text: "Well what can I say service was great like to haggle a little bit with him that was fun I had a very professional…",
+            author: "Henry West"
+        }, {
+            title: "Well what can I say service was great…",
+            rating: 5,
+            time: "51 minutes ago",
+            text: "Well what can I say service was great like to haggle a little bit with him that was fun I had a very professional…",
+            author: "Henry West"
+        }, {
+            title: "This is by far the best place to…",
+            rating: 4,
+            time: "52 minutes ago",
+            text: "Well what can I say service was great like to haggle a little bit with him that was fun I had a very professional…",
+            author: "Henry West"
+        }, {
+            title: "This is by far the best place to…",
+            rating: 5,
+            time: "53 minutes ago",
+            text: "Well what can I say service was great like to haggle a little bit with him that was fun I had a very professional…",
+            author: "Henry West"
+        }, {
+            title: "Well what can I say service was great…",
+            rating: 3,
+            time: "54 minutes ago",
+            text: "Well what can I say service was great like to haggle a little bit with him that was fun I had a very professional…",
+            author: "Henry West"
+        }
+    ]
+ %}
+    <section class="tp-section tp-section--default">
+        {% include "../templates/partials/blocks/customers-said.njk" %}
+    </section>
+    <!-- Slider end -->
+
+    <!-- Our Customers Said start -->
+    {% set data = [
+        { imagePath: 'trailer-reviews/1', city: 'Best Auto Sales' },
+        { imagePath: 'trailer-reviews/2', city: 'Lakeside, CA' },
+        { imagePath: 'trailer-reviews/3', city: 'Houston, TX' },
+        { imagePath: 'trailer-reviews/4', city: 'Fillmore, CA' },
+        { imagePath: 'trailer-reviews/5', city: 'West Memphis, AR' },
+        { imagePath: 'trailer-reviews/6', city: 'Redlands, CA' },
+        { imagePath: 'trailer-reviews/7', city: 'Arlington, TX' },
+        { imagePath: 'trailer-reviews/8', city: 'Kingman, AZ' },
+        { imagePath: 'trailer-reviews/9', city: 'Lebanon, TN' },
+        { imagePath: 'trailer-reviews/10', city: 'Enumclaw, WA' },
+        { imagePath: 'trailer-reviews/11', city: 'Salt Lake City, UT' },
+        { imagePath: 'trailer-reviews/12', city: 'Alpine, CA' },
+        { imagePath: 'trailer-reviews/13', city: 'Springfield, MO' },
+        { imagePath: 'trailer-reviews/14', city: 'Springfield, MO' },
+        { imagePath: 'trailer-reviews/15', city: 'Springfield, MO' },
+        { imagePath: 'trailer-reviews/16', city: 'Springfield, MO' }
+    ] %}
+    <section class="tp-customer-said padding-45t padding-md-75t padding-20b padding-md-15b bg-white-grey">
+        <div class="container">
+            <h2 class="h2 w-full t-center margin-30b margin-md-70b">Our Customers Said</h2>
+
+            <div class="row">
+                {% for item in data %}
+                    {% if (loop.last) %}
+                        {% set class = 'margin-30b margin-md-0b' %}
+                    {% else %}
+                        {% set class = 'margin-30b margin-md-70b' %}
+                    {% endif %}
+
+                    <div class="tp-customer-said__col col-12 col-md-6 {{ class }}">
+                        <div class="tp-customer-said__item">
+                            <div class="p-relative tp-customer-said__img-wrapper">
+                                <picture>
+                                    <source data-srcset="./img/webp/{{ item.imagePath }}-min.webp" type="image/webp" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                                    <source data-srcset="./img/{{ item.imagePath }}-min.jpg" type="image/jpeg" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                                    <img data-src="./img/{{ item.imagePath }}-min.jpg" alt="alt" class="lazyload tp-img--shadow" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                                </picture>
+
+                                <div class="tp-customer-said__city c-main">{{ item.city }}</div>
+                            </div>
+
+                            <div class="tp-customer-said__desc">
+                                <div class="tp-customer-said__desc-wrapper js-desc-wrapper">
+                                    <p>"Casey was great to work with, he was very friendly and knowledgeable about the product. The whole office stayed late to make sure I was taken care of, I was actually surprised at how willing they were to stay and help. So far my experience has exceeded my expectations and I would highly recommend Casey and Trailers Plus in Springfield to everyone. Thanks!" -Justin B.</p>
+                                </div>
+                                <a href="#" class="tp-link c-h-blue-main tp-link--small margin-30t js-show-more">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- Our Customers Said end -->
+
+    <!-- Join community start -->
+    <section class="tp-section tp-section--sm bg-img">
+        {% include "../templates/partials/blocks/join-community.njk" %}
+    </section>
+    <!-- Join community end -->
+
+    <!-- Partners start -->
+    <section class="tp-partners">
+        {% include "../templates/partials/blocks/partners.njk" %}
+    </section>
+    <!-- Partners end -->
+
+{% endblock %}

@@ -1,0 +1,45 @@
+
+{% if( works.title.color === "main" ) %}
+
+    {% set class = " c-main" %}
+
+{% endif %}
+    
+{% if(works.title) %}
+<div class="container margin-0b margin-md-50b margin-lg-65b">
+    <h2 class="h2 t-center{{class}}">{{ works.title.text }}</h2>
+</div>
+{% endif %}
+
+<div class="tp-swiper tp-swiper--recent js-swiper {{ works.customClass }}">
+    <div class="tp-swiper__container swiper-container" data-slides="3" data-slides_sm="2"
+        data-simulate_touch="true" data-loop="true" data-centeredSlides="true" data-speed="700"
+        data-spaces="30"  data-spaces_md="0"
+    >
+        <div class="swiper-wrapper tp-swiper__wrapper">
+            {% for item in works.items %}
+                <div class="swiper-slide tp-swiper__slide">
+                    <div class="tp-swiper__image bg-img">
+                        <picture>
+                            <source data-srcset="./img/webp/{{item.image}}-min.webp" type="image/webp"  srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                            <source data-srcset="./img/{{item.image}}-min.jpg" type="image/jpeg" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                            <img data-src="./img/{{item.image}}-min.jpg" alt="Factory Direct" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                        </picture>
+                    </div>
+                    {% if( item.link ) %}
+                        <a href="#">
+                            <h3 class="h3 tp-link--arrow tp-swiper__link">{{ item.link }}</h3>
+                        </a>
+                    {% endif %}
+
+                    {% if( item.text ) %}
+                        <p>{{ item.text }}</p>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+        <div class="swiper-pagination tp-swiper__pagination"></div>
+        <div class="swiper-button-prev tp-swiper__prev"></div>
+        <div class="swiper-button-next tp-swiper__next"></div>
+    </div>
+</div>

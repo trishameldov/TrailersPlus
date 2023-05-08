@@ -1,0 +1,13 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load static i18n common_tags cache %}
+{% get_current_language as LANGUAGE_CODE %}
+
+{% cache 604800 richtext LANGUAGE_CODE self %}
+<div class="container c-blue-dark tp-check-list">
+    <div class="row">
+        <div class="blog-container col-12 col-md-10 offset-md-1 tp-blog-details__content padding-30t padding-30b">
+            <p>{{ self | add_phone:location.phone|safe }}</p>
+        </div>
+    </div>
+</div>
+{% endcache %}

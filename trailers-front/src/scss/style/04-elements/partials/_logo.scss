@@ -1,0 +1,36 @@
+.tp-logo {
+
+    img {
+        min-width: 120px;
+        width: 220px;
+        height: auto;
+    }
+
+    &--laptop {
+        margin-right: auto;
+        margin-top: 15px;
+
+        @include extra-large-size-min {
+            display: none;
+        }
+
+        @include mobile-menu-max {
+            display: none;
+        }
+    }
+
+    &--mobile {
+        margin: 10px 0;
+
+        @include mobile-menu-min {
+            display: none;
+        }
+
+        &__detail {
+            @media (max-width: 430px){
+                display: none;
+            }
+        }
+    }
+    
+}

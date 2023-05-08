@@ -1,0 +1,24 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load static %}
+
+<div class="tp-section">
+    <div class="container">
+        <div class="row paragraph">
+            <div class="col-sm-12 col-xl-10">
+                <article>
+                    {% for paragraph in self.paragraph_list %}
+                        <div class="row paragraph_row">
+                            <div class="paragraph__image col-12 col-xl-2">
+                                {% image paragraph.image width-123 format-webp as image_webp %}
+                                <img data-src="{{ image_webp.url }}" alt="img_radio" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                            </div>
+                            <div class="paragraph__text col-12 col-xl-10">
+                                {{ paragraph.richtext | safe }}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </article>
+            </div>
+        </div>
+    </div>
+</div>

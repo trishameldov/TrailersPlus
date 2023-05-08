@@ -1,0 +1,16 @@
+<html>
+    <form method="POST" id="form">
+        {% csrf_token %}
+        <label for="vin">VIN:</label><br>
+        <input type="text" name="vin" id="vinInput">
+        <input type="submit" value="Submit" id="submitBtn">
+    </form>
+
+    <script>
+        const params = new URLSearchParams(window.location.search)
+        if (params.has('vin')) {
+            document.getElementById('vinInput').setAttribute('value',params.get('vin'))
+            document.getElementById('submitBtn').click();
+        }
+    </script>
+</html>

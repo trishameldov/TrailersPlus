@@ -1,0 +1,160 @@
+{% extends "layout.tmpl.njk" %}
+
+{% block content %}
+
+    <!-- Banner start -->
+    {% set data = {
+        image: 'banner-financing/financ-baner',
+        title: 'Apply For Trailer Financing Today!',
+        text: 'Are you ready for a new trailer but short on cash? We offer financing for our enclosed cargo trailers, utility trailers, dump trailers, equipment trailers, and more. With great financing offers such as no penalties for an early payoff and Interest Rates as low as 5.99%, what are you waiting for?'
+    }
+    %}
+    <section class="tp-section--default tp-banner tp-banner--bot tp-banner--overl-2 bg-img bg-img--fill">
+        {% include "../templates/partials/blocks/banner-bot.njk" %}
+    </section>
+    <!-- Banner end -->
+
+    <!-- Benefits start -->
+    <section class="tp-section tp-benefits bg-img">
+        <picture>
+            <source data-srcset="./img/webp/benefits/benefits-bg-min.webp" type="image/webp" media="(min-width: 451px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+            <source data-srcset="./img/webp/benefits/benefits-bg-mob-min.webp" type="image/webp" media="(max-width: 450px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+            <source data-srcset="./img/benefits/benefits-bg-min.jpg" type="image/jpeg" media="(min-width: 451px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+            <source data-srcset="./img/benefits/benefits-bg-mob-min.jpg" type="image/jpeg" media="(max-width: 450px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+            <img data-src="./img/benefits/benefits-bg-min.jpg" alt="Apply For Trailer Financing Today!" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+        </picture>
+
+        <div class="container">
+
+            <h2 class="h2 c-white t-center margin-sm-0t margin-sm-70b margin-30b margin-md-60b">Same Day Financing!</h2>
+
+            <div class="tp-benefits__blocks-wrapper">
+
+                <div class="tp-benefits__block">
+                    <div class="tp-benefits__block-image">
+                        <picture>
+                            <source data-srcset="./img/webp/benefits/1-min.webp" type="image/webp" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                            <source data-srcset="./img/benefits/1-min.jpg" type="image/jpeg" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                            <img data-src="./img/benefits/1-min.jpg" alt="Sheffielld" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                        </picture>
+                        <div class="tp-benefits__block-text"></div>
+                        <a href="https://secure.sheffieldfinancial.com/newLoanApplication.aspx" target="_blank" class="tp-btn tp-btn--red">APPLY NOW</a>
+                    </div>
+                </div>
+
+                <div class="tp-benefits__block">
+                    <div class="tp-benefits__block-image">
+                        <picture>
+                            <source data-srcset="./img/webp/benefits/2-min.webp" type="image/webp" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                            <source data-srcset="./img/benefits/2-min.png" type="image/png" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                            <img data-src="./img/benefits/2-min.png" alt="Preferred for Out-of-State Customers" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                        </picture>
+                    </div>
+                    <div class="tp-benefits__block-text">Preferred for Out-of-State Customers</div>
+                    <a href="#" class="tp-btn tp-btn--red">Apply Now</a>
+                </div>
+
+            </div>
+
+            <h3 class="h3 c-white t-center margin-sm-70t margin-30t margin-md-60t margin-30b margin-md-50b">Benefits</h3>
+
+            <div class="tp-benefits__list-wrapper">
+                <ul class="tp-benefits__list">
+                    <li>Cash Price On Trailer</li>
+                    <li>Interest Rates as low as 5.99%</li>
+                </ul>
+
+                <ul class="tp-benefits__list">
+                    <li>Same Day Financing!</li>
+                    <li>No Penalty for Early Payoff</li>
+                </ul>
+            </div>
+
+        </div>
+
+    </section>
+    <!-- Benefits end -->
+
+    <!-- Financing Options start -->
+    <section class="tp-section tp-financing-options">
+        <div class="container">
+            <div class="row">
+                <h2 class="h2 t-center w-full">Other Financing Options</h2>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-4">
+                    <div class="tp-financing-options__column">
+                        <div class="tp-financing-options__image-wrapper">
+                            <picture>
+                                <source data-srcset="./img/webp/benefits/bank-min.webp" type="image/webp" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                                <source data-srcset="./img/benefits/bank-min.png" type="image/jpeg" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                                <img data-src="./img/benefits/bank-min.png" alt="bank" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                            </picture>
+                        </div>
+                        <h3 class="h4 margin-10b">Local Banks & Credit Unions</h3>
+                        <p>Most banks and credit unions can also finance purchases especially have an existing relationship with them.</p>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-4">
+                    <div class="tp-financing-options__column">
+                        <div class="tp-financing-options__image-wrapper">
+                            <picture>
+                                <source data-srcset="./img/webp/benefits/credit-min.webp" type="image/webp" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                                <source data-srcset="./img/benefits/credit-min.png" type="image/jpeg" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                                <img data-src="./img/benefits/credit-min.png" alt="credit" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                            </picture>
+                        </div>
+                        <h3 class="h4 margin-10b">Credit Cards</h3>
+                        <p>All TrailersPlus locations accept all major credit cards. And you're welcome to split up multiple payments between multiple cards.</p>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-4">
+                    <div class="tp-financing-options__column tp-financing-options__column--last">
+                        <div class="tp-financing-options__image-wrapper">
+                            <picture>
+                                <source data-srcset="./img/webp/benefits/family-min.webp" type="image/webp" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                                <source data-srcset="./img/benefits/family-min.png" type="image/jpeg" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                                <img data-src="./img/benefits/family-min.png" alt="family" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                            </picture>
+                        </div>
+                        <h3 class="h4 margin-10b">Co-Signers/Family</h3>
+                        <p>If your credit isn't good enough, remember you can always get someone close to you to co-sign on a loan with you.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Financing Options end -->
+
+    <!-- Learn More start -->
+    <section class="tp-section tp-section--default t-center tp-learn-more">
+        <div class="container">
+            <h3 class="h3">Learn more about trailer financing!</h3>
+            <h2 class="h2">Call Us Now
+                <a href="tel:18778507587">1(877) 850-7587</a>
+            </h2>
+        </div>
+    </section>
+    <!-- Learn More end -->
+
+    <!-- Join community start -->
+    <section class="tp-section tp-section--sm bg-img">
+        {% include "../templates/partials/blocks/join-community.njk" %}
+    </section>
+    <!-- Join community end -->
+
+    <!-- Partners start -->
+    {% set partners = [
+        { title: "alt-text", src: "logo1.jpg", srcMob: "logo1.jpg", name: "logo1", nameMob: "logo1" }, 
+        { title: "alt-text", src: "logo2.png", srcMob: "logo2.png", name: "logo2", nameMob: "logo2" },
+        { title: "alt-text", src: "logo3.jpg", srcMob: "logo3-mob.jpg", name: "logo3", nameMob: "logo3-mob" }, 
+        { title: "alt-text", src: "logo4.jpg", srcMob: "logo4.jpg", name: "logo4", nameMob: "logo4" }, 
+        { title: "alt-text", src: "logo5.jpg", srcMob: "logo5.jpg", name: "logo5", nameMob: "logo5" }, 
+        { title: "alt-text", src: "logo6.jpg", srcMob: "logo6.jpg", name: "logo6", nameMob: "logo6" }]
+    %}
+    <section class="tp-partners">
+        {% include "../templates/partials/blocks/partners.njk" %}
+    </section>
+    <!-- Partners end -->
+
+{% endblock %}

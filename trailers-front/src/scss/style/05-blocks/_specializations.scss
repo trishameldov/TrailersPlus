@@ -1,0 +1,20 @@
+/* ------------------------------------------- */
+/*       SPECIALIZATIONS                       */
+/* ------------------------------------------- */
+.specialization-wrapper {
+    height: 180px !important;
+}
+
+.specialization-wrapper .sp-name h4 {
+    line-height: 26px;
+    margin-bottom: 15px;
+}
+
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 576px) {
+    .sp-container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}

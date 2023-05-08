@@ -1,0 +1,106 @@
+{% extends "layout.tmpl.njk" %}
+
+{% block content %}
+
+    <!-- Banner start -->
+    {% set data = {
+        imagePath: 'repair-and-service/banner-bg',
+        title: 'Installs - Service - Repairs',
+        subtitle: 'YOUR ONE-STOP TRAILER SHOP',
+        text: 'TrailersPlus has full service and repair centers at every store nationwide. We can help you maintain, repair and customize your trailer regardless the brand, type or size. Our trailer technicians are factory-trained and certified. And all work is backed up by our 100% customer satisfaction guarantee!'
+    } %}
+    <section class="tp-banner-large bg-img p-relative">
+        {% include "../templates/partials/blocks/banner-large.njk" %}
+    </section>
+    <!-- Banner end -->
+
+    <!-- Before / After start -->
+    {% set slides = [
+        { after: 'repair-and-service/1a', before: 'repair-and-service/1b' },
+        { after: 'repair-and-service/2a', before: 'repair-and-service/2b' },
+        { after: 'repair-and-service/3a', before: 'repair-and-service/3b' },
+        { after: 'repair-and-service/4a', before: 'repair-and-service/4b' },
+        { after: 'repair-and-service/5a', before: 'repair-and-service/5b' },
+        { after: 'repair-and-service/6a', before: 'repair-and-service/6b' }
+    ] %}
+    <section class="tp-section">
+        <div class="container margin-50b">
+            <h2 class="h2 w-full t-center margin-25b margin-md-60b">Our Trailer Experts Specialize In:</h2>
+
+            <div class="tp-swiper tp-swiper--ba js-swiper p-relative">
+                <div class="tp-swiper__container swiper-container" data-slides="1" data-slides_lg="1" data-slides_sm="1" data-simulate_touch="true" data-speed="700" data-touch-ratio="0" data-loop="true">
+                    <div class="swiper-wrapper tp-swiper__wrapper">
+                        {% for item in slides %}
+                            <div class="swiper-slide tp-swiper__slide">
+                                {% set before = item.before %}
+                                {% set after = item.after %}
+                                {% include "../templates/partials/blocks/ba-slider.njk" %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="swiper-button-prev tp-swiper__prev"></div>
+                <div class="swiper-button-next tp-swiper__next"></div>
+                <div class="swiper-pagination tp-swiper__pagination"></div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="tp-color-container">
+                <div class="row">
+                    <div class="col-12 col-md-4">- Fender repair/replacement</div>
+                    <div class="col-12 col-md-4">- Tire Replacement</div>
+                    <div class="col-12 col-md-4">- Interior walls repair</div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-4">- Aluminum skin repair</div>
+                    <div class="col-12 col-md-4">- Tongue jack repairs</div>
+                    <div class="col-12 col-md-4">- Brake adjustments</div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-4">- Wheel bearing replacement</div>
+                    <div class="col-12 col-md-4">- Roof leaks</div>
+                    <div class="col-12 col-md-4">- Leaf spring repair/replacement</div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-4">- Wheel bearing replacement</div>
+                    <div class="col-12 col-md-4">- Cap replacement</div>
+                    <div class="col-12 col-md-4">- Spring assist repair/replacement</div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-4">- Interior flooring repair</div>
+                    <div class="col-12 col-md-4">- Stone guard replacement</div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!-- Before / After end -->
+
+    <!-- CTA start -->
+    <section class="tp-section tp-section--default bg-blue-grey tp-b-inverse">
+        <div class="container t-center">
+            <h3 class="h4 c-main">We also offer service packages for trailer fleets of all sizes</h3>
+            <h2 class="h2 c-main">Need an Estimate? Call Now!</h2>
+            <div class="h2">
+                <b>
+                    <a href="tel:8778507587">877-850-7587</a>
+                </b>
+            </div>
+        </div>
+    </section>
+    <!-- CTA end -->
+
+    <!-- Join community start -->
+    <section class="tp-section tp-section--sm bg-img">
+        {% include "../templates/partials/blocks/join-community.njk" %}
+    </section>
+    <!-- Join community end -->
+
+    <!-- Partners start -->
+    <section class="tp-partners">
+        {% include "../templates/partials/blocks/partners.njk" %}
+    </section>
+    <!-- Partners end -->
+
+{% endblock %}

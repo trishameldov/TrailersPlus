@@ -1,0 +1,13 @@
+{% load wagtailcore_tags wagtailimages_tags wagtailuserbar %}
+{% load static product_tags %}
+<!-- Warning Message BEGIN -->
+{% if self.message_text %}
+<div class="padding-md-20t">
+    <div class="tp-warning-message container">
+        <div class="tp-warning-message__wrapper">
+            <p>{{ self.message_text|phone_number_template:store.store_phone|safe }}</p>
+        </div>
+    </div>
+</div>
+{% endif %}
+<!-- Warning Message END -->

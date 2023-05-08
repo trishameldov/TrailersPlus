@@ -1,0 +1,19 @@
+<picture>
+    <source data-srcset="./img/webp/{{ data.image }}-min.webp" type="image/webp" media="(min-width: 451px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="> 
+    <source data-srcset="./img/webp/{{ data.image }}-mob-min.webp" type="image/webp" media="(max-width: 450px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="> 
+    <source data-srcset="./img/{{ data.image }}-min.jpg" type="image/jpeg" media="(min-width: 451px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="> 
+    <source data-srcset="./img/{{ data.image }}-mob-min.jpg" type="image/jpeg" media="(max-width: 450px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="> 
+    <img data-src="./img/{{ data.image }}-min.jpg" alt="call us today" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+</picture>
+
+<div class="container">
+    <picture>
+        <source data-srcset="./img/webp/tire-warranty/logo-min.webp" type="image/webp" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="> 
+        <source data-srcset="./img/tire-warranty/logo-min.png" type="image/png" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="> 
+        <img data-src="./img/tire-warranty/logo-min.png" alt="logo" class="lazyload tp-cut-blue__logo" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+    </picture>
+
+    <div class="tp-cut-blue__wrapper">
+        <h2 class="h2 c-white">{{ data.title | safe }}</h2>
+    </div>
+</div>

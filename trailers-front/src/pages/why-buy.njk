@@ -1,0 +1,101 @@
+{% extends "layout.tmpl.njk" %}
+
+{% block content %}
+
+    <!-- Banner start -->
+    {% set data = {
+        image: 'for-sale/sale-banner',
+        title: 'Why Buy from TrailersPlus?',
+        alignNotMobile: "left"
+    }%}
+
+    <section class="padding-40b padding-md-75t padding-md-80b tp-banner tp-banner--bot tp-banner--600 tp-banner--overl-2 bg-img">
+        {% include "../templates/partials/blocks/banner-bot.njk" %}
+    </section>
+    <!-- Banner end -->
+
+    <!-- The Nation’s #1 start -->
+    <section class="tp-section tp-section--default bg-img">
+        <picture>
+            <source data-srcset="./img/webp/join-bg-min.webp" type="image/webp" media="(min-width: 451px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+            <source data-srcset="./img/webp/join-bg-mob-min.webp" type="image/webp" media="(max-width: 450px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+            <source data-srcset="./img/join-bg-min.jpg" type="image/jpeg" media="(min-width: 451px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+            <source data-srcset="./img/join-bg-mob-min.jpg" type="image/jpeg" media="(max-width: 450px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+            <img data-src="./img/join-bg-min.jpg" alt="alt" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+        </picture>
+
+        <div class="container d-flex flex-column flex-md-row justify-content-md-between align-items-center text-mobile-center">
+            <h2 class="h3--large-mobile c-white margin-20b margin-md-0b">The Nation’s #1 Trailer Dealer</h2>
+            <a href="#" class="tp-btn tp-btn--red tp-btn--medium-max tp-btn--icon tp-btn--shadow">
+                <i class="fa fa-search"></i>
+                SEARCH Trailers
+            </a>
+        </div>
+    </section>
+    <!-- The Nation’s #1 end -->
+
+    <!-- Description start -->
+    <section class="tp-section tp-section--default tp-section--limited-width">
+        <div class="container c-blue-dark">
+            <p>If you're looking for trailer sales near me, make a TrailersPlus dealership your first and only stop. We offer an incredible selection of new trailers factory direct to you, ensuring that you can get the high-quality trailer you're searching for at a great price. With 68 stores across the country and over 7,500 trailers in our inventory, TrailersPlus makes it easy to find exactly what you need no matter where you're located. Stop by a
+                <a href="#">nearby trailer dealer</a>
+                today to shop the toughest trailers on the planet!</p>
+
+            <picture>
+                <source data-srcset="./img/webp/why/1-min.webp" type="image/webp" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                <source data-srcset="./img/why/1-min.jpg" type="image/jpeg" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                <img data-src="./img/why/1-min.jpg" alt="alt" class="lazyload tp-img--shadow" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+            </picture>
+
+            <p>When you visit a TrailersPlus dealership, finding the
+                <a href="#">new trailer</a>
+                for sale that meets your demands is easy. From utility and dump trailers to enclosed cargo trailers and car haulers, we have something for every unique situation. And because we pride ourselves on offering a completely transparent and stress-free sales process, all our trailers are priced online, making it simple for you to do your research. Plus, we're the only company that offers a full pre-delivery inspection where we show you how to operate your trailer. Want to upgrade your purchase with new
+                <a href="#">trailer parts</a>
+                and accessories? We have a wide variety of parts and packages for sale so that you can customize your trailer to perfectly meet your needs. At TrailersPlus, we make it easy to get a trailer built like a tank!</p>
+        </div>
+    </section>
+    <!-- Description end -->
+
+    <!-- More Reason start -->
+    <section class="tp-section tp-section--limited-width bg-white-grey">
+        <div class="container">
+            <h2 class="h2 c-main t-center">More Reasons Why You Should Buy from TrailersPlus!</h2>
+
+            <ul class="tp-check-list">
+                <li>TrailersPlus is committed to serving the many communities across the country that we call home. From actively sponsoring kids' robotics competitions to other local projects, we're always looking for more ways to get involved.</li>
+                <li>We take a special interest in the lives of our employees and what matters most to them. It's small, personal projects that we know make a world of difference.</li>
+                <li>Because we offer trailers factory direct to you, you can take advantage of market pricing when you shop our wide selection of new trailers for sale.</li>
+                <li>There's no other company like us in the industry - from our vast selection of trailers for sale to our transparent prices, you know you're in good hands when you visit one of our locations.</li>
+                <li>We offer trailer sales nationwide, so you can find a nearby trailer dealer no matter where you're located. Search our
+                    <a href="#">trailer store locations</a>
+                    now!</li>
+            </ul>
+
+            <div class="tp-btn-wrapper d-flex margin-50t d-flex flex-column flex-md-row justify-content-center align-items-center">
+                <a href="#" class="tp-btn tp-btn--red tp-btn--medium-max tp-btn--icon tp-btn--shadow">
+                    <i class="fa fa-map-marker"></i>
+                    Store Locator
+                </a>
+
+                <a href="#" class="tp-btn tp-btn--red tp-btn--medium-max tp-btn--icon tp-btn--shadow">
+                    <i class="fa fa-envelope-open"></i>
+                    Contact Us
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- More Reason end -->
+
+    <!-- Join community start -->
+    <section class="tp-section tp-section--sm bg-img">
+        {% include "../templates/partials/blocks/join-community.njk" %}
+    </section>
+    <!-- Join community end -->
+
+    <!-- Partners start -->
+    <section class="tp-partners">
+        {% include "../templates/partials/blocks/partners.njk" %}
+    </section>
+    <!-- Partners end -->
+
+{% endblock %}

@@ -1,0 +1,144 @@
+{% extends "layout.tmpl.njk" %}
+
+{% block content %}
+
+    <!-- Banner start -->
+    {% set data = {
+        image: 'community/banner-bg',
+        title: 'Community Support',
+        options: {
+            titleLeft: true
+        }
+    }
+    %}
+    <section class="tp-section tp-banner tp-banner--bot tp-banner--overl-1 bg-img">
+        {% include "../templates/partials/blocks/banner-bot.njk" %}
+    </section>
+    <!-- Banner end -->
+
+    <!-- Our Team start -->
+    <section class="tp-section tp-our-team">
+        <div class="container">
+            <div class="margin-30b margin-md-70b">
+                <h2 class="h2 c-main w-full t-center">Our team at TrailersPlus is dedicated to supporting our community and the education of our future generations.</h2>
+                <p>Through extensive outreach in our community at our Corporate office in Nampa, Idaho to sponsoring educational events, we want to play our part in making our future brighter.</p>
+            </div>
+
+            <div class="row margin-60b">
+                <div class="col-sm-12 col-md-5 offset-md-1 margin-30b margin-md-0b">
+                    <picture>
+                        <source data-srcset="./img/webp/community/img-1-min.webp" type="image/webp" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                        <source data-srcset="./img/community/img-1-min.jpg" type="image/jpeg" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                        <img data-src="./img/community/img-1-min.jpg" alt="We also love supporting local sports team" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                    </picture>
+                </div>
+                <div class="col-sm-12 col-md-5">
+                    <div class="tp-our-team__text-wrapper c-blue-dark">
+                        <h3 class="h3 c-main">We love supporting local sports teams</h3>
+                        <p>We`ve sponsored little league teams that our staff coaches, internal softball teams, and even one of our team members who is a professional athlete in the American Cornhole League!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12 col-md-5 offset-md-1 order-2 order-md-1">
+                    <div class="tp-our-team__text-wrapper c-blue-dark">
+                        <h3 class="h3 c-main">One of our passions is in STEM education, with a special interest in robotics.</h3>
+                        <p>One of our sponsorships includes the Idaho FRC Regional, a K-12 STEM education program that involves robotics challenges.</p>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-5 order-1 order-md-2 margin-30b margin-md-0b">
+                    <picture>
+                        <source data-srcset="./img/webp/community/img-2-min.webp" type="image/webp" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                        <source data-srcset="./img/community/img-2-min.jpg" type="image/jpeg" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                        <img data-src="./img/community/img-2-min.jpg" alt="One of our passions is in STEM education, with a special interest in robotics" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                    </picture>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Our Team end -->
+
+    <!-- Community slider start -->
+    {% set slides = [
+        {
+            image: "community/img-1",
+            title: "We also love supporting local sports team",
+            text: "We`ve sponsored little league teams that our staff coaches, internal softball teams, and even one of our team members who is a professional athlete in the American Cornhole League!"
+        }, {
+            image: "community/img-2",
+            title: "One of our passions is in STEM education with a special interest in robotics.",
+            text: "One of our sponsorships includes the Idaho FRC Regional, a K-12 STEM education program that involves robotics challenges."
+        }, {
+            image: "community/img-1",
+            title: "We also love supporting local sports team",
+            text: "We`ve sponsored little league teams that our staff coaches, internal softball teams, and even one of our team members who is a professional athlete in the American Cornhole League!"
+        }, {
+            image: "community/img-1",
+            title: "We also love supporting local sports team",
+            text: "We`ve sponsored little league teams that our staff coaches, internal softball teams, and even one of our team members who is a professional athlete in the American Cornhole League!"
+        }, {
+            image: "community/img-2",
+            title: "One of our passions is in STEM education with a special interest in robotics.",
+            text: "One of our sponsorships includes the Idaho FRC Regional, a K-12 STEM education program that involves robotics challenges."
+        }, {
+            image: "community/img-1",
+            title: "We also love supporting local sports team",
+            text: "We`ve sponsored little league teams that our staff coaches, internal softball teams, and even one of our team members who is a professional athlete in the American Cornhole League!"
+        }
+    ]
+ %}
+    <section class="tp-section tp-section--default tp-community-slider">
+        <div class="container p-relative">
+            <div class="tp-swiper js-swiper p-relative">
+                <div class="tp-swiper__container swiper-container" data-slides="3" data-slides_lg="2" data-slides_sm="1" data-loop="true" data-autoplay="4000" data-simulate_touch="true" data-speed="700" data-spaces="50" data-spaces_md="30">
+                    <div class="swiper-wrapper tp-swiper__wrapper">
+                        {% for slide in slides %}
+                            <div class="swiper-slide tp-swiper__slide">
+                                <picture>
+                                    <source data-srcset="./img/webp/{{ slide.image }}-min.webp" type="image/webp" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                                    <source data-srcset="./img/{{ slide.image }}-min.jpg" type="image/jpeg" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                                    <img data-src="./img/{{ slide.image }}-min.jpg" alt="{{ slide.title }}" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                                </picture>
+                                <h4 class="h4 c-main margin-10b">{{ slide.title }}</h4>
+                                <p class="margin-0">{{ slide.text }}</p>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="swiper-button-prev tp-swiper__prev"></div>
+                <div class="swiper-button-next tp-swiper__next"></div>
+                <div class="swiper-pagination tp-swiper__pagination"></div>
+            </div>
+        </div>
+    </section>
+    <!-- Community slider end -->
+
+    <!-- Why Wait start -->
+    {% set data = {
+        title: "For over <b>20 years,</b> TrailersPlus has been dedicated to providing premier trailers, parts and service nationwide.",
+        text: "For over 20 years, TrailersPlus has been dedicated to providing premier trailers, parts and service nationwide. We have over 65 locations across the country, offering the largest selection and 100 trailers at every store. We focus on delivering the highest quality trailers and the best customer service in the industry.",
+        tel: 'Why Wait? Call Now! <a href="tel:8778507587">877-850-7587</a>',
+        inspection: {
+            title: 'FREE INSPECTION',
+            text: 'On top of that, we offer a <u>free annual 40-point inspection</u> on your trailer for the life of its use. Nobody else does that.'
+        }
+    } %}
+    <section class="tp-why-wait padding-50t padding-md-85t padding-0b">
+        {% include "../templates/partials/blocks/why-wait.njk" %}
+    </section>
+    <!-- Why Wait end -->
+
+    <!-- Join community start -->
+    <section class="tp-section tp-section--sm bg-img">
+        {% include "../templates/partials/blocks/join-community.njk" %}
+    </section>
+    <!-- Join community end -->
+
+    <!-- Partners start -->
+    <section class="tp-partners">
+        {% include "../templates/partials/blocks/partners.njk" %}
+    </section>
+    <!-- Partners end -->
+
+{% endblock %}

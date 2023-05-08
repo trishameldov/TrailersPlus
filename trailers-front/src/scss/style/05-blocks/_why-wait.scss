@@ -1,0 +1,113 @@
+.tp-why-wait {
+    // height: 1000px;
+
+    & > picture > img {
+        width: 100%;
+    }
+
+    &__inspection {
+        margin-top: 10px;
+        padding: 16px 42px 40px;
+        max-width: 307px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        float: right;
+
+        &:before {
+            @include skew(var(--c-porcelain));
+            max-width: 307px;
+            transition: box-shadow 250ms ease;
+        }
+
+        &:hover {
+            &:before {
+                box-shadow: 5px 5px 8px 0 rgba(0, 0, 0, 0.11);
+            }
+        }
+
+        @include small-size-max {
+            margin: 0 auto;
+            float: inherit;
+            margin-top: 50px;
+        }
+
+        @include extra-small-size-max {
+            padding: 20px 20px 20px 35px;
+        }
+
+        h4 {
+            margin-top: 0;
+            margin-bottom: 24px;
+            padding-left: 58px;
+
+            @include extra-small-size-max {
+                padding-left: 0;
+            }
+        }
+
+        p {
+            color: var(--c-blue-dark);
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 26px;
+            margin: 0;
+
+            u {
+                text-decoration: underline;
+                color: var(--c-pomegranate);
+            }
+        }
+
+        span {
+            position: absolute;
+            width: 87px;
+            height: 69px;
+            top: -10px;
+            left: -10px;
+
+            @include extra-small-size-max {
+                display: none;
+            }
+
+            &:before {
+                @include skew(var(--c-blue-light));
+                display: block;
+                z-index: 1;
+                box-shadow: 4px 4px 0 rgba(17, 57, 108, 0.15);
+            }
+
+            img {
+                position: absolute;
+                z-index: 1;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+    }
+
+    &__desc {
+        p {
+            color: var(--c-blue-dark);
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 26px;
+        }
+
+        h3 {
+            a {
+                color: var(--c-pomegranate);
+
+                &:hover {
+                    opacity: 0.9;
+                }
+
+                @media screen and (max-width: 450px) {
+                    display: block;
+                }
+            }
+        }
+    }
+}

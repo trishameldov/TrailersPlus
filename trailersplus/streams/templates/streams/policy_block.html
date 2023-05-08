@@ -1,0 +1,16 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load static i18n cache %}
+{% get_current_language as LANGUAGE_CODE %}
+
+{% cache 604800 policy_block LANGUAGE_CODE self.title %}
+<section class="tp-section">
+    <div class="container c-blue-dark tp-check-list">
+        <div class="row fz15 lh26">
+            <div class="col-12 col-md-10 offset-md-1">
+                <h1 class="h2 c-main margin-30b">{{ self.title }}</h1>
+                {{ self.textarea }}
+            </div>
+        </div>
+    </div>
+</section>
+{% endcache %}

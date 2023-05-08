@@ -1,0 +1,44 @@
+/* ------------------------------------------- */
+/*             	   PARTNERS	           		   */
+/* ------------------------------------------- */
+
+.tp-partners {
+	padding: 40px 0;
+	
+	&--border{
+		border-top: 1px solid var(--c-grey-light);
+	}
+
+    &__box {
+		@include flex-center-vert;
+        flex-wrap: wrap;
+	}
+
+	&__item {
+		margin: 10px 0px;
+        padding: 0 10px;
+        
+		img,
+		picture {
+			width: 153px;
+			height: 79px;
+			max-height: 80px;
+			object-fit: contain;
+
+			@include large-size-max{
+				width: 140px;
+				height: 72.281px;
+			}
+
+			@include medium-size-max{
+				width: 143.328px;
+				height: 74px;
+			}
+
+			@include extra-small-size-max{
+				width: 153px;
+				height: 79px;
+			}
+		}
+	}
+}

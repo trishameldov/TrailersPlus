@@ -1,0 +1,126 @@
+/* ------------------------------------------- */
+/*              CONFIRM PRODUCT                */
+/* ------------------------------------------- */
+
+.tp-confirm-product {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--c-white);
+    box-shadow: 0 5px 10px rgba(var(--ca-blue-dark), 0.1);
+    width: 370px;
+    flex-shrink: 0;
+
+    @include medium-size-max {
+        width: 330px;
+    }
+
+    @include small-size-max {
+        width: 100%;
+    }
+
+    &__img {
+        width: 100%;
+        flex-shrink: 0;
+        min-height: 270px;
+        z-index: 1;
+
+        // @include medium-size-max {
+        //     width: 340px;
+        // }
+
+        @include small-size-max {
+            min-height: auto;
+            width: 100%;
+        }
+
+        picture,
+        picture img {
+            position: static;
+            height: 100%;
+            object-fit: cover;
+            min-height: 270px;
+            display: block;
+        }
+
+    }
+
+    &__body {
+        padding: 30px 35px;
+        flex-grow: 1;
+
+        @include medium-size-max {
+            padding: 30px;
+        }
+
+        @include extra-small-size-max {
+            padding: 20px 20px;
+        }
+    }
+
+    &__body-top {
+        padding-bottom: 20px;
+        border-bottom: 1px solid var(--c-athens-grey);
+    }
+
+    .tp-price {
+        font-size: 16px;
+
+        span {
+            font-size: 20px;
+            margin-left: 4px;
+        }
+
+        &:last-child {
+            margin-left: 10px;
+        }
+    }
+
+    &__add-text {
+        font-size: 15px;
+        color: var(--c-grey);
+
+        b {
+            color: var(--c-blue-main);
+            font-weight: normal;
+        }
+    }
+}
+
+.tp-confirm-text {
+    max-width: 485px;
+    margin: 0 auto;
+    text-align: center;
+    color: var(--c-blue-dark);
+    font-size: 15px;
+
+    &--mr {
+        
+        @include medium-size-min {
+            margin-right: 40px;
+        }
+    }
+
+    p {
+
+        b,
+        a {
+            color: var(--c-pomegranate);
+            font-weight: normal;
+        }
+
+        a {
+            white-space: nowrap;
+
+            &:hover {
+                color: var(--c-crimson);
+            }
+        }
+
+        br {
+
+            @include extra-small-size-max {
+                display: none;
+            }
+        }
+    }
+}

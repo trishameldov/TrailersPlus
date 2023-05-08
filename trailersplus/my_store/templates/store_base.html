@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+{% block title_suffix %}{% endblock title_suffix %}
+{% block content %}
+<div class="main-wrapp-inner store-header-margin">
+    {% for block in page.content %}
+        {% include_block block %}
+    {% endfor %}
+</div>
+    {% for schema in stores %}
+        {{ schema.schema_code|safe }}
+    {% endfor %}
+{% endblock content %}
+{% block jslibs %}
+    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxO2Bw0GxAbVKZrd5yYiKwS2iFVSHDkO8"></script>
+{% endblock %}

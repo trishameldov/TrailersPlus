@@ -1,0 +1,99 @@
+{% extends "layout.tmpl.njk" %}
+
+{% block content %}
+
+    <!-- Banner start -->
+    {% set data = {
+        image: 'for-sale/sale-banner',
+        title: 'Why Service at TrailersPlus?',
+        alignNotMobile: "left"
+    }%}
+
+    <section class="padding-40b padding-md-75t padding-md-80b tp-banner tp-banner--bot tp-banner--600 tp-banner--overl-2 bg-img">
+        {% include "../templates/partials/blocks/banner-bot.njk" %}
+    </section>
+    <!-- Banner end -->
+
+    <!-- The Nation’s #1 start -->
+    <section class="tp-section tp-section--default bg-img">
+        <picture>
+            <source data-srcset="./img/webp/join-bg-min.webp" type="image/webp" media="(min-width: 451px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+            <source data-srcset="./img/webp/join-bg-mob-min.webp" type="image/webp" media="(max-width: 450px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+            <source data-srcset="./img/join-bg-min.jpg" type="image/jpeg" media="(min-width: 451px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+            <source data-srcset="./img/join-bg-mob-min.jpg" type="image/jpeg" media="(max-width: 450px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+            <img data-src="./img/join-bg-min.jpg" alt="alt" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+        </picture>
+
+        <div class="container d-flex flex-column flex-md-row justify-content-md-between align-items-center text-mobile-center">
+            <h2 class="h3--large-mobile c-white margin-20b margin-md-0b text-center text-md-left">The Nation’s #1 Trailer Dealer</h2>
+            <a href="#" class="tp-btn tp-btn--red tp-btn--medium-max tp-btn--icon tp-btn--shadow">
+                <i class="fa fa-cog"></i>
+                Service & Repair
+            </a>
+        </div>
+    </section>
+    <!-- The Nation’s #1 end -->
+
+    <!-- Description start -->
+    <section class="tp-section tp-section--default tp-section--limited-width">
+        <div class="container c-blue-dark">
+            <p>For certified trailer service and repairs you can trust, turn to TrailersPlus. We employ factory-trained trailer service technicians who understand your utility, cargo or dump trailer inside and out, so you can rest easy knowing that you're in the hands of professionals when you visit us. And because we have 68 locations across the country, expert trailer repairs are never far away when you need them. Make an appointment at a nearby
+                <a href="#">trailer service center</a>
+                today to get your trailer the professional maintenance and repairs it deserves!</p>
+
+            <picture>
+                <source data-srcset="./img/webp/why/1-min.webp" type="image/webp" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                <source data-srcset="./img/why/1-min.jpg" type="image/jpeg" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                <img data-src="./img/why/1-min.jpg" alt="alt" class="lazyload tp-img--shadow" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+            </picture>
+
+            <p>If you're a trailer owner, you may be wondering, "do I need to service my trailer?" The answer: yes. Like any other type of vehicle, trailers require routine maintenance. Even though your trailer doesn't have an engine, regular
+                <a href="#">trailer service</a>
+                is necessary to ensure your safety and that your trailer performs well for years to come. That's where the TrailersPlus team comes in. We have direct factory access for complex trailer service and repairs, so you can enjoy complete peace of mind trusting that we have the necessary knowledge and quality trailer parts required to properly service your trailer. And to ensure that your trailer is always safe and road ready, we provide Certified Trailer Inspections. When you buy a new trailer from us, we'll provide you with a free 12-month and 24-month 40-point Certified Trailer Inspection!</p>
+        </div>
+    </section>
+    <!-- Description end -->
+
+    <!-- More Reason start -->
+    <section class="tp-section tp-section--limited-width bg-white-grey">
+        <div class="container">
+            <h2 class="h2 c-main t-center">More Reasons to Service at TrailersPlus:</h2>
+
+            <ul class="tp-check-list">
+                <li>If you're purchasing a used trailer, we encourage you and the seller to visit a nearby TrailersPlus dealer for a free Certified Trailer Inspection. As an industry leader, we make it our priority to ensure the safety and enjoyability of everyone's trailering experience. We're also happy to provide inspections for current trailer owners!</li>
+                <li>Customer satisfaction is our No. 1 priority. That's why we offer a 100% satisfaction guarantee when you visit us for trailer service and repairs.</li>
+                <li>We can perform a variety of trailer maintenance and repairs, ranging from tire replacements and roof leak fixes to fender repairs, brake adjustments and more!</li>
+                <li>We use certified
+                    <a href="#">trailer parts</a>
+                    and accessories, ensuring that each component is of the highest quality and built to withstand the test of time.</li>
+                <li>Whether you're looking to get routine service or customize your trailer with authentic accessories and parts, our team will adapt to fulfill your unique needs!</li>
+            </ul>
+
+            <div class="tp-btn-wrapper d-flex margin-50t d-flex flex-column flex-md-row justify-content-center align-items-center">
+                <a href="#" class="tp-btn tp-btn--red tp-btn--medium-max tp-btn--icon tp-btn--shadow">
+                    <i class="fa fa-cog"></i>
+                    Trailer Inspection
+                </a>
+
+                <a href="#" class="tp-btn tp-btn--red tp-btn--medium-max tp-btn--icon tp-btn--shadow">
+                    <i class="fa fa-envelope-open"></i>
+                    Contact Us
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- More Reason end -->
+
+    <!-- Join community start -->
+    <section class="tp-section tp-section--sm bg-img">
+        {% include "../templates/partials/blocks/join-community.njk" %}
+    </section>
+    <!-- Join community end -->
+
+    <!-- Partners start -->
+    <section class="tp-partners">
+        {% include "../templates/partials/blocks/partners.njk" %}
+    </section>
+    <!-- Partners end -->
+
+{% endblock %}

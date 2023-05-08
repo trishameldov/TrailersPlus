@@ -1,0 +1,110 @@
+<!-- HEADER START -->
+<header class="tp-header js-header">
+    <div class="tp-header__box d-flex">
+        <div class="tp-header__left">
+            <!-- Logo start -->
+            <div class="tp-logo">
+                <a href="./" class="d-block">
+                    <img src="./img/logo.svg" alt="Trailers Plus">
+                </a>
+            </div>
+            <!-- Logo end -->
+        </div>
+        <div class="tp-header__right">
+            <div class="tp-header__right-top">
+                <!-- Mobile logo start -->
+                <div class="tp-logo tp-logo--laptop">
+                    <a href="./">
+                        <img src="./img/logo.svg" alt="Trailers Plus">
+                    </a>
+                </div>
+                <!-- Mobile logo end -->
+                <div class="tp-header__topbar tp-skew tp-skew--header">
+                    <!-- Language switcher start -->
+                    <div class="tp-lang tp-dropdown tp-dropdown--lang js-dropdown">
+                        <div class="tp-skew tp-skew--header tp-skew--absolute tp-skew--blue-d"></div>
+                        <div class="tp-lang__head tp-dropdown__head">
+                            <img src="./img/icons/eng.png" alt="English">
+                            <span>en</span>
+                        </div>
+                        <div class="tp-dropdown__list">
+                            <ul>
+                                <li class="active">
+                                    <a href="/en/" class="tp-lang__link d-flex align-items-center js-lang-link" data-lang="en">
+                                        <img src="./img/icons/eng.png" alt="English">
+                                        English
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/es/" class="tp-lang__link d-flex align-items-center js-lang-link" data-lang="es">
+                                        <img src="./img/icons/esp.png" alt="Español">
+                                        Español
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Language switcher end -->
+                    <!-- Location dropdown start -->
+                    <div class="tp-header__store tp-dropdown js-dropdown">
+                        <div class="tp-dropdown__head t-uppercase">
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                            <span class="label d-none d-lg-inline">selected store:</span>
+                            <a href="#" class="d-none d-md-inline">Lavonia, GA</a>
+                            <span class="d-md-none">Directions</span>
+                        </div>
+                        <div class="tp-dropdown__list tp-dropdown__list--smaller">
+                            <div class="tp-dropdown__cta d-md-none">
+                                <a href="#" class="h4 c-main">Idaho Falls, ID</a>
+                                <a href="#" class="tp-btn tp-btn--sm tp-btn--red margin-15t">
+                                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                    Go to Google Maps</a>
+                            </div>
+                            {% include "../elements/header-locations.njk" %}
+                        </div>
+                    </div>
+                    <!-- Location dropdown end -->
+                    <!-- Header phone start -->
+                    <div class="tp-header__phone">
+                        <a href="tel:+1877-850-7587" class="t-uppercase">
+                            <i class="fa fa-phone"></i>
+                            <span class="label d-none d-lg-inline">call</span>
+                            <span>(877) 850-7587</span>
+                        </a>
+                    </div>
+                    <!-- Header phone end -->
+                </div>
+            </div>
+            <div class="tp-header__right-bottom">
+                <div class="tp-logo tp-logo--mobile">
+                    <a href="./">
+                        <img src="./img/logo.svg" alt="Trailers Plus">
+                    </a>
+                </div>
+                <div class="d-flex align-items-center">
+                    <!-- Main navigation start -->
+                    <nav class="tp-nav tp-nav--main js-main-nav">
+                        {% include "../elements/header-nav.njk" %}
+                        <div class="tp-nav__close-bot js-nav-close">Close Menu</div>
+                    </nav>
+                    <!-- Main navigation end -->
+                    <!-- Cart start -->
+                    {% include "../elements/cart.njk" %}
+                    <!-- Cart end -->
+                    <!-- Navbar toggle start -->
+                    <button class="tp-header__toggle js-nav-toggle" aria-label="Navbar toggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <!-- Navbar toggle end -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="tp-nav tp-nav--main tp-nav--scroll js-scroll-nav">
+        {% include "../elements/header-nav.njk" %}
+    </nav>
+</header>
+<!-- HEADER END -->

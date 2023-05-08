@@ -1,0 +1,15 @@
+<div class="tp-row">
+    {% for video in videos %}
+        <div class="margin-30t margin-md-50t tp-col">
+            <div class="tp-videos__image bg-img">
+                <picture>
+                    <source data-srcset="./img/webp/interst/{{video.image}}.webp" type="image/webp"  srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                    <source data-srcset="./img/interst/{{video.image}}.jpg" type="image/jpeg" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                    <img data-src="./img/interst/{{video.image}}.jpg" alt="Factory Direct" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                </picture>
+                <a href="{{video.video}}" class="tp-btn tp-btn--play tp-btn--play-small js-popup" data-type="iframe" aria-label="Open video"></a>
+            </div>
+            <h3 class="h4 c-white">{{video.title}}</h3>
+        </div>
+    {% endfor %}
+</div>

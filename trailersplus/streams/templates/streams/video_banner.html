@@ -1,0 +1,22 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load static %}
+<section class="tp-section bg-blue-l p-relative" style="padding-top:0.5rem;">
+    <div class="container c-white t-center">
+        <div class="mb-5 mt-5">
+            <a href="{{ self.youtube_link }}" class="tp-btn tp-btn--play d-tabl-none js-popup" data-type="iframe" aria-label="Open video"></a>
+        </div>
+        <div class="h3 c-white">{{ self.text_area_1 }}</div>
+        <a href="{{ self.youtube_link }}" class="tp-banner__play tp-btn tp-btn--play d-desk-none js-popup" data-type="iframe" aria-label="Open video"></a>
+        <h1 class="h1 c-white margin-10t margin-0b br-lg ">{{ self.text_area_2 }}</h1>
+    </div>
+    <div class="tp-banner__logo" style="position: absolute; bottom: 0;left: 50%;transform: translate(-50%,  50%);z-index: 2;">
+        <picture>
+            {% image self.background_image_logo width-111 format-webp as image_webp %}
+            <source data-srcset="{{ image_webp.url }}" type="image/webp" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+            {% image self.background_image_logo width-111 format-webp as image_webp %}
+            <source data-srcset="{{ image_webp.url }}" type="image/webp" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+            {% image self.background_image_logo width-111 format-webp as img %}
+            <img data-src="{{ img.url }}" alt="trailersplus logo" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+        </picture>
+    </div>
+</section>

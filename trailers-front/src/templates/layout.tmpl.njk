@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Some decription content will be here"/>
+        <meta name="base-url" content="http://trailersplus.viewdemo.co/"/>
+        <link rel="icon" type="image/png" href="./favicon.png">
+        <title>Trailers Plus</title>
+
+        <!-- TODO: need to insert data for Open Graph tags
+        Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+        <meta property="og:url"           content="https://www.your-domain.com/your-page.html" />
+        <meta property="og:type"          content="website" />
+        <meta property="og:title"         content="here page title" />
+        <meta property="og:description"   content="here page description" />
+        <meta property="og:image"         content="https://www.your-domain.com/path/image.jpg" />
+{#         
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;600&display=swap" media="print" onload="this.media='all'" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" media="print" onload="this.media='all'" rel="stylesheet"> #}
+{#         
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;600&display=swap" rel="stylesheet"> #}
+
+        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+        <link href="https://fonts.gstatic.com" crossorigin rel="preconnect" />
+        <link rel="prefetch" as="font" href="/fonts/font-awesome/fontawesome-webfont.woff2" crossorigin>
+        <link rel="prefetch" as="font" href="/fonts/ion-icons/ionicons.woff2" crossorigin>
+
+        <link rel="stylesheet" href="./css/fonts.min.css">
+        <link rel="stylesheet" href="./css/style.min.css">
+        <script>(function(){var s = document.createElement('script'),e = ! document.body ? document.querySelector('head') : document.body;s.src = 'https://acsbap.com/apps/app/assets/js/acsb.js';s.async = s.defer = true;s.onload = function(){acsbJS.init({statementLink : '',feedbackLink : '',footerHtml : '',hideMobile : false,hideTrigger : false,language : 'en',position : 'right',leadColor : '#146FF8',triggerColor : '#146FF8',triggerRadius : '50%',triggerPositionX : 'right',triggerPositionY : 'bottom',triggerIcon : 'default',triggerSize : 'medium',triggerOffsetX : 20,triggerOffsetY : 20,mobile : {triggerSize : 'small',triggerPositionX : 'right',triggerPositionY : 'center',triggerOffsetX : 0,triggerOffsetY : 0,triggerRadius : '50%'}});};e.appendChild(s);}());</script>
+    </head>
+
+    <body>
+
+        <!-- MAIN CONTENT WRAPP START -->
+        <div class="main-wrapp">
+
+            {# HEADER Start #}
+                  {% include "partials/main-part/header.tmpl.njk" %}
+            {# HEADER End #}	
+
+            <div class="main-wrapp-inner">
+                <!-- MAIN CONTENT START -->
+                {% block content %} {% endblock %}
+                <!-- MAIN CONTENT END -->
+            </div>
+
+            {# FOOTER Start #}
+                {% include "partials/main-part/footer.tmpl.njk" %}
+            {# FOOTER End #}
+
+        </div>
+        <!-- MAIN CONTENT WRAPP END -->
+
+        <!-- SCRIPTS -->
+
+        <script async src="./js/libs/lazysizes.min.js"></script>
+        <script defer src="./js/libs/libs.min.js"></script>
+
+        <!-- TODO Include next lib only on Products List page  start-->
+        <script defer src="./js/libs/jquery-ui.min.js"></script>
+        <!-- end -->
+
+        <!-- TODO include only on checkout page start -->
+        <script defer src="./js/checkout.js"></script>
+        <!-- end -->
+
+        <!-- TODO include only on product page start -->
+        <script defer src="./js/product-page.js"></script>
+        <!-- end -->
+
+        <!-- TODO include only on category page start -->
+        <script defer src="./js/category-filter.js"></script>
+        <!-- end -->
+
+        <!-- TODO include only on product page start -->
+        <script defer src="./js/product-reviews.js"></script>
+        <!-- end -->
+{#         
+        <script>
+            document.addEventListener('DOMContentReady', function() {
+                document.getElementById('loader').style.display = 'none'
+                document.getElementById('content').style.display = 'block'
+            })
+        </script> #}
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCABUipchxBy5ubGg0ajToD30sX9KhcCBQ"></script>
+        <script defer src="./js/script.js"></script>
+        
+        <!-- Live Chat -->
+        <script defer src="./js/libs/livechat.js"></script>
+    </body>
+</html>

@@ -1,0 +1,34 @@
+{% if aboutTitleTag %}
+    {% set titleTag = aboutTitleTag %}
+{% else %}
+    {% set titleTag = 'h3' %}
+{% endif %}
+
+<div class="tp-about-columns {% if(largeImage) %} tp-about-columns--large-img {% endif %} ">
+    {% for item in about %}
+        <div class="tp-about-columns__col">
+            <div class="tp-about-columns__img bg-img">
+                <picture>
+                    <source data-srcset="./img/webp/{{item.image}}.webp" type="image/webp" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                    <source data-srcset="./img/{{item.image}}.jpg" type="image/jpeg" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                    <img data-src="./img/{{item.image}}.jpg" alt="{{item.title}}" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                </picture>
+            </div>
+            {% if aboutTitleTag == "h4" %}
+                <h4 class="h4 c-main">{{item.title}}</h4>
+            {% else %}
+                <h3 class="h3 c-main">{{item.title}}</h3>
+            {% endif %}
+
+            {% if (item.text) %}
+                <div class="tp-about-columns__text">
+                    {{item.text | safe}}
+                </div>
+            {% endif %}
+        </div>
+    {% endfor %}
+
+    <div class="w-full t-center margin-50b margin-md-85b">
+        <a href="#cargo-3" class="tp-btn tp-btn--red">View Additional Snowsport Features</a>
+    </div>
+</div>

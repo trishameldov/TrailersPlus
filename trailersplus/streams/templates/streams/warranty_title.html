@@ -1,0 +1,21 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load static %}
+
+<div class="tp-section_troubleshooting">
+    <div class="container">
+        <div class="row warranty-title">
+            <div class="col-12 col-xl-8">
+                <div class="row">
+                    <h1 class="warranty-title__title">{{ self.title }}</h1>
+                </div>
+                <div class="row text">
+                    {{ self.article_text | safe }}
+                </div>
+            </div>
+            <div class="warranty-title__img col-xl-4">
+                {% image self.image_right width-515 format-webp as image_webp %}
+                <img data-src="{{ image_webp.url}}" alt="image_right" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+            </div>
+        </div>
+    </div>
+</div>

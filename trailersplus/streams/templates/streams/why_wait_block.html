@@ -1,0 +1,48 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load static cache %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+{% cache 604800 why_wait_block_1 LANGUAGE_CODE %}
+<section class="tp-why-wait padding-50t padding-md-85t padding-0b">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-7 col-sm-12">
+{% endcache why_wait_block_1 %}
+{% cache 604800 why_wait_number LANGUAGE_CODE podium_number %}
+                <div class="tp-why-wait__desc">
+                    <h3 class="h3">{{ self.title | safe }}</h3>
+                    <p>{{ self.sub_title | safe }}</p>
+                    <h3 class="h3 c-main">{{ self.richtext | safe }} <span class="c-pomegranate"><a href="sms:+1{{ podium_number }}">{{podium_number}}</a></span> {{ self.richtext_chat | safe }}</h3>
+                </div>
+{% endcache why_wait_number %}
+{% cache 604800 why_wait_block_2 LANGUAGE_CODE %}
+            </div>
+            <div class="col-lg-4 col-md-5 col-sm-12">
+                <a href="{{ self.free_inspection_link }}" class="tp-why-wait__inspection">
+                    <span>
+                        <picture>
+                            {% image self.free_inspection_icon width-39 format-webp as image_webp %}
+                            <source data-srcset="{{ image_webp.url }}" type="image/webp" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                            {% image self.free_inspection_icon width-39 format-webp as image_webp %}
+                            <source data-srcset="{{ image_webp.url }}" type="image/webp" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                            {% image self.free_inspection_icon width-39 format-webp as img %}
+                            <img data-src="{{ img.url }}" alt="list-icon" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                        </picture>
+                    </span>
+                    <h4 class="h4 c-main">{{ self.free_inspection_title }}</h4>
+                    <p>{{ self.free_inspection_text | safe }}</p>
+                </a>
+            </div>
+        </div>
+    </div>
+    <picture>
+        {% image self.image width-1440 format-webp as image_webp %}
+        <source data-srcset="{{ image_webp.url }}" type="image/webp" media="(min-width: 451px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+        {% image self.image width-1440 format-webp as image_webp %}
+        <source data-srcset="{{ image_webp.url }}" type="image/webp" media="(min-width: 451px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+        {% image self.image width-1440 format-webp as img %}
+        <img data-src="{{ img.url }}" alt="Why Wait" class="lazyload margin-30t" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+    </picture>
+</section>
+{% endcache why_wait_block_2 %}

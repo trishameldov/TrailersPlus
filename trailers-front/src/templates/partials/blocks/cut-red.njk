@@ -1,0 +1,24 @@
+<div class="container p-relative">
+    <div class="tp-cut-red__img">
+        <picture>
+            <source data-srcset="./img/webp/safety-inspection/man-min.webp" type="image/webp"  srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+            <source data-srcset="./img/safety-inspection/man-min.png" type="image/jpeg" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+            <img data-src="./img/safety-inspection/man-min.png" alt="Call today" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+        </picture>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-9 col-lg-6 col-xl-4 offset-xl-2 margin-30b margin-lg-0b">
+            <div class="__text">
+                <h2 class="h4 c-white">{{ data.title | safe }}</h2>
+                <h3 class="h3 c-white">{{ data.subtitle | safe }}</h3>
+            </div>
+        </div>
+        <div class="col-12 col-md-9 col-lg-6 col-xl-5 offset-xl-1">
+            <ul class="tp-check-list {% if data.style === "red-white" %}tp-check-list--white-txt{% else %}tp-check-list--white{% endif %} tp-check-list--small">
+                {% for item in data.list %}
+                <li>{{ item | safe }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>

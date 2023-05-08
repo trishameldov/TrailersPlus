@@ -1,0 +1,213 @@
+.store-header-margin {
+  @media (max-width: 1024px) {
+    margin-top: 8rem;
+  }
+  @media (max-width: 991px) {
+    margin-top: 1rem;
+  }
+}
+
+.tp-header__store,
+.tp-header__phone {
+  > a {
+    > span {
+      transition: color 250ms ease;
+    }
+
+    &:hover {
+      > span:not(.label) {
+        color: $color-main;
+      }
+    }
+  }
+}
+
+
+.tp-s-filter {
+  $b: &;
+
+  &--vert {
+      @include extra-small-size-max {
+          max-width: 95%;
+      }
+  }
+
+  &--vert {
+      width: 100%;
+      bottom: auto;
+      left: 0;
+      top: auto;
+      padding: 35px 30px;
+      bottom: -45px;
+      margin: 0;
+
+      @include mobile-menu-max {
+          bottom: auto;
+          margin: 0 auto;
+          padding: 0;
+          margin-bottom: -10px;
+      }
+
+      &:before {
+          transform: none;
+      }
+
+      span.select2-container--default .select2-selection--single,
+      .select2-container--default .select2-selection--single .select2-selection__arrow {
+          height: 66px;
+      }
+
+      span.select2 {
+          width: 100%!important;
+      }
+
+      #{$b} {
+
+          &__form {
+              flex-wrap: wrap;
+          }
+
+          &__options {
+              flex-wrap: wrap;
+              padding: 0;
+          }
+
+          &__item {
+              width: 100%;
+              max-width: 100%;
+              flex-basis: 100%;
+
+              &:first-child {
+                  margin-bottom: 20px;
+              }
+          }
+      }
+
+      .tp-btn {
+          padding: 19px 30px;
+
+          &:before {
+              box-shadow: 2px 2px 0 var(--c-white);
+          }
+      }
+  }
+
+  &__stat {
+      color: var(--c-white);
+      font-size: 20px;
+      font-family: $f-oswald;
+
+      span {
+          font-weight: 500;
+          font-size: 24px;
+          margin-right: 6px;
+      }
+  }
+
+  &--sales {
+      bottom: -162px;
+
+      @include extra-small-size-max {
+          bottom: -20px;
+      }
+  }
+
+  &--category {
+      position: static;
+      width: auto;
+      margin: 0;
+      max-width: 570px;
+
+      &:before {
+          display: none;
+      }
+
+      #{$b} {
+          
+          &__item-label {
+              color: $color-main;
+          }
+
+          &__options {
+              padding: 0;
+              margin: 0 -15px;
+
+              @include small-size-max {
+                  margin: 0;
+              }
+          }
+
+          &__item {
+
+              flex-basis: calc(50% - 30px);
+              width: calc(50% - 30px);
+              max-width: calc(50% - 30px);
+              margin: 0 15px;
+
+              @include small-size-max {
+                  flex-basis: 100%;
+                  width: 100%;
+                  max-width: 100%;
+                  margin: 0 0 25px;
+
+                  &:last-of-type {
+                      margin-bottom: 0;
+                  }
+              }
+
+              &--store {
+
+                  .select2-container--default .select2-selection--single .select2-selection__rendered {
+
+                      &:before {
+                          content: '\f155';
+                          font-size: 20px;
+                          left: 28px;
+                      }
+                  }
+              }
+
+              &--type {
+
+                  .select2-container--default .select2-selection--single .select2-selection__rendered {
+          
+                      &:before {
+                          background-image: url(/static/img/icons/trailer-icon-blue.svg);
+                      }
+                  }
+              }
+          }
+      }
+
+      .select2 {
+          width: 100%!important;
+      }
+
+      .select2-container--default .select2-selection--single:before {
+          background-color: var(--c-blue-main);
+          opacity: 0.07;
+      }
+
+      .select2-container--default .select2-selection--single .select2-selection__rendered {
+          color: $color-main;
+          font-weight: 700;
+      }
+
+      span.select2-container--default .select2-selection--single,
+      .select2-container--default .select2-selection--single .select2-selection__arrow b {
+          border-color: $color-main transparent transparent transparent
+      }
+  }
+}
+
+
+// Utilities
+
+.t-underline {
+  text-decoration: underline;
+}
+
+
+.tp-shadow-grey {
+  box-shadow: 10px 10px 0 rgba(var(--ca-blue-grey), 0.15);
+}

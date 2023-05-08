@@ -1,0 +1,19 @@
+/* ------------------------------------------- */
+/*                CATEGORY TITLE               */
+/* ------------------------------------------- */
+
+.tp-cat-title {
+    margin-bottom: 60px;
+
+    @media(max-width: 1755px) {
+        margin-bottom: 38px;
+    }
+
+    @include medium-size-max {
+        margin-bottom: 55px;
+    }
+
+    @include small-size-max {
+        margin-bottom: 16px;
+    }
+}

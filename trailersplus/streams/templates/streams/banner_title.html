@@ -1,0 +1,18 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load static %}
+<section class="main-wrapp-inner">
+    <div class="tp-section bg-blue-l" style="padding-bottom: 2rem;">
+        <div class="margin-10b" style="background-color: #11396C;">
+            <h3 class="h2 c-white" style="font-weight: 500;font-family: 'Oswald'; font-size: 50px; line-height: 60px; width: 80%;margin:auto; text-align: center;">
+                {{ self.title }}
+            </h3>
+            <div class="container p-relative">
+                {% if self.sub_title %}
+                <p style="width: 100%;margin:auto;" class="c-white margin-0t text-center py-4">
+                    {{ self.sub_title }}
+                </p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>

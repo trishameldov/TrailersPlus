@@ -1,0 +1,204 @@
+/* ------------------------------------------- */
+/*              RECENT WORK SLIDER             */
+/* ------------------------------------------- */
+
+.tp-located-at {
+    $b: &;
+    display: inline;
+
+    &:hover {
+
+        #{$b} {
+
+            &__box {
+                pointer-events: all;
+                opacity: 1;
+            }
+        }
+    }
+
+    &__toggle {
+        position: relative;
+        color: $color-main;
+        cursor: pointer;
+
+        &:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 17px;
+            left: 0;
+            bottom: 100%;
+            display: block;
+        }
+    }
+    
+    &__box {
+        position: absolute;
+        display: flex;
+        left: -15%;
+        bottom: calc(100% + 15px);
+        min-width: 522px;
+        width: 522px;
+        background-color: var(--c-white);
+        box-shadow: 0 0 30px rgba(var(--ca-black), 0.15);
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 200ms ease;
+        z-index: 10;
+
+        @include mobile-menu-max {
+            // right: auto;
+            right: 0;
+        }
+
+        @include medium-size-max {
+            right: initial;
+            left: 0;
+        }
+
+        @include small-size-max {
+            flex-direction: column;
+            width: 100%;
+            min-width: 100%;
+        }
+    }
+    
+	&__map {
+        position: relative;
+        width: 241px;
+        min-width: 241px;
+        min-height: 210px;
+
+        @include small-size-max{
+            padding: 10px;
+        }
+
+        .tp-map {
+            
+            @include small-size-max {
+                height: 220px;
+            }
+        }
+
+        @include small-size-max {
+            width: 100%;
+            min-width: 100%;
+        }
+        
+        .tp-btn {
+            text-transform: none;
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 8px 20px;
+            min-width: auto;
+
+            span {
+                justify-content: center;
+                white-space: nowrap;
+            }
+        }
+	}
+
+	&__info {
+        position: relative;
+        padding: 20px;
+        flex-grow: 1;
+
+        &:after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -20px;
+            transform: translateX(-50%);
+            border: 10px solid transparent;
+            border-top: 10px solid var(--c-white);
+
+            @include mobile-menu-max {
+                left: 20px;
+                transform: none;
+            }
+        }
+	}
+}
+
+/* location info item */
+
+.tp-loc-info-item {
+    position: relative;
+    display: flex;
+    font-size: 14px;
+    color: var(--c-blue-dark);
+    padding-left: 27px;
+    margin-bottom: 15px;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    a {
+        color: inherit;
+
+        &:hover {
+            color: $color-alter;
+        }
+    }
+
+    .fa {
+        position: absolute;
+        left: 0;
+        top: 3px;
+        font-size: 16px;
+        color: $color-main;
+    }
+    
+    .fa-clock-o {
+        top: 5px;
+    }
+
+    .fa-phone {
+        top: 2px
+    }
+
+    table {
+        text-transform: capitalize;
+    }
+
+    .fa-map-marker {
+        left: 1px;
+    }
+    
+    table {
+        text-transform: capitalize;
+    }
+
+    tr {
+        td:first-child {
+            padding-right: 15px;
+            min-width: 70px;
+        }
+        td:last-child {
+            min-width: calc(100% - 70px);
+        }
+    }
+
+    &--map {
+        color: var(--c-white);
+        font-weight: 700;
+        font-size: 15px;
+        line-height: 26px;
+        padding-left: 22px;
+
+        a {
+            color: inherit;
+        }
+
+        .fa {
+            color: inherit;
+            font-size: 16px;
+            top: 5.5px;
+        }
+    }
+}

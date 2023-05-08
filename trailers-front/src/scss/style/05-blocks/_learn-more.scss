@@ -1,0 +1,33 @@
+.tp-learn-more {
+    h2.h2 {
+        @include extra-small-size-max {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    a {
+        position: relative;
+        color: var(--c-white);
+        padding: 0 5px;
+        transition: background-color 250ms ease-in;
+        white-space: pre;
+
+        @include extra-small-size-max {
+            line-height: 1.6;
+            width: fit-content;
+            margin-top: 20px;
+        }
+
+        &:hover {
+            &:before {
+                background-color: var(--c-sunset)
+            }
+        }
+
+        &:before {
+            @include skew;
+        }
+    }
+}

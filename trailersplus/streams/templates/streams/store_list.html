@@ -1,0 +1,49 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load i18n %}
+{% load static cache %}
+{% load product_tags %}
+{% get_current_language as LANGUAGE_CODE %}
+
+
+<section>
+    <div class="tp-locator">
+        <div class="container margin-50b">
+            
+            <div class="tp-locator__stores js-locator-stores">
+                {% for state, stores in locations %}
+                    {% if stores|length %}
+                        {% for store in stores %}
+                            <div class="tp-locator__store">
+                                <div class="row">
+                                    <div class="col-md-5 col-lg-3">
+                                        <a href="{{ request.scheme }}://{{ request.site_name }}/{{ store.slug }}/" class="h3 h3-h2-mob c-main"> {{ store.city_name }}, {{ store.state }}</a>
+                                        <address class="margin-20t"> {{ store.store_address }} <br> {{ store.city_name }}, {{ store.state }} {{ store.store_zip}} <br> p: <a href="tel:+{{ store.store_phone }}" class="phone-nos">{{ store.store_phone }}</a>
+                                        </address>
+                                        <a href="https://www.google.com/maps/search/?api=1&query={{store.store_lat}}%2C{{store.store_long}}" class="fz14 margin-20t d-inline-block" target="_blank" rel="noopener">{% if LANGUAGE_CODE == 'es' %}Obtener las Direcciones{% else %}Get Directions{% endif %} &gt; </a>
+                                    </div>
+                                    <div class="col-md-7 col-lg-5 col-xl-6 margin-20t margin-md-5t margin-lg-10t">
+                                        <div class="tp-locator__schedule">
+                                            <p class="h4">{% if LANGUAGE_CODE == 'es' %}Horarios{% else %}Store Hours{% endif %}</p>
+                                            <table>
+                                                <tbody class="text-capitalize">
+                                                    {{ store.work_hours|group_work_hours }}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-xl-3 margin-10t">
+                                        <div class="tp-locator__buttons">
+                                            <a href="https://www.trailersplus.com/{{store.slug}}/" class="tp-btn tp-btn--red tp-btn--md tp-btn--full">{% if LANGUAGE_CODE == 'es' %}MÁS INFORMACIÓN{% else %}More Information{% endif %}</a>
+                                            <a href="https://www.trailersplus.com/{{store.slug}}/inventory/" class="tp-btn tp-btn--grey tp-btn--full tp-btn--md">{% if LANGUAGE_CODE == 'es' %}VER INVENTARIO DE LA TIENDA{% else %}View Store Inventory{% endif %}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endfor %}
+            </div>
+
+        </div>
+    </div>    
+</section>

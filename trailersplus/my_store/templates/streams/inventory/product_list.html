@@ -1,0 +1,203 @@
+{% load wagtailcore_tags wagtailimages_tags wagtailuserbar %}
+{% load static %}
+{% load product_tags price_round%}
+{% load i18n cache %}
+{% get_current_language as LANGUAGE_CODE %}
+<!-- Products section start -->
+<section class="padding-45t padding-20b padding-md-50t padding-md-55b bg-grey js-product-filter-section" data-error-text="{{ self.no_trailers_available|phone_number_template:store.store_phone| safe}}">
+    <div class="container js-drop-wrapp">
+        
+        <div class="row tp-prod-fltr-toggle margin-25b margin-md-40b js-drop-toggle">
+            <div class="col-9">
+                <h1 class="h2 c-main margin-25b margin-md-40b">
+                    {% titles_substitution self.main_section_title %}
+                </h1>
+            </div>
+            <div class="col-3">
+                <div class="text-center filter-btn">
+                    <div class="c-main filter-text">{{ self.filter_title }}</div>
+                    <img src="/web-pictures/icons/filter-img.svg" alt="icon">
+                </div>
+            </div>
+        </div>
+{% titles_substitution self.main_section_title as title %}
+    {% cache 3600 product_list title category sub_category LANGUAGE_CODE %}
+        <div class="row">
+            <div class="tp-prod-fltr-wrapp col-md-4 col-xl-3 margin-20b margin-md-30b js-drop-content">
+                <div class="tp-prod-fltr bg-white padding-20t padding-25b js-prod-fltr">
+                    <div class="tp-prod-fltr__item">
+                        <h2 class="h4 tp-prod-fltr__title">{{ self.filter_location }}</h2>
+                        <div class="tp-prod-fltr__box">
+                            <select name="trailer-type" id="product-list-location">
+                                
+                                {% for state, stores in locations %}
+                                    {% if stores|length %}
+                                    <option value="{{ request.scheme }}://{{ request.site_name }}/{{ LANGUAGE_CODE }}/{{ state|underscore }}/|{{ state }}" label="{{ state }}" class="select2-result-selectable storeState" {% if page_type == "State page" %}selected="selected"{% endif %}>{{ state }}</option>
+                                        {% for selected_store in stores %}
+                                        {% if page_type != 'State page' %}
+                                            <option value="{{ request.scheme }}://{{ request.site_name }}/{{ LANGUAGE_CODE }}/{{ selected_store.slug }}/inventory/|{{ selected_store.id }}" {% if selected_store.city == store.store_city %}selected="selected"{% endif %}>
+                                        {% else %}
+                                            <option value="{{ request.scheme }}://{{ request.site_name }}/{{ LANGUAGE_CODE }}/{{ selected_store.slug }}/inventory/{% if category %}{{ category }}/{% if sub_category %}{{ sub_category }}/{% endif %}{% endif %}|{{ selected_store.id }}">
+                                        {% endif %}
+
+                                            {{ selected_store.city_name }}{% if selected_store.id != 'TRPL81' %}, {{ selected_store.state }}{% endif %}</option>
+                                        {% endfor %}
+                                    
+                                    {% endif %}
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <!-- TODO checkbox value must be similar to label -->
+                    <div class="tp-prod-fltr__item tp-prod-fltr__item--mob js-drop-wrapp">
+                        <h2 class="h4 tp-prod-fltr__title js-drop-toggle">{{ self.filter_types }}</h2>
+                        <div class="tp-prod-fltr__box js-drop-content">
+                            {% for type, main_info in filters.types %}
+                                {% if main_info.sub|length %}
+                                <div class="tp-types-fltr js-drop-wrapp">
+                                    <div class="d-flex align-items-center">
+                                        <div class="tp-types-fltr__cat">
+                                        {% if page_type != 'State page' %}
+                                                <div id="parent" data-slug="{{ main_info.slug|lower }}" class="js-fltr-parent js-fltr-click" data-url="{{ request.scheme }}://{{ request.site_name }}/{{ LANGUAGE_CODE }}/{{ store_slug }}/inventory/{% if category|lower != main_info.slug|lower or sub_category is not None %}{% if main_info.slug == 'ATV' %}ATV{% else %}{{ main_info.slug|title }}{% endif %}{% endif %}">
+                                            {% else %}
+                                                <div id="parent" data-slug="{{ main_info.slug|lower }}" class="js-fltr-parent js-fltr-click" data-url="{{ request.scheme }}://{{ request.site_name }}/{{ LANGUAGE_CODE }}/{{ slug }}/{% if category|lower != main_info.slug|lower or sub_category is not None %}{% if main_info.slug == 'ATV' %}ATV{% else %}{{ main_info.slug|title }}{% endif %}{% endif %}">
+                                            {% endif %}
+                                                <input type="checkbox" name="w-{{ main_info.slug|lower }}" id="all-{{ main_info.slug|lower }}" class="js-all-fltr-toggle" data-num="{{ main_info.index }}" {% if category|lower == main_info.slug|lower and sub_category is None %}data-checked{% endif %}>
+                                                <label for="all-{{ main_info.slug|lower }}">{{ type }}</label>
+                                            </div>
+                                        </div>
+                                        <div class="tp-types-fltr__head js-drop-toggle"></div>
+                                    </div>
+                                    <div class="tp-types-fltr__content tp-hidden js-drop-content">
+                                        <ul class="tp-prod-fltr-list margin-10t margin-20b">
+                                            {% for sub_category_dict in main_info.sub %}
+                                                {% for name, info in sub_category_dict.items %}
+                                                <li class="tp-prod-fltr-list__item">
+                                                {% if page_type != 'State page' %}
+                                                    <div id="child" data-slug="all-{{ main_info.slug|lower }}" class="js-fltr-click" data-url="{% if sub_category == info.web_category and category|lower == main_info.slug|lower %}{{ request.scheme }}://{{ request.site_name }}/{{ LANGUAGE_CODE }}/{{ store_slug }}/inventory/{% else %}{{ request.scheme }}://{{ request.site_name }}/{{ store_slug }}/inventory/{{ main_info.slug|title }}/{{ info.web_category }}{% endif %}">
+                                                    <input type="checkbox" name="{{ info.web_category }}" id="{{ info.web_category }}" class="js-fltr-toggle" data-num="{{ info.index }}" value="{{ info.verbose }}" {% if sub_category in info.web_category and category|lower == main_info.slug|lower %}data-checked{% endif %}>{# we use `sub_category IN info.web_category` because gooseneck subcategories in link is shorter than info sub categories #}
+                                                {% else %}
+                                                    <div id="child" data-slug="all-{{ main_info.slug|lower }}" class="js-fltr-click" data-url="{% if sub_category == info.web_category and category|lower == main_info.slug|lower %}{{ request.scheme }}://{{ request.site_name }}/{{ LANGUAGE_CODE }}/{{ slug }}/inventory/{% else %}{{ request.scheme }}://{{ request.site_name }}/{{ slug }}/{{ main_info.slug|title }}/{{ info.web_category }}/{% endif %}">
+                                                    <input type="checkbox" name="{{ info.web_category }}" id="{{ info.web_category }}" class="js-fltr-toggle" data-num="{{ info.index }}" value="{{ info.verbose }}" {% if sub_category in info.web_category %}data-checked{% endif %}>{# we use `sub_category IN info.web_category` because gooseneck subcategories in link is shorter than info sub categories #}
+                                                {% endif %}
+                                                        <label for="{{ info.web_category }}">{{ info.verbose }}</label>
+                                                    </div>
+                                                    <span>{{ info.count }}</span>
+                                                </li>
+                                                {% endfor %}
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% if products.queryset|length %}
+                    <div class="tp-prod-fltr__item tp-prod-fltr__item--mob js-drop-wrapp">
+                        <h2 class="h4 tp-prod-fltr__title js-drop-toggle">{{ self.filter_length }}</h2>
+                        <ul class="tp-prod-fltr-list tp-prod-fltr-list--mob tp-prod-fltr-list--normal js-drop-content">
+                            {% for trailer_length, length_info in filters.lengths %}
+                            <li class="tp-prod-fltr-list__item">
+                                <input type="checkbox" name="length-{{ length_info.numerical }}" id="length-{{ length_info.numerical }}" class="js-fltr-toggle js-fltr-length" value="{{ trailer_length }}" data-num="{{ length_info.index }}">
+                                <label for="length-{{ length_info.numerical }}">{{ trailer_length }}'</label>
+                                <span>{{ length_info.count }}</span>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="tp-prod-fltr__item">
+                        <h2 class="h4 tp-prod-fltr__title margin-50b">{{ self.filter_price }}</h2>
+                        <div id="slider-range" data-price-first="{# {% if filters.price.min %} #}{{ filters.price.min|floor_500 }}{# {% else %}0{% endif %} #}" data-price-second="{# {% if filters.price.max %} #}{{ filters.price.max|ceil_500 }}{# {% else %}0{% endif %} #}" data-min="0" data-max="{# {% if filters.price.max %} #}{{ filters.price.max|ceil_500 }}{# {% else %}0{% endif %} #}" data-step="500"></div>
+                    </div>
+                    {% endif %}
+                    <span class="tp-prod-fltr__close">
+                        <button class="tp-btn tp-btn--red tp-btn--fullwidth tp-btn--fz15 js-close-prod-fltr">{{ self.close_filter }}</button>
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-8 col-xl-9">
+                <div class="tp-search-res">
+                    <div class="tp-search-res__info margin-15b margin-md-5b">
+                        <!-- Do not close span! it must be closed in wagtail-->
+                        <div><span class="js-products-conter">{{ products.count }} {{ self.trailers_available | safe }} <span>
+                        {% if page_type == "State page" %}{{ store.get_state_display }}{% else %}{{ store.get_city_name }}{% if store.store_id != 'TRPL81' %}, {{ store.state }}{% endif %}{% endif %}</span></div>
+                        {% if products.queryset|length %}
+                        <div class="tp-search-res__info-checkbox">
+                            <input type="checkbox" name="specials" id="specials" class="js-filter-special">
+                            <label for="specials">{{ self.trailers_special }}</label>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="tp-search-res__fltr js-fltr-wrapp" data-url="{{ request.scheme }}://{{ request.site_name }}/{{ store_slug }}/inventory/"></div>
+                    <div class="tp-search-res__box margin-5t margin-md-15t">
+                        <div class="row js-search-grid">
+                            {% if products.queryset|length %}
+                            {% for product in products.queryset %}
+                            <div class="col-md-6 col-xl-4 margin-30b js-product-wrapp" data-category="{{ product.trailer.sub }}{% if product.trailer.coupler|lower == 'gn' %}GN, {% endif %}" data-price="{{ product.trailer.sale_price|num_price }}" data-length="length-{{ product.trailer.length|num_length }}" data-special="{% if product.trailer.vin in products.special %}true{% endif %}">
+                                <a href="{{ request.scheme }}://{{ request.site_name }}/{{ store_slug }}/{{ product.trailer.category.slug }}/trailer/{{ product.trailer.vin }}" class="tp-product">
+                                    <div class="tp-product__image">
+                                        <div class="tp-swiper tp-swiper--product js-swiper">
+                                            <div class="tp-swiper__container swiper-container" data-slides="1" data-loop="true" data-speed="500">
+                                                <div class="swiper-wrapper tp-swiper__wrapper">
+                                                    {% for image in product.trailer.pictures %}
+                                                    <div class="swiper-slide tp-swiper__slide bg-img">
+                                                        <picture>
+                                                            <source media="(min-width:1080px)" data-srcset="{{ products.image_path.ds600 }}/{{ image.file }}" type="image/webp" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                                                            <source media="(min-width:760px)" data-srcset="{{ products.image_path.ds400 }}/{{ image.file }}" type="image/jpeg" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                                                            <img data-src="{{ products.image_path.ds300 }}/{{ image.file }}" alt="Factory Direct" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                                                        </picture>
+                                                    </div>
+                                                    {% empty %}
+                                                    <div class="swiper-slide tp-swiper__slide bg-img">
+                                                        <picture>
+                                                            <img data-src="{{ products.image_path.original }}/comingsoon.jpg" alt="Factory Direct" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                                                        </picture>
+                                                    </div>
+                                                    {% endfor %}
+                                                </div>
+                                                <div class="swiper-button-prev tp-swiper__prev"></div>
+                                                <div class="swiper-button-next tp-swiper__next"></div>
+                                            </div>
+                                        </div>
+                                        {% if product.trailer.status != 150 and product.trailer.vin in products.special %}
+                                        <span class="tp-product__status tp-product__status--special">{{ self.trailers_special }}</span>
+                                        {% endif %}
+                                    </div>
+                                    <div class="tp-product__info">
+                                        {% if page_type == "State page" %}
+                                            <div class="fz15 c-blue-dark mb-2"><i class="fa fa-map-marker"></i> {{ product.trailer.store.get_city_name }}, {{ product.trailer.store.state }}</div>    
+                                        {% endif %}
+                                        {% if product.trailer.status == 120 %}
+                                        <span class="tp-product__status">{{ self.trailers_reserved }}</span>
+                                        {% endif %}
+                                        {% if product.trailer.status == 150 %}
+                                        <span class="tp-product__status">{{ self.trailers_sold }}</span>
+                                        {% endif %}
+                                        <h3 class="h5 margin-0t margin-0b c-main">{{ product.title }}</h3>
+                                        <!-- TODO If product has MSRP price need to add span(after span with price) with class "old" <span class="old">MSRP: $7999</span> -->
+                                        <div class="tp-product__price">
+                                            Sale Price: <span>{{ product.trailer.sale_price|str_price }}</span>
+                                            <span class="old"><b>MSRP:</b> {{ product.trailer.msrp|str_price }}</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            {% endfor %}
+                            {% else %}
+{#                                <p>{{ self.no_trailers_available}}</p>#}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endcache %}
+</section>
+<section>
+    {% if page_type != "State page" %}
+        {% include 'includes/seo_block.html' %}
+    {% endif %}
+</section>
+<!-- Products section end -->

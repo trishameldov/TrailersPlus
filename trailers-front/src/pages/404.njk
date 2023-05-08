@@ -1,0 +1,35 @@
+{% extends "layout.tmpl.njk" %}
+
+{% block content %}
+
+    <section class="tp-not-found bg-img">
+        <picture>
+            <source data-srcset="./img/webp/404/bg-min.webp" type="image/webp" media="(min-width: 451px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="> 
+            <source data-srcset="./img/webp/404/bg-mob-min.webp" type="image/webp" media="(max-width: 450px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="> 
+            <source data-srcset="./img/404/bg-min.jpg" type="image/jpeg" media="(min-width: 451px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="> 
+            <source data-srcset="./img/404/bg-mob-min.jpg" type="image/jpeg" media="(max-width: 450px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="> 
+            <img data-src="./img/404/bg-min.jpg" alt="alt" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+        </picture>
+
+        <div class="container t-center">
+            <h1 class="c-white">404</h1>
+            <h2 class="h3 c-white">This page is not found.</h2>
+            <h3 class="c-white">The page you were looking for is not here or is broken.</h3>
+
+            <a href="#" class="tp-btn tp-btn--red margin-30t"><i class="fa fa-home" aria-hidden="true"></i> Back to HomePage</a>
+        </div>
+    </section>
+	
+    <!-- Join community start -->
+    <section class="tp-section tp-section--sm bg-img">
+        {% include "../templates/partials/blocks/join-community.njk" %}
+    </section>
+	<!-- Join community end -->
+
+    <!-- Partners start -->
+    <section class="tp-partners">
+        {% include "../templates/partials/blocks/partners.njk" %}
+    </section>
+	<!-- Partners end -->
+    
+{% endblock %}

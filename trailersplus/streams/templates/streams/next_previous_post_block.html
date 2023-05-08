@@ -1,0 +1,41 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load static %}
+
+<section class="padding-50t padding-50b padding-md-85b tp-blog-details">
+<div class="container c-blue-dark">
+<div class="tp-post-navigation padding-50t">
+    <div class="tp-post-navigation__post tp-post-navigation__post--prev">
+        <a href="{{ previous_sibling.url }}" class="tp-post-navigation__img-wrapper">
+            <picture>
+                {% image previous_sibling.specific.post_preview_image width-170 format-webp as image_webp %}
+                <source data-srcset="{{ image_webp.url }}" type="image/webp" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                {% image previous_sibling.specific.post_preview_image width-170 format-webp as image_webp %}
+                <source data-srcset="{{ image_jpeg.url }}" type="image/jpeg" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                {% image previous_sibling.specific.post_preview_image width-170 as img %}
+                <img data-src="{{ img.url }}" alt="alt" class="lazyload tp-img--shadow" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+            </picture>
+        </a>
+        <div class="tp-post-navigation__post-desc">
+            <a href="{{ previous_sibling.url }}" class="tp-post-navigation__link">{{ self.next_text_button }}</a>
+            <a href="{{ previous_sibling.url }}" class="c-main h4">{{ previous_sibling }}</a>
+        </div>
+    </div>
+    <div class="tp-post-navigation__post tp-post-navigation__post--next">
+        <a href="{{ next_sibling.url }}" class="tp-post-navigation__img-wrapper">
+            <picture>
+                {% image next_sibling.specific.post_preview_image width-170 format-webp as image_webp %}
+                <source data-srcset="{{ image_webp.url }}" type="image/webp" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                {% image next_sibling.specific.post_preview_image width-170 format-webp as image_webp %}
+                <source data-srcset="{{ image_jpeg.url }}" type="image/jpeg" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                {% image next_sibling.specific.post_preview_image width-170 as img %}
+                <img data-src="{{ img.url }}" alt="alt" class="lazyload tp-img--shadow" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+            </picture>
+        </a>
+        <div class="tp-post-navigation__post-desc">
+            <a href="{{ next_sibling.url }}" class="tp-post-navigation__link">{{ self.previous_text_button }}</a>
+            <a href="{{ next_sibling.url }}" class="c-main h4">{{ next_sibling }}</a>
+        </div>
+    </div>
+</div>
+</div>
+</section>

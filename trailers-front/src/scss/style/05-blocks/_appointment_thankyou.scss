@@ -1,0 +1,67 @@
+/* ------------------------------------------- */
+/*       APPOINTMENT THANK YOU                 */
+/* ------------------------------------------- */
+// .appointment-thankyyou h1, h3 {
+//     transform: skew(5deg);
+// }
+
+// .appointment-thankyyou .unskew {
+//     transform: skew(-5deg);
+// }
+
+.appointment-thankyyou .tp-price {
+    font-size: 20px;
+    line-height: 26px;
+    color: $color-alter;
+    font-family: $f-oswald;
+    display: flex;
+    align-items: center;
+    $b: &;
+
+    span {
+        font-weight: 500;
+        font-size: 26px;
+        margin-left: 10px;
+
+        @include small-size-max {
+            font-size: 21px;
+            margin-left: 5px;
+        }
+    }
+
+    &--old {
+        color: var(--c-grey);
+        font-size: 16px;
+        text-transform: uppercase;
+        text-decoration: line-through;
+
+        &#{$b}--sm {
+            font-size: 14px;
+        }
+    }
+
+    &--sm {
+        font-size: 16px;
+
+        span {
+            margin-left: 5px;
+            font-size: 20px;
+            position: relative;
+            top: -2px;
+        }
+    }
+}
+
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 576px) {
+    .appointment-thankyyou .container {
+        padding: 0;
+    }
+
+    .appointment-thankyyou h1 img {
+        display: block;
+        float: none;
+        margin: 0 auto;
+    }
+}

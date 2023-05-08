@@ -1,0 +1,33 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load i18n %}
+{% load static cache %}
+{% get_current_language as LANGUAGE_CODE %}
+
+{% cache 604800 big_banner_block LANGUAGE_CODE %}
+<section class="main-wrapp-inner">
+    <div class="tp-section bg-blue-l tp-banner--width-1100"
+        style="justify-content: center;">
+        <div class="container c-white t-center">
+            <h1 class="h1 c-white">
+                {{ self.title }}
+            </h1>
+            <p class="c-white margin-20t br-sm">{{ self.text }}</p>
+        </div>
+    </div>
+    <div class="tp-banner__buttons-wrapper">
+        {% for button in self.buttons %}
+        <a href="{{ button.button_link }}" {% if button.open_in_new_tab %} target="_blank" {% endif %} class="tp-btn tp-btn--red tp-btn--shadow">
+            <picture>
+                {% image button.button_icon width-30 format-webp as image_webp %}
+                <source data-srcset="{{ image_webp.url }}" type="image/webp" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                {% image button.button_icon width-30 format-webp as image_webp %}
+                <source data-srcset="{{ image_webp.url }}" type="image/webp" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                {% image button.button_icon width-30 format-webp as image_webp %}
+                <img data-src="{{ image_webp.url }}" alt="store" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+            </picture>
+            <span>{{ button.button_title }}</span>
+        </a>
+        {% endfor %}
+    </div>
+</section>
+{% endcache %}

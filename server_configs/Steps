@@ -1,0 +1,9 @@
+#cron is modify by 
+    crontab -e
+#here we can set the time to exec the job
+#was set for every Wednesday at 11:00 p.m.
+    0 23 * * 3 ~/.mmdbDownload.sh
+#license key path
+    ~/.License_key
+#exec path
+    ~/.mmdbDownload.sh

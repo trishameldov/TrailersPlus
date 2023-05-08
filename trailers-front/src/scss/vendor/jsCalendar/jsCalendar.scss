@@ -1,0 +1,151 @@
+.jsCalendar {
+    width: 100%;
+    background-color: var(--c-white);
+    box-shadow: 10px 10px 0 var(--c-white-grey);
+    border: 1px solid var(--c-white-grey);
+    padding: 5px 22px 22px 22px;
+    position: relative;
+
+    & > span {
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        right: 22px;
+        top: 19px;
+        cursor: pointer;
+
+        &:hover {
+            &:before,
+            &:after {
+                background-color: var(--c-pomegranate);
+            }            
+        }
+
+        &:before,
+        &:after {
+            display: block;
+            content: "";
+            width: 12px;
+            height: 1px;
+            background-color: #d0d3d7;
+            transform-origin: center;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transition: background-color 250ms ease;
+        }
+
+        &:before {
+            transform: translate(-50%, -50%) rotate(-45deg);
+        }
+
+        &:after {
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+    }
+
+    table {
+        width: 100%;
+        table-layout: fixed;
+        border-spacing: 0 8px;
+        margin: 0;
+
+        td {
+            text-align: center;
+            height: 24px;
+            color: var(--c-blue-dark);
+            font-family: $f-roboto;
+            font-size: 15px;
+            font-weight: 400;
+            font-style: normal;
+            letter-spacing: normal;
+            line-height: 22px;
+        }
+
+        thead {
+            th {
+                color: var(--c-grey);
+                font-family: $f-oswald;
+                font-size: 16px;
+                font-weight: 500;
+                font-style: normal;
+                letter-spacing: normal;
+                line-height: 20px;
+                text-align: center;
+                text-transform: uppercase;
+            }
+        }
+
+        tbody {
+            td {
+                &:not(.jsCalendar-previous):not(.jsCalendar-next):hover {
+                    background-color: var(--c-pomegranate);
+                    color: var(--c-white);
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    &-nav-left,
+    &-nav-right {
+        font-family: FontAwesome;
+        display: block;
+        cursor: pointer;
+
+        &:hover {
+            &:after {
+                color: var(--c-pomegranate);
+            }
+        }
+
+        &:after {
+            transition: color 250ms ease;
+            color: var(--c-blue-main);
+        }
+    }
+
+    &-nav-left {
+        &:after  {
+            content: '\f060';
+        }
+    }
+
+    &-nav-right {
+        &:after  {
+            content: '\f061';
+        }
+    }
+
+    &-title div {
+        display: inline-block;
+    }
+
+    &-previous,
+    &-next {
+        background-color: var(--c-white-grey);
+
+        &:hover {
+            cursor: default !important;
+        }
+    }
+
+    &-current {
+        background-color: var(--c-pomegranate);
+        color: var(--c-white) !important;
+    }
+
+    &-title-name {
+        color: var(--c-blue-main);
+        font-family: Oswald;
+        font-size: 16px;
+        font-weight: 500;
+        font-style: normal;
+        letter-spacing: normal;
+        line-height: 20px;
+        text-align: center;
+        text-transform: capitalize;
+        padding: 0 40px;
+        margin-bottom: 20px;
+    }
+}

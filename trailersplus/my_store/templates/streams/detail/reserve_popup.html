@@ -1,0 +1,19 @@
+{% load wagtailcore_tags wagtailimages_tags wagtailuserbar %}
+{% load static %}
+<!-- Reserve Popup start -->
+<div id="reserve-trailer" class="white-popup mfp-hide tp-popup">
+    <div class="tp-popup__body">
+        <div class="t-center">
+            <div class="h3 c-main">{{ self.title }}</div>
+            <div class="h4 margin-10t">{{ self.sub_title|safe }}</div>
+        </div>
+        <div class="fz14 margin-30t">
+            {{ self.text }}
+        </div>
+        <a href="/checkout" class="tp-btn tp-btn--red js-reserv-btn-2 tp-btn--full tp-btn--arrow margin-30t">
+            <span>{{ self.button_text }}</span> <i class="icon ion-md-arrow-forward"></i>
+            <div class="tp-btn__loader"></div>
+        </a>
+    </div>
+</div>
+<!-- Reserve Popup end -->

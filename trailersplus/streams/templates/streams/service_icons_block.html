@@ -1,0 +1,45 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load static i18n cache %}
+{% get_current_language as LANGUAGE_CODE %}
+
+{% cache 604800 service_icons LANGUAGE_CODE self.title %}
+<section class="tp-section tp-section--default tp-safety-list bg-img">
+    <picture>
+        {% image self.background_image width-1900 format-webp as image_webp %}
+        <source data-srcset="{{ image_webp.url }}" type="image/webp" media="(min-width: 451px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+        {% image self.background_image_mobile width-450 format-webp as image_webp %}
+        <source data-srcset="{{ image_webp.url }}" type="image/webp" media="(max-width: 450px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+        {% image self.background_image width-1900 format-webp as image_webp %}
+        <source data-srcset="{{ image_webp.url }}" type="image/webp" media="(min-width: 451px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+        {% image self.background_image_mobile width-450 format-webp as image_webp %}
+        <source data-srcset="{{ image_webp.url }}" type="image/webp" media="(max-width: 450px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+        {% image self.background_image width-1900 format-webp as img %}
+        <img data-src="{{ img.url }}" alt="{{ self.background_image_alt }}" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+    </picture>
+    <div class="container">
+        <h2 class="h3 c-white margin-50b">{{ self.title }}</h2>
+        <div class="tp-safety-list__wrapper">
+            {% for item in self.items %}
+            <div class="tp-safety-list__item">
+                <span>
+                    <picture>
+                        {% image item.icon width-36 format-webp as image_webp %}
+                        <source data-srcset="{{ image_webp.url }}" type="image/webp" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                        {% image item.icon width-36 format-webp as image_webp %}
+                        <source data-srcset="{{ image_webp.url }}" type="image/webp" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                        {% image item.icon width-36 format-webp as img %}
+                        <img data-src="{{ img.url }}" alt="alt" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                    </picture>
+                </span>
+                <div class="tp-safety-list__description">
+                    <h3 class="h4 c-white">{{ item.title }}</h3>
+                    {% if item.textarea %}
+                    <p class="c-white">{{ item.textarea | safe }}</p>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endcache %}

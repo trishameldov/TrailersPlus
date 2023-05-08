@@ -1,0 +1,100 @@
+.tp-customer-said {
+    $root: &;
+
+    &__col {
+        &:nth-child(odd) {
+            #{$root}__item {
+                margin-left: 25px;
+
+                @include small-size-max {
+                    margin-left: 0;
+                }
+            }
+        }
+
+        &:nth-child(even) {
+            #{$root}__item {
+                margin-left: 15px;
+
+                @include small-size-max {
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+
+    &__item {
+        max-width: calc(100% - 40px);
+
+        @include small-size-max {
+            max-width: 100%;
+        }
+    }
+
+    &__city {
+        position: absolute;
+        bottom: 0;
+        right: 40px;
+        transform: translateY(50%);
+        color: var(--c-white);
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 20px;
+        height: 40px;
+        padding: 0 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-family: $f-oswald;
+        white-space: pre;
+
+        @media screen and (max-width: 450px) {
+            right: 50%;
+            transform: translate(50%, 50%);
+        }
+
+        &:before {
+            @include skew(var(--c-blue-light));
+        }
+    }
+
+    &__img-wrapper {
+        display: block;
+        margin-bottom: 40px;
+    }
+
+    &__desc {
+        padding-left: 30px;
+        padding-right: 30px;
+
+        @include large-size-max {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        p {
+            color: var(--c-blue-dark);
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 26px;
+        }
+
+        a {
+            display: inline-block;
+        }
+    }
+
+    &__desc-wrapper {
+        overflow: hidden;
+
+        p {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+        }
+    }
+
+    a {
+        font-family: $f-oswald;
+    }
+}

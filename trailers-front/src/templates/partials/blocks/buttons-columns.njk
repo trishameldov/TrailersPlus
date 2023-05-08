@@ -1,0 +1,19 @@
+<div class="container">
+    <p class="c-white t-center">Protect and secure your cargo with one of our premier enclosed cargo trailers, ranging from a 4x6 for quick transportation to a 8.5x24 to haul your vehicle. Built with both work and play in mind, our range of cargo trailers will take you from the jobsite during the week to the trailhead on the weekend.</p>
+
+    <div class="row margin-30t margin-md-50t js-inner-nav justify-content-center">
+        {% for item in buttons %}
+            <div class="col-lg-6 margin-30b">
+                <a href="{{item.link}}" class="tp-btn tp-btn--full tp-btn--red tp-btn--xxs-2 tp-btn--shadow">{{item.title}}</a>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="tp-nav--inner-scroll tp-nav--buttons hide js-inner-scroll-nav">
+    {% for item in buttons %}
+        <a href="{{item.link}}" class="tp-btn tp-btn--full tp-btn--red tp-btn--xxs-2 tp-btn--shadow">
+            <span>{{item.title}}</span>
+        </a>
+    {% endfor %}
+</div>

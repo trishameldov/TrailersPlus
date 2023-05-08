@@ -1,0 +1,255 @@
+/* ------------------------------------------- */
+/*                  TRAILER SIZES              */
+/* ------------------------------------------- */
+
+.tp-size-block {
+    $b: &;
+
+    position: relative;
+    z-index: 1;
+    padding: 45px 35px 60px;
+    display: flex;
+    min-height: 400px;
+    margin-right: 20px;
+    margin-top: 140px;
+
+    @media screen and (max-width: 1250px) {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    @include large-size-max {
+        padding-right: 45px;
+        padding-left: 45px;
+        margin-right: 0;
+        flex-direction: column;
+    }
+
+    @include small-size-max {
+        padding: 35px;
+        margin-top: 135px;
+    }
+
+    @include extra-small-size-max {
+        padding: 30px 20px;
+
+    } 
+
+
+    &:before {
+        @include skew(var(--c-white));
+        box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.15);
+        left: auto;
+        right: 0;
+        max-width: 980px;
+
+        @include large-size-max {
+            // max-width: calc(100% - 30px);
+            // right: 5px;
+            transform: none;
+            max-width: 100%;
+        }
+    }
+
+    &__left {
+        flex-grow: 1;
+        position: relative;
+        
+        @include large-size-max {
+            padding-top: 170px;
+        }
+
+        @include extra-small-size-max {
+            padding-top: 150px;
+        }
+    }
+
+    &__right {
+        width: 570px;
+        max-width: 570px;
+        flex-basis: 570px;
+
+        @include large-size-max {
+            width: 100%;
+            max-width: 100%;
+            flex-basis: 100%;
+        }
+        
+        p {
+            font-size: 15px;
+            color: var(--c-blue-dark);
+            line-height: 26px;
+            margin-bottom: 5px;
+            margin-top: 0;
+        }
+    }
+
+    &__img {
+        position: absolute;
+        transform: skewX(-6deg);
+        box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.1);
+
+        &:before {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            width: 100%;
+            height: 100%;
+            display: block;
+            left: -5px;
+            top: -5px;
+            background: rgba(var(--ca-white), 1);
+        }
+
+        > div {
+            width: 100%;  
+            height: 100%;
+        }
+
+        picture > img {
+            transform: skewX(6deg);
+            min-width: calc(100% + 40px);
+			left: -20px;
+            right: -20px;
+        }
+        
+        &--lg {
+            width: 445px;
+            height: 315px;
+            right: 80px;
+            top: -115px;
+
+            @include large-size-max {
+                width: 315px;
+                height: 230px;
+                top: auto;
+                bottom: 55px;
+                left: 20%;
+            }
+
+            @include medium-size-max {
+                left: 5%;
+            }
+
+            @include extra-small-size-max {
+                max-width: calc(100% - 40px);
+                height: 190px;
+                bottom: 80px;
+                left: 0;
+            }
+
+            @media(max-width: 374px) {
+                max-width: 100%;
+            }
+        }
+
+        &--sm {
+            width: 265px;
+            height: 165px;
+            top: 165px;
+            right: 60px;
+
+            @include large-size-max {
+                top: auto;
+                bottom: 30px;
+                left: 50%;
+                right: auto;
+            }
+
+            @include small-size-max {
+                width: 180px;
+                height: 130px;
+                left: auto;
+                right: 10px;
+            }
+
+            @include extra-small-size-max {
+                right: 0;
+            }
+            
+            @media(max-width: 374px) {
+                max-width: 100%;
+                width: 150px;
+                height: 115px;
+            }
+        }
+    }
+
+    &--reverse {
+
+        @include extra-large-size-min {
+            flex-direction: row-reverse;
+            padding-left: 75px;            
+        }
+
+        &:before {
+            @include extra-large-size-min {
+                right: auto;
+                left: 20px;
+            }
+        }
+
+        #{$b} {
+
+            &__right {
+
+                @include extra-large-size-min {
+                    padding-right: 20px;
+                }
+            }
+            
+            &__img {
+
+                &--lg {
+                    @include extra-large-size-min {
+                        width: 445px;
+                        height: 315px;
+                        left: 65px;
+                        top: -115px;
+                    }
+
+                    @include large-size-max {
+                        left: 45%;
+                        right: auto;
+                        bottom: 55px;
+                    }
+
+                    @include small-size-max {
+                        right: 10px;
+                        left: auto;
+                    }
+
+                    @include extra-small-size-max {
+                        right: 0;
+                        left: auto;
+                        bottom: 80px;
+                    }
+                }
+        
+                &--sm {
+
+                    @include extra-large-size-min {   
+                        width: 265px;
+                        height: 165px;
+                        top: 165px;
+                        left: 15px;
+                    }
+
+                    @include large-size-max {
+                        top: auto;
+                        bottom: 30px;
+                        left: 20%;
+                    }
+
+                    @include medium-size-max {
+                        left: 5%;
+                    }
+
+                    @include extra-small-size-max {
+                        left: 0;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,47 @@
+/* ------------------------------------------- */
+/*                  PRODUCT  CTA               */
+/* ------------------------------------------- */
+
+.tp-product-cta {
+
+    &__info,
+    &__link {
+        font-family: $f-oswald;
+        font-size: 35px;
+
+        @include medium-size-max {
+            font-size: 22px;
+        }
+    }
+
+    &__info {
+        color: rgba(var(--ca-white), 0.75);
+        font-weight: 300;
+
+        b {
+            color: var(--c-white);
+            font-weight: 500;
+        }
+    }
+
+    &__link {
+        font-weight: 400;
+        color: var(--c-white);
+
+        a {
+            color: inherit;
+
+            &:hover {
+                color: $color-alter;
+            }
+
+            &:after {
+                
+                @include medium-size-max {
+                    font-size: 20px;
+                    top: 52%;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load static %}
+
+{% block content %}
+<div class="main-wrapp-inner">
+  <section class="tp-not-found bg-img">
+    <picture>
+      {% image settings.site_settings.ErrorPage404.background_image width-1980 format-webp as image_webp %}
+      <source data-srcset="{{ image_webp.url }}" type="image/webp" media="(min-width: 451px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+      {% image settings.site_settings.ErrorPage404.background_image_mobile width-450 format-webp as image_webp %}
+      <source data-srcset="{{ image_webp.url }}" type="image/webp" media="(max-width: 450px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+      {% image settings.site_settings.ErrorPage404.background_image width-1980 format-jpeg as image_jpeg %}
+      <source data-srcset="{{ image_jpeg.url }}" type="image/jpeg" media="(min-width: 451px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+      {% image settings.site_settings.ErrorPage404.background_image_mobile width-450 format-jpeg as image_jpeg %}
+      <source data-srcset="{{ image_jpeg.url }}" type="image/jpeg" media="(max-width: 450px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+      {% image settings.site_settings.ErrorPage404.background_image width-1980 as image_webp %}
+      <img width="1920" height="1000" data-src="{{ image_webp.url }}" alt="" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+    </picture>
+    <div class="container t-center">
+      <h1 class="c-white">{{ settings.site_settings.ErrorPage404.title }}</h1>
+      <h2 class="h3 c-white">{{ settings.site_settings.ErrorPage404.sub_title }}</h2>
+      <h3 class="c-white">{{ settings.site_settings.ErrorPage404.textarea | safe }}</h3>
+      <a href="{{ settings.site_settings.ErrorPage404.button_page.url }}" class="tp-btn tp-btn--red margin-30t"><i class="fa fa-home" aria-hidden="true"></i> {{ settings.site_settings.ErrorPage404.button_text }}</a>
+    </div>
+  </section>
+</div>
+{% endblock %}

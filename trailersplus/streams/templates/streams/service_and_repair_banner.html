@@ -1,0 +1,41 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load static i18n cache %}
+{% get_current_language as LANGUAGE_CODE %}
+
+{% cache 604800 service_and_repair LANGUAGE_CODE self.title %}
+<section class="tp-section bg-blue-l">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-12">
+                <div class="p-relative">
+                    <div class="t-center c-white">
+                        <h1 class="h2 c-white margin-5b">{{ self.title }}</h1>
+                        <small class="h4 c-white">{{ self.sub_title }}</small>
+                        <div class="padding-30t" style="max-width: 700px; margin: 0 auto">
+                            <p class="h4 c-white">{{ self.text }}</p>
+                        </div>
+                    </div>
+                    <div class="icon-satisfaction d-none d-sm-block" style="position: absolute; top:-20%; right:-10%;">
+                        <picture>
+                            {% image self.label_image width-300 format-webp as image_webp %}
+                            <source data-srcset="{{ image_webp.url }}" type="image/webp" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                            {% image self.label_image width-300 format-webp as image_webp %}
+                            <source data-srcset="{{ image_webp.url }}" type="image/webp" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                            {% image self.label_image width-996 format-webp as img %}
+                            <img data-src="{{ img.url }}" alt="alt" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                        </picture>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% if self.service_button_text %}
+    <div class="tp-banner__buttons-wrapper">    
+        <a href="#schedule-service" class="tp-btn tp-btn--red tp-btn--shadow js-popup-service">
+            <span>{{self.service_button_text}}</span>
+        </a>    
+    </div>
+{% endif %}
+{% endcache %}
+

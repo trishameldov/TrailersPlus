@@ -1,0 +1,38 @@
+.tp-thank-you {
+    height: 890px;
+    display: flex;
+    align-items: center;
+    background-color: rgba(20, 33, 51, 0.8);
+
+    @include medium-size-max {
+        height: 500px;
+    }
+
+    @include extra-small-size-max {
+        height: auto;
+        padding: 85px 0;
+    }
+
+    h1 {
+        max-width: 991px;
+        margin-left: auto;
+        margin-right: auto;
+        color: var(--c-white);
+        font-family: $f-oswald;
+        font-size: 50px;
+        font-weight: 500;
+        line-height: 60px;
+
+        @include medium-size-max {
+            font-size: $h1-mob-txt-size;
+            line-height: $h1-mob-line-height;
+        }
+    }
+
+    a {
+        i {
+            margin-right: 10px;
+            font-size: 22px;
+        }
+    }
+}

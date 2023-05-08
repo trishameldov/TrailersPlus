@@ -1,0 +1,100 @@
+// SCHEDULE POP UP
+.tp-popup--schedule .tp-popup__body{
+    width: 100%
+}
+
+.tp-popup--schedule .tp-popup__banner-wrapper {
+    background-color: var(--c-solitude);
+}
+
+// DATETIME PICKER
+.tempus-dominus-widget {
+    width: 100%;
+    background-color: white;
+    color: #6B7179;
+    // box-shadow: none;
+    border-radius: 0;
+    border:  1px solid var(--c-solitude);
+    box-shadow: 10px 11px 0px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 10px 11px 0px 0px var(--c-solitude);
+    -moz-box-shadow: 10px 11px 0px 0px var(--c-solitude);
+}
+
+.tempus-dominus-widget .calendar-header .picker-switch {
+    text-transform: uppercase;
+    font-family: $f-oswald;
+    font-size: 20px;
+    color: var(--c-blue-main);
+}
+
+.calendar-header {
+    color: var(--c-blue-main);
+    text-transform: uppercase;
+    font-family: $f-oswald;
+    font-size: 18px;
+}
+
+/* DAYS */
+.tempus-dominus-widget .date-container-days .dow {
+    color: #c6c6c6;
+    text-transform: uppercase;
+    font-family: $f-oswald;
+    font-size: 18px;
+}
+
+// Disabled days
+.tempus-dominus-widget .date-container-days div:not(.no-highlight).disabled, .tempus-dominus-widget .date-container-days div:not(.no-highlight).disabled:hover, .tempus-dominus-widget .date-container-decades div:not(.no-highlight).disabled, .tempus-dominus-widget .date-container-decades div:not(.no-highlight).disabled:hover, .tempus-dominus-widget .date-container-months div:not(.no-highlight).disabled, .tempus-dominus-widget .date-container-months div:not(.no-highlight).disabled:hover, .tempus-dominus-widget .date-container-years div:not(.no-highlight).disabled, .tempus-dominus-widget .date-container-years div:not(.no-highlight).disabled:hover, .tempus-dominus-widget .time-container-clock div:not(.no-highlight).disabled, .tempus-dominus-widget .time-container-clock div:not(.no-highlight).disabled:hover, .tempus-dominus-widget .time-container-hour div:not(.no-highlight).disabled, .tempus-dominus-widget .time-container-hour div:not(.no-highlight).disabled:hover, .tempus-dominus-widget .time-container-minute div:not(.no-highlight).disabled, .tempus-dominus-widget .time-container-minute div:not(.no-highlight).disabled:hover, .tempus-dominus-widget .time-container-second div:not(.no-highlight).disabled, .tempus-dominus-widget .time-container-second div:not(.no-highlight).disabled:hover{
+    color: hsla(36,10%,90%,.38)
+}
+
+.tempus-dominus-widget .date-container-decades div:not(.no-highlight).active, .tempus-dominus-widget .date-container-years div:not(.no-highlight).active, .tempus-dominus-widget .date-container-months div:not(.no-highlight).active, .tempus-dominus-widget .date-container-days div:not(.no-highlight).active, .tempus-dominus-widget .time-container-clock div:not(.no-highlight).active, .tempus-dominus-widget .time-container-hour div:not(.no-highlight).active, .tempus-dominus-widget .time-container-minute div:not(.no-highlight).active, .tempus-dominus-widget .time-container-second div:not(.no-highlight).active {
+    background-color: var(--c-pomegranate);
+}
+.dominus-widget .date-container-decades div:not(.no-highlight), .tempus-dominus-widget .date-container-years div:not(.no-highlight), .tempus-dominus-widget .date-container-months div:not(.no-highlight), .tempus-dominus-widget .date-container-days div:not(.no-highlight), .tempus-dominus-widget .time-container-clock div:not(.no-highlight), .tempus-dominus-widget .time-container-hour div:not(.no-highlight), .tempus-dominus-widget .time-container-minute div:not(.no-highlight), .tempus-dominus-widget .time-container-second div:not(.no-highlight) {
+    border-radius:  0;
+}
+
+/* PM/AM BUTTON  */
+.tempus-dominus-widget button {
+    background-color: var(--c-pomegranate);
+    border-color: var(--c-pomegranate);
+}
+.tempus-dominus-widget .toolbar div:hover {
+    background: var(--c-pomegranate);
+    color:  white;
+}
+
+// Hover for days an other elements
+.tempus-dominus-widget .date-container-decades div:not(.no-highlight):hover, .tempus-dominus-widget .date-container-years div:not(.no-highlight):hover, .tempus-dominus-widget .date-container-months div:not(.no-highlight):hover, .tempus-dominus-widget .date-container-days div:not(.no-highlight):hover,
+.tempus-dominus-widget .time-container-clock div:not(.no-highlight):hover, .tempus-dominus-widget .time-container-hour div:not(.no-highlight):hover, .tempus-dominus-widget .time-container-minute div:not(.no-highlight):hover, .tempus-dominus-widget .time-container-second div:not(.no-highlight):hover {
+    background: var(--c-pomegranate);
+    color:  white;
+}
+
+
+// HOUR SLOTS
+#hours-slot {
+    display: none;
+}
+
+.time-box {
+    background-color: white;
+    color: var(--c-blue-main);
+}
+
+.time-box-a .is-disabled{
+    opacity: 0.7;
+    background-color: var(--c-pomegranate);
+    color: white;
+    cursor: not-allowed;
+}
+
+.time-box-a:hover .time-box{
+    background-color: var(--c-pomegranate);
+    color: white;
+}
+
+// APPOINTMENT FORM
+#appointmen-form-wrapper {
+    display: none;
+}

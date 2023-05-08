@@ -1,0 +1,100 @@
+{% extends "layout.tmpl.njk" %}
+
+{% block content %}
+
+    <!-- Contact Us start -->
+    <section class="tp-section tp-contact-us">
+        <div class="container">
+            <h1 class="h2 c-main">How may we help you today?</h1>
+            <p>We are committed to providing the best customer service in the industry. We invite you to contact us by calling our customer service center with any questions about trailers, inventory, warranty, service and sales.</p>
+            <h3 class="h4 c-main">Customer Service
+                <b>
+                    <a href="tel:18778507587">1(877) 850-7587</a>
+                </b>
+            </h3>
+
+            <div class="tp-divider margin-50t margin-50b"></div>
+
+            <div class="row tp-contact-us__addresses">
+                <div class="col-sm-12 col-md-6">
+                    <h2 class="h3 c-main">Interstate Group, LLC.</h2>
+
+                    <address class="margin-30b">
+                        <b>Interstate Group, LLC.</b>
+                        <span>3800 Airport Rd<br>Nampa, ID 83687</span>
+                    </address>
+
+                    <div class="tp-contact-us__socials">
+                        <div class="tp-contact-us__social-wrapper">
+                            <a href="#">
+                                <span class="tp-contact-us__social-icon tp-contact-us__social-icon--fb">
+                                    <i class="fa fa-facebook"></i></span></a>
+                            <a href="#">Facebook.com/TrailersPlus</a>
+                        </div>
+                        <div class="tp-contact-us__social-wrapper">
+                            <a href="#">
+                                <span class="tp-contact-us__social-icon tp-contact-us__social-icon--ig">
+                                    <i class="fa fa-instagram"></i></span></a>
+                            <a href="#">TrailersPlus</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <h2 class="h3 c-main">Manufacturing Plants</h2>
+
+                    <div class="row">
+                        <div class="col-12 col-sm-6 col-md-6 margin-30b">
+                            <address>
+                                <b>Interstate Conway</b>
+                                <span>3601 Dave Ward Drive<br>Conway, AR 72034</span>
+                            </address>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-6 margin-30b">
+                            <address>
+                                <b>Interstate Kingman</b>
+                                <span>4400 Interstate Way<br>Kingman, AZ 86401</span>
+                            </address>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 col-sm-6 col-md-6 margin-30b margin-md-0b">
+                            <address>
+                                <b>Interstate Nampa</b>
+                                <span>224 Carnation Drive<br>Nampa, ID 83651</span>
+                            </address>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-6">
+                            <address>
+                                <b>Interstate Giles</b>
+                                <span>200 Fairchild Ln.<br>Glen Lyn, VA 24093</span>
+                            </address>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Us end -->
+
+    <!-- Join community start -->
+    <section class="tp-section tp-section--sm bg-img">
+        {% include "../templates/partials/blocks/join-community.njk" %}
+    </section>
+    <!-- Join community end -->
+
+    <!-- Partners start -->
+    {% set partners = [
+        { title: "alt-text", src: "logo1.jpg", srcMob: "logo1.jpg", name: "logo1", nameMob: "logo1" }, 
+        { title: "alt-text", src: "logo2.png", srcMob: "logo2.png", name: "logo2", nameMob: "logo2" },
+        { title: "alt-text", src: "logo3.jpg", srcMob: "logo3-mob.jpg", name: "logo3", nameMob: "logo3-mob" }, 
+        { title: "alt-text", src: "logo4.jpg", srcMob: "logo4.jpg", name: "logo4", nameMob: "logo4" }, 
+        { title: "alt-text", src: "logo5.jpg", srcMob: "logo5.jpg", name: "logo5", nameMob: "logo5" }, 
+        { title: "alt-text", src: "logo6.jpg", srcMob: "logo6.jpg", name: "logo6", nameMob: "logo6" }]
+    %}
+    <section class="tp-partners">
+        {% include "../templates/partials/blocks/partners.njk" %}
+    </section>
+    <!-- Partners end -->
+
+{% endblock %}

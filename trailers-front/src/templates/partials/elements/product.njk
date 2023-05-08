@@ -1,0 +1,77 @@
+{% if(productType == "shadow") %}
+    {% set class = " tp-product--shadow"%}
+{% endif %}
+
+{% if(priceNumber) %}
+    {% set dataPrice = 'data-price=' + priceNumber %}
+{% endif %}
+
+{% if(length) %}
+    {% set dataLength = 'data-length=' + length %}
+{% endif %}
+
+
+<a href="#" class="tp-product{{class}}" {% if(dataPrice) %} {{ dataPrice }} {% endif %} {% if(length) %} {{ dataLength }} {% endif %}
+ >
+    <div class="tp-product__image">
+        <div class="tp-swiper tp-swiper--product js-swiper">
+            <div class="tp-swiper__container swiper-container" data-slides="1" data-loop="true" data-speed="500">
+                <div class="swiper-wrapper tp-swiper__wrapper">
+                    <div class="swiper-slide tp-swiper__slide bg-img">
+                        <picture>
+                            <source data-srcset="./img/webp/products/product1.webp" type="image/webp"  srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                            <source data-srcset="./img/products/product1.jpg" type="image/jpeg" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                            <img data-src="./img/products/product1.jpg" alt="Factory Direct" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                        </picture>
+                    </div>
+                    <div class="swiper-slide tp-swiper__slide bg-img">
+                        <picture>
+                            <source data-srcset="./img/webp/products/product2.webp" type="image/webp"  srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                            <source data-srcset="./img/products/product2.jpg" type="image/jpeg" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                            <img data-src="./img/products/product2.jpg" alt="Factory Direct" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                        </picture>
+                    </div>
+                    <div class="swiper-slide tp-swiper__slide bg-img">
+                        <picture>
+                            <source data-srcset="./img/webp/products/product3.webp" type="image/webp"  srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                            <source data-srcset="./img/products/product3.jpg" type="image/jpeg" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                            <img data-src="./img/products/product3.jpg" alt="Factory Direct" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                        </picture>
+                    </div>
+                    <div class="swiper-slide tp-swiper__slide bg-img">
+                        <picture>
+                            <source data-srcset="./img/webp/products/product4.webp" type="image/webp"  srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                            <source data-srcset="./img/products/product4.jpg" type="image/jpeg" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                            <img data-src="./img/products/product4.jpg" alt="Factory Direct" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                        </picture>
+                    </div>
+                    <div class="swiper-slide tp-swiper__slide bg-img">
+                        <picture>
+                            <source data-srcset="./img/webp/products/product5.webp" type="image/webp"  srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                            <source data-srcset="./img/products/product5.jpg" type="image/jpeg" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                            <img data-src="./img/products/product5.jpg" alt="Factory Direct" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                        </picture>
+                    </div>
+                </div>
+                <div class="swiper-button-prev tp-swiper__prev"></div>
+                <div class="swiper-button-next tp-swiper__next"></div>
+            </div>
+        </div>
+         {% if(item.special === "true" ) %}
+            <span class="tp-product__status tp-product__status--special">Special</span>
+        {% endif %}
+    </div>
+    <div class="tp-product__info">
+    {% if(item.label == true) %}
+        <span class="tp-product__status{% if productLabelType === 'number' %} tp-product__status--number{% endif %}">{{ item.labelText | safe }}</span>
+    {% endif %}
+        <h3 class="h5 margin-0t margin-0b c-main">{{ item.title }}</h3>
+        <!-- TODO If product has MSRP price need to add span(after span with price) with class "old" <span class="old">MSRP: $7999</span> -->
+        <div class="tp-product__price{% if productPriceType === "low" %} tp-product__price--low{% endif %}">
+            {% if productPriceType === "sale" %}Sale Price: <span>{{ item.price }}</span>{% elif productPriceType === "low" %}As low as: <span class="low">{{ item.price }}</span>{% else %}Cash Price: <span>{{ item.price }}</span>{% endif %}
+            {% if(item.sale) %}
+                <span class="old"><b>MSRP:</b> ${{ item.sale }}</span>
+            {% endif %}
+        </div>
+    </div>
+</a>

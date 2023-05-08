@@ -1,0 +1,19 @@
+/* ------------------------------------------- */
+/*            	    VIDEOS	                   */
+/* ------------------------------------------- */
+
+.tp-videos {
+
+    &__image {
+        @include flex-center;
+        height: 330px;
+
+        @include medium-size-max {
+            height: 250px;
+        }
+
+        @include extra-small-size-max {
+            height: 200px;
+        }
+    }
+}

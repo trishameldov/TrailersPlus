@@ -1,0 +1,58 @@
+version: '3.8'
+
+services:
+  django:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    env_file: ./trailersplus/trailersplus/settings/.env
+    command: python /app/manage.py runserver 0.0.0.0:8000
+    depends_on:
+      - db
+    ports:
+      - "8000:8000"
+  db:
+    image: postgres:11.5-alpine
+    restart: always
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - postgres_backup:/backups
+    ports:
+    - 5432:5432
+    env_file:
+      - ./docker/.env
+
+  redis:
+    image: library/redis:latest
+#    env_file:
+#      - compose.env
+    restart: always
+    #command: ["redis-server", "--appendonly", "yes", "--requirepass", $REDIS_PASSWORD]
+    command: ["redis-server", "--appendonly", "yes"]
+    ports:
+    - 6379:6379
+#    volumes:
+#      - redis_data:/data
+    environment:
+      - REDIS_PASSWORD=$REDIS_PASSWORD
+
+  memcache:
+    image: library/memcached:latest
+    ports:
+    - 11211:11211
+
+  pgAdmin:
+    image: dpage/pgadmin4
+    restart: always
+#    volumes:
+#    - pgAdmin_data:/var/lib/pgadmin
+    depends_on:
+      - db
+    ports:
+      - 16543:80
+    env_file:
+      - ./docker/.env
+
+volumes:
+  postgres_data: {}
+  postgres_backup: {}

@@ -1,0 +1,433 @@
+/* Adds padding on mobile due to fixed header */
+/* @TODO Recommend non-fixed header for mobile, better UX */
+body {
+  @include medium-size-max {
+    padding-top: 115px !important;
+  }
+}
+
+.tp-header {
+  background-color: $header-bg-color;
+  font-family: $secondary-font-family;
+  position: relative;
+  font-size: 15px;
+  z-index: $header-z-index;
+
+  @include mobile-menu-max {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+  }
+
+  &__topbar {
+    position: relative;
+    height: 40px;
+    z-index: 2;
+
+    @include flex-center-vert;
+
+    @include mobile-menu-max {
+      flex-grow: 1;
+      z-index: 10;
+    }
+  }
+
+  &__store {
+    @include small-size-max {
+      position: static;
+    }
+
+    .tp-dropdown__head {
+      &:after,
+      &:before {
+        @include small-size-max {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &__store,
+  &__phone {
+    font-weight: 500;
+    color: var(--c-white);
+    padding-left: 20px;
+    padding-right: 34px;
+    height: 100%;
+    position: relative;
+
+    @include flex-center-vert;
+
+    @include mobile-menu-max {
+      flex-grow: 1;
+    }
+
+    @include mobile-menu-max {
+      padding-left: 12px;
+      padding-right: 18px;
+      justify-content: center;
+    }
+
+    @media (max-width: 370px) {
+      font-size: 13px;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    .fa {
+      font-size: 22px;
+      position: relative;
+      bottom: -1px;
+      margin-right: 6px;
+
+      @media (max-width: 370px) {
+        font-size: 18px;
+      }
+    }
+
+    > a {
+      color: inherit;
+    }
+  }
+
+  &__phone {
+    padding-right: 20px;
+
+    @include mobile-menu-max {
+      padding-right: 12px;
+    }
+
+    &:before {
+      @include vertical-separator(0, 0);
+    }
+
+    div {
+      align-items: center;
+    }
+
+    .fa-commenting {
+      margin-bottom: 4px;
+
+      @media (max-width: 991px) {
+        margin-bottom: 2px;
+      }
+    }
+
+    .phone_number {
+      @media (max-width: 991px) {
+        float: right;
+      }
+    }
+  }
+
+  &__right-bottom {
+    @include mobile-menu-max {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 40px;
+      position: relative;
+    }
+
+    &__back{
+      display: none;
+      @media (max-width: 430px){
+        display: block;
+      }
+  
+      a{
+        color: white;
+        margin: 1rem 0;
+      }
+    }
+  }
+
+  &__toggle {
+    background-color: transparent;
+    border: none;
+    position: relative;
+    padding: 0;
+    width: 17px;
+    height: 20px;
+    z-index: 9;
+    margin-left: 15px;
+    display: none;
+
+    @include mobile-menu-max {
+      display: block;
+    }
+    span {
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 2px;
+      top: 50%;
+      background-color: var(--c-white);
+      transform: translateY(-50%);
+      transition: 0.25s;
+    }
+
+    span:nth-child(1) {
+      transform: translateY(-50%) translateY(-5px);
+      transition: 0.15s;
+    }
+
+    span:nth-child(2) {
+      height: 1px;
+    }
+
+    span:nth-child(4) {
+      transform: translateY(-50%) translateY(5px);
+      transition: 0.15s;
+    }
+
+    &.open {
+      span:nth-child(1) {
+        transform: translateY(-50%) translateY(-10px);
+        opacity: 0;
+      }
+      span:nth-child(2) {
+        height: 2px;
+        transform: translateY(-50%) rotate(45deg);
+        transition-delay: 0.1s;
+      }
+      span:nth-child(3) {
+        transform: translateY(-50%) rotate(-45deg);
+        transition-delay: 0.1s;
+      }
+      span:nth-child(4) {
+        transform: translateY(-50%) translateY(10px);
+        opacity: 0;
+      }
+    }
+  }
+}
+
+.tp-header {
+  background-color: $header-bg-color;
+  font-family: $secondary-font-family;
+  position: relative;
+  font-size: 15px;
+  z-index: $header-z-index;
+
+  @include mobile-menu-max {
+      position: fixed;
+      width: 100%;
+      left: 0;top: 0;
+  }
+
+  &--fixed {
+      position: fixed;
+      width: 100%;
+      left: 0;
+      top: 0;
+      z-index: 100;
+  }
+
+  &__box {
+      width: 100%;
+      max-width: 1750px;
+      padding: 0 15px;
+      margin: 0 auto;
+      background-color: $header-bg-color;
+
+      @include mobile-menu-max {
+          padding: 0;
+      }
+  }
+
+  &__right {
+      margin-left: auto;
+      @include large-size-max {
+          flex-grow: 1;
+      }
+  }
+
+  &__left {
+      @include flex-center-vert;
+      @include large-size-max {
+          display: none;
+      }
+  }
+
+  &__right-top {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 20px;
+
+      @include large-size-max {
+          margin-bottom: 10px;
+      }
+
+      @include mobile-menu-max {
+          margin-bottom: 0;
+      }
+  }
+
+  &__right-bottom {
+
+      @include mobile-menu-max {
+          display: flex;
+          justify-content: space-between;
+          padding: 0 40px;
+          position: relative;
+      }
+  }
+
+  &__topbar {
+      position: relative;
+      height: 40px;
+      z-index: 2;
+
+      @include flex-center-vert;
+
+      @include mobile-menu-max {
+          flex-grow: 1;
+          z-index: 10;
+      }
+  }
+
+  &__store,
+  &__phone {
+      font-weight: 500;
+      color: var(--c-white);
+      padding-left: 20px;
+      padding-right: 34px;
+      height: 100%;
+      position: relative;
+
+      @include flex-center-vert;
+
+      @include mobile-menu-max {
+          flex-grow: 1;
+      }
+
+      @include mobile-menu-max {
+          padding-left: 12px;
+          padding-right: 18px;
+          justify-content: center;
+      }
+
+      @media(max-width: 370px) {
+          font-size: 13px;
+          padding-left: 10px;
+          padding-right: 10px;
+      }
+
+      .fa {
+          font-size: 22px;
+          position: relative;
+          bottom: -1px;
+          margin-right: 6px;
+
+          @media(max-width: 370px) {
+              font-size: 18px;
+          }
+      }
+
+      > a {
+          color: inherit;
+
+          > span {
+              transition: color 250ms ease;
+          }
+
+          &:hover {
+              
+              > span:not(.label) {
+                  color: $color-main;
+              }
+          }
+      }
+  }
+
+  &__store {
+      
+      @include small-size-max {
+          position: static;
+      }
+
+      .tp-dropdown__head {
+          
+          &:after,
+          &:before {
+              
+              @include small-size-max {
+                  display: none;
+              }
+          }
+      }
+  }
+
+  &__phone {
+      padding-right: 20px;
+
+      @include mobile-menu-max {
+          padding-right: 12px;
+      }
+      
+      &:before {
+          @include vertical-separator(0, 0);
+      }
+  }
+
+  &__toggle {
+      background-color: transparent;
+      border: none;
+      position: relative;
+      padding: 0;
+      width: 17px;
+      height: 20px;
+      z-index: 9;
+      margin-left: 15px;
+      display: none;
+
+      @include mobile-menu-max {
+          display: block;
+      }
+      span {
+          position: absolute;
+          display: block;
+          width: 100%;
+          height: 2px;
+          top: 50%;
+          background-color: var(--c-white);
+          transform: translateY(-50%);
+          transition: 0.25s;
+      }
+
+      span:nth-child(1) {
+          transform: translateY(-50%) translateY(-5px);
+          transition: 0.15s;
+      }
+
+      span:nth-child(2) {
+          height: 1px;
+      }
+      
+      span:nth-child(4) {
+          transform: translateY(-50%) translateY(5px);
+          transition: 0.15s;
+      }
+
+      &.open {
+          span:nth-child(1) {
+              transform: translateY(-50%) translateY(-10px);
+              opacity: 0;
+          }
+          span:nth-child(2) {
+              height: 2px;
+              transform: translateY(-50%) rotate(45deg);
+              transition-delay: 0.1s;
+          }
+          span:nth-child(3) {
+              transform: translateY(-50%) rotate(-45deg);
+              transition-delay: 0.1s;
+          }
+          span:nth-child(4) {
+              transform: translateY(-50%) translateY(10px);
+              opacity: 0;
+          }
+      }
+  }
+}

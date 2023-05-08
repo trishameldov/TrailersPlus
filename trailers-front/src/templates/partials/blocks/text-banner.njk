@@ -1,0 +1,17 @@
+<picture>
+    <source data-srcset="./img/webp/{{textBanner.image}}-min.webp" type="image/webp" media="(min-width: 451px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="> 
+    <source data-srcset="./img/webp/{{textBanner.image}}-mob-min.webp" type="image/webp" media="(max-width: 450px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="> 
+    <source data-srcset="./img/{{textBanner.image}}-min.jpg" type="image/jpeg" media="(min-width: 451px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="> 
+    <source data-srcset="./img/{{textBanner.image}}-mob-min.jpg" type="image/jpeg" media="(max-width: 450px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="> 
+    <img data-src="./img/{{textBanner.image}}-min.jpg" alt="alt" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+</picture>
+
+<div class="container z-index t-center">
+    <div class="row">
+        <div class="col-lg-10 offset-lg-1">
+            <div class="tp-text-banner t-center">
+                {{ textBanner.text | safe }}
+            </div>
+        </div>
+    </div>
+</div>

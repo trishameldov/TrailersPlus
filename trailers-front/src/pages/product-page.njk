@@ -1,0 +1,445 @@
+{% extends "layout.tmpl.njk" %}
+
+{% set pagination = [
+    {
+        title: "TrailersPlus Lavonia "
+    }, {
+        title: "7' Cargo"
+    }, {
+        title: "4RALS1217LG000749",
+        last: true
+    }
+] %}
+
+{% set reviews = [
+    {
+        title: "Well what can I say service was great…",
+        rating: 5,
+        time: "49 minutes ago",
+        text: "Well what can I say service was great like to haggle a little bit with him that was fun I had a very professional…",
+        author: "Henry West"
+    }, {
+        title: "This is by far the best place to…",
+        rating: 2,
+        time: "50 minutes ago",
+        text: "Well what can I say service was great like to haggle a little bit with him that was fun I had a very professional…",
+        author: "Henry West"
+    }, {
+        title: "Well what can I say service was great…",
+        rating: 3,
+        time: "51 minutes ago",
+        text: "Well what can I say service was great like to haggle a little bit with him that was fun I had a very professional…",
+        author: "Henry West"
+    }, {
+        title: "This is by far the best place to…",
+        rating: 4,
+        time: "52 minutes ago",
+        text: "Well what can I say service was great like to haggle a little bit with him that was fun I had a very professional…",
+        author: "Henry West"
+    }, {
+        title: "This is by far the best place to…",
+        rating: 5,
+        time: "53 minutes ago",
+        text: "Well what can I say service was great like to haggle a little bit with him that was fun I had a very professional…",
+        author: "Henry West"
+    }, {
+        title: "Well what can I say service was great…",
+        rating: 5,
+        time: "54 minutes ago",
+        text: "Well what can I say service was great like to haggle a little bit with him that was fun I had a very professional…",
+        author: "Henry West"
+    }
+] %}
+
+{% set specifications = [
+    {
+        title: 'Trailer Details',
+        items: [
+            {
+                title: 'Color',
+                value: 'CHAMPAGNE'
+            }, {
+                title: 'Size',
+                value: '7 X 14 Victory Tandem Axle Cargo'
+            }, {
+                title: 'Tires',
+                value: '"15" Radial'
+            }, {
+                title: 'Vin#',
+                value: '4RAVS1425KG000620'
+            }
+        ]
+    }, {
+        title: 'Features',
+        items: [
+            {
+                title: 'Tail Lights',
+                value: 'LED'
+            }, {
+                title: 'Undercoating',
+                value: ''
+            }
+        ]
+    }, {
+        title: 'Dimensions',
+        items: [
+            {
+                title: 'Overall Length',
+                value: '17 10"'
+            }, {
+                title: 'Overall Width',
+                value: '8 4"'
+            }, {
+                title: 'Overall Height',
+                value: '8 7"'
+            }, {
+                title: 'Overall Height',
+                value: '8 7"'
+            }, {
+                title: 'Overall Height',
+                value: '8 7"'
+            }, {
+                title: 'Overall Height',
+                value: '8 7"'
+            }, {
+                title: 'Interior Length',
+                value: '14 5"'
+            }
+        ]
+    }, {
+        title: 'Axles and Brakes',
+        items: [
+            {
+                title: 'GVWR',
+                value: '7000 lbs.'
+            }, {
+                title: 'Empty Weight',
+                value: '2000 lbs.'
+            }, {
+                title: 'Suspensions',
+                value: 'Spring'
+            }, {
+                title: 'Brakes',
+                value: 'Electric <a href="#">(2 Axles)</a>'
+            }
+        ]
+    }
+] %}
+
+{% set products = [
+    {
+        title: "5 X 8 Enclosed Cargo",
+        label: true,
+        labelText: "reserved",
+        sale: 8350,
+        price: '$7999'
+    }, {
+        title: "6 X 10 Enclosed Cargo",
+        label: false,
+        price: '$7999'
+    }, {
+        title: "7 X 16 Victory Tandem Axle Cargo",
+        label: false,
+        price: '$7999'
+    }, {
+        title: "7 X 16 Tandem Axle LoadRunner Cargo",
+        label: false,
+        sale: 8833,
+        price: '$7999'
+    }
+] %}
+
+{% block content %}
+    <!-- Warning Message BEGIN -->
+    <div class="padding-md-20t">
+        <div class="tp-warning-message container">
+            <div class="tp-warning-message__wrapper">
+                <p>NOTICE: Due to COVID-19, you need to make an appointment before visiting our store. We are taking measures to limit the amount of customers on our lot at a given time. Thank you for your understanding.</p>
+            </div>
+        </div>
+    </div>
+    <!-- Warning Message END -->
+
+    <!-- Product info block start -->
+    <section class="padding-30t padding-20b padding-md-50t padding-md-60b">
+        <iframe class="d-none" name="print_frame" width="0" height="0" src="about:blank"></iframe>
+
+        <div class="container">
+            <div class="tp-product-head">
+                <div class="tp-product-head__back">
+                    <a href="#" class="tp-link tp-link--back">Back to Inventory</a>
+                </div>
+                <div class="tp-product-head__pagin">
+                    {% include "../templates/partials/elements/pagination.njk" %}
+                </div>
+                <div class="tp-product-head__btns">
+                    <!-- TODO mail link -->
+                    <a href="mailto:test@gmail.com?subject=Subject-will-be-here&body=https://#link-to-product-will-be-here.com" class="tp-btn tp-btn--xs tp-btn--text-sm tp-btn--grey">
+                        <i class="fa fa-envelope-o"></i>
+                        <span>Mail</span>
+                    </a>
+                    <button class="tp-btn tp-btn--xs tp-btn--text-sm tp-btn--grey js-product-print">
+                        <i class="fa fa-print"></i>
+                        <span>Print</span>
+                    </button>
+                </div>
+            </div>
+            <h1 class="h3 margin-20t margin-25b margin-md-30t margin-md-30b">7 X 16 Interstate Victory Tandem Axle Cargo Trailer</h1>
+            <div class="row">
+                <div class="col-lg-7 col-xl-8">
+                    <div class="tp-product-gallery d-flex">
+                        <div class="tp-product-gallery__left d-none d-xl-block">
+                            <div class="tp-swiper tp-swiper--prod-vertical js-swiper">
+                                <div class="swiper-container tp-swiper__container" data-slides="5" data-slides_lg="4" data-speed="500" data-direction="vertical" data-simulate_touch="1" data-mousewheel="1" data-spaces="10">
+                                    <div class="swiper-wrapper tp-swiper__wrapper">
+                                        {% for i in range(1, 6) %}
+                                            <div class="swiper-slide tp-swiper__slide">
+                                                <div class="bg-img">
+                                                    <picture>
+                                                        <source data-srcset="./img/webp/product-single/small/img-{{i}}.webp" type="image/webp" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                                                        <source data-srcset="./img/product-single/small/img-{{i}}.jpg" type="image/jpeg" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                                                        <img data-src="./img/product-single/small/img-{{i}}.jpg" alt="alt" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                                                    </picture>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tp-product-gallery__right">
+                            <span class="tp-product-gallery__status">Reserved</span>
+
+                            <div class="tp-swiper tp-swiper--product tp-swiper--prod-horizontal js-swiper">
+                                <div class="swiper-container tp-swiper__container" data-slides="1" data-thumbs="1" data-speed="400" data-autoheight="true" data-autoplay="4000">
+                                    <div class="swiper-wrapper tp-swiper__wrapper">
+                                        {% for i in range(1, 6) %}
+                                            <div class="swiper-slide tp-swiper__slide bg-img">
+                                                <picture>
+                                                    <source srcset="./img/webp/product-single/img-{{i}}.webp" type="image/webp">
+                                                    <source srcset="./img/product-single/img-{{i}}.jpg" type="image/jpeg">
+                                                    <img src="./img/product-single/img-{{i}}.jpg" alt="alt" class="lazyload js-print-img">
+                                                </picture>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="swiper-button-prev tp-swiper__prev"></div>
+                                <div class="swiper-button-next tp-swiper__next"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-xl-4 margin-20t margin-lg-0t">
+                    <div class="tp-product-info">
+                        <div class="row">
+                            <div class="col-md-6 col-lg-12">
+                                <div class="d-flex align-items-center justify-content-center justify-content-md-start">
+                                    <div class="js-print">
+                                        <div class="tp-price">Sale Price:
+                                            <span>$4979</span></div>
+                                    </div>
+                                    <a href="#found-lower" class="d-none d-md-inline-block tp-link tp-link--lower text-uppercase ml-20 margin-md-10t js-popup">Found it Lower?</a>
+                                </div>
+                                <div class="js-print">
+                                    <div class="d-flex align-items-center margin-5t justify-content-center justify-content-md-start">
+                                        {# <div class="tp-price">Sale Price: <span>$4829</span></div> #}
+                                        <div class="tp-price tp-price--old">MSRP: $9130</div>
+                                        <a href="#found-lower" class="d-md-none tp-link tp-link--lower text-uppercase ml-20 margin-md-10t js-popup">Found it Lower?</a>
+                                    </div>
+                                </div>
+                                <div class="js-print">
+                                    <div class="tp-product-info__getoff margin-20t">
+                                        <strong>Get $50 Off Sale Price by Paying Cash or Debit</strong>
+                                    </div>
+                                    <div class="tp-product-info__text margin-10t">
+                                        <p>
+                                            <b>Financing Available</b>
+                                            from
+                                            <b>$85.16/mo.</b>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-12">
+                                <a href="#schedule" class="tp-btn tp-btn--red tp-btn--sm-hor margin-20t d-block js-popup">Schedule an Appointment</a>
+                                <div class="tp-double-btn margin-20t">
+                                    <a href="/" class="tp-btn tp-btn--grey js-popup js-reserv-btn">
+                                        <span>Reserve Trailer</span>
+                                        <div class="tp-btn__loader"></div>
+                                    </a>
+                                    <a href="#reserve-trailer" class="tp-btn tp-btn--grey js-popup">
+                                        <i class="fa fa-question-circle"></i>
+                                    </a>
+                                </div>
+                                <a href="#" class="tp-btn margin-20t d-block js-to-cart-btn">
+                                    <span>Add to cart</span>
+                                    <div class="tp-btn__loader"></div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="js-print">
+                            <div class="tp-product-info__location margin-25t margin-md20t">
+                                <i class="fa fa-map-marker"></i>
+                                Trailer Located at:
+                                <div class="tp-located-at">
+                                    <span class="tp-located-at__toggle js-located-at">TrailersPlus Lavonia</span>
+                                    <div class="tp-located-at__box">
+                                        <div class="tp-located-at__map">
+                                            <div class="tp-map js-simple-map" data-lat="36.6512961" data-lng="-119.7101225" data-zoom="15" data-fullscreen_control="true" data-scrollwheel="true" data-marker="./img/logo-img50.svg"></div>
+                                            <a href="#" class="tp-btn tp-btn--text-sm tp-btn--red tp-btn--direction">
+                                                <span>Get Direction</span>
+                                            </a>
+                                        </div>
+                                        <div class="tp-located-at__info">
+                                            <div class="tp-loc-info-item">
+                                                <i class="fa fa-map-marker"></i>
+                                                <div>
+                                                    TrailersPlus Fresno 5847<br>
+                                                    Toyota Ave Fresno, CA 93725
+                                                </div>
+                                            </div>
+                                            <div class="tp-loc-info-item">
+                                                <i class="fa fa-phone"></i>
+                                                <div>
+                                                    <a href="tel:+1661-335-6045">(661) 335-6045</a>
+                                                </div>
+                                            </div>
+                                            <div class="tp-loc-info-item">
+                                                <i class="fa fa-clock-o"></i>
+                                                <div>
+                                                    <table>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>Mon:</td>
+                                                                <td>Closed</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Tue-Sat:</td>
+                                                                <td>Set Appointment</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Sun:</td>
+                                                                <td>Closed</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="tp-product-info__add-info">
+                                Free in store pickup. Free delivery within 5 miles of the store where the trailer is located. Call us for a shipping quote
+                                <a href="tel:+1762-222-1990">762-222-1990</a>
+                            </p>
+                            <p class="fz15 margin-20t">
+                                <a href="#appointment-only" class="js-popup">Learn Why We Are Appointment Only</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="js-print">
+                <div class="margin-20t margin-20b margin-md-50t margin-md-40b">
+                    <p>2019 Model Year configuration and pricing. 7 Wide 82 inch. American made Dexter axles. Champagne Beige Exterior Color (per LTF). Sand Pad for Jack. LED Tail and Clearance Light Package. Upgrade to 3/8 Walls, Single Stab Jack, Upgrade to 15 inch Tires. Trailer: 621</p>
+                </div>
+            </div>
+            <div class="tp-tabs js-tabs">
+                <div class="tp-tabs__head">
+                    <ul class="tp-tabs__list">
+                        <!-- first item must to have "active class" -->
+                        <li class="tp-tabs__list-item active">
+                            <a href="#" class="tp-tabs__list-link js-tab-link">Specifications</a>
+                        </li>
+                        <li class="tp-tabs__list-item">
+                            <a href="#" class="tp-tabs__list-link js-tab-link">Reviews<sup>24</sup>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tp-tabs__content">
+                    <!-- first item must to have "active class" -->
+                    <div class="tp-tabs__box js-tab-box active">
+                        <div class="row margin-md-10b">
+                            {% for spec in specifications %}
+                                <div class="col-lg-6">
+                                    <div class="margin-30b js-print">
+                                        {% include "../templates/partials/elements/details.njk" %}
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="tp-tabs__box js-tab-box">
+                        <div class="row padding-10t js-reviews-wrapper">
+                            {% for item in reviews %}
+                                <div class="col-md-6 col-lg-4 margin-25b margin-md-45b">
+                                    {% set reviewType = "small"%}
+                                    {% include "../templates/partials/elements/review.njk" %}
+                                </div>
+                            {% endfor %}
+                        </div>
+
+                        <div class="row d-flex justify-content-center">
+                            <a href="javascript:void(0)" class="tp-btn tp-btn--grey js-load-more-review">Load More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Product info block end -->
+    <!-- Product СTA start -->
+    <section class="padding-45t padding-45b padding-md-80t padding-md-80b bg-img">
+        {% include "../templates/partials/blocks/product-cta.njk" %}
+    </section>
+    <!-- Product СTA end -->
+
+    <!-- Product Recently start -->
+    <section class="padding-45t padding-20b padding-md-90t padding-md-70b">
+        <div class="container">
+            <h3 class="h3 t-center margin-25b margin-md-50b">Recently Viewed</h3>
+            <div class="row justify-content-lg-center justify-content-xl-start">
+                {% for item in products %}
+                    <div class="col-md-6 col-lg-5 col-xl-3 margin-30b ">
+                        {% set productType = "shadow"%}
+                        {% include "../templates/partials/elements/product.njk" %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- Product Recently end -->
+
+    <section class="bg-grey padding-50t padding-50b">
+        <div class="container p-md t-center">
+            <p>While every reasonable effort is made to ensure the accuracy of this data, we are not responsible for any errors or omissions regarding pricing, vehicle photos, accessories, parts or equipment. Please verify any information in question with a dealership Manager. For Colorado Stores: All prices do not include taxes and state/local licensing fees. For non- Colorado Stores: All prices do not include taxes, documentation, and licensing fees. Dealer is not responsible for pricing errors. For all non-Oregon stores, price must be paid in cash, certified check, or debit card at the store. Please call or arrive in-store to have the cash price applied. Sale price reflects the price when paying with credit. For all Oregon stores, cash price and sale price are equal; paying with cash, certified check, debit card, or credit will receive the same price discounts. Financing rates and offers are national averages for well qualified buyers. Actual rates may vary. Acquisition fees, destination charges, tag, title, and other fees and incentives are not included in this calculation, which is an estimate only. The example payment is based on a 48 month loan at 5.99% annual percentage rate with no down payment. Monthly payment estimates are for informational purposes and do not represent a financing offer from the seller of this trailer. Other taxes may apply. Please contact dealer for specific details regarding price and qualification.</p>
+        </div>
+    </section>
+
+    <!-- Partners start -->
+    <section class="tp-partners tp-partners--border">
+        {% include "../templates/partials/blocks/partners.njk" %}
+    </section>
+    <!-- Partners end -->
+
+    <!-- Product Recently end -->
+    <!-- Get Direction Popup start -->
+    {# {% include "../templates/partials/popups/get-direction.njk" %} #}
+    <!-- Get Direction Popup end -->
+    <!-- Found Lower Popup start -->
+    {% include "../templates/partials/popups/found-lower.njk" %}
+    <!-- Found Lower Popup end -->
+    <!-- Reserve Popup start -->
+    {% include "../templates/partials/popups/reserve.njk" %}
+    <!-- Reserve Popup end -->
+    <!-- Schedule Popup start -->
+    {% include "../templates/partials/popups/schedule.njk" %}
+    <!-- Schedule Popup end -->
+    <!-- Appointment Popup start -->
+    {% include "../templates/partials/popups/appointment.njk" %}
+    <!-- Appointment Popup end -->
+
+{% endblock %}

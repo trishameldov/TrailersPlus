@@ -1,0 +1,58 @@
+.tp-resources {
+    &__item {
+        display: flex;
+
+        @media screen and (max-width: 450px) {
+            flex-direction: column;
+        }
+    }
+
+    &__img {
+        margin-right: 40px;
+        width: 270px;
+
+        @media screen and (max-width: 450px) {
+            margin-right: 0;
+            margin-bottom: 20px;
+            width: auto;
+        }
+
+        img {
+            width: 170px;
+            height: auto;
+            border: 1px solid var(--c-grey-medium);
+
+            @media screen and (max-width: 450px) {
+                width: auto;
+            }
+        }
+    }
+
+    &__desc {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        @include large-size-max {
+            display: block;
+        }
+
+        a {
+            width: fit-content;
+        }
+
+        p {
+            color: var(--c-blue-dark);
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 26px;
+            margin: 0;
+            min-height: 80px;
+
+            @include large-size-max {
+                min-height: initial;
+            }
+        }
+    }
+}

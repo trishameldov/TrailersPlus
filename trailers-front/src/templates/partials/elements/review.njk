@@ -1,0 +1,31 @@
+{% if(reviewType == "small") %}
+    {% set class = " tp-review--small"%}
+    {% set mb = "15"%}
+{% else %}
+    {% set mb = "30"%}
+{% endif %}
+
+<div class="tp-review{{class}}">
+    <div class="tp-review__head">
+        <div class="tp-rating">
+            <div class="tp-rating__group">
+                <!-- TODO for active elements add class "checked" and class "bg-#{rating number} -> bg-4 for example" -->
+                {% for i in range(1, 6) %}
+                    {% if (i <= item.rating) %}
+                        <span class="tp-rating__star bg-{{ item.rating }} checked"></span>
+                    {% else %}
+                        <span class="tp-rating__star"></span>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        <span class="tp-review__time">{{ item.time }}</span>
+    </div>
+    <div class="tp-review__body">
+        <h3 class="tp-review__title h4 margin-10b margin-md-{{mb}}b">{{ item.title }}</h3>
+        <p class="tp-review__text margin-5b margin-md-{{mb}}b">{{ item.text }}
+            <a href="#">Read More</a>
+        </p>
+        <span class="tp-review__author d-block">{{ item.author }}</span>
+    </div>
+</div>

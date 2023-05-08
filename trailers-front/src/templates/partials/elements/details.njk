@@ -1,0 +1,9 @@
+<h4 class="h5 h5--18-sm c-main">{{ spec.title }}</h4>
+<ul class="tp-details">
+    {% for item in spec.items %}
+        <li>
+            <span class="tp-details__l">{{item.title}}:</span>
+            <span class="tp-details__r">{{item.value|safe}}</span>
+        </li>
+    {% endfor %}
+</ul>

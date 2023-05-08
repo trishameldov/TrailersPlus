@@ -1,0 +1,46 @@
+{% if data.options.textRight %}
+    {% set blokcAlign = 'tp-about-desc--text-right' %}
+{% else %}
+    {% set blokcAlign = 'tp-about-desc--text-left' %}
+{% endif %}
+
+
+{% if data.options.smallImage %}
+    {% set colLeft = 'col-lg-6' %}
+    {% set colRight = 'col-lg-6' %}
+{% else %}
+    {% set colLeft = 'col-lg-5' %}
+    {% set colRight = 'col-lg-7' %}
+{% endif %}
+
+
+{% if data.options.textRight %}
+    {% set rowClass = 'flex-column-reverse flex-lg-row-reverse' %}
+{% else %}
+    {% set rowClass = 'flex-column-reverse flex-lg-row' %}
+{% endif %}
+
+
+<div class="container {{ blokcAlign }}">
+    <div class="row {{ rowClass }}">
+        <div class="col-sm-12 {{ colLeft }}">
+            <div class="tp-about-desc__text">
+                <h2 class="{{ data.options.titleCustomClass }}">{{ data.title | safe }}</h2>
+                <p>{{ data.text | safe }}</p>
+
+                {% if data.buttonText %}
+                    <a href="#" class="tp-btn tp-btn--red margin-30t">{{ data.buttonText }}</a>
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-sm-12 {{ colRight }}">
+            <div class="tp-about-desc__image-wrapper bg-img">
+                <picture>
+                    <source data-srcset="./img/webp/{{ data.image }}-min.webp" type="image/webp"  srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                    <source data-srcset="./img/{{ data.image }}-min.jpg" type="image/jpeg" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                    <img data-src="./img/{{ data.image }}-min.jpg" alt="{{ data.title }}" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                </picture>
+            </div>
+        </div>
+    </div>
+</div>

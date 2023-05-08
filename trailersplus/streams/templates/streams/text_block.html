@@ -1,0 +1,11 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load static i18n cache %}
+{% get_current_language as LANGUAGE_CODE %}
+
+{% cache 604800 text_block LANGUAGE_CODE self %}
+<section class="tp-section tp-section--default">
+    <div class="container c-blue-dark">
+        <p>{{ self | safe }}</p>
+    </div>
+</section>
+{% endcache %}

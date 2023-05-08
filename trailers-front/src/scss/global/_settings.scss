@@ -1,0 +1,97 @@
+/* ------------------------------------------- */
+/*                 SETTINGS                    */
+/* ------------------------------------------- */
+
+$header-z-index: 1052;
+
+// FONTS
+$primary-font-family: $f-roboto;
+$secondary-font-family: $f-oswald;
+
+// COLORS
+$color-main: var(--c-blue-main);
+$color-alter: var(--c-pomegranate);
+
+// MAIN
+$border-radius-main: 6px;
+// $border-color-main: $c-blue-light;
+$box-shadow-size: 30px;
+
+
+// CONTENT FONT
+$content-font-family: $primary-font-family;
+$content-txt-size: 18px;
+$content-txt-sm-size: 15px;
+$content-font-weight: 400;
+$content-line-height: 1.56;
+$content-line-height-sm: 1.73;
+$content-txt-color: var(--c-grey);
+
+// HEADINGS FONT
+$headings-font-weight: 500;
+$headings-txt-color: var(--c-blue-dark);
+// $headings-line-height: 1.2;
+$heading-font-style: normal;
+$heading-font-family: $f-oswald;
+
+$h1-txt-size: 70px;
+$h1-mob-txt-size: 35px;
+$h1-line-height: 90px;
+$h1-mob-line-height: 47px;
+
+$h2-txt-size: 50px;
+$h2-mob-txt-size: 30px;
+$h2-line-height: 60px;
+$h2-mob-line-height: 34px;
+
+$h3-txt-size: 35px;
+$h3-mob-txt-size: 22px;
+$h3-line-height: 42px;
+$h3-mob-line-height: 32px;
+
+$h4-txt-size: 24px;
+$h4-mob-txt-size: 20px;
+$h4-line-height: 32px;
+$h4-mob-line-height: 30px;
+
+$h5-txt-size: 20px;
+$h5-mob-txt-size: 16px;
+$h5-line-height: 26px;
+$h5-mob-line-height: 20px;
+
+$h6-txt-size: 13px;
+$h6-line-height: 24px;
+$h6-mob-line-height: 18px;
+
+// LINKS
+$link-color: $color-main;
+
+// BUTTONS
+$button-font-size: 16px;
+$button-font-weight: 600;
+$button-line-height: 1.4;
+
+// HEADER
+$header-bg-color: $color-main;
+$header-link-color: var(--c-white);
+
+// FORM
+$select-height: 52px;
+$form-font-family: $primary-font-family;
+$form-font-size: 15px;
+$form-font-weight: 400;
+$form-line-height: 26px;
+$form-txt-color: var(--c-blue-dark);
+$form-plh-color: var(--c-grey);
+$form-border-color: transparent;
+$form-border-color-active: var(--c-blue-grey);
+$form-bg-color: var(--c-white-grey);
+$form-bg-color-active: var(--c-white);
+$form-box-shadow: none;
+
+// FOOTER
+// $footer-bg-color: $c-grey-flow;
+$footer-txt-size: 16px;
+$footer-txt-headings-color: var(--c-white);
+// $footer-txt-color: $c-blue-cloudly;
+

@@ -1,0 +1,88 @@
+.tp-types-fltr {
+  $b: &;
+  border-bottom: 1px solid rgba(var(--ca-blue-light), 0.1);
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  label {
+    pointer-events: none;
+  }
+
+  &.full {
+    .tp-prod-fltr-list__item {
+      label {
+        pointer-events: all;
+      }
+    }
+  }
+
+  &__head {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 37px;
+    padding: 0 15px;
+    margin-left: auto;
+    margin-right: -15px;
+    color: var(--c-grey);
+    font-size: 15px;
+    transition: color 200ms ease-in;
+    cursor: pointer;
+
+    &:hover {
+      &:before {
+        color: $color-main;
+      }
+    }
+
+    &:before {
+      content: '';
+      @include ionIcons;
+      font-weight: 700;
+      transition: color 200ms ease;
+    }
+
+    &.is-active {
+      font-weight: 700;
+      color: $color-main;
+
+      &:before {
+        content: '';
+      }
+    }
+  }
+
+  &__content {
+    &.open {
+      display: block;
+    }
+  }
+
+  &__count {
+    margin-left: 5px;
+  }
+
+  &__name {
+    word-break: break-word;
+  }
+
+  &__cat {
+    > a {
+      display: inline-block;
+      color: var(--c-grey);
+    }
+
+    input[type='checkbox'] {
+      &:checked + label {
+        font-weight: 700;
+      }
+    }
+
+    > .js-fltr-click {
+      display: inline-block;
+      color: var(--c-grey);
+    }
+  }
+}

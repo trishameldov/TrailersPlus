@@ -1,0 +1,209 @@
+{% extends "layout.tmpl.njk" %}
+
+{% block content %}
+
+    <!-- Banner start -->
+    {% set data = {
+        image: 'parts-accessories/banner-bg',
+        title: 'Get the Parts and Accessories You Need to Get the Most Out of Your Trailer'
+    } %}
+    <section class="p-relative">
+        <div class="tp-section--default tp-banner tp-banner--bot tp-banner--600 tp-banner--overl-3 tp-banner--width-1100 bg-img">
+            {% include "../templates/partials/blocks/banner-bot.njk" %}
+        </div>
+
+        <div class="tp-banner__buttons-wrapper">
+
+            <a href="#" class="tp-btn tp-btn--red tp-btn--shadow">
+                <picture>
+                    <source data-srcset="./img/webp/parts-accessories/store-icon-min.webp" type="image/webp" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                    <source data-srcset="./img/parts-accessories/store-icon-min.png" type="image/png" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                    <img data-src="./img/parts-accessories/store-icon-min.png" alt="store" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                </picture>
+                <span>Visit Our Online Parts Store</span>
+            </a>
+
+            <a href="#" class="tp-btn tp-btn--red tp-btn--shadow">
+                <picture>
+                    <source data-srcset="./img/webp/parts-accessories/marker-icon-min.webp" type="image/webp" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                    <source data-srcset="./img/parts-accessories/marker-icon-min.png" type="image/png" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                    <img data-src="./img/parts-accessories/marker-icon-min.png" alt="market" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                </picture>
+                <span>Visit Your Nearest Store</span>
+            </a>
+        </div>
+    </section>
+    <!-- Banner end -->
+
+    <!-- Most Popular Parts start -->
+    {% set slides = [
+        { imagePath: 'parts-accessories/slide-img-1-min', title: 'E-TRACK' },
+        { imagePath: 'parts-accessories/slide-img-2-min', title: 'RV DOOR SECURITY' },
+        { imagePath: 'parts-accessories/slide-img-3-min', title: 'WHEEL CHOCKS' },
+        { imagePath: 'parts-accessories/slide-img-4-min', title: 'TIE-DOWN POINTS' },
+        { imagePath: 'parts-accessories/slide-img-1-min', title: 'E-TRACK' },
+        { imagePath: 'parts-accessories/slide-img-2-min', title: 'RV DOOR SECURITY' },
+        { imagePath: 'parts-accessories/slide-img-3-min', title: 'WHEEL CHOCKS' },
+        { imagePath: 'parts-accessories/slide-img-4-min', title: 'TIE-DOWN POINTS' }
+    ] %}
+
+    {% set data = {
+        title: 'WHEEL CHOCKS',
+        const: '317.98',
+        desc: 'Install a wheel chock in your trailer to protect your motorcycle while traveling. You pick the placement of the wheel chock, and we’ll take care of the rest. You’ll never have to worry about your bike falling over again! Parts include:',
+        list: ["<a href='#'>Lock N' Load Motorcycle Wheel Chock</a>", "<a href='#'>Lock N' Load Retractable Tie Down System</a>", "Installation"],
+        slideImagePaths: ['parts-accessories/pop-up-slide-min', 'parts-accessories/pop-up-slide-min', 'parts-accessories/pop-up-slide-min', 'parts-accessories/pop-up-slide-min']
+    } %}
+    <section class="tp-section bg-porcelain">
+        <div class="container">
+            <h2 class="h2 w-full t-center margin-25b margin-md-65b">These are our most popular parts packages</h2>
+
+            <div class="tp-swiper js-swiper tp-swiper--popular p-relative">
+                <div class="tp-swiper__container swiper-container" data-slides="4" data-slides_lg="3" data-slides_md="2" data-slides_sm="1" data-speed="700" data-spaces="30" data-loop="true" data-autoplay="4000" data-simulate_touch="true">
+                    <div class="swiper-wrapper tp-swiper__wrapper">
+                        {% for slide in slides %}
+                            <a href="#parts-{{ loop.index }}" class="swiper-slide tp-swiper__slide js-popup">
+                                <div class="tp-swiper__slide-wrapper">
+                                    <picture>
+                                        <source data-srcset="./img/webp/{{ slide.imagePath }}.webp" type="image/webp" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                                        <source data-srcset="./img/{{ slide.imagePath }}.jpg" type="image/jpeg" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                                        <img data-src="./img/{{ slide.imagePath }}.jpg" alt="alt" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                                    </picture>
+
+                                    <h3 class="h4 c-main margin-0t padding-20t padding-20b lh24 fz20">{{ slide.title }}</h3>
+                                </div>
+                            </a>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="swiper-pagination tp-swiper__pagination"></div>
+                <div class="swiper-button-prev tp-swiper__prev"></div>
+                <div class="swiper-button-next tp-swiper__next"></div>
+            </div>
+        </div>
+    </section>
+
+    {% for slide in slides %}
+        {% set slideIndex = loop.index %}
+        {% include "../templates/partials/popups/parts-accessories.njk" %}
+    {% endfor %}
+    <!-- Most Popular Parts start -->
+
+    <!-- Tabs start -->
+    {% set data = [
+        { imagePath: 'parts-accessories/parts/1-min', title: 'Ball Mounts' },
+        { imagePath: 'parts-accessories/parts/2-min', title: 'Brake Controllers & Vehicle Adapters' },
+        { imagePath: 'parts-accessories/parts/3-min', title: 'Miscellaneous' },
+        { imagePath: 'parts-accessories/parts/4-min', title: 'Trailer Locks' },
+        { imagePath: 'parts-accessories/parts/5-min', title: 'Vehicle Side Plug & Adaptors' },
+
+        { imagePath: 'parts-accessories/parts/6-min', title: 'Ball Mounts' },
+        { imagePath: 'parts-accessories/parts/7-min', title: 'Brake Controllers & Vehicle Adapters' },
+        { imagePath: 'parts-accessories/parts/8-min', title: 'Miscellaneous' },
+        { imagePath: 'parts-accessories/parts/9-min', title: 'Trailer Locks' },
+        { imagePath: 'parts-accessories/parts/10-min', title: 'Vehicle Side Plug & Adaptors' },
+
+        { imagePath: 'parts-accessories/parts/11-min', title: 'Ball Mounts' },
+        { imagePath: 'parts-accessories/parts/12-min', title: 'Brake Controllers & Vehicle Adapters' },
+        { imagePath: 'parts-accessories/parts/13-min', title: 'Miscellaneous' },
+        { imagePath: 'parts-accessories/parts/14-min', title: 'Trailer Locks' },
+        { imagePath: 'parts-accessories/parts/15-min', title: 'Vehicle Side Plug & Adaptors' },
+
+        { imagePath: 'parts-accessories/parts/16-min', title: 'Ball Mounts' },
+        { imagePath: 'parts-accessories/parts/17-min', title: 'Brake Controllers & Vehicle Adapters' },
+        { imagePath: 'parts-accessories/parts/18-min', title: 'Miscellaneous' },
+        { imagePath: 'parts-accessories/parts/19-min', title: 'Trailer Locks' }
+    ] %}
+    <section class="padding-50t padding-md-85t padding-45b padding-md-75b">
+        <div class="container js-tabs">
+            <div class="tp-parts-tabs">
+                <!-- Tabs -->
+                <div class="tp-parts-tabs__tabs">
+                    <div class="tp-parts-tabs__tab js-tab active">
+                        <a href="#" class="js-tab-link">Trailer Parts</a>
+                    </div>
+                    <div class="tp-parts-tabs__tab">
+                        <a href="#" class="js-tab-link">Accessories</a>
+                    </div>
+                    <div class="tp-parts-tabs__tab">
+                        <a href="#" class="js-tab-link">Trailer Cargo Management</a>
+                    </div>
+                </div>
+
+                <!-- Content -->
+                <div class="tp-parts-tabs__content">
+                    <div class="tp-tabs__box tp-parts-tabs__box js-tab-box active">
+                        {% for item in data %}
+                            <a href="#" class="tp-box-item" target="_blank">
+                                <div class="tp-box-item__content-wrapper">
+                                    <div class="tp-box-item__img-wrapper">
+                                        <picture>
+                                            <source data-srcset="./img/webp/{{ item.imagePath }}.webp" type="image/webp" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                                            <source data-srcset="./img/{{ item.imagePath }}.jpg" type="image/jpeg" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                                            <img data-src="./img/{{ item.imagePath }}.jpg" alt="alt" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                                        </picture>
+                                    </div>
+
+                                    <h3>{{ item.title }}</h3>
+                                </div>
+                            </a>
+                        {% endfor %}
+                    </div>
+                    <div class="tp-tabs__box tp-parts-tabs__box js-tab-box">
+                        {% for item in data %}
+                            <a href="#" class="tp-box-item" target="_blank">
+                                <div class="tp-box-item__content-wrapper">
+                                    <div class="tp-box-item__img-wrapper">
+                                        <picture>
+                                            <source data-srcset="./img/webp/{{ item.imagePath }}.webp" type="image/webp" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                                            <source data-srcset="./img/{{ item.imagePath }}.jpg" type="image/jpeg" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                                            <img data-src="./img/{{ item.imagePath }}.jpg" alt="alt" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                                        </picture>
+                                    </div>
+
+                                    <h3>{{ item.title }}</h3>
+                                </div>
+                            </a>
+                        {% endfor %}
+                    </div>
+                    <div class="tp-tabs__box tp-parts-tabs__box js-tab-box">
+                        {% for item in data %}
+                            <a href="#" class="tp-box-item" target="_blank">
+                                <div class="tp-box-item__content-wrapper">
+                                    <div class="tp-box-item__img-wrapper">
+                                        <picture>
+                                            <source data-srcset="./img/webp/{{ item.imagePath }}.webp" type="image/webp" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                                            <source data-srcset="./img/{{ item.imagePath }}.jpg" type="image/jpeg" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                                            <img data-src="./img/{{ item.imagePath }}.jpg" alt="alt" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                                        </picture>
+                                    </div>
+
+                                    <h3>{{ item.title }}</h3>
+                                </div>
+                            </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Tabs end -->
+
+    <!-- Join community start -->
+    <section class="tp-section tp-section--sm bg-img">
+        {% include "../templates/partials/blocks/join-community.njk" %}
+    </section>
+    <!-- Join community end -->
+
+    <!-- Partners start -->
+    <section class="tp-partners">
+        {% include "../templates/partials/blocks/partners.njk" %}
+    </section>
+    <!-- Partners end -->
+
+    <!-- Most Popular Parts start -->
+    {% include "../templates/partials/popups/parts-accessories.njk" %}
+    <!-- Most Popular Parts end -->
+
+{% endblock %}

@@ -1,0 +1,219 @@
+{% extends "layout.tmpl.njk" %}
+
+{% block content %}
+	<!-- Banner slider start -->
+    <section>
+        {% include "../templates/partials/blocks/home-banner-slider.njk" %}
+    </section>
+	<!-- Banner slider end -->
+
+	<!-- Search filter start -->
+    <section class="tp-section tp-section--filter tp-section--mobile">
+        {% include "../templates/partials/blocks/search-filter.njk" %}
+    </section>
+	<!-- Search filter end -->
+    
+	<!-- Text banner start -->
+    <section class="tp-section bg-grey">
+        {% include "../templates/partials/blocks/grey-banner.njk" %}
+    </section>
+	<!-- Text banner end -->
+
+{# 
+    <section>
+        <!-- TODO: Move script tag -->
+        <script src="./js/libs/jsCalendar.min.js"></script>
+
+        <div class="container">
+            <div style="max-width: 454px; margin: 100px auto;">
+                <div class="margin-20b">
+                    <div class="h3 c-main">BOOK MY TRAILER APPOINTMENT</div>
+                </div>
+
+                <div>
+                    {% include "../templates/partials/elements/scheduler.njk" %}
+                </div>
+            </div>
+        </div>
+    </section> #}
+
+
+	<!-- Category slider start -->
+    <section class="tp-section tp-section--cat">
+        {% include "../templates/partials/blocks/category-slider.njk" %}
+    </section>
+	<!-- Category slider end -->
+
+	<!-- Image banner start -->
+    <section class="tp-section bg-img">
+        {% include "../templates/partials/blocks/home-image-banner.njk" %}
+    </section>
+	<!-- Image banner end -->
+
+    <!-- Review rating start -->
+    <section class="tp-section tp-sum-rating bg-grey">
+        <div class="container p-relative t-center tp-sum-rating__wrapper">
+            <h2 class="h2">Out customers love us!</h1>
+            <h3 class="h2">we have over <b>10,000</b> reviews with a 4.7 / 5 avarage rating.</h3>
+
+            <div class="tp-large-rating margin-40t">
+                <div class="tp-large-rating__count">4.7</div>
+                <div class="tp-large-rating__stars-wrapper">
+                    <div class="tp-large-rating__stars">
+                        <div class="tp-large-rating__star">
+                            <i class="fa fa-star"></i>
+
+                            <div class="fill">
+                                <i class="fa fa-star"></i>
+                            </div>
+                        </div>
+
+                        <div class="tp-large-rating__star">
+                            <i class="fa fa-star"></i>
+
+                            <div class="fill">
+                                <i class="fa fa-star"></i>
+                            </div>
+                        </div>
+
+                        <div class="tp-large-rating__star">
+                            <i class="fa fa-star"></i>
+
+                            <div class="fill">
+                                <i class="fa fa-star"></i>
+                            </div>
+                        </div>
+
+                        <div class="tp-large-rating__star">
+                            <i class="fa fa-star"></i>
+
+                            <div class="fill" style="width: 70%">
+                                <i class="fa fa-star"></i>
+                            </div>
+                        </div>
+
+                        <div class="tp-large-rating__star">
+                            <i class="fa fa-star"></i>
+
+                            <div class="fill" style="width: 0%">
+                                <i class="fa fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Review rating end -->
+
+    <!-- Review rating 2 start -->
+    <section class="tp-section tp-sum-rating bg-grey">
+        <div class="container p-relative t-center tp-sum-rating__wrapper2">
+            <div>
+                <h2 class="h2">Out customers love us!</h1>
+
+                <div class="tp-large-rating margin-20b margin-lg-0b">
+                    <div class="tp-large-rating__count">4.7</div>
+                    <div class="tp-large-rating__stars-wrapper">
+                        <div class="tp-large-rating__stars">
+                            <div class="tp-large-rating__star">
+                                <i class="fa fa-star"></i>
+
+                                <div class="fill">
+                                    <i class="fa fa-star"></i>
+                                </div>
+                            </div>
+
+                            <div class="tp-large-rating__star">
+                                <i class="fa fa-star"></i>
+
+                                <div class="fill">
+                                    <i class="fa fa-star"></i>
+                                </div>
+                            </div>
+
+                            <div class="tp-large-rating__star">
+                                <i class="fa fa-star"></i>
+
+                                <div class="fill">
+                                    <i class="fa fa-star"></i>
+                                </div>
+                            </div>
+
+                            <div class="tp-large-rating__star">
+                                <i class="fa fa-star"></i>
+
+                                <div class="fill" style="width: 70%">
+                                    <i class="fa fa-star"></i>
+                                </div>
+                            </div>
+
+                            <div class="tp-large-rating__star">
+                                <i class="fa fa-star"></i>
+
+                                <div class="fill" style="width: 0%">
+                                    <i class="fa fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="h2">we have over <b>10,000</b> reviews with a 4.7 / 5 avarage rating.</h3>
+            </div>
+        </div>
+    </section>
+    <!-- Review rating 2 end -->
+
+    <!-- Our customers said start -->
+    {% set reviews = [
+        { title: "Well what can I say service was great…", rating: 1, time: "49 minutes ago", text: "Well what can I say service was great like to haggle a little bit with him that was fun I had a very professional…", author: "Henry West" }, 
+        { title: "This is by far the best place to…", rating: 2, time: "50 minutes ago", text: "Well what can I say service was great like to haggle a little bit with him that was fun I had a very professional…", author: "Henry West" }, 
+        { title: "Well what can I say service was great…", rating: 3, time: "51 minutes ago", text: "Well what can I say service was great like to haggle a little bit with him that was fun I had a very professional…", author: "Henry West" }, 
+        { title: "This is by far the best place to…", rating: 4, time: "52 minutes ago", text: "Well what can I say service was great like to haggle a little bit with him that was fun I had a very professional…", author: "Henry West" }, 
+        { title: "This is by far the best place to…", rating: 5, time: "53 minutes ago", text: "Well what can I say service was great like to haggle a little bit with him that was fun I had a very professional…", author: "Henry West" }, 
+        { title: "Well what can I say service was great…", rating: 3, time: "54 minutes ago", text: "Well what can I say service was great like to haggle a little bit with him that was fun I had a very professional…", author: "Henry West" }]
+    %}
+    <section class="tp-section">
+        <div class="container margin-35b margin-md-65b">
+            <h2 class="h2 t-center">Our Customers Said</h2>
+        </div>
+        {% include "../templates/partials/blocks/customers-said.njk" %}
+    </section>
+	<!-- Our customers said end -->
+
+	<!-- Recent works start -->
+    {% set works = {
+            title: {text: "Our Recent Work"},
+            items: [
+                {image: 'recent-works/recent-1', link: "Vestibulum rutrum quam vitae fringilla"},
+                {image: 'recent-works/recent-2', link: "Vestibulum rutrum quam vitae fringilla"},
+                {image: 'recent-works/recent-3', link: "Vestibulum rutrum quam vitae fringilla"}]
+        }
+    %}
+    <section class="tp-section bg-grey">
+        {% include "../templates/partials/blocks/recent-works.njk" %}
+    </section>
+	<!-- Recent  works end -->
+
+	<!-- Image links start -->
+    <section class="tp-section tp-section--padd-normal">
+        {% include "../templates/partials/blocks/image-links.njk" %}
+    </section>
+	<!-- Image links end -->
+	
+    <!-- Join community start -->
+    <section class="tp-section tp-section--sm bg-img">
+        {% include "../templates/partials/blocks/join-community.njk" %}
+    </section>
+	<!-- Join community end -->
+
+    <!-- Partners start -->
+    <section class="tp-partners">
+        {% include "../templates/partials/blocks/partners.njk" %}
+    </section>
+	<!-- Partners end -->
+    
+{% endblock %}

@@ -1,0 +1,33 @@
+<div class="container">
+    {% for serv in services %}
+        {% if(loop.index % 2 == 0) %}
+            {% set class = " tp-service--reverse"%}
+        {% else %}
+            {% set class = ""%}
+        {% endif %}
+
+        <div id="bl-{{loop.index}}" class="tp-service{{class}} margin-45b margin-md-65b margin-lg-75b">
+            <div class="tp-service__left">
+                <div class="p-relative">
+                    <div class="tp-service__img tp-shadow-grey bg-img">
+                        <picture>
+                            <source data-srcset="./img/webp/{{serv.img}}.webp" type="image/webp"  srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                            <source data-srcset="./img/{{serv.img}}.jpg" type="image/jpeg" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                            <img data-src="./img/{{serv.img}}.jpg" alt="Factory Direct" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                        </picture>
+                    </div>
+                    <div class="tp-service__icon tp-skew tp-skew--shadow-grey">
+                        <img src="./img/icons/interst-serv/{{serv.icon}}.svg" alt="alt">
+                    </div>
+                </div>
+            </div>
+            <div class="tp-service__right margin-35t margin-md-55t margin-lg-0t">
+                <div>
+                    <h2 class="c-main h3 margin-10b">{{serv.title}}</h2>
+                    <h3 class="h4 fw400 c-main margin-15b margin-md-20b margin-0t">{{serv.subtitle}}</h3>
+                    <p class="c-blue-dark p-md">{{serv.text}}</p>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>

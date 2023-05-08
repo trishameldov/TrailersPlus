@@ -1,0 +1,138 @@
+{% extends "layout.tmpl.njk" %}
+
+{% block content %}
+
+    {% set data = {
+        image: 'custom-trailers/custom-trail-banner',
+        title: 'Custom Trailers',
+        align: "left"
+    }
+    %}
+
+    {% set pagination = [
+        {
+            title: "Home"
+        }, {
+            title: "Custom Trailers",
+            last: true
+        }
+    ]
+ %}
+
+    {% set paginationStyle = "white"
+ %}
+
+    {% set textBanner = {
+            text: '<p>TrailersPlus can build you the trailer you want! We specialize in customizing high quality Interstate trailers for every need. We’ve built thousands of custom trailers for concession, construction, recreation, and many other purposes. No matter the trailer type, size or need, TrailersPlus can build it better than anyone else! And don’t forget, our work is backed up by our <b>100% CUSTOMER SATISFACTION GUARANTEE.</b></p>',
+            image: "join-bg"
+        }
+    %}
+
+    {% set works = {
+            title: {text: "Our Custom Trailer Work"},
+            items: [
+                {image: 'custom-trailers/works/work-1', link: "Vestibulum rutrum quam vitae fringilla"},
+                {image: 'custom-trailers/works/work-0', link: "Vestibulum rutrum quam vitae fringilla"},
+                {image: 'custom-trailers/works/work-2', link: "Vestibulum rutrum quam vitae fringilla"}]
+        }
+    %}
+
+    {% 
+        set about = [
+            {image: "custom-trailers/features/1-min", title: "110V Package", text: '<p>A complete package with lighting, wall switch, outlets, and a panel box with lifeline and hatch.</p><ul><li>Includes:</li><li>(2) 4’ Fluorescent Lights with Wall Switch</li><li>(2) Interior Outlets</li><li>(1) External GFI Outlet 110V Panel Box w/ Lifeline and lifeline hatch</li><li>*Requires a ceiling liner</li></ul>'},
+            {image: "custom-trailers/features/2-min", title: "50 AMP Panel, Lifeline and Hatch", text: '<p>Get started by adding power to your trailer with a 50 AMP panel.</p><ul><li>Includes:</li><li>50 AMP Panel Box</li><li>36’ Lifeline</li></ul>'},
+            {image: "custom-trailers/features/3-min", title: "4’ Fluorescent Lights", text: '<p>Illuminates the entire inside of your trailer!</p><p>*Requires 110V power</p>'},
+            {image: "custom-trailers/features/4-min", title: "50 AMP Lifeline Door/Hatch", text: '<p>Add a 50 AMP lifeline door/hatch for easy access inside and out of the trailer.'},
+            {image: "custom-trailers/features/5-min", title: "Air Conditioning Unit", text: '<p>Beat the heat at the racetrack or your campsite with a 15,000 BTU A/C unit. Insulation is available as an option.'},
+            {image: "custom-trailers/features/6-min", title: "4’ Baseboard Heater", text: '<p>No need for a jacket with a 4’ baseboard heater. Extend your camping season or take the edge off before a day of riding on the trails.<p><p>*Requires 110V power</p>'},
+            {image: "custom-trailers/features/7-min", title: "4’ Baseboard Heater", text: '<p>No need for a jacket with a 4’ baseboard heater. Extend your camping season or take the edge off before a day of riding on the trails.<p><p>*Requires 110V power</p>'},
+            {image: "custom-trailers/features/8-min", title: "4’ Baseboard Heater", text: '<p>No need for a jacket with a 4’ baseboard heater. Extend your camping season or take the edge off before a day of riding on the trails.<p><p>*Requires 110V power</p>'},
+            {image: "custom-trailers/features/9-min", title: "4’ Baseboard Heater", text: '<p>No need for a jacket with a 4’ baseboard heater. Extend your camping season or take the edge off before a day of riding on the trails.<p><p>*Requires 110V power</p>'},
+            {image: "custom-trailers/features/10-min", title: "4’ Baseboard Heater", text: '<p>No need for a jacket with a 4’ baseboard heater. Extend your camping season or take the edge off before a day of riding on the trails.<p><p>*Requires 110V power</p>'},
+            {image: "custom-trailers/features/11-min", title: "4’ Baseboard Heater", text: '<p>No need for a jacket with a 4’ baseboard heater. Extend your camping season or take the edge off before a day of riding on the trails.<p><p>*Requires 110V power</p>'},
+            {image: "custom-trailers/features/12-min", title: "4’ Baseboard Heater", text: '<p>No need for a jacket with a 4’ baseboard heater. Extend your camping season or take the edge off before a day of riding on the trails.<p><p>*Requires 110V power</p>'},
+            {image: "custom-trailers/features/13-min", title: "4’ Baseboard Heater", text: '<p>No need for a jacket with a 4’ baseboard heater. Extend your camping season or take the edge off before a day of riding on the trails.<p><p>*Requires 110V power</p>'},
+            {image: "custom-trailers/features/15-min", title: "4’ Baseboard Heater", text: '<p>No need for a jacket with a 4’ baseboard heater. Extend your camping season or take the edge off before a day of riding on the trails.<p><p>*Requires 110V power</p>'},
+            {image: "custom-trailers/features/14-min", title: "4’ Baseboard Heater", text: '<p>No need for a jacket with a 4’ baseboard heater. Extend your camping season or take the edge off before a day of riding on the trails.<p><p>*Requires 110V power</p>'},
+            {image: "custom-trailers/features/16-min", title: "4’ Baseboard Heater", text: '<p>No need for a jacket with a 4’ baseboard heater. Extend your camping season or take the edge off before a day of riding on the trails.<p><p>*Requires 110V power</p>'},
+            {image: "custom-trailers/features/17-min", title: "4’ Baseboard Heater", text: '<p>No need for a jacket with a 4’ baseboard heater. Extend your camping season or take the edge off before a day of riding on the trails.<p><p>*Requires 110V power</p>'},
+            {image: "custom-trailers/features/18-min", title: "4’ Baseboard Heater", text: '<p>No need for a jacket with a 4’ baseboard heater. Extend your camping season or take the edge off before a day of riding on the trails.<p><p>*Requires 110V power</p>'},
+            {image: "custom-trailers/features/19-min", title: "4’ Baseboard Heater", text: '<p>No need for a jacket with a 4’ baseboard heater. Extend your camping season or take the edge off before a day of riding on the trails.<p><p>*Requires 110V power</p>'},
+            {image: "custom-trailers/features/20-min", title: "4’ Baseboard Heater", text: '<p>No need for a jacket with a 4’ baseboard heater. Extend your camping season or take the edge off before a day of riding on the trails.<p><p>*Requires 110V power</p>'},
+            {image: "custom-trailers/features/21-min", title: "4’ Baseboard Heater", text: '<p>No need for a jacket with a 4’ baseboard heater. Extend your camping season or take the edge off before a day of riding on the trails.<p><p>*Requires 110V power</p>'},
+            {image: "custom-trailers/features/22-min", title: "4’ Baseboard Heater", text: '<p>No need for a jacket with a 4’ baseboard heater. Extend your camping season or take the edge off before a day of riding on the trails.<p><p>*Requires 110V power</p>'},
+            {image: "custom-trailers/features/23-min", title: "4’ Baseboard Heater", text: '<p>No need for a jacket with a 4’ baseboard heater. Extend your camping season or take the edge off before a day of riding on the trails.<p><p>*Requires 110V power</p>'},
+            {image: "custom-trailers/features/24-min", title: "4’ Baseboard Heater", text: '<p>No need for a jacket with a 4’ baseboard heater. Extend your camping season or take the edge off before a day of riding on the trails.<p><p>*Requires 110V power</p>'},
+            {image: "custom-trailers/features/25-min", title: "4’ Baseboard Heater", text: '<p>No need for a jacket with a 4’ baseboard heater. Extend your camping season or take the edge off before a day of riding on the trails.<p><p>*Requires 110V power</p>'},
+            {image: "custom-trailers/features/26-min", title: "4’ Baseboard Heater", text: '<p>No need for a jacket with a 4’ baseboard heater. Extend your camping season or take the edge off before a day of riding on the trails.<p><p>*Requires 110V power</p>'},        
+            {image: "custom-trailers/features/27-min", title: "4’ Baseboard Heater", text: '<p>No need for a jacket with a 4’ baseboard heater. Extend your camping season or take the edge off before a day of riding on the trails.<p><p>*Requires 110V power</p>'},        
+            {image: "custom-trailers/features/28-min", title: "4’ Baseboard Heater", text: '<p>No need for a jacket with a 4’ baseboard heater. Extend your camping season or take the edge off before a day of riding on the trails.<p><p>*Requires 110V power</p>'},        
+            {image: "custom-trailers/features/29-min", title: "4’ Baseboard Heater", text: '<p>No need for a jacket with a 4’ baseboard heater. Extend your camping season or take the edge off before a day of riding on the trails.<p><p>*Requires 110V power</p>'},        
+            {image: "custom-trailers/features/30-min", title: "4’ Baseboard Heater", text: '<p>No need for a jacket with a 4’ baseboard heater. Extend your camping season or take the edge off before a day of riding on the trails.<p><p>*Requires 110V power</p>'}]
+    %}
+
+    {% set aboutTitleTag = "h4" %}
+    {% set largeImage = true %}
+
+    <!-- Banner start -->
+    <section class="tp-section--default tp-banner tp-banner--bot tp-banner--logo tp-banner--overl-1 bg-img">
+        {% include "../templates/partials/blocks/banner-bot.njk" %}
+    </section>
+    <!-- Banner end -->
+
+    <!-- text banner start -->
+    <section class="tp-section bg-img">
+        {% include "../templates/partials/blocks/text-banner.njk" %}
+    </section>
+    <!-- text banner end -->
+
+    <!-- CTA form start -->
+    <section class="tp-section bg-grey">
+        {% include "../templates/partials/blocks/cta-3-form.njk" %}
+    </section>
+    <!-- CTA form end -->
+
+    <!-- Recent works start -->
+    <section class="tp-section">
+        {% include "../templates/partials/blocks/recent-works.njk" %}
+    </section>
+    <!-- Recent works end -->
+
+    <!-- Features start -->
+    <section class="padding-45t padding-md-75t padding-md-10b bg-grey">
+        <div class="container">
+            <h2 class="h2 t-center margin-40b margin-md-60b br-sm">Features of Interstate Victory, LoadRunner,<br>
+                and Pro Series Trailers</h2>
+            {% include "../templates/partials/blocks/about-columns.njk" %}
+        </div>
+    </section>
+    <!-- Features End -->
+
+    <!-- Why Wait start -->
+    {% set data = {
+        title: "For over <b>20 years,</b> TrailersPlus has been dedicated to providing premier trailers, parts and service nationwide.",
+        text: "For over 20 years, TrailersPlus has been dedicated to providing premier trailers, parts and service nationwide. We have over 65 locations across the country, offering the largest selection and 100 trailers at every store. We focus on delivering the highest quality trailers and the best customer service in the industry.",
+        tel: 'Why Wait? Call Now! <a href="tel:8778507587">877-850-7587</a>',
+        inspection: {
+            title: 'FREE INSPECTION',
+            text: 'On top of that, we offer a <u>free annual 40-point inspection</u> on your trailer for the life of its use. Nobody else does that.'
+        }
+    } %}
+    <section class="tp-why-wait padding-50t padding-md-85t padding-0b">
+        {% include "../templates/partials/blocks/why-wait.njk" %}
+    </section>
+    <!-- Why Wait end -->
+
+    <!-- Join community start -->
+    <section class="tp-section tp-section--sm bg-img">
+        {% include "../templates/partials/blocks/join-community.njk" %}
+    </section>
+    <!-- Join community end -->
+
+    <!-- Partners start -->
+    <section class="tp-partners">
+        {% include "../templates/partials/blocks/partners.njk" %}
+    </section>
+    <!-- Partners end -->
+
+{% endblock %}

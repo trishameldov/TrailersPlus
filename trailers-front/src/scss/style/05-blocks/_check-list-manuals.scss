@@ -1,0 +1,159 @@
+    
+.check-list{    
+    color: black !important;
+
+    &__checkmark{
+        font-family: arial;
+        -ms-transform: scaleX(-1) rotate(-35deg); /* IE 9 */
+        -webkit-transform: scaleX(-1) rotate(-35deg); /* Chrome, Safari, Opera */
+        transform: scaleX(-1) rotate(-35deg);
+        color: var(--c-blue-main);
+        text-align: center;
+        font-size: 62px;
+        margin: auto;
+        left: 40%; 
+        bottom: 17%;
+        display: table-cell;
+        vertical-align: middle;
+
+        @include medium-size-max{
+            bottom: 5%;
+        }
+
+        @include extra-small-size-max{
+            font-size: 40px;
+        }
+    }
+
+    &__banner_title{
+        color: var(--c-white);
+        background-color: var(--c-blue-main);
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 28px;
+
+        @include medium-size-max{
+            padding-bottom: 10px;
+            padding-top: 10px;
+        }
+    }
+
+    &__border{
+        border: 1px;
+        border-style: solid;
+        position: relative;
+        min-height:6.2em;
+        display: table;
+
+
+        &__text{
+            border: 1px;
+            border-style: solid;
+            min-height:6.2em;
+            display: table;
+        }
+
+        p{
+            display: table-cell;
+            vertical-align: middle;
+        }
+    }
+
+    &.tp-warranty__manuals{
+        max-width: 380px;
+        width: 380px;
+
+        @include large-size-max {
+            display: none;
+        }
+    }
+
+    &.tp-warranty__manual-item{
+        @include large-size-max{
+            width: 80%;
+        }
+    }
+
+    .banner_title__row{
+        margin-bottom: 2em;
+        box-shadow: -2px 3px 4px -1px black
+    }
+}
+
+.warranty-title{
+    color: black !important;
+
+    &__img{
+        @include large-size-max {
+            display: none;
+        }
+    }
+
+    &__title{
+        font-size: 50px;
+        color: var(--c-blue-main);
+
+        @include medium-size-max {
+            margin-bottom: 0.3em !important;
+        }
+    }
+
+    .text{
+        margin-bottom: 1em;
+    }
+}
+
+.tp-section_troubleshooting {
+    padding: 75px 0 0px;
+}
+
+.paragraph{
+    color: black !important;
+
+    &__image{
+        // border-style: solid;
+        // box-shadow: -2px 3px 4px -1px black;
+        // border-color: black;
+        width: 123px;
+        height: 128px;
+        object-fit: contain;
+        display: table;
+
+        img{
+            display: table-cell;
+            border-radius: 50%;
+
+            @include large-size-max{
+                width: 15%;
+                margin: auto;
+            }
+
+            @include small-size-max  {
+                width: 35%;
+                margin: auto;
+            }
+            
+            @include medium-size-max {
+                width: 22%;
+                margin: auto;
+            }
+        }
+        &.col-12 {
+            flex: 0 0 10 !important;
+        }
+    }
+
+    .paragraph_row{
+        margin-bottom: 2em;
+    }
+}
+
+.warning_text{
+    color: red;
+}
+
+.warning_text__title{
+    font-size: 1.2em;
+    color: red;
+    font-weight: bold;
+}

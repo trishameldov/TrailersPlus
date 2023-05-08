@@ -1,0 +1,74 @@
+/* ------------------------------------------- */
+/*                TP RICHTEXT                  */
+/* ------------------------------------------- */
+.tp-richtext {
+
+    li {
+        position: relative;
+        padding-left: 28px;
+        color: var(--c-blue-dark);
+        margin-bottom: 10px;
+        font-size: 18px;
+        line-height: 28px;
+
+        @include small-size-max {
+            font-size: 16px;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        &:before {
+            content: ""; // checkmark
+            position: absolute;
+            left: 0;
+            top: -4px;
+            display: block;
+            color: var(--c-pomegranate);
+            @include ionIcons;
+            font-size: 38px;
+        }
+    }
+
+    &--white-txt {
+        li {
+            color: var(--c-white);
+        }
+    }
+
+    &--dark-txt {
+        li {
+            color: var(--c-blue-dark);
+        }
+    }
+
+    &--blue-txt {
+        li {
+            color: var(--c-blue-main);
+        }
+    }
+
+    &--space-20 {
+        li {
+            margin-bottom: 20px;
+        }
+    }
+
+    &--white {
+        li {
+            color: var(--c-white);
+
+            &:before {
+                color: var(--c-white);
+            }
+        }
+    }
+
+    &--small {
+        li {
+            font-size: 15px;
+            line-height: 26px;
+        }
+    }
+}

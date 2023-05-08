@@ -1,0 +1,245 @@
+{% extends "layout.tmpl.njk" %}
+
+{% set products = [
+    { title: "5 X 8 Enclosed Cargo", label: true, labelText: "reserved", sale: 8350, price: '$1999', priceD: '1999', categ: "w-cargo-4", length: "length-8" }, 
+    { title: "6 X 10 Enclosed Cargo", label: false, priceD: '2441', price: '$2441', categ: "w-cargo-5", length: "length-8" }, 
+    { title: "6 X 12 Enclosed Cargo", label: false, priceD: '3222', price: '$3222', special: "true", categ: "w-cargo-4", length: "length-4" }, 
+    { title: "7 X 16 Enclosed Cargo", label: false, priceD: '3000', price: '$3000', special: "true", categ: "w-cargo-5", length: "length-4" }, 
+    { title: "7 X 16 Enclosed Cargo", label: true, labelText: "sold", priceD: '15000', price: '$15000', categ: "w-cargo-4", length: "length-8" }, 
+    { title: "7 X 16 Enclosed Cargo", label: false, priceD: '9456', price: '$9456', categ: "w-cargo-5", length: "length-6" }, 
+    { title: "7 X 16 Enclosed Cargo", label: false, priceD: '7764', price: '$7764', categ: "w-cargo-4", length: "length-8" }]
+%}
+
+{% block content %}
+
+    <!-- Warning Message BEGIN -->
+    <div class="bg-grey padding-md-20t">
+        <div class="tp-warning-message container">
+            <div class="tp-warning-message__wrapper">
+                <p>NOTICE: Due to COVID-19, you need to make an appointment before visiting our store. We are taking measures to limit the amount of customers on our lot at a given time. Thank you for your understanding.</p>
+            </div>
+        </div>
+    </div>
+    <!-- Warning Message END -->
+
+    <!-- Products section start -->
+    <section class="padding-45t padding-20b padding-md-50t padding-md-55b bg-grey js-product-filter-section" data-error-text="Sorry">
+        <div class="container js-drop-wrapp">
+            <h1 class="tp-prod-fltr-toggle h2 c-main margin-25b margin-md-40b js-drop-toggle">Search For Trailers
+                <span>Filter</span></h1>
+            <div class="row">
+                <div class="tp-prod-fltr-wrapp col-md-4 col-xl-3 margin-20b margin-md-30b js-drop-content">
+                    <div class="tp-prod-fltr bg-white padding-20t padding-25b js-prod-fltr">
+                        <div class="tp-prod-fltr__item">
+                            <h2 class="h4 tp-prod-fltr__title">Location</h2>
+                            <div class="tp-prod-fltr__box">
+                                <select name="trailer-type" id="product-list-location">
+                                    <optgroup label="Alabama">
+                                        <option value="http://webtest.trailersplus.com/Alabama/Leeds/inventory/"><span>Leads, AL</option>
+                                    </optgroup>
+                                    <optgroup label="Arizona">
+                                        <option value="http://webtest.trailersplus.com/Alabama/Leeds/inventory/">Kingman, AZ</option>
+                                        <option value="phoenix">Phoenix, AZ</option>
+                                        <option value="tucson">Tucson, AZ</option>
+                                    </optgroup>
+                                    <optgroup label="Arkansas">
+                                        <option value="leads">Bryant, AR</option>
+                                        <option value="phoenix">Conway, AR</option>
+                                        <option value="tucson">West Memphis, AR</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- TODO checkbox value must be similar to label -->
+                        <div class="tp-prod-fltr__item tp-prod-fltr__item--mob js-drop-wrapp">
+                            <h2 class="h4 tp-prod-fltr__title js-drop-toggle">Trailer Types</h2>
+                            <div class="tp-prod-fltr__box js-drop-content">
+
+                                <div class="tp-types-fltr js-drop-wrapp">
+                                    <div class="d-flex align-items-center">
+                                        <div class="tp-types-fltr__cat">
+                                            <a href="0">
+                                                <input type="checkbox" name="w-cargo" id="all-cargo" class="js-all-fltr-toggle" data-checked="data-checked" data-num="0">
+                                                <label for="all-cargo">Cargo</label>
+                                            </a>
+                                        </div>
+                                        <div class="tp-types-fltr__head js-drop-toggle"></div>
+                                    </div>
+                                    <div class="tp-types-fltr__content tp-hidden js-drop-content">
+                                        <ul class="tp-prod-fltr-list margin-10t margin-20b">
+                                            <li class="tp-prod-fltr-list__item">
+                                                <a href="1">
+                                                    <input type="checkbox" name="w-cargo-4" id="w-cargo-4" class="js-fltr-toggle" value="4' w Cargo" data-num="1">
+                                                    <label for="w-cargo-4"></label>
+                                                    <span>4' Enclosed Car Hauler</span>
+                                                </a>
+                                                <span>3</span>
+                                            </li>
+                                            <li class="tp-prod-fltr-list__item">
+                                                <a href="2">
+                                                    <input type="checkbox" name="w-cargo-5" id="w-cargo-5" class="js-fltr-toggle" value="5' w Cargo" data-num="2">
+                                                    <label for="w-cargo-5"></label>
+                                                    <span>5' w Cargo</span>
+                                                </a>
+                                                <span>3</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="tp-types-fltr js-drop-wrapp">
+                                    <div class="d-flex align-items-center">
+                                        <div class="tp-types-fltr__cat">
+                                            <a href="0">
+                                                <input type="checkbox" name="w-utility" id="all-utility" class="js-all-fltr-toggle" data-num="3">
+                                                <label for="all-utility">Utility</label>
+                                            </a>
+                                        </div>
+                                        <div class="tp-types-fltr__head js-drop-toggle"></div>
+                                    </div>
+                                    <div class="tp-types-fltr__content tp-hidden js-drop-content">
+                                        <ul class="tp-prod-fltr-list margin-10t margin-20b">
+                                            <li class="tp-prod-fltr-list__item">
+                                                <input type="checkbox" name="w-utility-4" id="w-utility-4" class="js-fltr-toggle" value="4' w utility" data-num="4">
+                                                <label for="w-utility-4">4' w Utility</label>
+                                                <span>3</span>
+                                            </li>
+                                            <li class="tp-prod-fltr-list__item" >
+                                                <input type="checkbox" name="w-utility-5" id="w-utility-5" class="js-fltr-toggle" value="5' w utility" data-num="5">
+                                                <label for="w-utility-5">5' w Utility</label>
+                                                <span>3</span>
+                                            </li>
+                                            <li class="tp-prod-fltr-list__item">
+                                                <input type="checkbox" name="w-utility-6" id="w-utility-6" class="js-fltr-toggle" value="6' w utility" data-num="6">
+                                                <label for="w-utility-6">6' w Utility</label>
+                                                <span>3</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="tp-types-fltr js-drop-wrapp">
+                                    <div class="d-flex align-items-center">
+                                        <div class="tp-types-fltr__cat">
+                                            <input type="checkbox" name="w-dump" id="all-dump" class="js-all-fltr-toggle">
+                                            <label for="all-dump">Dump</label>
+                                        </div>
+                                        <div class="tp-types-fltr__head js-drop-toggle"></div>
+                                    </div>
+                                    <div class="tp-types-fltr__content tp-hidden js-drop-content">
+                                        <ul class="tp-prod-fltr-list margin-10t margin-20b">
+                                            <li class="tp-prod-fltr-list__item">
+                                                <input type="checkbox" name="w-dump-4" id="w-dump-4" class="js-fltr-toggle" value="4' w Dump" data-num="7">
+                                                <label for="w-dump-4">4' w Dump</label>
+                                                <span>3</span>
+                                            </li>
+                                            <li class="tp-prod-fltr-list__item">
+                                                <input type="checkbox" name="w-dump-5" id="w-dump-5" class="js-fltr-toggle" value="5' w Dump" data-num="7">
+                                                <label for="w-dump-5">5' w Dump</label>
+                                                <span>3</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="tp-types-fltr js-drop-wrapp">
+                                    <div class="d-flex align-items-center">
+                                        <div class="tp-types-fltr__cat">
+                                            <input type="checkbox" name="w-equipment" id="all-equipment" class="js-all-fltr-toggle">
+                                            <label for="all-equipment">Equipment</label>
+                                        </div>
+                                        <div class="tp-types-fltr__head js-drop-toggle"></div>
+                                    </div>
+                                    <div class="tp-types-fltr__content tp-hidden js-drop-content">
+                                        <ul class="tp-prod-fltr-list margin-10t margin-20b">
+                                            <li class="tp-prod-fltr-list__item">
+                                                <input type="checkbox" name="w-equipment-4" id="w-equipment-4" class="js-fltr-toggle" value="4' w Equipment" data-num="8">
+                                                <label for="w-equipment-4">4' w Equipment</label>
+                                                <span>10</span>
+                                            </li>
+                                            <li class="tp-prod-fltr-list__item">
+                                                <input type="checkbox" name="w-equipment-5" id="w-equipment-5" class="js-fltr-toggle" value="5' w Equipment" data-num="9">
+                                                <label for="w-equipment-5">5' w Equipment Equipment Equipment</label>
+                                                <span>9</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tp-prod-fltr__item tp-prod-fltr__item--mob js-drop-wrapp">
+                            <h2 class="h4 tp-prod-fltr__title js-drop-toggle">Length</h2>
+                            <ul class="tp-prod-fltr-list tp-prod-fltr-list--mob tp-prod-fltr-list--normal js-drop-content">
+                                <li class="tp-prod-fltr-list__item">
+                                    <input type="checkbox" name="length-4" id="length-4" class="js-fltr-toggle js-fltr-length" value="4'" data-num="10">
+                                    <label for="length-4">4'</label>
+                                    <span>3</span>
+                                </li>
+                                <li class="tp-prod-fltr-list__item">
+                                    <input type="checkbox" name="length-6" id="length-6" class="js-fltr-toggle js-fltr-length" value="6'" data-num="11">
+                                    <label for="length-6">6'</label>
+                                    <span>3</span>
+                                </li>
+                                <li class="tp-prod-fltr-list__item">
+                                    <input type="checkbox" name="length-8" id="length-8" class="js-fltr-toggle js-fltr-length" value="8'" data-num="12">
+                                    <label for="length-8">8'</label>
+                                    <span>3</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="tp-prod-fltr__item">
+                            <h2 class="h4 tp-prod-fltr__title margin-50b">Price</h2>
+                            <div id="slider-range" data-price-first="8000" data-price-second="15000" data-min="0" data-max="20000" data-step="500"></div>
+                        </div>
+
+                        <span class="tp-prod-fltr__close">
+                            <button class="tp-btn tp-btn--red tp-btn--fullwidth tp-btn--fz15 js-close-prod-fltr">Close filters</button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="col-md-8 col-xl-9">
+                    <div class="tp-search-res">
+                        <div class="tp-search-res__info margin-15b margin-md-5b">
+                            <div>
+                                <span class="js-products-conter">0 Trailers</span>
+                                available in
+                                <span>Lavonia, GA</span></div>
+
+                            <div class="tp-search-res__info-checkbox">
+                                <input type="checkbox" name="specials" id="specials" class="js-filter-special">
+                                <label for="specials">Specials</label>
+                            </div>
+                        </div>
+                        <div class="tp-search-res__fltr js-fltr-wrapp" data-url="https://url.ccccc"></div>
+                        <div class="tp-search-res__box margin-5t margin-md-15t">
+                            <div class="row js-search-grid">
+                                {% for item in products %}
+                                    <div class="col-md-6 col-xl-4 margin-30b js-product-wrapp" data-category="{{item.categ}}" data-price="{{item.priceD}}" data-length="{{item.length}}" data-special="{{item.special}}">
+                                        {% include "../templates/partials/elements/product.njk" %}
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Products section end -->
+
+    <!-- Join community start -->
+    <section class="tp-section tp-section--sm bg-img">
+        {% include "../templates/partials/blocks/join-community.njk" %}
+    </section>
+    <!-- Join community end -->
+
+    <!-- Partners start -->
+    <section class="tp-partners">
+        {% include "../templates/partials/blocks/partners.njk" %}
+    </section>
+    <!-- Partners end -->
+
+{% endblock %}

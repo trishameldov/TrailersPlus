@@ -1,0 +1,121 @@
+{% extends "layout.tmpl.njk" %}
+
+{% block content %}
+
+    <!-- Banner start -->
+    {% set data = {
+        image: 'about-us/about-banner-bg',
+        title: 'Only TrailersPlus Gives You the Best in Value, Service & Selection',
+        text: 'More than 350,000 satisfied customers depend on a trailer from TrailersPlus. Why? Because our customers recognize the incredible value we provide before, during and after the sale.'
+    }
+    %}
+    <section class="tp-section--default tp-banner tp-banner--bot tp-banner--600 tp-banner--overl-2 bg-img">
+        {% include "../templates/partials/blocks/banner-bot.njk" %}
+    </section>
+    <!-- Banner end -->
+
+    <!-- Unbeatable Value start -->
+    {% set data = {
+        title: 'Unbeatable Value',
+        text: "With trademarked design features, fantastic customer service and special perks like <a href='#''>FREE 40-point trailer inspections</a>, you can&apos;t lose when you shop TrailersPlus!",
+        image: 'about-us/1'
+    } %}
+    <section class="tp-section tp-section--default tp-about-desc">
+        {% include "../templates/partials/blocks/about-desk.njk" %}
+    </section>
+    <!-- Unbeatable Value end -->
+
+    <!-- Columns start -->
+    <section class="padding-50t padding-md-85t padding-md-10b bg-grey">
+
+        {% 
+            set about = [
+                {image: "about-us/2-min", title: "Factory Direct Pricing", text: 'We build trailers at our factories in Idaho, Arizona, Arkansas and Virginia and sell them at our TrailersPlus dealerships. This eliminates the middleman and saves you money!'},
+                {image: "about-us/3-min", title: "Nationwide Warranties", text: 'Rest easy, every trailer we sell comes with a warranty. And our dedicated warranty department provides fast, reliable service to our valued customers.'},
+                {image: "about-us/4-min", title: "Huge Selection", text: 'We stock more than 100 trailers of all sizes and types at EVERY TrailersPlus store!'}]
+        %}
+
+        <div class="container">
+            {% include "../templates/partials/blocks/about-columns.njk" %}
+        </div>
+    </section>
+    <!-- Columns End -->
+
+    <!-- Factory Trained Professionals start -->
+    <section class="padding-45t padding-md-75t tp-professionals">
+        <div class="container">
+            <h2 class="h2 w-full t-center">Factory Trained Professionals</h2>
+            <p class="t-center">Our highly trained technicians service, repair and customize trailers of all styles and types.</p>
+        </div>
+
+        <picture>
+            <source data-srcset="./img/webp/about-us/professionals-bg-min.webp" type="image/webp" media="(min-width: 451px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+            <source data-srcset="./img/webp/about-us/professionals-bg-mob-min.webp" type="image/webp" media="(max-width: 450px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+            <source data-srcset="./img/about-us/professionals-bg-min.jpg" type="image/jpeg" media="(min-width: 451px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+            <source data-srcset="./img/about-us/professionals-bg-mob-min.jpg" type="image/jpeg" media="(max-width: 450px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+            <img data-src="./img/about-us/professionals-bg-min.jpg" alt="Factory Trained Professionals" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+        </picture>
+    </section>
+    <!-- Factory Trained Professionals end -->
+
+    <!-- 20 Years Strong start -->
+    <section class="tp-section tp-strong bg-img">
+        <picture>
+            <source data-srcset="./img/webp/about-us/strong-bg-min.webp" type="image/webp" media="(min-width: 451px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+            <source data-srcset="./img/webp/about-us/strong-bg-mob-min.webp" type="image/webp" media="(max-width: 450px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+            <source data-srcset="./img/about-us/strong-bg-min.jpg" type="image/jpeg" media="(min-width: 451px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+            <source data-srcset="./img/about-us/strong-bg-mob-min.jpg" type="image/jpeg" media="(max-width: 450px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+            <img data-src="./img/about-us/strong-bg-min.jpg" alt="20 Years Strong" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+        </picture>
+
+        <div class="tp-strong__logo">
+            <picture>
+                <source data-srcset="./img/webp/about-us/logo-min.webp" type="image/webp" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                <source data-srcset="./img/about-us/logo-min.png" type="image/jpeg" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                <img data-src="./img/about-us/logo-min.png" alt="logo" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+            </picture>
+        </div>
+
+        <div class="container">
+            <h2 class="h2 w-full t-center c-white">20 Years Strong</h2>
+            <p class="c-white t-center">We’ve manufactured trailers for 20 years, serving more than 350,000 happy customers. With an A+ rating from the Better Business Bureau, you can count on TrailersPlus.</p>
+        </div>
+    </section>
+    <!-- 20 Years Strong end -->
+
+    <!-- You Can Afford It start -->
+    {% set data = {
+        title: 'You Can Afford It',
+        text: "TrailersPlus offers numerous financing options, including no money down and interest rates as low as 5.99 percent. With payments as low as $47 per month, TrailersPlus can get you into the trailer you need.",
+        image: 'about-us/5',
+        buttonText: 'See Financing Options',
+        options: {
+            textRight: true
+        }
+    } %}
+    <section class="tp-section tp-section--default tp-about-desc">
+        {% include "../templates/partials/blocks/about-desk.njk" %}
+    </section>
+    <!-- You Can Afford It end -->
+
+    <!-- Join community start -->
+    <section class="tp-section tp-section--sm bg-img">
+        {% include "../templates/partials/blocks/join-community.njk" %}
+    </section>
+    <!-- Join community end -->
+
+    <!-- Partners start -->
+    {% set partners = [
+        { title: "alt-text", src: "logo1.jpg", srcMob: "logo1.jpg", name: "logo1", nameMob: "logo1" }, 
+        { title: "alt-text", src: "logo2.png", srcMob: "logo2.png", name: "logo2", nameMob: "logo2" },
+        { title: "alt-text", src: "logo3.jpg", srcMob: "logo3-mob.jpg", name: "logo3", nameMob: "logo3-mob" }, 
+        { title: "alt-text", src: "logo4.jpg", srcMob: "logo4.jpg", name: "logo4", nameMob: "logo4" }, 
+        { title: "alt-text", src: "logo5.jpg", srcMob: "logo5.jpg", name: "logo5", nameMob: "logo5" }, 
+        { title: "alt-text", src: "logo6.jpg", srcMob: "logo6.jpg", name: "logo6", nameMob: "logo6" }]
+    %}
+    <section class="tp-partners">
+        {% include "../templates/partials/blocks/partners.njk" %}
+    </section>
+    <!-- Partners end -->
+
+{% endblock %}

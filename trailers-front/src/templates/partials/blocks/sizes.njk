@@ -1,0 +1,46 @@
+{% for item in sizes %}
+        {% if(loop.index % 2 == 0) %}
+            {% set class = " tp-size-block--reverse"%}
+        {% else %}
+            {% set class = ""%}
+        {% endif %}
+    <div class="tp-size-block{{ class }}" {% if item.id %}id="{{item.id}}{% endif %}">
+        <div class="tp-size-block__left">
+            <div class="tp-size-block__img tp-size-block__img--lg">
+                <div class="bg-img">
+                    <picture>
+                        <source data-srcset="./img/webp/{{item.image}}-min.webp" type="image/webp"  srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                        <source data-srcset="./img/{{item.image}}-min.jpg" type="image/jpeg" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                        <img data-src="./img/{{item.image}}-min.jpg" alt="Factory Direct Pricing" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                    </picture>
+                </div>
+            </div>
+            <div class="tp-size-block__img tp-size-block__img--sm">
+                <div class="bg-img">
+                    <picture>
+                        <source data-srcset="./img/webp/{{item.image}}-sm-min.webp" type="image/webp"  srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                        <source data-srcset="./img/{{item.image}}-sm-min.jpg" type="image/jpeg" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                        <img data-src="./img/{{item.image}}-sm-min.jpg" alt="Factory Direct Pricing" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                    </picture>
+                </div>
+            </div>
+        </div>
+        <div class="tp-size-block__right">
+            <h3 class="h3 c-main">{{ item.title }}</h3>
+            <div>
+                {{ item.text1 | safe }}
+            </div>
+            {% if( item.text2 ) %}
+                <h4 class="h4 c-main margin-10b">Sizes Offered:</h4>
+                <div>
+                    {{ item.text2 | safe }}
+                </div>
+            {% endif %}
+            {% if( item.btn !== "number" ) %}
+                <a href="#" class="tp-btn tp-btn--red tp-btn--xxs margin-30t">Search for {{ item.title }}</a>
+            {% else %}
+                <a href="tel:+1877-850-7587" class="tp-btn tp-btn--fz15 tp-btn--red tp-btn--padd-sm-2 margin-30t">Call now +1 (877) 850-7587</a>
+            {% endif %}
+        </div>
+    </div>
+{% endfor %}

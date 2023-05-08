@@ -1,0 +1,27 @@
+/* @TODO What's going on here? Seems odd to force image sizes, more so down to a decimal point, vs constraining them via the container */
+.image_main_menu {
+  @include extra-large-size-min {
+    width: 200.062px !important;
+    height: 150px !important;
+  }
+
+  @include medium-size-max {
+    width: 167px !important;
+    height: 150px !important;
+  }
+
+  @include small-size-max {
+    width: 295px !important;
+    height: 110px !important;
+  }
+
+  @include extra-small-size-max {
+    width: 197px !important;
+    height: 90px !important;
+  }
+
+  @media screen and (max-width: 400px) {
+    width: 115px !important;
+    height: 90px !important;
+  }
+}

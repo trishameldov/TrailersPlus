@@ -1,0 +1,196 @@
+/* ------------------------------------------- */
+/*                  MAP                        */
+/* ------------------------------------------- */
+
+.tp-map {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.tp-map .tp-map-img {
+    width: 241px;
+    height: 230px;
+}
+
+.tp-map .map-caption {
+    position: absolute;
+    z-index: 100;
+    bottom: 0;
+    font-size: 11px;
+    background-color: rgba(0,0,0,0.5);
+    color: #ffffff;
+}
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 576px) {
+    .tp-map .tp-map-img {
+        width: 275px;
+        height: 230px;
+    }
+
+    .tp-map .map-caption{
+        bottom: -8px;
+        left: 3px;
+    }
+}
+
+.gm-style-iw.gm-style-iw-c {
+    padding: 0px !important;
+    max-width: initial !important;
+    max-height: initial !important;
+    overflow: visible!important;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+}
+
+.gm-style .gm-style-iw-d {
+    max-height: initial!important;
+    overflow: visible!important;
+    max-width: initial !important;
+}
+
+.gm-style-iw.gm-style-iw-c div {
+    min-width: 100%;
+}
+
+.gm-style .gm-style-iw-t:after {
+    background: linear-gradient(45deg,rgba(var(--ca-blue-light),1) 50%,rgba(var(--ca-blue-light),0) 51%,rgba(var(--ca-blue-light),0) 100%);
+}
+
+.gmnoprint {
+
+    @include small-size-max {
+        display: none;
+    }
+}
+
+
+.gm-ui-hover-effect {
+    color: var(--c-white);
+    opacity: 1;
+    top: 0!important;
+    right: 0!important;
+    width: 20px!important;
+    height: 20px!important;
+
+    &:before {
+        content: "";
+        @include ionIcons;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        color: var(--c-white);
+        font-size: 24px;
+        font-weight: 700;
+        transition: color 200ms ease;
+        line-height: 10px;
+    }
+
+    &:hover {
+
+        &:before {
+            color: $color-alter;
+        }
+    }
+
+    img {
+        opacity: 0;
+    }
+}
+
+/* info window */
+
+.tp-map-window {
+    background-color: var(--c-blue-light);
+    padding: 24px 25px;
+    box-shadow: 0 12px 25px rgba(var(--ca-blue-light), 0.5);
+    font-family: $f-roboto;
+
+    @include small-size-max {
+        padding: 18px;
+    }
+
+    @include extra-small-size-max {
+        padding-top: 25px;   
+    }
+
+    div {
+        min-width: auto!important;
+    }
+
+    &__box {
+        display: flex;
+        color: var(--c-white);
+
+        @include extra-small-size-max {
+            flex-direction: column;
+        }
+    }
+
+    &__left {
+        padding-right: 20px;
+        border-right: 1px solid rgba(var(--ca-white), 0.15);
+
+        @include extra-small-size-max {
+            padding-right: 0;
+            border-right: none;
+            border-bottom: 1px solid rgba(var(--ca-white), 0.15);
+            padding-bottom: 7.5px;
+            margin-bottom: 7.5px;
+        }
+    }
+
+    &__right {
+        padding-left: 20px;
+
+        @include extra-small-size-max {
+            padding-left: 0;
+        }
+    }
+
+    &__link {
+        color: var(--c-white);
+        display: block;
+        position: relative;
+        font-size: 15px;
+        line-height: 26px;
+        font-weight: 400;
+        padding-left: 24px;
+        margin-bottom: 15px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        .fa {
+            position: absolute;
+            left: 0;
+            top: 6px;
+            font-size: 14px;
+        }
+
+        &--direct {
+
+            svg {
+                position: absolute;
+                left: 0;
+                top: 7px;
+                width: 13px;
+                height: 13px;
+
+                path {
+                    transition: fill 200ms ease-in;
+                }
+            }
+
+            &:hover {
+
+                svg path {
+                    fill: $color-alter;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,21 @@
+{% if(paginationStyle == "white") %}
+    {% set class = " tp-pagination--white" %}
+{% else %}
+    {% set class = "" %}
+{% endif %}
+
+<div class="tp-pagination{{class}}">
+    <ul>
+        {% for item in pagination %}
+            <li>
+                {% if item.last %}
+                    {{ item.title }}
+                {% else %}
+                    <a href="#">
+                        {{ item.title }}
+                    </a>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</div>

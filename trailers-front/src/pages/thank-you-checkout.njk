@@ -1,0 +1,72 @@
+{% extends "layout.tmpl.njk" %}
+
+{% block content %}
+
+    <section class="tp-confirm tp-section bg-grey">
+        <div class="container">
+
+            <div class="tp-confirm__box">
+                <div class="tp-confirm__message">
+                    <div class="tp-succes-icon margin-10t">
+                        <div class="fa fa-check"></div>
+                    </div>
+                    <h1 class="h2 tp-confirm__title">Trailer Reserved Successfully</h1>
+                </div>
+
+                <div class="tp-confirm__area margin-40t margin-md-55t">
+                    <div class="tp-confirm-text tp-confirm-text--mr">
+                        <div class="tp-confirm-text__box">
+                            <h2 class="h4">Confirmation #TRPL62-11882</h2>
+                            <div>
+                                <p>Your trailer must be picked up in <b>7 days</b> by June 10, 2020 or your deposit will be refunded and the trailer will no longer be reserved.</p>
+                                <p>We are appointment only, please call <a href="tel:+18778507587">877-850-7587</a> to schedule an appointment and pick up your trailer.</p>
+                                <p>Please check your email <a href="mailto:bhudak@trailersplus.com">bhudak@trailersplus.com</a> for your receipt.</p>
+                            </div>
+                            <a href="#" class="tp-btn tp-btn--red margin-30t">Back to Inventory</a>
+                        </div>
+                    </div>
+                    <div class="tp-confirm-product margin-50t margin-md-0t">
+                        <div class="tp-confirm-product__img bg-img">
+                            <picture>
+                                <source data-srcset="./img/webp/product-single/img-1.webp" type="image/webp"  srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                                <source data-srcset="./img/product-single/img-1.jpg" type="image/jpeg" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                                <img data-src="./img/product-single/img-1.jpg" alt="alt" class="lazyload js-print-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                            </picture>
+                        </div>
+                        <div class="tp-confirm-product__body">
+                            <div class="tp-confirm-product__body-top">
+                                <a href="#" class="h4 c-main margin-15b">6 X 12 Carry-On Tandem Axle Utility Trailer</a>
+                                <div class="tp-location-name margin-10t">
+                                    <i class="fa fa-map-marker"></i>
+                                    <span class="tp-location-name__title">Pickup:</span>
+                                    <span class="tp-location-name__name">West Memphis, AR</span>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center margin-10t">
+                                <div class="tp-price tp-price--old">MSRP: $9130</div>
+                                <div class="tp-price fw500">Sale Price: <span>$4829</span></div>
+                            </div>
+                            <div class="tp-confirm-product__add-text margin-10t">
+                                <p>Financing Available from <b>$85.16/mo.</b>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join community start -->
+    <section class="tp-section tp-section--sm bg-img">
+        {% include "../templates/partials/blocks/join-community.njk" %}
+    </section>
+    <!-- Join community end -->
+
+    <!-- Partners start -->
+    <section class="tp-partners">
+        {% include "../templates/partials/blocks/partners.njk" %}
+    </section>
+    <!-- Partners end -->
+
+{% endblock %}

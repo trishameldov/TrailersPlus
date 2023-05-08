@@ -1,0 +1,118 @@
+{% extends "layout.tmpl.njk" %}
+
+{% block content %}
+
+    <!-- Banner start -->
+    {% set data = {
+        image: 'tire-warranty/banner-bg',
+        title: 'Tredit Tire Warranty',
+        options: {
+            titleLeft: true
+        }
+    }
+    %}
+    <section class="tp-section--default tp-banner tp-banner--bot tp-banner--600 tp-banner--overl-3 bg-img">
+        {% include "../templates/partials/blocks/banner-bot.njk" %}
+    </section>
+    <!-- Banner end -->
+
+    <!-- Flat tires... THEY HAPPEN start -->
+    {% set data = {
+        title: '"Flat tires... THEY HAPPEN."',
+        text: "It’s a good thing all tires and wheels on Interstate trailers have a no-fault warranty. That's right - Tredit Tire, supplier of all tires on Interstate trailers, offers a 1-year no-fault warranty on their tires and wheels.<br><br>
+                Run over a nail? Hit a pothole? Did your kid forget to put their bike away? No matter the cause, Tredit and TrailersPlus have your back with a 1-year no-fault tire and wheel warranty...even if it is your fault!",
+        image: 'tire-warranty/img-1',
+        options: {
+            textRight: true,
+            titleCustomClass: 'c-main',
+            smallImage: true
+        }
+    } %}
+    <section class="padding-10b padding-lg-85b padding-50t padding-lg-85t tp-about-desc bg-porcelain">
+        <div class="container tp-about-desc--text-right">
+            <div class="row flex-lg-row-reverse">
+                <div class="col-sm-12 col-lg-6">
+                    <div class="tp-about-desc__text">
+                        <h2 class="{{ data.options.titleCustomClass }}">{{ data.title | safe }}</h2>
+                        <p>{{ data.text | safe }}</p>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-lg-6 d-flex align-items-center">
+                    <div class="tp-about-desc__image-wrapper bg-img margin-30t margin-lg-0t">
+                        <picture>
+                            <source data-srcset="./img/webp/{{ data.image }}-min.webp" type="image/webp" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                            <source data-srcset="./img/{{ data.image }}-min.jpg" type="image/jpeg" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                            <img data-src="./img/{{ data.image }}-min.jpg" alt="{{ data.title }}" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                        </picture>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Flat tires... THEY HAPPEN end -->
+
+    <!-- Reasons for Tire Replacement start -->
+    <section class="tp-section">
+        <div class="container margin-30b margin-md-70b">
+            <h2 class="h2 c-main w-full t-center">Reasons for Tire Replacement</h2>
+        </div>
+
+        {% set about = [
+            { image: "tire-warranty/img-2-min", title: "Puncture" },
+            { image: "tire-warranty/img-3-min", title: "Sidewall Break" },
+            { image: "tire-warranty/img-4-min", title: "Structural Cracks" },
+            { image: "tire-warranty/img-5-min", title: "Peeling Clear Coat" },
+            { image: "tire-warranty/img-6-min", title: "Fast Shoulder Wear" },
+            { image: "tire-warranty/img-7-min", title: "Circumferential Bead Cracking" }
+        ] %}
+        {% set aboutTitleTag = 'h4' %}
+        {% set largeImage = true %}
+
+        <div class="container">
+            {% include "../templates/partials/blocks/about-columns.njk" %}
+        </div>
+
+        <div class="container">
+            <h3 class="h2 c-main w-full t-center">...And Many More</h3>
+        </div>
+    </section>
+    <!-- Reasons for Tire Replacement end -->
+
+    <!-- Call us today start -->
+    <section class="tp-cut-blue bg-img">
+        {% set data = {
+            title: 'Call us today at <b><a href="tel:8778507587">(877) 850-7587</a></b> or visit your local TrailersPlus to inquire about or submit a warranty claim.',
+            image: 'tire-warranty/call-banner-bg'
+        } %}
+        {% include "../templates/partials/blocks/cut-blue.njk" %}
+    </section>
+    <!-- Call us today end -->
+
+    <!-- Why Wait start -->
+    {% set data = {
+        title: "For over <b>20 years,</b> TrailersPlus has been dedicated to providing premier trailers, parts and service nationwide.",
+        text: "For over 20 years, TrailersPlus has been dedicated to providing premier trailers, parts and service nationwide. We have over 65 locations across the country, offering the largest selection and 100 trailers at every store. We focus on delivering the highest quality trailers and the best customer service in the industry.",
+        tel: 'Why Wait? Call Now! <a href="tel:8778507587">877-850-7587</a>',
+        inspection: {
+            title: 'FREE INSPECTION',
+            text: 'On top of that, we offer a <u>free annual 40-point inspection</u> on your trailer for the life of its use. Nobody else does that.'
+        }
+    } %}
+    <section class="tp-why-wait padding-50t padding-md-85t padding-0b">
+        {% include "../templates/partials/blocks/why-wait.njk" %}
+    </section>
+    <!-- Why Wait end -->
+
+    <!-- Join community start -->
+    <section class="tp-section tp-section--sm bg-img">
+        {% include "../templates/partials/blocks/join-community.njk" %}
+    </section>
+    <!-- Join community end -->
+
+    <!-- Partners start -->
+    <section class="tp-partners">
+        {% include "../templates/partials/blocks/partners.njk" %}
+    </section>
+    <!-- Partners end -->
+
+{% endblock %}

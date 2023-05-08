@@ -1,0 +1,128 @@
+/* ------------------------------------------- */
+/*           	     IMG LINKS                 */
+/* ------------------------------------------- */
+
+.tp-img-links {
+	@include flex-center-hor;
+
+	@include small-size-max {
+		flex-wrap: wrap;
+	}
+
+	&__left,
+	&__right {
+		height: 350px;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		transform: skewX(-6deg);
+		flex-basis: calc(50% + 20px);
+		width: calc(50% + 20px);
+		max-width: calc(50% + 20px);
+		padding: 30px;
+		position: relative;
+		z-index: 0;
+        overflow: hidden;
+        outline: 1px solid transparent;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        -webkit-background-clip: content-box;
+        background-clip: content-box;
+
+		picture > img {
+			transform: skewX(6deg);
+			min-width: calc(100% + 100px);
+			left: -40px;
+			right: -40px;
+		}
+
+		@include medium-size-max {
+			height: 220px;
+			flex-basis: 50%;
+			width: 50%;
+			max-width: 50%;
+		}
+
+		@include extra-small-size-max {
+			height: 170px;
+			padding: 10px 15px;
+			flex-basis: calc(100% - 20px);
+			width: calc(100% - 20px);
+			max-width: calc(100% - 20px);
+        }
+        
+        &:before {
+            content: '';
+            display: block;
+			position: absolute;
+			left: 0;
+			top: 0;
+            height: 100%;
+            width: 100%;
+            background-image: linear-gradient(180deg, rgba(var(--ca-blue-grey), 0.2) 30%, var(--c-blue-grey) 100%);
+            z-index: 1;
+        }
+
+		&:after {
+			content: '';
+			display: block;
+			position: absolute;
+			left: 0;
+			top: 0;
+			height: 100%;
+			width: 100%;
+			background-color: $color-alter;
+			transition: opacity 200ms ease-in;
+			opacity: 0;
+			z-index: 2;
+		}
+
+		&:hover {
+			z-index: 1;
+
+			&:after {
+				opacity: 0.65;
+			}
+		}
+	}
+
+	&__left {
+		margin-right: -40px;
+
+		@include medium-size-max {
+			margin-right: -15px;
+		}
+
+		@include small-size-max {
+			margin-right: 0;
+		}
+	}
+
+	&__right {
+		margin-left: -40px;
+		margin-top: 45px;
+
+		@include medium-size-max {
+			margin-left: -15px;
+		}
+
+		@include extra-small-size-max {
+			margin-top: 20px;
+		}
+
+		@include small-size-max {
+			margin-left: 0;
+		}
+
+		&:after {
+			left: auto;
+			right: 0;
+		}
+	}
+
+	&__title {
+		transform: skewX(6deg);
+		position: relative;
+		z-index: 3;
+	}
+}

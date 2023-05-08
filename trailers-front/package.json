@@ -1,0 +1,53 @@
+{
+  "name": "Trailers",
+  "version": "1.0.0",
+  "description": "Gulp-Webpack project",
+  "main": "index.js",
+  "devDependencies": {
+    "@babel/core": "^7.8.7",
+    "@babel/plugin-transform-runtime": "^7.9.6",
+    "@babel/preset-env": "^7.8.7",
+    "babel-loader": "^8.0.6",
+    "babel-preset-latest": "^6.24.1",
+    "browser-sync": "^2.27.7",
+    "eslint": "^6.7.2",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean-css": "^4.2.0",
+    "gulp-cli": "^2.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-jsbeautifier": "^3.0.1",
+    "gulp-notify": "^3.2.0",
+    "gulp-nunjucks-render": "^2.2.3",
+    "gulp-plumber": "^1.2.1",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-strip-comments": "^2.5.2",
+    "gulp-uglify-es": "^2.0.0",
+    "gulp-webp": "^4.0.1",
+    "vinyl-named": "^1.1.0",
+    "webpack-stream": "^5.2.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "json-server --watch data/sd.json --port 8080 --routes routes.json -d 500",
+    "build": "gulp build",
+    "assets": "gulp assets",
+    "sass": "gulp sass",
+    "js": "gulp js",
+    "webp": "gulp webp"
+  },
+  "keywords": [
+    "gulp-webpack, eslint, babel"
+  ],
+  "author": "Bohdan Hnedko",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.1.3"
+  }
+}

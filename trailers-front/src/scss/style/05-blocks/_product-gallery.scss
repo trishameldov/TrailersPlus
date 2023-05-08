@@ -1,0 +1,77 @@
+/* ------------------------------------------- */
+/*              PRODUCT GALLERY HEAD           */
+/* ------------------------------------------- */
+
+.tp-product-gallery__status {
+    position: absolute;
+    right: 20px;
+    top: 0;
+    transform: translateY(-50%);
+    text-transform: uppercase;
+    color: var(--c-white);
+    font-family: $f-oswald;
+    padding: 0 10px;
+    font-size: 19px;
+    font-weight: 500;
+    z-index: 2;
+
+    &:before {
+        @include skew($color-alter);
+        box-shadow: 2px 2px 0 var(--c-white);
+    }
+
+    &--number {
+        text-transform: none;
+        padding: 2px 20px 0;
+
+        b {
+            font-size: 24px;
+            font-weight: 500;
+            line-height: 1;
+        }
+    }
+
+    &--special {
+        right: 30px;
+
+        &:before {
+            background-color: var(--c-jade);
+        }
+    }
+}
+
+.tp-product-gallery {
+    position: relative;
+
+    &__status {
+
+    }
+
+    &__left {
+        width: var(--prodGalleryThumbWidth);
+    }
+
+    &__right {
+        width: calc(100% - 127px);
+        width: calc(100% - var(--prodGalleryThumbWidth) - 12px);
+        max-width: calc(100% - 127px);
+        max-width: calc(100% - var(--prodGalleryThumbWidth) - 12px);
+        flex-basis: calc(100% - 127px);
+        flex-basis: calc(100% - var(--prodGalleryThumbWidth) - 12px);
+        margin-left: 12px;
+
+        @include large-size-max {
+            margin-left: 0;
+            width: 100%;
+            max-width: 100%;
+            flex-basis: 100%;
+        }
+    }
+    // TODO check and delete
+    // &__3d {
+    //     width: 100%;
+    //     height: 87px;
+    //     background-color: red;
+    //     margin-top: 8px;
+    // }
+}

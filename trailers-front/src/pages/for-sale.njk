@@ -1,0 +1,58 @@
+{% extends "layout.tmpl.njk" %}
+
+{% block content %}
+
+    <!-- Banner slider start -->
+    <section class="tp-sale-baner bg-img bg-img--x">
+        {% include "../templates/partials/blocks/sale-baner.njk" %}
+    </section>
+    <!-- Banner slider end -->
+
+    <section class="tp-section--filter">
+        <div class="container">
+        <div class="tp-sale-baner__box">
+            <div class="tp-sale-baner__left"></div>
+            <div class="tp-sale-baner__right">
+                {% include "../templates/partials/blocks/search-filter-vert.njk" %}
+            </div>
+        </div>
+        </div>
+    </section>
+    
+    <!-- Category slider start -->
+    <section class="tp-section tp-section--cat-2 margin-lg-30t">
+        {% set hidetitle = "true"%}
+        {% include "../templates/partials/blocks/category-slider.njk" %}
+    </section>
+	<!-- Category slider end -->
+
+     <!-- Our customers said start -->
+    {% set reviews = [
+        { title: "Well what can I say service was great…", rating: 1, time: "49 minutes ago", text: "Well what can I say service was great like to haggle a little bit with him that was fun I had a very professional…", author: "Henry West" }, 
+        { title: "This is by far the best place to…", rating: 2, time: "50 minutes ago", text: "Well what can I say service was great like to haggle a little bit with him that was fun I had a very professional…", author: "Henry West" }, 
+        { title: "Well what can I say service was great…", rating: 3, time: "51 minutes ago", text: "Well what can I say service was great like to haggle a little bit with him that was fun I had a very professional…", author: "Henry West" }, 
+        { title: "This is by far the best place to…", rating: 4, time: "52 minutes ago", text: "Well what can I say service was great like to haggle a little bit with him that was fun I had a very professional…", author: "Henry West" }, 
+        { title: "This is by far the best place to…", rating: 5, time: "53 minutes ago", text: "Well what can I say service was great like to haggle a little bit with him that was fun I had a very professional…", author: "Henry West" }, 
+        { title: "Well what can I say service was great…", rating: 3, time: "54 minutes ago", text: "Well what can I say service was great like to haggle a little bit with him that was fun I had a very professional…", author: "Henry West" }]
+    %}
+    <section class="tp-section bg-grey">
+        <div class="container margin-35b margin-md-65b">
+            <h2 class="h2 t-center">Our Customers Said</h2>
+        </div>
+        {% include "../templates/partials/blocks/customers-said.njk" %}
+    </section>
+	<!-- Recent  works end -->
+
+      <!-- Join community start -->
+    <section class="tp-section tp-section--sm bg-img">
+        {% include "../templates/partials/blocks/join-community.njk" %}
+    </section>
+	<!-- Join community end -->
+
+    <!-- Partners start -->
+    <section class="tp-partners">
+        {% include "../templates/partials/blocks/partners.njk" %}
+    </section>
+	<!-- Partners end -->
+
+{% endblock %}

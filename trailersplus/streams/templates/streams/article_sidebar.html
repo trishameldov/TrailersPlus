@@ -1,0 +1,72 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load static i18n cache %}
+{% get_current_language as LANGUAGE_CODE %}
+
+{% cache 604800 article_sidebar LANGUAGE_CODE %}
+<div class="tp-section tp-warranty">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-xl-8">
+                <article>
+                    <h1>{{ self.article_title }}</h1>
+                    {{ self.article_text | safe }}
+                </article>
+            </div>
+            <div class="col-sm-12 col-xl-4">
+                
+                {% if self.service_button_text %}
+                    <div>
+                        <h2 class="h4 c-main">Need service? Schedule now!</h2>    
+                        <a href="{% slugurl 'trailer-repair-and-service' %}#schedule" class="tp-btn tp-btn--red tp-btn--shadow">
+                            <span>{{self.service_button_text}}</span>
+                        </a>    
+                    </div>
+                {% endif %}
+
+                {% for o in self.addresses %}
+                <h2 class="h3 c-main">{{ o.title }}</h2>
+                <div class="tp-warranty__addresses-wrapper">
+                    {% for ii in o.items %}
+                    <address>
+                        {{ ii.address }}
+                    </address>
+                    {% endfor %}
+                </div>
+                {% endfor %}
+                <div class="tp-warranty__manuals">
+                    {% for o in self.manuals %}
+                    <h3>{{ o.title }}</h3>
+                    <div class="tp-warranty__manual-list">
+                        {% for ii in o.items %}
+                        <div class="tp-warranty__manual-item">
+                            <picture>
+                                {% image ii.image width-95 format-webp as image_webp %}
+                                <source data-srcset="{{ image_webp.url }}" type="image/webp" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                                {% image ii.image width-95 format-webp as image_webp %}
+                                <source data-srcset="{{ image_webp.url }}" type="image/webp" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                                {% image ii.image width-95 format-webp as img %}
+                                <img data-src="{{ img.url }}" alt="logo" class="lazyload tp-warranty__manual-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                            </picture>
+                            <div class="tp-warranty__manual-wrapper">
+                                <a href="{{ ii.button_link }}" class="tp-warranty__manual-link">{{ ii.text }}</a>
+                                <a href="{{ ii.button_link }}" class="tp-btn tp-btn--red tp-warranty__manual-btn">{{ ii.button_text | safe }}</a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% endfor %}
+                </div>
+                {% for war in self.warranty %}
+                    <div class="tp-warranty__manuals">
+                        <h3>{{ war.title }}</h3>
+                        <div class="tp-warranty__manual-wrapper">
+                            <a href="{{ war.button_link }}" class="tp-warranty__manual-link">{{ war.text }}</a>
+                            <a href="{{ war.button_link }}" class="tp-btn tp-btn--red tp-warranty__manual-btn">{{ war.button_text | safe }}</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endcache %}

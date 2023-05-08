@@ -1,0 +1,105 @@
+.tp-current-opening {
+    background-color: var(--c-white-grey);
+
+    &__wrapper {
+        max-width: 830px;
+        margin: 0 auto;
+    } 
+
+    .tp-city-item {
+        margin-bottom: 50px;
+        
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        h3 {
+            padding: 0 30px;
+            margin-bottom: 10px;
+
+            @include small-size-max {
+                padding: 0 20px;
+            }
+        }
+
+        &__divider {
+            height: 1px;
+            background-color: var(--c-blue-light);
+            opacity: 0.1;
+            margin-bottom: 20px;
+        }
+
+        &__vacancy {
+            display: flex;
+            padding: 0 50px;
+            margin-bottom: 10px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            @include small-size-max {
+                margin-bottom: 50px;
+                padding: 0 20px;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+
+            @media screen and (max-width: 450px) {
+                flex-direction: column;
+            }
+        }
+
+        &__col {
+            display: flex;
+            align-items: center;
+
+            &:nth-child(1),
+            &:nth-child(2) {
+                width: 40%;
+
+                @include small-size-max {
+                    width: 45%;
+                }
+
+                @media screen and (max-width: 450px) {
+                    width: 100%;
+                }
+            }
+
+            &:nth-child(3) {
+                @include small-size-max {
+                    width: 100%;
+                    margin-top: 10px;
+                }
+            } 
+        }
+
+        &__name,
+        &__city {
+            @extend .h5;
+            line-height: 24px;
+            color: var(--c-blue-main);
+
+            i {
+                margin-right: 10px;
+            }
+        }
+
+        &__btn {
+            i {
+                margin-right: 7px;
+            }
+        }
+    }
+}
+
+.tp-current-opening2 {
+    background-color: var(--c-white-grey);
+    
+    .container {
+        @include extra-small-size-max {
+            padding: 0;
+        }
+    }
+}

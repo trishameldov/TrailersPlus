@@ -1,0 +1,179 @@
+{% extends "base.html" %}
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load product_tags checkout_tags%}
+
+{% block content %}
+
+<div class="appointment-thankyyou">
+    <section class="tp-section bg-grey">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <div class="tp-confirm__message">
+                        <div class="tp-succes-icon margin-10t">
+                            <div class="fa fa-check"></div>
+                        </div>
+                        {% if language == 'en' %}
+                            <h1 class="h1 tp-confirm__title">Appointment Scheduled</h1>    
+                        {% elif language == 'es' %}
+                            <h1 class="h1 tp-confirm__title">Cita Programada</h1>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% if translation is not None %}
+        <section class="d-none">
+            <div class="tp-pagination">
+                <ul>
+                    <li>{{trailer.vin}}</li>
+                </ul>
+            </div>
+        </section>
+    {% endif %}
+
+    <section class="bg-grey pb-5">
+        <div class="container">
+            <div class="row">
+                {% if translation is not None %}
+                    <div class="col-sm-1"></div>
+                    <div class="col-12 col-sm-6 px-5 p-sm-0">
+                {% else %}
+                    <div class="col-12 col-sm-12 px-5 p-sm-0">
+                {% endif %}
+                
+                    <div class="tp-box-shadow bg-white">
+                        <h3 class="c-main">
+                            {% if language == 'en' %}
+                                Appointment Details
+                            {% elif language == 'es' %}
+                                Detalles de la cita
+                            {% endif %}
+                            
+                        </h3>
+                        <ul class="list-unstyled fz16 lh26 c-blue-dark">
+                            <li class="media">
+                                <img src="/web-pictures/icons/icon-apt-name.png" alt="Icon name" class="mr-3">
+                                <div class="media-body">
+                                    <b>
+                                        {% if language == 'en' %} Name: 
+                                        {% elif language == 'es' %} Nombre:
+                                        {% endif %}
+                                    </b> {{name}}
+                                </div>
+                            </li>
+                            <li class="media my-4">
+                                <img src="/web-pictures/icons/icon-apt-email.png" alt="Icon email" class="mr-3">
+                                <div class="media-body">
+                                    <b>
+                                        {% if language == 'en' %} Email: 
+                                        {% elif language == 'es' %} Correo: 
+                                        {% endif %}
+                                    </b> {{email}}
+                                </div>
+                            </li>
+                            <li class="media my-4">
+                                <img src="/web-pictures/icons/icon-apt-phone.png" alt="Icon phone" class="mr-3">
+                                <div class="media-body">
+                                    <b>
+                                        {% if language == 'en' %} Phone: 
+                                        {% elif language == 'es' %} Teléfono: 
+                                        {% endif %}
+                                    </b> {{phone}}
+                                </div>
+                            </li>
+                            <li class="media">
+                                <img src="/web-pictures/icons/icon-apt-date.png" alt="Icon date" class="mr-3">
+                                <div class="media-body">
+                                    <b>
+                                        {% if language == 'en' %} Date & Time:
+                                        {% elif language == 'es' %} Fecha y hora:
+                                        {% endif %}
+                                        </b> {{appointmen_date}}
+                                </div>
+                            </li>
+                        </ul>
+                        {% if translation is not None %}
+                            <p class="fz16 lh26 c-blue-dark">
+                                {% if language == 'en' %} 
+                                    We recommend putting down a fully-refundable deposit by clicking the <a href="#" class="js-reserv-link"><span class="text-danger">Reserve This Trailer</span></a> button below to lock down this trailer for you. <br><br>
+                                    This will confirm you have a hold on this trailer, risk-free, for <span class="text-danger">72 hours</span> to ensure you get to see the trailer that's perfect for you during your appointment.
+                                {% elif language == 'es' %}
+                                    Recomendamos realizar un depósito totalmente reembolsable haciendo clic en el botón <a href="#" class="js-reserv-link"><span class="text-danger">Reservar este remolque</span></a> para bloquear este remolque. <br><br>
+                                    Esto confirmará que tiene este remolque en sus manos, sin riesgos, durante <span class="text-danger">72 horas</span> para asegurarse de que pueda ver el remolque perfecto para usted durante su cita.
+                                {% endif %}
+                            </p>
+
+
+                            <div class="text-center my-5">
+                                {% if language == 'en' %} 
+                                    <a href="#" class="tp-btn tp-btn--red js-reserv-link">Reserve this trailer</a>
+                                {% elif language == 'es' %}
+                                    <a href="#" class="tp-btn tp-btn--red js-reserv-link">Reservar este remolque</a>
+                                {% endif %}
+                                
+                            </div>
+                        {% endif %}
+
+                    </div>
+                </div>
+                {% if translation is not None %}
+                    <div class="col-sm-1"></div>
+                    <div class="col-12 col-sm-4 bg-white px-0 mt-5 mt-sm-0">
+                        <div class="tp-checkout__product-img bg-img">
+                            <picture>
+                                {% if trailer.pictures %}
+                                    {% with trailer.pictures|first as picture %}
+                                        <img data-src="/web-pictures/Trailers/{{ picture.file }}" alt="alt" class="lazyload js-print-img trailer-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                                    {% endwith %}
+                                {% endif %}
+                                <!-- <img data-src="https://via.placeholder.com/640x480" alt="Trailer picture" class="lazyloaded" src="https://via.placeholder.com/640x480"> -->
+                            </picture>
+
+                        </div>
+                        
+                        <div class="m-4">
+                            <h4 class="h4 c-main trailer-title">{{trailer_title}}</h4>
+                            <h4>
+                                <span class="c-alter fw-400"><i class="fa fa-map-marker"></i> 
+                                    {% if language == 'en' %} Pickup:
+                                    {% elif language == 'es' %} Recogida:
+                                    {% endif %}
+                                </span>
+                                <span class="c-blue-dark">{{trailer.store.store_city}}, {{trailer.store.state}}</span>
+                            </h4>
+                            <hr>
+                            <div class="d-flex align-items-center mt-1 justify-content-center justify-content-md-start">
+                                <div class="tp-price tp-price--old pt-1">MSRP: {{ trailer.msrp|str_price }}</div>
+                                <div class="tp-price ml-3">
+                                    {% if language == 'en' %} Sale Price:
+                                    {% elif language == 'es' %} Precio de venta:
+                                    {% endif %}
+
+                                    <span>{{ trailer.sale_price|str_price }}</span>
+                                </div>
+                            </div>
+                            <div class="tp-product-info__text margin-10t">
+                                <p>
+                                    {% if language == 'en' %} Financing available from: <b><strong>${{ trailer.calculated_cash_price|formula|stringformat:".2f" }}/mo.</strong></b>
+                                    {% elif language == 'es' %} Financiamiento disponible desde: <b><strong>${{ trailer.calculated_cash_price|formula|stringformat:".2f" }}/mo.</strong></b>
+                                    {% endif %}
+                                </p>
+                            </div>
+                            <div class="located-at d-none">
+                                {{ trailer.store.store_name }}
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+
+</div>
+
+
+{% endblock content %}

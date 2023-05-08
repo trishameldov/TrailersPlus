@@ -1,0 +1,22 @@
+<div class="container-fluid bg-grey">
+    <div class="tp-nav tp-nav--inner js-inner-nav">
+        <ul class="tp-nav__list">
+            {% for item in navItems %}
+                <li>
+                    <a href="{{ item.link }}">{{ item.title }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+
+<div class="bg-grey tp-nav tp-nav--inner tp-nav--inner-scroll hide js-inner-scroll-nav">
+    <ul class="tp-nav__list">
+        {% for item in navItems %}
+            <li>
+                <a href="{{ item.link }}">{{ item.title }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>

@@ -1,0 +1,230 @@
+/* ------------------------------------------- */
+/*               STORE LOCATION                */
+/* ------------------------------------------- */
+
+.tp-location {
+    $b: &;
+
+    &__buttons {
+        position: absolute;
+        left: 15px;
+        top: 0;
+        transform: translateY(-50%);
+        display: flex;
+
+        @include medium-size-max {
+            width: 100%;
+            justify-content: center;
+        }
+
+        @include small-size-max {
+            position: static;
+            transform: none;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        a {
+            @include small-size-max {
+                width: 100%;
+            }
+
+            span {
+
+                @include small-size-max {
+                    justify-content: center;
+                }
+            }
+        }
+
+        a:first-child {
+            margin-right: 25px;
+            
+            @include small-size-max {
+                margin: 0 0 20px 0;
+            }
+        }
+    }
+
+    &__info {
+        display: flex;
+
+        @include small-size-max {
+            flex-wrap: wrap;
+        }
+    }
+
+    &__info-col {
+        flex-grow: 1;
+        padding-right: 50px;
+        position: relative;
+
+        @include large-size-max {
+            padding-right: 20px;
+        }
+
+        @include medium-size-max {
+            flex-grow: 0;
+            padding-right: 50px;
+            width: 50%;
+            max-width: 50%;
+            flex-basis: 50%;
+        }
+
+        @include small-size-max {
+            width: 100%;
+            max-width: 100%;
+            flex-basis: 100%;
+            padding-right: 0;
+        }
+
+        &:first-of-type {
+            max-width: 320px;
+            padding-right: 25px;
+
+            &:after {
+                content: '';
+                display: block;
+                position: absolute;
+                right: 0;
+                top: 5px;
+                width: 1px;
+                height: calc(100% - 10px);
+                background-color: var(--c-gray-dark);
+
+                @include small-size-max {
+                    display: none;
+                }
+            }
+        } 
+
+        &:last-of-type {
+            padding-left: 40px;
+            padding-right: 10px;
+
+            @include large-size-max {
+                padding-left: 20px;
+                padding-right: 0;
+                flex-shrink: 0;
+            }
+
+            @include medium-size-max {
+                padding-left: 50px;
+                flex-shrink: initial;
+            }
+
+            @include small-size-max {
+                padding: 0;
+                margin-top: 20px;
+            }
+        }
+    }
+
+    &__name {
+        font-size: 35px;
+        color: var(--c-blue-dark);
+        font-weight: 500;
+        line-height: 42px;
+        font-family: $f-oswald;
+        display: flex;
+        align-items: center;
+        margin-bottom: 0;
+
+        @include large-size-max {
+            font-size: 28px;
+            line-height: 36px;
+        }
+
+        @include medium-size-max {
+            font-size: 22px;
+            line-height: 32px;
+        }
+
+        img {
+            margin-right: 20px;
+        }
+    }
+
+    &__address {
+        font-style: normal;
+        color: var(--c-blue-dark);
+        line-height: 28px;
+        margin-top: 15px;
+
+        @include large-size-max {
+            font-size: 16px;
+            line-height: 24px;
+        }
+
+        a {
+            color: inherit;
+
+            &:hover {
+                color: $color-alter;
+            }
+        }
+    }
+
+    &__schedule {
+        
+        table {
+            font-size: 18px;
+            color: var(--c-blue-dark);
+
+            @include large-size-max {
+                font-size: 16px;
+            }
+
+            tr {
+
+                td {
+                    vertical-align: top;
+                    padding-bottom: 10px;
+                    max-width: 170px;
+
+                    &:first-child {
+                        padding-right: 30px;
+                        text-transform: uppercase;
+
+                        @include large-size-max {
+                            padding-right: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &__map {
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        width: calc(100% - 30px);
+        height: 100%;
+        min-height: 510px;
+        transform: translateY(-50%);
+        box-shadow: 0 5px 25px rgba(var(--ca-blue-dark), 0.15);
+
+        @include large-size-max {
+            min-height: 440px;
+        }
+
+        @include medium-size-max {
+            position: static;
+            transform: none;
+            width: 100%;
+            margin-top: 70px;
+            height: 440px;
+            min-height: auto;
+        }
+
+        @include small-size-max {
+            height: 300px;
+            margin-top: 30px;
+        }
+
+        @include extra-small-size-max {
+            height: 250px;
+        }
+    }
+}
